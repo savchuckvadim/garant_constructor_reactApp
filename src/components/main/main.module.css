@@ -1,0 +1,128 @@
+/* @import url('../../App.css'); */
+.main{
+    
+  display: grid;
+  position: relative;
+  margin: 0;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 1fr 10fr;
+
+  grid-gap: 24px;
+  grid-auto-rows: minmax(12px, auto);
+}
+
+.form__complect{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    margin-left: 8vh;
+}
+.infoblocks{
+    margin-left: 8vh;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    align-self: start;
+   /* background-color: cadetblue; */
+    
+}
+.result__container{
+    height: 100%;
+   /* background-color: rgb(0, 141, 146); */
+   grid-column-start: 2;
+    grid-column-end: 2;
+   justify-self: end;
+   align-self: start;
+    /* grid-row: 2; */
+}
+
+@media (max-width: 780px) {
+    .main{
+        height: 100%;
+      display: grid;
+      position: relative;
+      margin: 0;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr ;
+      grid-gap: 24px;
+      grid-auto-rows: minmax(12px, auto);
+     
+    }
+
+    .form__complect{
+        background-color: aquamarine;
+        grid-column-start: 1;
+        grid-column-end: 1;
+        grid-row-start: 1;
+        grid-row-end: 1;
+        margin-left: 2vh;
+       justify-self: center;
+       width: 90%;
+    }
+
+    .infoblocks{
+        margin-left: 0vh;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 2;
+        grid-row-end: 2;     
+        justify-content: end;
+        justify-self: center;
+       width: 88%;
+               
+    }
+
+    .result__container{
+        grid-column-start: 1;
+         grid-column-end: 1;
+         grid-row-start: 3;
+         grid-row-end: 3;
+         justify-self: center;      
+     }
+
+}
+
+@media (max-width: 520px) {
+    .main{
+      display: grid;
+      position: relative;
+      margin: 0;    
+      grid-template-columns: 1fr;
+      grid-template-rows: 3fr;
+      grid-gap: 0vh;
+     
+    }
+
+    .form__complect{
+        background-color: blueviolet;
+        grid-column-start: 1;
+        grid-column-end: 1;
+        grid-row-start: 1;
+        grid-row-end: 1;
+        margin-left: 0vh;
+       justify-self: center;
+       width: 90%;
+    }
+
+    .infoblocks{
+        margin-left: 0vh;
+        grid-column-start: 1;
+        grid-column-end: 1;
+        grid-row-start: 2;
+        grid-row-end: 2;
+        
+    }
+
+    .result__container{
+        margin: 0;
+        padding: 0;
+        grid-column-start: 1;
+         grid-column-end: 1;
+         grid-row-start: 3;
+         grid-row-end: 3;
+      
+     }
+
+}

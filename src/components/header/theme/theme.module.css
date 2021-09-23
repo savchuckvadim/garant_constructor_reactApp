@@ -1,0 +1,54 @@
+
+@import '../../../App.css';
+
+body{
+
+    transition-property: background-color;
+    transition-duration: 2.5s;
+    transition-delay: 0.1s;
+    background-color: var(--background);
+}
+
+.container__darktheme{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+/* first version */
+ .round{
+     margin: 0 auto;
+     padding: 0 auto;
+     border-width: 0.2px;
+    border-color: black;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+   
+    
+    background-repeat: no-repeat;
+    background-position: center;
+    transition-property: background-image, background-color, text-color, color, transform;
+    transition-duration: 1.5s; 
+    transition-delay: 0.1s; 
+     transform: rotateZ(3600deg); 
+    
+
+} 
+
+ 
+.round__img{ 
+    /* background-color: pink; */
+    background-image: url('./img/broSunMoon/moon.svg');
+    /* transform: rotateZ(3600deg);  */
+   
+
+}
+
+.round__img2{
+    /* background-color: purple; */
+   background-image: url('./img/broSunMoon/sun.svg');
+    transform: rotateZ(-3600deg); 
+
+}

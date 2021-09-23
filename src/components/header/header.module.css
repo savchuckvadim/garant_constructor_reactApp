@@ -1,0 +1,47 @@
+@import url('../../App.css');
+
+header {
+    /* position: sticky; */
+    top: 0;
+    margin: 0vh auto;
+ 
+    /* background-color: rgba(255, 255, 255, 1); */
+    /* background-color: var(--background); */
+    
+    width: 100%;
+    border-bottom: solid;
+    border-width: 1px;
+    border-color: rgb(160, 179, 179);
+    height: 66px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    
+}
+#header{
+    transition-property: background-image, background-color, text-color, color, transform;
+    transition-duration: 2.5s; 
+    transition-delay: 0.2s; 
+}
+
+.header__container {
+    margin:  auto;
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__logo{
+    display: block;
+    width: 115px;
+    height: 34px;
+  
+}
+
+.container__darktheme{
+margin: 2vh;
+}

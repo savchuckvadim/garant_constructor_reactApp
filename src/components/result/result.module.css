@@ -1,0 +1,101 @@
+/* @import url('../../App.css'); */
+.result__container {
+    background-color: var(--background) ;
+    color: var(--textColorGreyP);
+    margin-top: 32px;
+    width: 355px;   
+    /* min-height: 250px; */
+    max-height: 100%;
+    padding: 2vh;
+    position: sticky;
+    top: 15vh;
+    right: 3vh;
+    border-style: solid;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-width: 1px;
+    border-color: rgb(160, 179, 179);
+    transition-property: position, background-color, top, bottom, left, right, width, height;
+    transition-duration: 1.5s; 
+    transition-delay: 0.1s; 
+}
+.text{
+    display: flex;
+    justify-content: space-between;
+}
+
+.spanResult{
+    font-weight: 600;
+}
+
+
+
+
+@media (max-width: 778px) {
+
+    .result__container{
+        width: 100%;
+        min-height: 10px;
+        height: auto;
+        padding: 2vh;
+        position: sticky;
+        right: 0vh;
+        left: 0vh;
+        bottom: 0px;
+        display: flex;
+        flex-direction: column;
+
+        justify-content: flex-end;
+   
+        
+    }
+    .information{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        
+    }
+
+
+    .text{
+        margin: 1px;
+        font-size: small;
+      
+    }
+
+}
+
+@media (max-width: 580px) {
+
+    .result__container{
+        width: 90%;
+        min-height: 10px;
+        height: auto;
+        padding: 2vh;
+        position: sticky;
+        right: 0vh;
+        left: 0vh;
+        bottom: 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+     
+    }
+    .information{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        
+    }
+
+
+    .text{
+        margin: 1px;
+        font-size: small;
+    }
+
+}

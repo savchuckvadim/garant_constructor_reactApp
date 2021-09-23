@@ -1,0 +1,319 @@
+@import url('../../App.css');
+/* .general {
+    padding: 0;
+} */
+
+.btns__complect,
+.btn__0,
+.btn__1,
+.btn__2,
+.btn__3,
+.btn__4,
+.btn__5,
+.btn__6,
+.btn__7,
+.btn__od,
+.btn__reset,
+.btn__modal,
+.btn__accountant--modal,
+.btn__budget--modal,
+.btn__lawyer--modal,
+.btn__company--modal,
+.btn__od--modal,
+.btn__reset--modal,
+.modal__complect {
+    /* width: 49vh;
+
+ height: 7vh;   */
+    /* width: 322px; */
+    height: 54px;
+
+    /* margin: 1vh; */
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    /* background-color: var(--background); */
+    transition-property: background-color, transform, color;
+    transition-duration: 0.5s;
+    transition-delay: 0.0s; 
+}
+.btn__od{
+    width: 100%;
+}
+
+/* .general {
+    max-width: 99%;
+    padding-right: 1vh;
+    margin: 0;
+    display: grid;
+    grid-template-rows: 3fr;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2vh;
+} */
+
+
+
+
+@media (max-width: 1225px) {
+    /* .general {
+        grid-template-columns: repeat(3, 32%);
+        grid-template-rows: repeat(3, 1fr);
+       
+    } */
+    .btn__accountant,
+    .btn__accountantBig,
+    .btn__budget
+    
+    {
+         grid-row-start: 1;
+
+    }
+    .btn__budgetBig,
+    .btn__ofice,
+    .btn__lawyer
+    
+     {
+        grid-row-start: 2;
+    }
+    .btn__company,
+    .btn__companyPro,
+    .btn__od
+    {
+        grid-row-start: 3;
+        
+        /* grid-column-start: 2;
+        grid-column-end: 4 */
+    }
+    .btn__reset
+    {
+        
+        grid-row-start: 4;
+        grid-column-start: 1;
+        grid-column-end: 4;
+    }
+}
+
+@media (max-width: 950px) {
+    /* .general {
+        grid-template-columns: repeat(2, 48%);
+        grid-template-rows: repeat(4, 1fr);
+       
+    } */
+    .btn__accountant,
+    .btn__accountantBig
+    
+    {
+         grid-row-start: 1;
+
+    }
+    .btn__budget,
+    .btn__budgetBig
+   
+     {
+        grid-row-start: 2;
+    }
+    
+    .btn__lawyer,
+    .btn__company{
+        grid-row-start: 3;
+    }
+    .btn__ofice,
+    .btn__companyPro{
+        grid-row-start: 4;
+    }
+    .btn__reset
+    {
+       
+        grid-row-start: 5;
+        grid-column-start: 1;
+        grid-column-end: 1;
+        /* grid-column-start: 2;
+        grid-column-end: 4 */
+    }
+    .btn__od{
+       
+        grid-row-start: 5;
+        grid-column-start: 2;
+        grid-column-end: 2;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .btn__accountant,
+    .btn__budget,
+    .btn__accountantBig,
+    .btn__budgetBig,
+    .btn__lawyer,
+    .btn__ofice,
+    .btn__company,
+    .btn__companyPro,
+    .btn__od,
+    .dropdown__od {
+        /* .btn__reset {  */
+        display: none;
+    }
+
+    .btn__accountant--modal,
+    .btn__budget--modal,
+    .btn__lawyer--modal,
+    .btn__ofice--modal,
+    .btn__company--modal,
+    .btn__companyPro--modal,
+    .btn__od--modal,
+    /* .btn__reset--modal, */
+    .btn__modal,
+    .dropdown__od--modal {
+        display: flex;  
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+    .btn__modal, .dropdown__od--modal, .btn__reset, .modal__complect, .btn__od--modal, .btns__complect {
+        min-width: 40vh;
+        /* width: 90%; */
+        /* justify-self: center; */
+    }
+
+    /* .general {
+        padding-top: 1vh;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+       
+
+        grid-gap: 1vh;
+    } */
+}
+
+/* .complect__generalParameters {
+    font-size: 100vh;
+    line-height: 100vh;
+} */
+
+
+
+
+
+
+.btn__0, .btn__2,
+.btn__accountant--modal {
+    border: 2px solid;
+    border-color: rgba(14, 201, 111, 1)
+
+}
+
+.btn__1, .btn__3,
+.btn__budget--modal {
+    border: 2px solid;
+    border-color: rgba(255, 113, 33, 1);
+}
+
+.btn__4,
+.btn__lawyer--modal {
+    border: 2px solid;
+    border-color: rgba(46, 121, 234, 1);
+}
+
+.btn__5,
+.btn__ofice--modal {
+    border: 2px solid;
+    border-color: rgb(23, 80, 165);
+}
+
+.btn__6,
+.btn__company--modal {
+    border: 2px solid;
+    border-color: rgba(151, 103, 200, 1);
+
+}
+
+.btn__7,
+.btn__companyPro--modal {
+    border: 2px solid;
+    border-color: rgb(104, 54, 153);
+
+}
+
+.btn__modal {
+    border: 2px solid;
+    border-color: rgba(151, 103, 200, 1);
+
+}
+
+.btn__od,
+.btn__od--modal {
+    border: 1px solid;
+    border-color: rgb(34, 22, 46);
+
+}
+.btn__reset, .btn__reset--modal{
+    border: 2px solid;
+    border-color: rgb(34, 22, 46);
+}
+
+
+.modal__complect {
+    border: 2px solid;
+    border-color:  rgb(49, 31, 66);
+    background-color: white;
+    
+    color: rgb(0, 0, 0);
+}
+
+@media (max-width: 322px) {
+
+    .btns__complect,
+    .btn__0,
+    .btn__budget,
+    .btn__accountantBig,
+    .btn__budgetBig,
+    .btn__lawyer,
+    .btn__company,
+    .btn__od,
+    .btn__reset,
+    .btn__modal,
+    .btn__accountant--modal,
+    .btn__budget--modal,
+    .btn__lawyer--modal,
+    .btn__company--modal,
+    .btn__od--modal,
+    .btn__reset--modal,
+    .modal__complect {
+        /* width: 49vh;
+
+ height: 7vh;   */
+        width: 275px;
+        /* width: 90%; */
+        height: 45px;
+
+    }
+
+}
+
+
+@media (min-width: 701px) {
+
+    .btn__accountant,
+    .btn__budget,
+    .btn__lawyer,
+    .btn__company,
+    .btn__od,
+    .btn__reset {
+        display: flex;
+    }
+
+    .btn__accountant--modal,
+    .btn__budget--modal,
+    .btn__lawyer--modal,
+    .btn__company--modal,
+    .btn__reset--modal,
+    .btn__od--modal,
+    .btn__modal {
+        display: none;
+
+    }
+}

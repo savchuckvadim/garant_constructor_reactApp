@@ -1,0 +1,13 @@
+.descriptionPage{
+    height: 93vh;
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.link{
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+}
