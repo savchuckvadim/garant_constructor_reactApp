@@ -58,8 +58,8 @@ function changeState() {
 
 }
 
-export const changeCheckbox = (value, checked, type, state) => {
-  console.log(type)
+export const changeCheckbox = (value, checked, type, state, index) => { //имя элемента < Сhecked < тип прав инф < state)
+
   // let arrayOfcurrentComplectForChange = []
   if (state.currentComplect) {
     if (state.currentComplect.name !== 'Бухгалтер' && state.currentComplect.name !== 'Бухгалтер госсектора') {
@@ -67,7 +67,7 @@ export const changeCheckbox = (value, checked, type, state) => {
 
       if (type === 'Пакет Энциклопедий решений' || type === 'Энциклопедии решений') {
         // arrayOfcurrentComplectForChange = state.currentComplect.currentER;
-        changeER(value, checked, type, state)
+        changeER(value, checked, type, state, index)
 
       } else if (type === 'Legal Tech') {
         // arrayOfcurrentComplectForChange = state.currentComplect.currentLT;

@@ -13,11 +13,11 @@ class ErAndPaket {
 
     updateData() {
         if (this.state.currentComplect) {
-            
+
         }
     }
     render() {
-       
+
         renderInputFromData(allEnciclopedis[0], this.itemsPakets, this.state)
         renderInputFromData(allEnciclopedis[1], this.itemsER, this.state)
 
@@ -32,38 +32,23 @@ class ErAndPaket {
     }
 }
 export const changeErData = (state) => {
-    allEnciclopedis[1].value.forEach(element => {
-       console.log(state.currentComplect.fillingER[0])
-       console.log(element.name)
-       console.log(state.currentComplect.fillingER.includes(element.name))
-        if(state.currentComplect.fillingER.includes(element.name)){
+    allEnciclopedis[1].value.forEach((element, index) => {
+
+        // if(state.currentComplect.fillingER.includes(element.name)){
+        //     element.checked = true
+        //     element.weight = 0.5
+
+        // }
+        if (state.currentComplect.fillingEncyclopediasIndexes.includes(index)) {
             element.checked = true
             element.weight = 0.5
-            
         }
+
         // element.checked = false;
         // element.weight = 0.5   
     })
 
-    // allEnciclopedis[0].value.forEach((element) => { //заходит в дату во все пакеты
-    //     if(element.checked !== true){ 
-    //                                                      //если пакет не отмечен    
-    //         element.including.forEach(el => {          //перебираем индексы входящих в него ЭР
-    //                                                     //находим энциклопедии по этим индексам подставляя их значения в индексы массива ЭР
-             
-    //             state.currentComplect.fillingER.forEach((element) => {
-                    
-                   
-    //                 if(element ===  allEnciclopedis[1].value[el].name){
-    //                     allEnciclopedis[1].value[el].checked = true;
-    //                 }
-    //             })
-               
-    //         })
-    //     }
-    // })
-    
-    
+
 }
 
 export const changePaketsErData = (state) => {
@@ -88,13 +73,77 @@ export const changePaketsErData = (state) => {
                 allEnciclopedis[0].value[1].checked = false;
                 changerErDependPaket(2)
             }
-        }else if (state.currentComplect.fillingPaketsERIndexes.length === 2){
-window.alert('office')
+        } else if (state.currentComplect.fillingPaketsERIndexes.length === 2) {                //офис
+            
+            if (state.currentComplect.fillingPaketsERIndexes.includes(0) && state.currentComplect.fillingPaketsERIndexes.includes(1)) {
+
+                allEnciclopedis[0].value[2].checked = false; // пакет который не входит в дате отключаем
+                allEnciclopedis[0].value[0].checked = true;
+                allEnciclopedis[0].value[1].checked = true;
+                //склеить массивы входящих в пакеты эр
+                let concatIncludesER = allEnciclopedis[0].value[0].including.concat(allEnciclopedis[0].value[1].including);
+                allEnciclopedis[1].value.forEach(element => {
+                    element.checked = false;
+                    element.weight = 0.5
+                })
+                concatIncludesER.forEach(el => {
+                    allEnciclopedis[1].value[el].checked = true
+                    allEnciclopedis[1].value[el].weight = 0
+                })
+
+
+
+
+                console.log('Пакет Энциклопедий решений для бухгалтера и Пакет Энциклопедий решений для бухгалтера госсектора')
+
+            } else if (state.currentComplect.fillingPaketsERIndexes.includes(0) && state.currentComplect.fillingPaketsERIndexes.includes(2)) {
+                allEnciclopedis[0].value[1].checked = false;
+                allEnciclopedis[0].value[0].checked = true;
+                allEnciclopedis[0].value[2].checked = true;
+                
+                let concatIncludesER = allEnciclopedis[0].value[0].including.concat(allEnciclopedis[0].value[2].including);
+                console.log('concatIncludesER')
+                console.log(concatIncludesER)
+
+                allEnciclopedis[1].value.forEach(element => {
+                    element.checked = false;
+                    element.weight = 0.5
+                })
+                concatIncludesER.forEach(el => {
+                    console.log(el)
+                    allEnciclopedis[1].value[el].checked = true
+                    allEnciclopedis[1].value[el].weight = 0
+                })
+
+
+            } else if (state.currentComplect.fillingPaketsERIndexes.includes(1) && state.currentComplect.fillingPaketsERIndexes.includes(2)) {
+                allEnciclopedis[0].value[0].checked = false;
+                allEnciclopedis[0].value[1].checked = true;
+                allEnciclopedis[0].value[2].checked = true;
+
+
+                console.log('Пакет Энциклопедий решений для бухгалтера  и Пакет Энциклопедий решений для Юриста')
+
+
+                let concatIncludesER = allEnciclopedis[0].value[1].including.concat(allEnciclopedis[0].value[2].including);
+                console.log('concatIncludesER')
+                console.log(concatIncludesER)
+
+                allEnciclopedis[1].value.forEach(element => {
+                    element.checked = false;
+                    element.weight = 0.5
+                })
+                concatIncludesER.forEach(el => {
+                    console.log(el)
+                    allEnciclopedis[1].value[el].checked = true
+                    allEnciclopedis[1].value[el].weight = 0
+                })
+            }
 
         }
-        
-        saveERandPaketsERinCurrentComplect(state);
-        
+
+        // saveERandPaketsERinCurrentComplect(state);
+
 
     }
 }
@@ -102,47 +151,46 @@ window.alert('office')
 
 
 const changerErDependPaket = (indexOfPaket) => {
-    if(indexOfPaket !== 'noPaket'){
+    if (indexOfPaket !== 'noPaket') {
         allEnciclopedis[0].value[indexOfPaket].checked = true; //заходит в дату ЭР первый 0 - в пакеты - второй 0 по индексу includes -находит нужный пакет делает его отмеченным checked
 
         allEnciclopedis[1].value.forEach(element => {
-                element.checked = false;
-                element.weight = 0.5
-            })
-    
-            allEnciclopedis[0].value[indexOfPaket].including.forEach(el => {
-                allEnciclopedis[1].value[el].checked = true
-                allEnciclopedis[1].value[el].weight = 0
-            })
-    }else{
+            element.checked = false;
+            element.weight = 0.5
+        })
+
+        allEnciclopedis[0].value[indexOfPaket].including.forEach(el => {
+            allEnciclopedis[1].value[el].checked = true
+            allEnciclopedis[1].value[el].weight = 0
+        })
+    } else {
         allEnciclopedis[0].value.forEach(element => {
-            element.checked = false;    
+            element.checked = false;
         })
         allEnciclopedis[1].value.forEach(element => {
             element.checked = false;
-            element.weight = 0.5   
+            element.weight = 0.5
         })
     }
-    
-    
+
+
 }
 
 const saveERandPaketsERinCurrentComplect = (state) => {
-    console.log( state.currentComplect.fillingPaketsER)
     state.currentComplect.fillingPaketsER = []
-        // state.currentComplect.fillingER = []
-        allEnciclopedis[0].value.forEach(element => {
-           
-            if(element.checked === true){
-                state.currentComplect.fillingPaketsER.push(element)
-            }
-        })
-        allEnciclopedis[1].value.forEach(element => {
-            if(element.checked === true){
-                // state.currentComplect.fillingER.push(element)
-            }
-        })
-       
+    // state.currentComplect.fillingER = []
+    allEnciclopedis[0].value.forEach(element => {
+
+        if (element.checked === true) {
+            state.currentComplect.fillingPaketsER.push(element)
+        }
+    })
+    allEnciclopedis[1].value.forEach(element => {
+        if (element.checked === true) {
+            // state.currentComplect.fillingER.push(element)
+        }
+    })
+
 }
 const Er = (state) => {
     let er = new ErAndPaket(state);

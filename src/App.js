@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import 'bootstrap'
-import { Tooltip, Toast, Popover } from 'bootstrap';
+// import 'bootstrap'
+// import { Tooltip, Toast, Popover } from 'bootstrap';
 import './App.css';
 import Header from './components/header/header';
 import Main from './components/main/main';
@@ -9,7 +9,7 @@ import {BrowserRouter, Route} from 'react-router-dom'
 
 import changeState from './state/state';
 
-
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App(props) {
   changeState();

@@ -1,0 +1,25 @@
+
+.btn__od{    height: 54px;
+
+    /* margin: 1vh; */
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    /* background-color: var(--background); */
+    transition-property: background-color, transform, color;
+    transition-duration: 0.5s;
+    transition-delay: 0.0s; 
+
+
+
+    /* background-color: white; */
+    min-width: auto;
+    border: 2px solid;
+    border-color: rgba(151, 103, 200, 1);
+    background-color: rgb(98, 241, 234);
+}
+

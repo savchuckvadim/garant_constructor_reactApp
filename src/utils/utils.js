@@ -35,7 +35,7 @@ export const searchIncludedInfoblocks = (state, name) => {
 
   export function renderInputFromData (array, resultArray, state){
     array.value.forEach((element, index) => {
-      resultArray[index] = <p className="infoblock__p"><input id={index} onChange={() =>{changeCheckbox(element.name, element.checked, array.nameOfType, state)}}  type="checkbox" className={`infochecks info__${array.nameOfType}`} checked={element.checked} disabled={false} value={element.name} />{element.name} </p>;
+      resultArray[index] = <p className="infoblock__p"><input id={index} onChange={() =>{changeCheckbox(element.name, element.checked, array.nameOfType, state, index)}}  type="checkbox" className={`infochecks info__${array.nameOfType}`} checked={element.checked} disabled={false} value={element.name} />{element.name} </p>;
   })
   }
 

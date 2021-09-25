@@ -40,7 +40,7 @@ const Result = (props) => {
        
     }
 
-    console.log(name)
+    
     return (
         <div id="result" className={style.result__container}>
             <div className={style.information}>

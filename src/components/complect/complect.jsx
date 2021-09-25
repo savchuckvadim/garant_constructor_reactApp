@@ -1,10 +1,11 @@
 import style from "./complect.module.css"
 import ComplectButtons from "../buttons/buttons"
-import { addToStorage} from "../../utils/utils"
-import  changeState  from "../../state/state" 
+import { addToStorage } from "../../utils/utils"
+import changeState from "../../state/state"
 import allComplects from "../../data/dataComplects"
 import { changeInfoblocksData } from "../infoblocks/infoblocks"
 import { changePaketsErData } from "../infoblocks/er"
+import ODButtons from "../buttons/od.jsx"
 {/* todo cюда передать массив созданных инфоблоко - можно несколько массивов разбитых по типам 
     чтобы метод класса комплект мог брать и отмечать в них чеки в соответствии с индексами своего наполнения по умолчанию  */}
 
@@ -20,10 +21,10 @@ export class ComplectClass {
 
         this.currentFilling = this.defaultFilling;
 
-        this.fillingPaketsER = obj.fillingPaketsER 
-        this.fillingER = obj.fillingER
-        this.fillingPaketLT = obj.fillingPaketLT
-        this.fillingLTblocks = obj.fillingLTblocks
+        // this.fillingPaketsER = obj.fillingPaketsER 
+        // this.fillingER = obj.fillingER
+        // this.fillingPaketLT = obj.fillingPaketLT
+        // this.fillingLTblocks = obj.fillingLTblocks
 
         this.flagCheckedComplect = false;
         this.state = state;
@@ -35,7 +36,7 @@ export class ComplectClass {
 
     }
     renderComplectsInfoblocks() {
-        console.log(this.state)
+
         changeInfoblocksData(this.state)
         changePaketsErData(this.state)
         //Pakets ER
@@ -57,7 +58,7 @@ export class ComplectClass {
 
         // }
         // }
-        
+
     }
     // changeCurrentFilling(){
     //     let infoblocks = document.getElementsByClassName('infochecks');
@@ -66,7 +67,7 @@ export class ComplectClass {
     returnName() {
         addToStorage(this, 'currentComplect')
         changeState(this.state)
-        
+
     }
 }
 
@@ -80,7 +81,7 @@ const Complect = (props) => {
             <div className={style.container}>
 
                 < ComplectButtons state={props.state} />
-
+                < ODButtons state={props.state} />
             </div>
         </form>
     )

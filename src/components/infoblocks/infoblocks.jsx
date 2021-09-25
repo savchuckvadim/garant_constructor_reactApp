@@ -9,7 +9,7 @@ import { renderInputFromData } from "../../utils/utils";
 let allInfoblocksArray = [];
 
 function Infoblocks(number, state) {
-    console.log(allInfoblocksData)
+    
     let items = []
     if (state.currentComplect) {
         renderInputFromData(allInfoblocksData[number], items, state)

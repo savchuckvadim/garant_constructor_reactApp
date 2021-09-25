@@ -398,7 +398,7 @@ const complectSeven = {
             'newBlocks': []
         },
     ],
-    'fillingEncyclopediasIndexes': [0,1,2,3,4,5,6],
+    'fillingEncyclopediasIndexes': [0,2,3,4,5,6,7],
     'fillingPaketsERIndexes': [],
     'fillingLTIndexes': [1, 8],
 
@@ -472,7 +472,7 @@ const complectEight = {
             'newBlocks': [0]
         },
     ],
-    'fillingEncyclopediasIndexes': [0,1,2,3,4,5,6],
+    'fillingEncyclopediasIndexes': [0,2,3,4,5,6,7],
     'fillingPaketsERIndexes': [],
     'fillingLTIndexes': [1, 8],
 

@@ -94,7 +94,7 @@ function changeTheme(){
 
         element.classList.add(themeStyle.round__img2)
 
-        console.log(styleOfRound.backgroundColor)
+   
         // element.setAttribute('style', 'styleOfRound2')
         
         // round.style = styleBackground;

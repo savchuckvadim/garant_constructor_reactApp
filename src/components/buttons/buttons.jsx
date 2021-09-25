@@ -23,7 +23,7 @@ const ComplectButtons = (props) => {
            
     // })
     allComplects.forEach((element, index) => {
-        buttons[index] = <Button onClick={() => {return createComplect(element, index, props.state)}} number={index} type="button" className={`btn btn-primary btns__complect  btn__${index}`}>{element.name} <img src={Ellipse} alt=""></img> </Button>
+        buttons[index] = <Button onClick={() => {return createComplect(element, index, props.state)}} number={index} type="button" className={`btn btn-light btns__complect  btn__${index}`}>{element.name} <img src={Ellipse} alt=""></img> </Button>
         
     })
     return (
