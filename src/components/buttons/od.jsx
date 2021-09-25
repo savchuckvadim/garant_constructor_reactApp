@@ -20,6 +20,7 @@ let styleOD = {
     alignItems: 'center',
     flexDirection: 'row',
     flexWrap: 'nowrap',
+    textColor: 'black'
 }
 const ODButtons = (props) => {
     let ods = []
@@ -31,6 +32,7 @@ const ODButtons = (props) => {
     // })
     
     props.state.od.forEach((element, index) => {
+        
         ods[index] = <Dropdown.Item style={styleOD} as="button" variant='none'  onClick={() => {console.log('this')}} number={index} type="button" className={`btn btn__od btn__${index}`}>{element} <img src={Ellipse} alt=""></img> </Dropdown.Item>
         // <li> <button onChange={console.log('od')} number={index} type="button" className={`btn btn__od btn__${index}`}>{element} <img src={Ellipse} alt=""></img> </button></li>
 

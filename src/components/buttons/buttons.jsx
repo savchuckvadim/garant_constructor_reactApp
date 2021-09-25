@@ -1,11 +1,33 @@
 
 import Ellipse from "./img/Ellipse.svg"
 // import style from "./button.css"
-import Button from 'react-bootstrap/Button';
+// import Button from 'react-bootstrap/Button';
+import Button from '@material-ui/core/Button';
 import React, { useState } from 'react';
 import { ComplectClass } from "../complect/complect";
 import "./button.css"
 import { startApp } from "../../index";
+
+const dinamicStyleForButtons = (borderColor) => {
+
+    let styleOfButtons = {
+        color : 'black',
+        height: '54px',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        flexDirection: 'row',
+        flexWrap: 'nowrap',
+        transitionProperty: 'background-color, transform, color',
+        transitionDuration: '0.5s',
+        transitionDelay: '0.0s',
+        border: '2px solid',
+        borderColor: borderColor
+    
+    }
+
+    return styleOfButtons
+}
 
 function createComplect(obj, index, state){
 
@@ -14,16 +36,19 @@ function createComplect(obj, index, state){
     complect.renderComplectsInfoblocks()
     startApp(state)
 }
+
+
 const ComplectButtons = (props) => {
     let buttons = []
-    
+   
     // allComplects.forEach((element, index) => {
     //     buttons[index] = <button type="button" className={`btn btns__complect  btn__${index}`}><label for="complect0"
     //         className="complect__name">{element.name}</label> <img src={Ellipse} alt=""></img> </button>
            
     // })
     props.state.allComplects.forEach((element, index) => {
-        buttons[index] = <Button onClick={() => {return createComplect(element, index, props.state)}} number={index} type="button" className={`btn btn-light btns__complect  btn__${index}`}>{element.name} <img src={Ellipse} alt=""></img> </Button>
+        let style = dinamicStyleForButtons(element.color);
+        buttons[index] = <Button  style={style} onClick={() => {return createComplect(element, index, props.state)}} number={index} type="button" >{element.name} <img src={Ellipse} alt=""></img> </Button>
         
     })
     return (
