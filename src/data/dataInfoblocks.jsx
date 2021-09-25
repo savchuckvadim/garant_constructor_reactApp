@@ -147,7 +147,7 @@ const newBlocks = [
     {
         'name': 'Справочник промышленника',
         'checked': false,
-        'weight': 1,
+        'weight': 3,
         'description': ''
     },
     {

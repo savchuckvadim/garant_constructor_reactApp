@@ -2,7 +2,7 @@ import {
   startApp
 } from ".."
 import { changePaketsErData } from "../components/infoblocks/er";
-import allEnciclopedis from "../data/dataER";
+
 
 export const changeInfoblocks = (value, checked, type, state) => {
   console.log(type)
@@ -76,25 +76,23 @@ const changePaketsInState = (state, checked, index) => { // если текущ�
   changePaketsErData(state);
 }
 
-const changePaketsInStateOffice = (state, checked, index, indexOfAllEnciclopedis, filling) => { //Пакетов OFFICE в зависимости от параметров если checked делает uncheck в дате allEnciclopedis - заходит в state и убирает из filling индексов
-  if (checked === true) {
-    // allEnciclopedis[indexOfAllEnciclopedis].value[index].checked = false;
-    state.currentComplect.fillingPaketsERIndexes.forEach((elem, idx) => {
-      if (elem === index) {
-        state.currentComplect.fillingPaketsERIndexes.splice(idx, 1)
-      }
-    })
-  } else {
+// const changePaketsInStateOffice = (state, checked, index, filling) => { //Пакетов OFFICE в зависимости от параметров если checked делает uncheck в дате allEnciclopedis - заходит в state и убирает из filling индексов
+//   if (checked === true) {
+//     state.currentComplect.fillingPaketsERIndexes.forEach((elem, idx) => {
+//       if (elem === index) {
+//         state.currentComplect.fillingPaketsERIndexes.splice(idx, 1)
+//       }
+//     })
+//   } else {
   
-    if(!filling.includes(index)) filling.push(index)
-  }
-  changePaketsErData(state);
-}
+//     if(!filling.includes(index)) filling.push(index)
+//   }
+//   changePaketsErData(state);
+// }
 
 
-const changeErInState = (state, checked, index, indexOfAllEnciclopedis, filling) => { //для ЭР и Пакетов в зависимости от параметров если checked делает uncheck в дате allEnciclopedis - заходит в state и убирает из filling индексов
+const changeErInState = (state, checked, index, indexOfEncyclopedias, filling) => { //для ЭР и Пакетов в зависимости от параметров если checked делает uncheck в дате allEnciclopedis - заходит в state и убирает из filling индексов
   if (checked === true) {
-    // allEnciclopedis[indexOfAllEnciclopedis].value[index].checked = false;
     filling.forEach((elem, idx) => {
       if (elem === index) {
         filling.splice(idx, 1)
@@ -102,7 +100,7 @@ const changeErInState = (state, checked, index, indexOfAllEnciclopedis, filling)
     })
   } else {
   
-    allEnciclopedis[indexOfAllEnciclopedis].value[index].checked = true;
+    state.encyclopedias[indexOfEncyclopedias].value[index].checked = true;
   
     
     

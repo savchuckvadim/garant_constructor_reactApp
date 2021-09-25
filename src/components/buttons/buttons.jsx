@@ -1,4 +1,4 @@
-import allComplects from "../../data/dataComplects"
+
 import Ellipse from "./img/Ellipse.svg"
 // import style from "./button.css"
 import Button from 'react-bootstrap/Button';
@@ -22,7 +22,7 @@ const ComplectButtons = (props) => {
     //         className="complect__name">{element.name}</label> <img src={Ellipse} alt=""></img> </button>
            
     // })
-    allComplects.forEach((element, index) => {
+    props.state.allComplects.forEach((element, index) => {
         buttons[index] = <Button onClick={() => {return createComplect(element, index, props.state)}} number={index} type="button" className={`btn btn-light btns__complect  btn__${index}`}>{element.name} <img src={Ellipse} alt=""></img> </Button>
         
     })

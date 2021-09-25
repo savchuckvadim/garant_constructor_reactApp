@@ -5,7 +5,7 @@ import {Dropdown, DropdownButton, ButtonGroup} from 'react-bootstrap';
 import React from 'react';
 
 import "./button.css"
-import { namesOd } from "../../data/dataOd";
+
 let styleOD = {
     color : 'black',
     backgroundColor: 'white',
@@ -29,7 +29,8 @@ const ODButtons = (props) => {
     //         className="complect__name">{element.name}</label> <img src={Ellipse} alt=""></img> </button>
 
     // })
-    namesOd.forEach((element, index) => {
+    
+    props.state.od.forEach((element, index) => {
         ods[index] = <Dropdown.Item style={styleOD} as="button" variant='none'  onClick={() => {console.log('this')}} number={index} type="button" className={`btn btn__od btn__${index}`}>{element} <img src={Ellipse} alt=""></img> </Dropdown.Item>
         // <li> <button onChange={console.log('od')} number={index} type="button" className={`btn btn__od btn__${index}`}>{element} <img src={Ellipse} alt=""></img> </button></li>
 

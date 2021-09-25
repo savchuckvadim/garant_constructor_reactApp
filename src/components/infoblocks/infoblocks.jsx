@@ -1,5 +1,5 @@
 import style from "./infoblocks.module.css"
-import allInfoblocksData from '../../data/dataInfoblocks'
+
 import legalblocks from "./legalTech";
 import Er, { changeErData, changePaketsErData } from "./er";
 import React from "react";
@@ -12,14 +12,14 @@ function Infoblocks(number, state) {
     
     let items = []
     if (state.currentComplect) {
-        renderInputFromData(allInfoblocksData[number], items, state)
+        renderInputFromData(state.infoblocks[number], items, state)
     } else {
-        renderInputFromData(allInfoblocksData[number], items, state)
+        renderInputFromData(state.infoblocks[number], items, state)
     }
 
     return (
         <div className={style.items}>
-            <h2>{allInfoblocksData[number].nameOfType}</h2>
+            <h2>{state.infoblocks[number].nameOfType}</h2>
             {items}
         </div>
 
@@ -28,7 +28,7 @@ function Infoblocks(number, state) {
 
 function createInfoblocks(state) {
     let items = []
-    for (let i = 0; i < allInfoblocksData.length; i++) {
+    for (let i = 0; i < state.infoblocks.length; i++) {
         items[i] = Infoblocks(i, state)
     }
     return (items)
@@ -37,7 +37,7 @@ function createInfoblocks(state) {
 export const changeInfoblocksData = (state) => {
 
     if (state.currentComplect) {
-        allInfoblocksData.forEach((element) => {
+        state.infoblocks.forEach((element) => {
             element.value.forEach((elem) => {
                 if (state.currentComplect.currentFilling.includes(elem.name)) { elem.checked = true }
                 else elem.checked = false

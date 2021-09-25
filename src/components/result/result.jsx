@@ -1,16 +1,16 @@
 
 import { NavLink } from "react-router-dom"
 import style from "./result.module.css"
-import allInfoblocksData from "../../data/dataInfoblocks"
-import allEnciclopedis from "../../data/dataER"
 
 
-const weightForResult = () => {
+
+
+const weightForResult = (state) => {
     let info = 0;
     let er = 0;
     let totalweight = 0;
 
-    allInfoblocksData.forEach(element => {
+    state.infoblocks.forEach(element => {
         element.value.forEach(elem => {
             if (elem.checked === true) {
                 info += elem.weight
@@ -18,7 +18,7 @@ const weightForResult = () => {
         })
     })
 
-    allEnciclopedis.forEach(element => {
+    state.encyclopedias.forEach(element => {
         element.value.forEach(elem => {
 
             if (elem.checked === true) {
@@ -34,7 +34,7 @@ const weightForResult = () => {
 
 const Result = (props) => {
     let name
-    let weight = weightForResult();
+    let weight = weightForResult(props.state);
     if (props.state.currentComplect) {
         name = props.state.currentComplect.name
        
