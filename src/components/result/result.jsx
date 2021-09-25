@@ -5,36 +5,36 @@ import style from "./result.module.css"
 
 
 
-const weightForResult = (state) => {
-    let info = 0;
-    let er = 0;
-    let totalweight = 0;
+// const weightForResult = (state) => {
+//     let info = 0;
+//     let er = 0;
+//     let totalweight = 0;
 
-    state.infoblocks.forEach(element => {
-        element.value.forEach(elem => {
-            if (elem.checked === true) {
-                info += elem.weight
-            }
-        })
-    })
+//     state.infoblocks.forEach(element => {
+//         element.value.forEach(elem => {
+//             if (elem.checked === true) {
+//                 info += elem.weight
+//             }
+//         })
+//     })
 
-    state.encyclopedias.forEach(element => {
-        element.value.forEach(elem => {
+//     state.encyclopedias.forEach(element => {
+//         element.value.forEach(elem => {
 
-            if (elem.checked === true) {
-                er += elem.weight
-            }
-        })
-    })
-    console.log(`вес инфоблоков ${info}`)
-    console.log(`вес er ${er}`)
-    totalweight = info + er
-    return totalweight
-}
+//             if (elem.checked === true) {
+//                 er += elem.weight
+//             }
+//         })
+//     })
+//     console.log(`вес инфоблоков ${info}`)
+//     console.log(`вес er ${er}`)
+//     totalweight = info + er
+//     return totalweight
+// }
 
 const Result = (props) => {
     let name
-    let weight = weightForResult(props.state);
+    let weight = props.state.weightForResult();
     if (props.state.currentComplect) {
         name = props.state.currentComplect.name
        

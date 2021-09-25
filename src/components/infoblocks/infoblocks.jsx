@@ -1,7 +1,7 @@
 import style from "./infoblocks.module.css"
 
 import legalblocks from "./legalTech";
-import Er, { changeErData, changePaketsErData } from "./er";
+import Er  from "./er";
 import React from "react";
 
 
@@ -34,24 +34,24 @@ function createInfoblocks(state) {
     return (items)
 }
 
-export const changeInfoblocksData = (state) => {
+// export const changeInfoblocksData = (state) => {
 
-    if (state.currentComplect) {
-        state.infoblocks.forEach((element) => {
-            element.value.forEach((elem) => {
-                if (state.currentComplect.currentFilling.includes(elem.name)) { elem.checked = true }
-                else elem.checked = false
-            })
-        })
-    }
-}
+//     if (state.currentComplect) {
+//         state.infoblocks.forEach((element) => {
+//             element.value.forEach((elem) => {
+//                 if (state.currentComplect.currentFilling.includes(elem.name)) { elem.checked = true }
+//                 else elem.checked = false
+//             })
+//         })
+//     }
+// }
 
 
 
 const AllInfoblocks = (props) => {
-    changeInfoblocksData(props.state)  //подготавливает data-файлы перед отрисовкой на основе информации из текущего комплекта
-    changePaketsErData(props.state)
-    changeErData(props.state)
+    props.state.changeInfoblocksData()  //подготавливает data-файлы перед отрисовкой на основе информации из текущего комплекта
+    props.state.changePaketsErData()
+    props.state.changeErData()
     return (
         <div id="menu" className={style.wrapper}>
             {createInfoblocks(props.state)}

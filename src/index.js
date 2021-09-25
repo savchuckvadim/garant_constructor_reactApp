@@ -1,9 +1,10 @@
-import React from 'react';
+import React from "react";
 import ReactDOM from 'react-dom';
+import App from "./App.jsx";
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { state } from './state/state';
+import { subscribe } from "./state/state";
 
 export const startApp = () => {
   ReactDOM.render(
@@ -15,6 +16,8 @@ export const startApp = () => {
 }
 
 startApp();
+state.subscribe(startApp)
+
 
 
 // If you want to start measuring performance in your app, pass a function

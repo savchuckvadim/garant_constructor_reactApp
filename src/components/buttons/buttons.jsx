@@ -5,14 +5,14 @@ import Button from 'react-bootstrap/Button';
 import React, { useState } from 'react';
 import { ComplectClass } from "../complect/complect";
 import "./button.css"
-import { startApp } from "../..";
+import { startApp } from "../../index";
 
 function createComplect(obj, index, state){
 
     let complect = new ComplectClass(obj, index, state);
     complect.returnName();
     complect.renderComplectsInfoblocks()
-    startApp()
+    startApp(state)
 }
 const ComplectButtons = (props) => {
     let buttons = []

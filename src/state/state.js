@@ -1,12 +1,4 @@
-// let state = {
-//     currentComplect : null,
-//     currentLegalPaket : null,
-//     currentUser : null,
-//     currentTheme :' light'
 
-import {
-  startApp
-} from "..";
 import {
   ComplectClass
 } from "../components/complect/complect";
@@ -20,7 +12,6 @@ import {
   changeLt
 } from "./changeCheckboxes";
 
-// }
 
 class State {
   constructor() {
@@ -674,83 +665,81 @@ class State {
       {
         'nameOfType': 'Пакет Энциклопедий решений',
         'value': [{
-          'name': 'Пакет Энциклопедий решений для бухгалтера',
-          'checked': false,
-          'including': [0, 2, 4, 5, 6],
-          'weight': 1,
-          'description': ''
-        },
-        {
-          'name': 'Пакет Энциклопедий решений для бухгалтера госсектора',
-          'checked': false,
-          'weight': 1,
-          'including': [1, 3, 4, 5, 6],
-          'description': ''
-        },
-        {
-          'name': 'Пакет Энциклопедий решений для юриста',
-          'checked': false,
-          'weight': 1,
-          'including': [0, 3, 4, 6, 7],
-          'description': ''
-        }
-      ]
+            'name': 'Пакет Энциклопедий решений для бухгалтера',
+            'checked': false,
+            'including': [0, 2, 4, 5, 6],
+            'weight': 1,
+            'description': ''
+          },
+          {
+            'name': 'Пакет Энциклопедий решений для бухгалтера госсектора',
+            'checked': false,
+            'weight': 1,
+            'including': [1, 3, 4, 5, 6],
+            'description': ''
+          },
+          {
+            'name': 'Пакет Энциклопедий решений для юриста',
+            'checked': false,
+            'weight': 1,
+            'including': [0, 3, 4, 6, 7],
+            'description': ''
+          }
+        ]
       },
       {
         'nameOfType': 'Энциклопедии решений',
 
-        
-
         'value': [{
-          'name': 'Энциклопедия решений.Проверки организаций и предпринимателей',
-          'checked': false,
-          'weight': 0.5,
-          'description': ''
-        },
-        {
-          'name': 'Энциклопедия решений.Госсектор: учет, отчетность, финконтроль',
-          'checked': false,
-          'weight': 0.5,
-          'description': ''
-        },
-        {
-          'name': 'Энциклопедия решений.Хозяйственные ситуации',
-          'checked': false,
-          'weight': 0.5,
-          'description': ''
-        },
-        {
-          'name': 'Энциклопедия решений.Госзакупки',
-          'checked': false,
-          'weight': 0.5,
-          'description': ''
-        },
-        {
-          'name': 'Энциклопедия решений.Трудовые отношения, кадры',
-          'checked': false,
-          'weight': 0.5,
-          'description': ''
-        },
+            'name': 'Энциклопедия решений.Проверки организаций и предпринимателей',
+            'checked': false,
+            'weight': 0.5,
+            'description': ''
+          },
+          {
+            'name': 'Энциклопедия решений.Госсектор: учет, отчетность, финконтроль',
+            'checked': false,
+            'weight': 0.5,
+            'description': ''
+          },
+          {
+            'name': 'Энциклопедия решений.Хозяйственные ситуации',
+            'checked': false,
+            'weight': 0.5,
+            'description': ''
+          },
+          {
+            'name': 'Энциклопедия решений.Госзакупки',
+            'checked': false,
+            'weight': 0.5,
+            'description': ''
+          },
+          {
+            'name': 'Энциклопедия решений.Трудовые отношения, кадры',
+            'checked': false,
+            'weight': 0.5,
+            'description': ''
+          },
 
-        {
-          'name': 'Энциклопедия решений.Налоги и взносы',
-          'checked': false,
-          'weight': 0.5,
-          'description': ''
-        },
-        {
-          'name': 'Энциклопедия решений.Договоры и иные сделки',
-          'checked': false,
-          'weight': 0.5,
-          'description': ''
-        },
-        {
-          'name': 'Энциклопедия решений.Корпоративное право',
-          'checked': false,
-          'weight': 0.5,
-          'description': ''
-        },
-      ]
+          {
+            'name': 'Энциклопедия решений.Налоги и взносы',
+            'checked': false,
+            'weight': 0.5,
+            'description': ''
+          },
+          {
+            'name': 'Энциклопедия решений.Договоры и иные сделки',
+            'checked': false,
+            'weight': 0.5,
+            'description': ''
+          },
+          {
+            'name': 'Энциклопедия решений.Корпоративное право',
+            'checked': false,
+            'weight': 0.5,
+            'description': ''
+          },
+        ]
       }
     ]
 
@@ -828,7 +817,7 @@ class State {
 
     this.prices = [
       [4740, 4740, 5940, 6780, 6780, 9510],
-      [5700, 5700, 7140,  8160, 8160,  11400],
+      [5700, 5700, 7140, 8160, 8160, 11400],
       [7590, 7590, 9510, 10860, 10860, 15210],
       [11400, 11400, 14220, 16290, 16290, 22800],
       [15210, 15210, 18960, 21720, 21720, 30390],
@@ -843,6 +832,231 @@ class State {
   save() {
     addToStorage(this.currentComplect, 'currentComplect')
   }
+
+  changeState() {
+    const storageData = getFromStorage('currentComplect');
+    if (storageData.name) {
+      let obj = new ComplectClass(storageData.name, storageData.number, this);
+      obj.currentFilling = storageData.currentFilling;
+      obj.flagCheckedComplect = true;
+      this.currentComplect = storageData;
+    } else {
+      this.currentComplect = null
+    }
+
+  }
+
+  startApp = () => {
+    console.log('state was changed !')
+  }
+
+  changeInfoblocksData = () => {
+
+    if (this.currentComplect) {
+      this.infoblocks.forEach((element) => {
+        element.value.forEach((elem) => {
+          if (this.currentComplect.currentFilling.includes(elem.name)) {
+            elem.checked = true
+          } else elem.checked = false
+        })
+      })
+    }
+  }
+
+  changeCheckbox = (value, checked, type, index) => { //имя элемента < Сhecked < тип прав инф < state)
+
+    // let arrayOfcurrentComplectForChange = []
+    if (this.currentComplect) {
+      if (this.currentComplect.name !== 'Бухгалтер' && this.currentComplect.name !== 'Бухгалтер госсектора') {
+
+
+        if (type === 'Пакет Энциклопедий решений' || type === 'Энциклопедии решений') {
+          // arrayOfcurrentComplectForChange = state.currentComplect.currentER;
+          changeER(value, checked, type, this, index)
+
+        } else if (type === 'Legal Tech') {
+          // arrayOfcurrentComplectForChange = state.currentComplect.currentLT;
+          changeLt(value, checked, type, this)
+        } else {
+          // arrayOfcurrentComplectForChange = state.currentComplect.currentFilling;
+          changeInfoblocks(value, checked, type, this)
+        }
+
+
+        this.save();
+        this.startApp();
+      }
+    } else {
+      window.alert('сначала выберите комплект!')
+    }
+  }
+
+  changePaketsErData = () => {
+    if (this.currentComplect) {
+      if (this.currentComplect.fillingPaketsERIndexes.length < 1) {
+        this.encyclopedias[0].value[0].checked = false;
+        this.encyclopedias[0].value[1].checked = false;
+        this.encyclopedias[0].value[2].checked = false;
+        this.changerErDependPaket('noPaket')
+      } else if (this.currentComplect.fillingPaketsERIndexes.length === 1) {
+        if (this.currentComplect.fillingPaketsERIndexes.includes(0)) {
+          this.encyclopedias[0].value[1].checked = false;
+          this.encyclopedias[0].value[2].checked = false;
+          this.changerErDependPaket(0)
+
+        } else if (this.currentComplect.fillingPaketsERIndexes.includes(1)) {
+          this.encyclopedias[0].value[0].checked = false;
+          this.encyclopedias[0].value[2].checked = false;
+          this.changerErDependPaket(1)
+        } else if (this.currentComplect.fillingPaketsERIndexes.includes(2)) {
+          this.encyclopedias[0].value[0].checked = false;
+          this.encyclopedias[0].value[1].checked = false;
+          this.changerErDependPaket(2)
+        }
+      } else if (this.currentComplect.fillingPaketsERIndexes.length === 2) { //офис
+
+        if (this.currentComplect.fillingPaketsERIndexes.includes(0) && this.currentComplect.fillingPaketsERIndexes.includes(1)) {
+
+          this.encyclopedias[0].value[2].checked = false; // пакет который не входит в дате отключаем
+          this.encyclopedias[0].value[0].checked = true;
+          this.encyclopedias[0].value[1].checked = true;
+          //склеить массивы входящих в пакеты эр
+          let concatIncludesER = this.encyclopedias[0].value[0].including.concat(this.encyclopedias[0].value[1].including);
+          this.encyclopedias[1].value.forEach(element => {
+            element.checked = false;
+            element.weight = 0.5
+          })
+          concatIncludesER.forEach(el => {
+            this.encyclopedias[1].value[el].checked = true
+            this.encyclopedias[1].value[el].weight = 0
+          })
+
+
+        } else if (this.currentComplect.fillingPaketsERIndexes.includes(0) && this.currentComplect.fillingPaketsERIndexes.includes(2)) {
+          this.encyclopedias[0].value[1].checked = false;
+          this.encyclopedias[0].value[0].checked = true;
+          this.encyclopedias[0].value[2].checked = true;
+
+          let concatIncludesER = this.encyclopedias[0].value[0].including.concat(this.encyclopedias[0].value[2].including);
+
+          this.encyclopedias[1].value.forEach(element => {
+            element.checked = false;
+            element.weight = 0.5
+          })
+          concatIncludesER.forEach(el => {
+            console.log(el)
+            this.encyclopedias[1].value[el].checked = true
+            this.encyclopedias[1].value[el].weight = 0
+          })
+
+
+        } else if (this.currentComplect.fillingPaketsERIndexes.includes(1) && this.currentComplect.fillingPaketsERIndexes.includes(2)) {
+          this.encyclopedias[0].value[0].checked = false;
+          this.encyclopedias[0].value[1].checked = true;
+          this.encyclopedias[0].value[2].checked = true;
+
+          let concatIncludesER = this.encyclopedias[0].value[1].including.concat(this.encyclopedias[0].value[2].including);
+
+          this.encyclopedias[1].value.forEach(element => {
+            element.checked = false;
+            element.weight = 0.5
+          })
+          concatIncludesER.forEach(el => {
+            this.encyclopedias[1].value[el].checked = true
+            this.encyclopedias[1].value[el].weight = 0
+          })
+        }
+
+      }
+
+      // saveERandPaketsERinCurrentComplect(state);
+
+
+    }
+  }
+
+  changerErDependPaket = (indexOfPaket) => {
+
+    if (indexOfPaket !== 'noPaket') {
+      this.encyclopedias[0].value[indexOfPaket].checked = true; //заходит в дату ЭР первый 0 - в пакеты - второй 0 по индексу includes -находит нужный пакет делает его отмеченным checked
+
+      this.encyclopedias[1].value.forEach(element => {
+        element.checked = false;
+        element.weight = 0.5
+      })
+
+      this.encyclopedias[0].value[indexOfPaket].including.forEach(el => {
+        this.encyclopedias[1].value[el].checked = true
+        this.encyclopedias[1].value[el].weight = 0
+      })
+    } else {
+      this.encyclopedias[0].value.forEach(element => {
+        element.checked = false;
+      })
+      this.encyclopedias[1].value.forEach(element => {
+        element.checked = false;
+        element.weight = 0.5
+      })
+    }
+
+
+  }
+  changeErData = () => {
+    this.encyclopedias[1].value.forEach((element, index) => {
+
+      if (this.currentComplect.fillingEncyclopediasIndexes.includes(index)) {
+        element.checked = true
+        element.weight = 0.5
+      }
+
+    })
+
+
+  }
+
+  lt = () => {
+    console.log('здесь будет метод, работающий с LT')
+  }
+
+  oD = () => {
+    console.log('здесь будет метод, работающий с OD')
+  }
+
+  prices = () => {
+    console.log('здесь будет метод, работающий с Ценами')
+  }
+
+  weightForResult = () => {
+    let info = 0;
+    let er = 0;
+    let totalweight = 0;
+
+    this.infoblocks.forEach(element => {
+        element.value.forEach(elem => {
+            if (elem.checked === true) {
+                info += elem.weight
+            }
+        })
+    })
+
+    this.encyclopedias.forEach(element => {
+        element.value.forEach(elem => {
+
+            if (elem.checked === true) {
+                er += elem.weight
+            }
+        })
+    })
+
+    totalweight = info + er
+    return totalweight
+}
+
+  subscribe = (observer) => {
+    this.startApp = observer;
+  }
+
+
   set currentComplect(complect) {
     this._currentComplect = complect;
 
@@ -854,60 +1068,3 @@ class State {
 
 export let state = new State();
 
-function changeState() {
-
-  // console.log('changeState')
-  const storageData = getFromStorage('currentComplect');
-
-  // console.log(storageData)
-
-  if (storageData.name) {
-    let obj = new ComplectClass(storageData.name, storageData.number, state);
-    obj.currentFilling = storageData.currentFilling;
-    obj.flagCheckedComplect = true;
-    state.currentComplect = storageData;
-  } else {
-    state.currentComplect = null
-  }
-
-}
-
-export const changeCheckbox = (value, checked, type, state, index) => { //имя элемента < Сhecked < тип прав инф < state)
-
-  // let arrayOfcurrentComplectForChange = []
-  if (state.currentComplect) {
-    if (state.currentComplect.name !== 'Бухгалтер' && state.currentComplect.name !== 'Бухгалтер госсектора') {
-
-
-      if (type === 'Пакет Энциклопедий решений' || type === 'Энциклопедии решений') {
-        // arrayOfcurrentComplectForChange = state.currentComplect.currentER;
-        changeER(value, checked, type, state, index)
-
-      } else if (type === 'Legal Tech') {
-        // arrayOfcurrentComplectForChange = state.currentComplect.currentLT;
-        changeLt(value, checked, type, state)
-      } else {
-        // arrayOfcurrentComplectForChange = state.currentComplect.currentFilling;
-        changeInfoblocks(value, checked, type, state)
-      }
-
-
-      // if (checked) {
-      //   arrayOfcurrentComplectForChange.forEach((elem, idx) => {
-      //     if (elem === value) {
-      //       arrayOfcurrentComplectForChange.splice(idx, 1)
-      //     }
-      //   })
-      // } else {
-      //   arrayOfcurrentComplectForChange.push(value)
-
-      // }
-      state.save();
-      startApp();
-    }
-  } else {
-    window.alert('сначала выберите комплект!')
-  }
-}
-
-export default changeState
