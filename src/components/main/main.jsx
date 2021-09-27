@@ -7,9 +7,29 @@ import Complect from "../complect/complect"
 
 const Main = (props) => {
     // console.log(props.state)
+    let stMain = {
+        backgroundColor : props.state.theme[props.state.indexOfTheme].backgroundColor,
+        color : props.state.theme[props.state.indexOfTheme].color,
+
+        
+        transitionProperty: `background-image, background-color, text-color, color, transform`,
+        transitionDuration: `3.5s`,
+        transitionDelay:` 0.5s`,
+         transform: `rotateZ(720deg)`,
+
+
+        //  display: 'grid',
+        //  position: 'relative',
+        //  margin: 0,
+        //  gridTemplateColumns: '3fr 1fr',
+        //  gridTemplateRows: '1fr 10fr',
+       
+        //  gridGap: '24px',
+        //  gridAutoRows: 'minmax(12px, auto)',
+    }
     return (
-        <div>
-            <div className={style.main}>
+        <div style={stMain}>
+            <div  className={style.main}>
 
                 <div className={style.form__complect}>
                     

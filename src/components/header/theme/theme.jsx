@@ -1,5 +1,7 @@
 import themeStyle from './theme.module.css'
 import '../../../App.css'
+import { state } from '../../../state/state'
+import { startApp } from '../../..'
 
 // import sun from './img/broSunMoon/sun.svg'
 // import moon from './img/broSunMoon/moon.svg'
@@ -7,10 +9,10 @@ import '../../../App.css'
 // import '../../../App.css'
 
 
-function darkTheme(){
+function darkTheme(props){
     
     let div =   <div className={themeStyle.container__darktheme}>
-                 <CreateRound />  
+                 <CreateRound  state={props.state}/>  
                 </div>
 
     return (
@@ -71,7 +73,7 @@ var styleOfRound = {
 //     transform: `rotateZ(720deg)`
    
 // }
-let CreateRound = () => {   
+let CreateRound = (state) => {   
  
     return(
         <button onClick={() => {changeTheme()}} id="round" className={`${themeStyle.round} ${themeStyle.round__img}`} ></button>
@@ -85,7 +87,8 @@ function changeTheme(){
     let element = document.getElementById('round')
     
 
-    if (flag) {
+    if (state.indexOfTheme === 0) {
+        
         // round.className = themeStyle.round2 
         // element.classList.toggle(themeStyle.round__img, themeStyle.round__img2)
         // theme.backgroundColor = 'green'
@@ -113,7 +116,7 @@ function changeTheme(){
         // html.style.setProperty("--textColor", "black")
 
 
-    flag = false;
+        state.indexOfTheme = 1
     // return(
     //     <button onClick={changeTheme} id="round" style={styleOfRound} className={themeStyle.round2} ></button>
     // )
@@ -151,12 +154,12 @@ function changeTheme(){
         // html.style.setProperty("--textColorGreyH2", "white")
         // html.style.setProperty("--textColor", "white")
 
-        flag = true;
+        state.indexOfTheme = 0
         // return(
         //     <button onClick={changeTheme} id="round" style={styleOfRound} className={themeStyle.round} ></button>
         // )
     }
-    
+    startApp()
 }
 
 // function changeColorOfClass(html, color) {

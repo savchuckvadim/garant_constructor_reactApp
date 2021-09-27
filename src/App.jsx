@@ -19,7 +19,7 @@ function App(props) {
   return (
     <BrowserRouter>
       <div>
-        <Header />
+        <Header state={props.state} />
         <div className="app__wrapperContent">
           <Route exact path="/" component={MainPage} />
           <Route path="/main" component={MainPage} />

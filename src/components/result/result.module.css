@@ -9,7 +9,7 @@
     padding: 2vh;
     position: sticky;
     top: 15vh;
-    right: 3vh;
+    margin-right: 3vh;
     border-style: solid;
     
     display: flex;

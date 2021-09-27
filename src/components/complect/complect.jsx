@@ -4,6 +4,7 @@ import { addToStorage } from "../../utils/utils"
 
 
 import ODButtons from "../buttons/od.jsx"
+import ResetButton from "../buttons/reset";
 {/* todo cюда передать массив созданных инфоблоко - можно несколько массивов разбитых по типам 
     чтобы метод класса комплект мог брать и отмечать в них чеки в соответствии с индексами своего наполнения по умолчанию  */}
 
@@ -59,6 +60,7 @@ const Complect = (props) => {
 
                 < ComplectButtons state={props.state} />
                 < ODButtons state={props.state} />
+                <ResetButton state={props.state} />
             </div>
         </form>
     )

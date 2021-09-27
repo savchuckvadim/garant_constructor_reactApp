@@ -9,6 +9,8 @@
 
   grid-gap: 24px;
   grid-auto-rows: minmax(12px, auto);
+  
+ 
 }
 
 .form__complect{
@@ -25,6 +27,9 @@
     grid-row-start: 2;
     grid-row-end: 2;
     align-self: start;
+
+
+    
    /* background-color: cadetblue; */
     
 }

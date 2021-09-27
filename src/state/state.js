@@ -19,6 +19,7 @@ class State {
     this.allComplects = [{
         'name': 'Бухгалтер',
         'color': 'rgba(14, 201, 111, 1)',
+        'backgroundColor' : 'white',
         'weight': 3.5,
         'filling': [
           'Законодательство России',
@@ -66,6 +67,7 @@ class State {
       {
         'name': 'Бухгалтер госсектора',
         'color': 'rgba(255, 113, 33, 1)',
+        'backgroundColor' : 'white',
         'weight': 4,
         'filling': [
           'Законодательство России',
@@ -112,6 +114,7 @@ class State {
       {
         'name': 'Главный Бухгалтер',
         'color': 'rgba(14, 201, 111, 1)',
+        'backgroundColor' : 'white',
         'weight': 7,
         'filling': [
 
@@ -171,6 +174,7 @@ class State {
       {
         'name': 'Главный Бухгалтер госсектора',
         'color': 'rgba(255, 113, 33, 1)',
+        'backgroundColor' : 'white',
         'weight': 8,
         'filling': [
           'Законодательство России',
@@ -231,6 +235,7 @@ class State {
       {
         'name': 'Юрист',
         'color': 'rgba(46, 121, 234, 1)',
+        'backgroundColor' : 'white',
         'weight': 9,
         'filling': [
           'Законодательство России',
@@ -288,6 +293,7 @@ class State {
       {
         'name': 'Офис',
         'color': 'rgb(23, 80, 165)',
+        'backgroundColor' : 'white',
         'weight': 10,
         'filling': [
           'Законодательство России',
@@ -350,6 +356,7 @@ class State {
       {
         'name': 'Предприятие',
         'color': 'rgba(151, 103, 200, 1)',
+        'backgroundColor' : 'white',
         'weight': 12.5,
         'filling': [
           'Законодательство России',
@@ -422,6 +429,7 @@ class State {
       {
         'name': 'Предприятие PRO',
         'color': 'rgb(104, 54, 153)',
+        'backgroundColor' : 'white',
         'weight': 1,
         'filling': [
           'Законодательство России',
@@ -826,6 +834,22 @@ class State {
       [26520, 26520, 33270, 37980, 37980, 53220]
     ]
 
+    this.theme = [
+      
+      {
+        'name' : 'light',
+        'backgroundColor' : 'white',
+        'color' : 'black'
+      },
+      {
+        'name' : 'dark',
+        'backgroundColor' : 'rgba(37, 40, 45, 1)',
+        'color' : 'white'
+      }
+
+    ]
+
+    this.indexOfTheme = 0;
   }
 
 
@@ -1002,6 +1026,7 @@ class State {
 
   }
   changeErData = () => {
+  if(this.currentComplect){
     this.encyclopedias[1].value.forEach((element, index) => {
 
       if (this.currentComplect.fillingEncyclopediasIndexes.includes(index)) {
@@ -1010,6 +1035,7 @@ class State {
       }
 
     })
+  }
 
 
   }
