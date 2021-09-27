@@ -14,13 +14,14 @@ body{
     justify-content: center;
     align-items: center;
     border: none;
+    
 }
 
 /* first version */
  .round{
      margin: 0 auto;
      padding: 0 auto;
-     border-width: 0.2px;
+     border-width: 0.5px;
     border-color: black;
     width: 2rem;
     height: 2rem;
@@ -48,6 +49,8 @@ body{
 
 .round__img2{
     /* background-color: purple; */
+    
+    background-position: 49%;
    background-image: url('./img/broSunMoon/sun.svg');
     transform: rotateZ(-3600deg); 
 

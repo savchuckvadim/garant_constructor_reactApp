@@ -1,4 +1,3 @@
-
 import {
   ComplectClass
 } from "../components/complect/complect";
@@ -16,10 +15,11 @@ import {
 class State {
   constructor() {
     this.currentComplect = null;
+    this.currentOd = '1';
     this.allComplects = [{
         'name': 'Бухгалтер',
         'color': 'rgba(14, 201, 111, 1)',
-        'backgroundColor' : 'white',
+        'backgroundColor': 'white',
         'weight': 3.5,
         'filling': [
           'Законодательство России',
@@ -67,7 +67,7 @@ class State {
       {
         'name': 'Бухгалтер госсектора',
         'color': 'rgba(255, 113, 33, 1)',
-        'backgroundColor' : 'white',
+        'backgroundColor': 'white',
         'weight': 4,
         'filling': [
           'Законодательство России',
@@ -114,7 +114,7 @@ class State {
       {
         'name': 'Главный Бухгалтер',
         'color': 'rgba(14, 201, 111, 1)',
-        'backgroundColor' : 'white',
+        'backgroundColor': 'white',
         'weight': 7,
         'filling': [
 
@@ -174,7 +174,7 @@ class State {
       {
         'name': 'Главный Бухгалтер госсектора',
         'color': 'rgba(255, 113, 33, 1)',
-        'backgroundColor' : 'white',
+        'backgroundColor': 'white',
         'weight': 8,
         'filling': [
           'Законодательство России',
@@ -235,7 +235,7 @@ class State {
       {
         'name': 'Юрист',
         'color': 'rgba(46, 121, 234, 1)',
-        'backgroundColor' : 'white',
+        'backgroundColor': 'white',
         'weight': 9,
         'filling': [
           'Законодательство России',
@@ -293,7 +293,7 @@ class State {
       {
         'name': 'Офис',
         'color': 'rgb(23, 80, 165)',
-        'backgroundColor' : 'white',
+        'backgroundColor': 'white',
         'weight': 10,
         'filling': [
           'Законодательство России',
@@ -356,7 +356,7 @@ class State {
       {
         'name': 'Предприятие',
         'color': 'rgba(151, 103, 200, 1)',
-        'backgroundColor' : 'white',
+        'backgroundColor': 'white',
         'weight': 12.5,
         'filling': [
           'Законодательство России',
@@ -429,7 +429,7 @@ class State {
       {
         'name': 'Предприятие PRO',
         'color': 'rgb(104, 54, 153)',
-        'backgroundColor' : 'white',
+        'backgroundColor': 'white',
         'weight': 1,
         'filling': [
           'Законодательство России',
@@ -812,39 +812,66 @@ class State {
       ]
     }
 
-    this.od = [
-      '1 Одновременныйдоступ',
-      '2 Одновременных доступа',
-      '3 Одновременных доступа',
-      '5 Одновременных доступа',
-      '10 Одновременных доступа',
-      '20 Одновременных доступа',
-      '30 Одновременных доступа',
-      '50 Одновременных доступа',
+    this.od = [{
+        name: '1 Одновременныйдоступ',
+        status: 'uncheck'
+      },
+      {
+        name: '2 Одновременных доступа',
+        status: 'uncheck'
+      },
+      {
+        name: '3 Одновременных доступа',
+        status: 'uncheck'
+      },
+      {
+        name: '5 Одновременных доступов',
+        status: 'uncheck'
+      },
+      {
+        name: '10 Одновременных доступов',
+        status: 'uncheck'
+      },
+      {
+        name: '20 Одновременных доступов',
+        status: 'uncheck'
+      },
+      {
+        name: '30 Одновременных доступов',
+        status: 'uncheck'
+      },
+      {
+        name: '50 Одновременных доступов',
+        status: 'uncheck'
+      },
+
+
     ]
 
     this.prices = [
-      [4740, 4740, 5940, 6780, 6780, 9510],
-      [5700, 5700, 7140, 8160, 8160, 11400],
-      [7590, 7590, 9510, 10860, 10860, 15210],
-      [11400, 11400, 14220, 16290, 16290, 22800],
-      [15210, 15210, 18960, 21720, 21720, 30390],
-      [18960, 18960, 23760, 27120, 27120, 38010],
-      [22740, 22740, 28500, 32550, 32550, 45630],
-      [26520, 26520, 33270, 37980, 37980, 53220]
+      [4740, 4740, 5940, 6150, 6780, 6780, 9510, 12000],
+      [5700, 5700, 7140, 7380, 8160, 8160, 11400, 14400],
+      [7590, 7590, 9510, 9840, 10860, 10860, 15210, 19200],
+      [11400, 11400, 14220, 14760, 16290, 16290, 22800, 28800],
+      [15210, 15210, 18960, 19680, 21720, 21720, 30390, 38400],
+      [18960, 18960, 23760, 24600, 27120, 27120, 38010, 48000],
+      [22740, 22740, 28500, 29520, 32550, 32550, 45630, 57600],
+      [26520, 26520, 33270, 34440, 37980, 37980, 53220, 67200]
     ]
 
     this.theme = [
-      
+
       {
-        'name' : 'light',
-        'backgroundColor' : 'white',
-        'color' : 'black'
+        'name': 'light',
+        'backgroundColor': 'white',
+        'color': 'black',
+        'textColor': 'white'
       },
+
       {
-        'name' : 'dark',
-        'backgroundColor' : 'rgba(37, 40, 45, 1)',
-        'color' : 'white'
+        'name': 'dark',
+        'backgroundColor': 'rgba(37, 40, 45, 1)',
+        'color': 'white'
       }
 
     ]
@@ -1026,16 +1053,16 @@ class State {
 
   }
   changeErData = () => {
-  if(this.currentComplect){
-    this.encyclopedias[1].value.forEach((element, index) => {
+    if (this.currentComplect) {
+      this.encyclopedias[1].value.forEach((element, index) => {
 
-      if (this.currentComplect.fillingEncyclopediasIndexes.includes(index)) {
-        element.checked = true
-        element.weight = 0.5
-      }
+        if (this.currentComplect.fillingEncyclopediasIndexes.includes(index)) {
+          element.checked = true
+          element.weight = 0.5
+        }
 
-    })
-  }
+      })
+    }
 
 
   }
@@ -1044,12 +1071,43 @@ class State {
     console.log('здесь будет метод, работающий с LT')
   }
 
-  oD = () => {
-    console.log('здесь будет метод, работающий с OD')
+  oD = (name) => {
+
+    if (!this.currentComplect) {
+      window.alert('сначала выберите комплект')
+    } else {
+      this.currentOd = name;
+      this.currentComplect.od = this.currentOd;
+      this.save()
+      this.startApp()
+    }
+
+
   }
 
-  prices = () => {
-    console.log('здесь будет метод, работающий с Ценами')
+  price = () => {
+    let ind1 = this.currentComplect.number;
+    let ind2
+    let result
+
+    this.od.forEach((element, index) => {
+      if (element.name === this.currentComplect.od) {
+        ind2 = index
+      }
+    })
+
+    // debugger
+    if (!ind2) {
+      return result = this.prices[0][0]
+
+    } else {
+      return result = this.prices[ind2][ind1]
+    }
+
+  }
+
+  reset() {
+
   }
 
   weightForResult = () => {
@@ -1058,25 +1116,25 @@ class State {
     let totalweight = 0;
 
     this.infoblocks.forEach(element => {
-        element.value.forEach(elem => {
-            if (elem.checked === true) {
-                info += elem.weight
-            }
-        })
+      element.value.forEach(elem => {
+        if (elem.checked === true) {
+          info += elem.weight
+        }
+      })
     })
 
     this.encyclopedias.forEach(element => {
-        element.value.forEach(elem => {
+      element.value.forEach(elem => {
 
-            if (elem.checked === true) {
-                er += elem.weight
-            }
-        })
+        if (elem.checked === true) {
+          er += elem.weight
+        }
+      })
     })
 
     totalweight = info + er
     return totalweight
-}
+  }
 
   subscribe = (observer) => {
     this.startApp = observer;
@@ -1093,4 +1151,3 @@ class State {
 }
 
 export let state = new State();
-
