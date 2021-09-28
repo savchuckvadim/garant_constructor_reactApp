@@ -1,4 +1,9 @@
 /* @import url('../../App.css'); */
+.main__wrapper{
+    transition-property: background-image, background-color, text-color, color, transform;
+    transition-duration: 2.5s; 
+    transition-delay: 0.2s; 
+}
 .main{
     
   display: grid;
@@ -19,6 +24,7 @@
     grid-row-start: 1;
     grid-row-end: 1;
     margin-left: 8vh;
+   
 }
 .infoblocks{
     margin-left: 8vh;
@@ -75,7 +81,7 @@
         grid-row-end: 2;     
         justify-content: end;
         justify-self: center;
-       width: 88%;
+       width: 95vh;
                
     }
 
@@ -117,6 +123,7 @@
         grid-column-end: 1;
         grid-row-start: 2;
         grid-row-end: 2;
+        width: 95vh;
         
     }
 

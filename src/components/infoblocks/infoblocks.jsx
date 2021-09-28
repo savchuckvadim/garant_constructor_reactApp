@@ -9,7 +9,9 @@ import { renderInputFromData } from "../../utils/utils";
 let allInfoblocksArray = [];
 
 function Infoblocks(number, state) {
-    
+    let styleWrapper = {
+        width : '100vh'
+    }
     let items = []
     if (state.currentComplect) {
         renderInputFromData(state.infoblocks[number], items, state)
@@ -18,7 +20,7 @@ function Infoblocks(number, state) {
     }
 
     return (
-        <div className={style.items}>
+        <div  className={style.items}>
             <h2>{state.infoblocks[number].nameOfType}</h2>
             {items}
         </div>

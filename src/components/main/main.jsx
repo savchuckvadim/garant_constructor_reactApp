@@ -2,10 +2,12 @@ import style from "./main.module.css"
 import AllInfoblocks from "../infoblocks/infoblocks"
 import Result from "../result/result"
 import Complect from "../complect/complect"
+import { Fade } from "@material-ui/core"
 // import { state } from "../../App"
 
 
 const Main = (props) => {
+    
     // console.log(props.state)
     let stMain = {
         backgroundColor : props.state.theme[props.state.indexOfTheme].backgroundColor,
@@ -15,7 +17,7 @@ const Main = (props) => {
         transitionProperty: `background-image, background-color, text-color, color, transform`,
         transitionDuration: `3.5s`,
         transitionDelay:` 0.5s`,
-         transform: `rotateZ(720deg)`,
+        //  transform: `rotateZ(720deg)`,
 
 
         //  display: 'grid',
@@ -28,7 +30,8 @@ const Main = (props) => {
         //  gridAutoRows: 'minmax(12px, auto)',
     }
     return (
-        <div style={stMain}>
+        <div className={style.main__wrapper} style={stMain}>
+            
             <div  className={style.main}>
 
                 <div className={style.form__complect}>
@@ -36,16 +39,17 @@ const Main = (props) => {
                     <Complect state={props.state} />
                 </div>
 
-                <div className={style.infoblocks}>
+                <div  className={style.infoblocks}>
                     <AllInfoblocks state={props.state} />
 
                 </div>
                
-                <div className={style.result__container}>
+                <div  className={style.result__container}>
                     <Result state={props.state} />
                 </div>
 
             </div>
+            
         </div>
     )
 }

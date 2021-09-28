@@ -19,6 +19,7 @@ class State {
     this.allComplects = [
       {
         'name': 'Бухгалтер',
+        'tag' : 'accountant',
         'color': 'rgba(14, 201, 111, 1)',
         'backgroundColor': 'white',
         'weight': 3.5,
@@ -67,6 +68,7 @@ class State {
 
       {
         'name': 'Бухгалтер госсектора',
+        'tag' : 'budget',
         'color': 'rgba(255, 113, 33, 1)',
         'backgroundColor': 'white',
         'weight': 4,
@@ -114,6 +116,7 @@ class State {
       },
       {
         'name': 'Главный Бухгалтер',
+        'tag' : 'bigAccountant',
         'color': 'rgba(14, 201, 111, 1)',
         'backgroundColor': 'white',
         'weight': 7,
@@ -174,6 +177,7 @@ class State {
 
       {
         'name': 'Главный Бухгалтер госсектора',
+        'tag' : 'bigBudget',
         'color': 'rgba(255, 113, 33, 1)',
         'backgroundColor': 'white',
         'weight': 8,
@@ -235,6 +239,7 @@ class State {
 
       {
         'name': 'Юрист',
+        'tag' : 'lawyer',
         'color': 'rgba(46, 121, 234, 1)',
         'backgroundColor': 'white',
         'weight': 9,
@@ -293,6 +298,7 @@ class State {
 
       {
         'name': 'Офис',
+        'tag' : 'office',
         'color': 'rgb(23, 80, 165)',
         'backgroundColor': 'white',
         'weight': 10,
@@ -356,6 +362,7 @@ class State {
 
       {
         'name': 'Предприятие',
+        'tag' : 'company',
         'color': 'rgba(151, 103, 200, 1)',
         'backgroundColor': 'white',
         'weight': 12.5,
@@ -429,6 +436,7 @@ class State {
 
       {
         'name': 'Предприятие PRO',
+        'tag' : 'companyPro',
         'color': 'rgb(104, 54, 153)',
         'backgroundColor': 'white',
         'weight': 15.5,
@@ -872,7 +880,8 @@ class State {
       {
         'name': 'dark',
         'backgroundColor': 'rgba(37, 40, 45, 1)',
-        'color': 'white'
+        'color': 'white',
+        'textColor': 'black'
       }
 
     ]

@@ -1,6 +1,6 @@
 
 import Ellipse from "./img/Ellipse.svg"
-
+import styleButtons from "./button.css"
 
 import * as React from 'react';
 import { useTheme } from '@material-ui/core/styles';
@@ -10,6 +10,9 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import { Button } from "@material-ui/core";
 import { state } from "../../state/state";
+import Dropdown from "react-bootstrap/Dropdown";
+import DropdownButton from 'react-bootstrap/DropdownButton'
+
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -23,48 +26,36 @@ const MenuProps = {
   },
 };
 
-const names = [
-  'Oliver Hansen',
-  'Van Henry',
-  'April Tucker',
-  'Ralph Hubbard',
-  'Omar Alexander',
-  'Carlos Abbott',
-  'Miriam Wagner',
-  'Bradley Wilkerson',
-  'Virginia Andrews',
-  'Kelly Snyder',
-];
-const style = {
-  height: 54,
-  textColor: 'black',
-  backgroundColor: 'white',
-  minWidth: '322px',
-  width: '100%',
-  // border: '2px solid',
-  // borderColor: 'rgba(151, 103, 200, 1)',
 
-  // variant: 'light',
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  flexDirection: 'row',
-  flexWrap: 'nowrap',
-  // textColor: 'black'
-}
 
-function getStyles(name, personName, theme) {
-  return {
-    fontWeight:
-      personName.indexOf(name) === -1
-        ? theme.typography.fontWeightRegular
-        : theme.typography.fontWeightMedium,
-  };
-}
+
+
 
 function ODButtons(props) {
   let ods = []
-
+  const style = {
+    height: 54,
+    textColor: props.state.theme[ props.state.indexOfTheme].color,
+    color: props.state.theme[ props.state.indexOfTheme].color,
+    backgroundColor: props.state.theme[ props.state.indexOfTheme].backgroundColor,
+    // minWidth: '322px',
+    width: '100%',
+    border: '0.5px ',
+    borderStyle: 'solid',
+    borderColor: props.state.theme[ props.state.indexOfTheme].color,
+  
+    // variant: 'light',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    flexDirection: 'row',
+    flexWrap: 'nowrap',
+    transitionProperty: 'background-color, transform, color',
+    transitionDuration: '0.5s',
+    transitionDelay: '0.3s' 
+    
+    // textColor: 'black'
+  }
 
 
   props.state.od.forEach((element, index) => {
@@ -72,7 +63,8 @@ function ODButtons(props) {
     // console.log( theme.color)
     // styleOD = od (theme);
 
-    ods[index] = <MenuItem onClick={() => { props.state.oD(element.name) }} key={element.name} select={true} as={Button} value={element.name} style={style} >{element.name} <img src={Ellipse} alt=""></img>  </MenuItem>
+    ods[index] = <Dropdown.Item style={style} onClick={() => { props.state.oD(element.name) }} as="button">{element.name}</Dropdown.Item>
+    //  <MenuItem onClick={() => { props.state.oD(element.name) }} key={element.name} select={true} as={Button} value={element.name} className={styleButtons.btn__od}  >{element.name} <img src={Ellipse} alt=""></img>  </MenuItem>
 
 
 
@@ -98,37 +90,41 @@ function ODButtons(props) {
   }
   return (
 
-    <FormControl sx={{ m: 0, width: 372, mt: 0, maxHeight: 54, p: 0 }}>
-      <Select
-        sx={{ p: 0 }}
-        displayEmpty
-        value={od}
-        onChange={handleChange}
-        input={<OutlinedInput />}
-        renderValue={(selected) => {
-          if (selected.length === 0 || !props.state.currentComplect) {
-            return <em>{title()}</em>;
-          }
+    // <FormControl sx={{ m: 0, width: 322, mt: 0, height: 24, p: 0 }}>
+    //   <Select
+    //     sx={{ p: 0 }}
+    //     displayEmpty
+    //     value={od}
+    //     onChange={handleChange}
+    //     input={<OutlinedInput />}
+    //     renderValue={(selected) => {
+    //       if (selected.length === 0 || !props.state.currentComplect) {
+    //         return <em>{title()}</em>;
+    //       }
 
-          return selected;
-        }}
-        MenuProps={MenuProps}
-        inputProps={{ 'aria-label': 'Without label' }}
-      >
+    //       return selected;
+    //     }}
+    //     MenuProps={MenuProps}
+    //     inputProps={{ 'aria-label': 'Without label' }}
+    //   >
 
-        {/* {props.state.od.map((od) => (
-            <MenuItem
-              key={od}
-              value={od}
-              style={style}
-              select={true}
-            >
-              {od}
-            </MenuItem>
-          ))} */}
-        {ods}
-      </Select>
-    </FormControl>
+    //     {/* {props.state.od.map((od) => (
+    //         <MenuItem
+    //           key={od}
+    //           value={od}
+    //           style={style}
+    //           select={true}
+    //         >
+    //           {od}
+    //         </MenuItem>
+    //       ))} */}
+    //     {ods}
+    //   </Select>
+    // </FormControl>
+    <DropdownButton  style={style} variant={props.state.theme[props.state.indexOfTheme].name} as={Button} align="end" id="dropdown-item-button" title={props.state.currentComplect ? props.state.currentComplect.od : 'Количество доступов'}>
+      <Dropdown.ItemText variant="outline" style={style}>Количество доступов </Dropdown.ItemText>
+      {ods}
+    </DropdownButton>
 
   );
 }

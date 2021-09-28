@@ -1,6 +1,6 @@
 
 import Ellipse from "./img/Ellipse.svg"
-// import style from "./button.css"
+import style from "./button.module.css"
 // import Button from 'react-bootstrap/Button';
 import Button from '@material-ui/core/Button';
 import React from 'react';
@@ -26,8 +26,10 @@ const dinamicStyleForButtons = (borderColor, theme, complectColor) => {
         transitionProperty: 'background-color, transform, color',
         transitionDuration: '0.5s',
         transitionDelay: '0.0s',
-        border: '2px solid',
-        borderColor: borderColor
+        border: '1px solid',
+        borderColor: borderColor,
+        display: 'none'
+
 
     }
 
@@ -49,7 +51,7 @@ function createComplect(obj, index, state) {
 
     complect.returnName();
     complect.renderComplectsInfoblocks()
-    
+
     startApp(state)
 }
 
@@ -68,20 +70,20 @@ const ComplectButtons = (props) => {
 
         let complectColor
 
-       if(props.state.currentComplect){
-        if (element.name === props.state.currentComplect.name) {
-            complectColor = element.color
+        if (props.state.currentComplect) {
+            if (element.name === props.state.currentComplect.name) {
+                complectColor = element.color
+            } else {
+                complectColor = theme.backgroundColor
+            }
         } else {
             complectColor = theme.backgroundColor
         }
-       }else{
-        complectColor = theme.backgroundColor
-       }
 
 
         let style = dinamicStyleForButtons(element.color, theme, complectColor);
         // buttons[index] = <Button style={style} onClick={() => { return createComplect(element, index, props.state) }} number={index} type="button" >{element.name} <img src={Ellipse} alt=""></img> </Button>
-        buttons[index] = <Button style={style} onClick={() => { return createComplect(element, index, props.state) }} number={index} type="button" >{element.name} <img src={Ellipse} alt=""></img> </Button>
+        buttons[index] = <Button style={style} onClick={() => { return createComplect(element, index, props.state) }} className={`${style}.btn__${element.tag}`} number={index} type="button" >{element.name} <img src={Ellipse} alt=""></img> </Button>
     })
 
 

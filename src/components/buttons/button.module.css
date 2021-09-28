@@ -35,12 +35,11 @@
     align-items: center;
     flex-direction: row;
     flex-wrap: nowrap;
-/* background-color: rgb(233, 217, 229); */
+
     /* background-color: var(--background); */
     transition-property: background-color, transform, color;
     transition-duration: 0.5s;
     transition-delay: 0.0s; 
-    
 }
 .btn__od{
     width: 100%;
@@ -128,7 +127,7 @@
     }
     .btn__reset
     {
-       
+       background-color: lawngreen;
         grid-row-start: 5;
         grid-column-start: 1;
         grid-column-end: 1;

@@ -1,7 +1,7 @@
 import Button from '@material-ui/core/Button';
 import DeleteWhite from "./img/DeleteWhite.svg"
 import deleteBlack from "./img/delete_black.svg"
-
+import style from "./button.module.css"
 import Ellipse from "./img/Ellipse.svg"
 
 
@@ -16,7 +16,7 @@ console.log(props.state)
     let resetStyle = {
         color: props.state.theme[props.state.indexOfTheme].color,
         backgroundColor: props.state.theme[props.state.indexOfTheme].backgroundColor,
-        minWidth: '322px',
+        // minWidth: '322px',
         height: '54px',
         width: '100%',
         border: '2px solid',
@@ -32,7 +32,7 @@ console.log(props.state)
     }
     return(
         // <Button style={resetStyle} variant='outlined' color='inherit'>Сбросить</Button>
-<Button style={resetStyle} onClick={() => { return props.state.reset() }}  type="button" >RESET <img src={deleteIcon} alt="" /></Button>
+<Button style={resetStyle} onClick={() => { return props.state.reset() }} className={style.btn__reset}  type="button" >RESET <img src={deleteIcon} alt="" /></Button>
     )
 }
 

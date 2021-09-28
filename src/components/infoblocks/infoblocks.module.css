@@ -63,7 +63,8 @@
     } 
 
     .item{
-        justify-content: center;
+        /* justify-content: center; */
+        width: 100%;
     }
   
 }
