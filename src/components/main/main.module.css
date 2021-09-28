@@ -57,7 +57,7 @@
     }
 
     .form__complect{
-        background-color: aquamarine;
+        /* background-color: aquamarine; */
         grid-column-start: 1;
         grid-column-end: 1;
         grid-row-start: 1;
@@ -101,7 +101,7 @@
     }
 
     .form__complect{
-        background-color: blueviolet;
+        /* background-color: blueviolet; */
         grid-column-start: 1;
         grid-column-end: 1;
         grid-row-start: 1;

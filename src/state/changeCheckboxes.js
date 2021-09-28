@@ -70,7 +70,7 @@ const changePaketsInState = (state, checked, index) => { // если текущ�
 
 
 const changeErInState = (state, checked, index, indexOfEncyclopedias, filling) => { //для ЭР и Пакетов в зависимости от параметров если checked делает uncheck в дате allEnciclopedis - заходит в state и убирает из filling индексов
-  debugger
+  
   if (checked === true) {
     if(filling.length > 0){
       filling.forEach((elem, idx) => {

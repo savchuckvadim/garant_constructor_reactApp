@@ -2,10 +2,10 @@ import style from "./infoblocks.module.css"
 import allLegalTech from '../../data/dataLegelTech'
 import { renderInputFromData } from "../../utils/utils"
 
-function createLegalblocks() {
+function createLegalblocks(state) {
 
     let items = []
-    renderInputFromData(allLegalTech, items);
+    renderInputFromData(allLegalTech, items, state);
 
     return (
         <div className={style.items}>
@@ -18,9 +18,9 @@ function createLegalblocks() {
 
 
 
-export const legalblocks = () => {
+export const legalblocks = (state) => {
   
-    let legaltechs = createLegalblocks();
+    let legaltechs = createLegalblocks(state);
 
     return (
         <div id="menu" className={style.wrapper}>

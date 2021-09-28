@@ -29,6 +29,7 @@ function Infoblocks(number, state) {
 function createInfoblocks(state) {
     let items = []
     for (let i = 0; i < state.infoblocks.length; i++) {
+        console.log(state)
         items[i] = Infoblocks(i, state)
     }
     return (items)
@@ -56,7 +57,7 @@ const AllInfoblocks = (props) => {
         <div id="menu" className={style.wrapper}>
             {createInfoblocks(props.state)}
             {Er(props.state)}
-            {legalblocks()}
+            {legalblocks(props.state)}
 
         </div>
     )

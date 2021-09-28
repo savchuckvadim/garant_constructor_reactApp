@@ -4,10 +4,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
-
+.description__content{
+    height: 1300vh;
+}
 .link{
     display: inline-block;
     text-decoration: none;
     color: white;
+    position: sticky;
+    top: 15vh;
 }

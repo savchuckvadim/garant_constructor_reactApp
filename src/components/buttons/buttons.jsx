@@ -80,8 +80,8 @@ const ComplectButtons = (props) => {
 
 
         let style = dinamicStyleForButtons(element.color, theme, complectColor);
+        // buttons[index] = <Button style={style} onClick={() => { return createComplect(element, index, props.state) }} number={index} type="button" >{element.name} <img src={Ellipse} alt=""></img> </Button>
         buttons[index] = <Button style={style} onClick={() => { return createComplect(element, index, props.state) }} number={index} type="button" >{element.name} <img src={Ellipse} alt=""></img> </Button>
-
     })
 
 
