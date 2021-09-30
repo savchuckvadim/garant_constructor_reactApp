@@ -5,7 +5,8 @@ import { renderInputFromData } from "../../utils/utils"
 function createLegalblocks(state) {
 
     let items = []
-    renderInputFromData(allLegalTech, items, state);
+    
+    renderInputFromData(state.legalTech, items, state);
 
     return (
         <div className={style.items}>
@@ -23,10 +24,10 @@ export const legalblocks = (state) => {
     let legaltechs = createLegalblocks(state);
 
     return (
-        <div id="menu" className={style.wrapper}>
-            {legaltechs}
+        // <div id="menu" className={style.wrapper}>
+            legaltechs
 
-        </div>
+        // </div>
     )
 }
 

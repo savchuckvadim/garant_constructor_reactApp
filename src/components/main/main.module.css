@@ -1,9 +1,9 @@
 /* @import url('../../App.css'); */
-.main__wrapper{
+/* .main__wrapper{
     transition-property: background-image, background-color, text-color, color, transform;
     transition-duration: 2.5s; 
     transition-delay: 0.2s; 
-}
+} */
 .main{
     
   display: grid;
@@ -13,7 +13,7 @@
   grid-template-rows: 1fr 10fr;
 
   grid-gap: 24px;
-  grid-auto-rows: minmax(12px, auto);
+  grid-auto-rows: minmax(2px, auto);
   
  
 }
@@ -34,11 +34,13 @@
     grid-row-end: 2;
     align-self: start;
 
-
-    
+transition-property: background-image, background-color, text-color, color, transform;
+transition-duration: 1.5s; 
+transition-delay: 0.1s; 
    /* background-color: cadetblue; */
     
 }
+
 .result__container{
     height: 100%;
    /* background-color: rgb(0, 141, 146); */

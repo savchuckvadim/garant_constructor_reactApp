@@ -85,14 +85,14 @@ select {
 }
 
 /* Удаляем все анимации и переходы для людей, которые предпочитают их не использовать */
-@media (prefers-reduced-motion: reduce) {
+/* @media (prefers-reduced-motion: reduce) {
     * {
-        animation-duration: 0.01ms !important;
+        animation-duration: 1.5ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
         scroll-behavior: smooth !important;
     }
-}
+} */
 
 
 
@@ -105,17 +105,17 @@ body {
    
 }
 h1{
-    text-align: center;
+    /* text-align: center; */
     
 }
 
 
 
-body{
-    transition-property: background-color;
+div{
+    transition-property: background-color, color;
     transition-duration: 2.5s;
     transition-delay: 0.1s;
-    background-color: var(--background);
+  
 }
 
 html:root{
@@ -129,5 +129,5 @@ html:root{
 
 }
 html{
-    background-color: var(--background);
+   
 }

@@ -56,11 +56,11 @@ class State {
         ],
         'fillingPaketsERIndexes': [0],
         'fillingEncyclopediasIndexes': '',
-        'fillingLTIndexes': [1],
+        'fillingLTIndexes': [1, 8],
 
         'fillingPaketsER': '',
         'fillingER': [],
-        'fillingPaketLT': '',
+        'fillingPaketLT': [],
         'fillingLTblocks': ''
 
 
@@ -105,12 +105,12 @@ class State {
         ],
         'fillingEncyclopediasIndexes': [0],
         'fillingPaketsERIndexes': [1],
-        'fillingLTIndexes': [1],
+        'fillingLTIndexes': [1, 8],
 
 
         'fillingPaketsER': '',
         'fillingER': ['Энциклопедия решений.Проверки организаций и предпринимателей'],
-        'fillingPaketLT': '',
+        'fillingPaketLT': [],
         'fillingLTblocks': ''
 
       },
@@ -170,7 +170,7 @@ class State {
 
         'fillingPaketsER': '',
         'fillingER': ['Энциклопедия решений. Госзакупки', 'Энциклопедия решений. Корпоративное право'],
-        'fillingPaketLT': '',
+        'fillingPaketLT': [],
         'fillingLTblocks': ''
 
       },
@@ -231,7 +231,7 @@ class State {
 
         'fillingPaketsER': '',
         'fillingER': ['Энциклопедия решений. Проверки организаций и предпринимателей', 'Энциклопедия решений. Корпоративное право'],
-        'fillingPaketLT': '',
+        'fillingPaketLT': [],
         'fillingLTblocks': ''
 
 
@@ -287,11 +287,11 @@ class State {
         ],
         'fillingEncyclopediasIndexes': [],
         'fillingPaketsERIndexes': [2],
-        'fillingLTIndexes': [1, 8],
+        'fillingLTIndexes': [0, 1],
 
         'fillingPaketsER': '',
         'fillingER': [],
-        'fillingPaketLT': '',
+        'fillingPaketLT': [],
         'fillingLTblocks': ''
 
       },
@@ -356,7 +356,7 @@ class State {
 
         'fillingPaketsER': '',
         'fillingER': [],
-        'fillingPaketLT': '',
+        'fillingPaketLT': [],
         'fillingLTblocks': ''
       },
 
@@ -426,7 +426,7 @@ class State {
           'Энциклопедия решений.Корпоративное право',
           'Энциклопедия решений.Налоги и взносы'
         ],
-        'fillingPaketLT': '',
+        'fillingPaketLT': [],
         'fillingLTblocks': ''
 
 
@@ -501,7 +501,7 @@ class State {
           'Энциклопедия решений.Корпоративное право',
           'Энциклопедия решений.Налоги и взносы'
         ],
-        'fillingPaketLT': '',
+        'fillingPaketLT': [],
         'fillingLTblocks': ''
       },
 
@@ -762,58 +762,70 @@ class State {
 
     this.legalTech = {
       'nameOfType': 'Legal Tech',
+      'display' : 'none',
       'value': [{
           'name': 'Аналитическая система "Сутяжник',
+          'checked': false,
           'weight': 1,
           'description': ''
         },
         {
           'name': 'Конструктор правовых документов',
+          'checked': false,
           'weight': 1,
           'description': ''
         },
         {
           'name': 'Экспресс проверка контрагентов',
+          'checked': false,
           'weight': 1,
           'description': ''
         },
         {
           'name': 'Экспресс Согласование',
+          'checked': false,
           'weight': 1,
           'description': ''
         },
         {
           'name': 'Экспресс тендер',
+          'checked': false,
           'weight': 1,
           'description': ''
         },
         {
           'name': 'Гарант Диск',
+          'checked': false,
           'weight': 1,
           'description': ''
         },
         {
           'name': 'Гарант Коннект',
+          'checked': false,
           'weight': 1,
           'description': ''
         },
         {
           'name': 'Гарант Патент',
+          'checked': false,
           'weight': 1,
           'description': ''
         },
         {
           'name': 'Интернет-Семианры',
+          'checked': false,
           'weight': 1,
           'description': ''
         },
         {
           'name': 'ЭТАЛОННЫЙ КЛАССИФИКАТОР',
+          'checked': false,
           'weight': 1,
           'description': ''
         },
         {
           'name': 'Бизнес на контроле',
+          'checked': false,
           'weight': 1,
           'description': ''
         },
@@ -867,6 +879,7 @@ class State {
       [22740, 22740, 28500, 29520, 32550, 32550, 45630, 57600],
       [26520, 26520, 33270, 34440, 37980, 37980, 53220, 67200]
     ]
+    this.pricesOfLt = [960, 2200, 3300]
 
     this.theme = [
 
@@ -935,18 +948,19 @@ class State {
           // arrayOfcurrentComplectForChange = state.currentComplect.currentER;
           changeER(value, checked, type, this, index)
 
-        } else if (type === 'Legal Tech') {
-          // arrayOfcurrentComplectForChange = state.currentComplect.currentLT;
-          changeLt(value, checked, type, this)
-        } else {
+        
+        }else {
           // arrayOfcurrentComplectForChange = state.currentComplect.currentFilling;
           changeInfoblocks(value, checked, type, this)
         }
 
 
-        this.save();
-        this.startApp();
+        
       }
+      if (type === 'Legal Tech') { changeLt(value, checked, type, this, index)}
+      this.save();
+        this.startApp();
+       
     } else {
       window.alert('сначала выберите комплект!')
     }
@@ -1005,7 +1019,7 @@ class State {
             element.weight = 0.5
           })
           concatIncludesER.forEach(el => {
-            console.log(el)
+           
             this.encyclopedias[1].value[el].checked = true
             this.encyclopedias[1].value[el].weight = 0
           })
@@ -1077,8 +1091,16 @@ class State {
 
   }
 
-  lt = () => {
-    console.log('здесь будет метод, работающий с LT')
+  changeltData = () => {
+    if (this.currentComplect) {
+      this.legalTech.value.forEach((elem, index) => {
+       
+          if (this.currentComplect.fillingLTIndexes.includes(index) || this.currentComplect.fillingPaketLT.includes(index) ) {
+            elem.checked = true
+          } else elem.checked = false
+        })
+      
+    }
   }
 
   oD = (name) => {

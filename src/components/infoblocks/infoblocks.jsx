@@ -31,7 +31,7 @@ function Infoblocks(number, state) {
 function createInfoblocks(state) {
     let items = []
     for (let i = 0; i < state.infoblocks.length; i++) {
-        console.log(state)
+        
         items[i] = Infoblocks(i, state)
     }
     return (items)
@@ -55,6 +55,7 @@ const AllInfoblocks = (props) => {
     props.state.changeInfoblocksData()  //подготавливает data-файлы перед отрисовкой на основе информации из текущего комплекта
     props.state.changePaketsErData()
     props.state.changeErData()
+    props.state.changeltData()
     return (
         <div id="menu" className={style.wrapper}>
             {createInfoblocks(props.state)}

@@ -2,6 +2,7 @@ import themeStyle from './theme.module.css'
 import '../../../App.css'
 import { state } from '../../../state/state'
 import { startApp } from '../../..'
+import infostyle from '../../main/main.module.css'
 
 // import sun from './img/broSunMoon/sun.svg'
 // import moon from './img/broSunMoon/moon.svg'
@@ -85,7 +86,7 @@ var flag = false;
 function changeTheme(){
   
     let element = document.getElementById('round')
-    
+    let infoblocks = document.getElementById('info')
 
     if (state.indexOfTheme === 0) {
         
@@ -96,7 +97,7 @@ function changeTheme(){
         element.classList.remove(themeStyle.round__img)
 
         element.classList.add(themeStyle.round__img2)
-
+       
    
         // element.setAttribute('style', 'styleOfRound2')
         
@@ -130,6 +131,7 @@ function changeTheme(){
         element.classList.remove(themeStyle.round__img2)
 
         element.classList.add(themeStyle.round__img)
+        
         // element.classList.toggle(themeStyle.round__img, themeStyle.round__img2)
         // console.log( styleOfRound.backgroundColor )
         // element.style=styleOfRound

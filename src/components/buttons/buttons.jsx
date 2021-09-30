@@ -1,12 +1,13 @@
 
 import Ellipse from "./img/Ellipse.svg"
-import style from "./button.module.css"
+import style from "./button.css"
 // import Button from 'react-bootstrap/Button';
 import Button from '@material-ui/core/Button';
 import React from 'react';
 import { ComplectClass } from "../complect/complect";
 import "./button.css"
 import { startApp } from "../../index";
+
 
 
 
@@ -28,7 +29,10 @@ const dinamicStyleForButtons = (borderColor, theme, complectColor) => {
         transitionDelay: '0.0s',
         border: '1px solid',
         borderColor: borderColor,
-        display: 'none'
+        // display: 'none'
+        '@media (max-width: 950px)' : {
+            display: 'none'
+        }
 
 
     }
@@ -83,14 +87,13 @@ const ComplectButtons = (props) => {
 
         let style = dinamicStyleForButtons(element.color, theme, complectColor);
         // buttons[index] = <Button style={style} onClick={() => { return createComplect(element, index, props.state) }} number={index} type="button" >{element.name} <img src={Ellipse} alt=""></img> </Button>
-        buttons[index] = <Button style={style} onClick={() => { return createComplect(element, index, props.state) }} className={`${style}.btn__${element.tag}`} number={index} type="button" >{element.name} <img src={Ellipse} alt=""></img> </Button>
+        buttons[index] = <Button style={style} onClick={() => { return createComplect(element, index, props.state) }} className={`btn__${element.tag}`} number={index} type="button" >{element.name} <img src={Ellipse} alt=""></img> </Button>
     })
 
 
 
     return (
         buttons
-
     )
 }
 

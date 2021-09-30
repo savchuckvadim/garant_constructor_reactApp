@@ -31,7 +31,7 @@ body{
     background-repeat: no-repeat;
     background-position: center;
     transition-property: background-image, background-color, text-color, color, transform;
-    transition-duration: 1.5s; 
+    transition-duration: 0.1s; 
     transition-delay: 0.1s; 
      transform: rotateZ(3600deg); 
     
@@ -53,5 +53,6 @@ body{
     background-position: 49%;
    background-image: url('./img/broSunMoon/sun.svg');
     transform: rotateZ(-3600deg); 
+    /* background-color: white; */
 
 }

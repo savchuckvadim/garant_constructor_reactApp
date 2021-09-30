@@ -23,7 +23,7 @@ export class ComplectClass {
 
         // this.fillingPaketsER = obj.fillingPaketsER 
         // this.fillingER = obj.fillingER
-        // this.fillingPaketLT = obj.fillingPaketLT
+        this.fillingPaketLT = obj.fillingPaketLT
         // this.fillingLTblocks = obj.fillingLTblocks
 
         this.flagCheckedComplect = false;
@@ -63,6 +63,7 @@ export class ComplectClass {
             'fillingPaketsERIndexes': this.fillingPaketsERIndexes,
             'fillingEncyclopediasIndexes': this.fillingEncyclopediasIndexes,
             'fillingLTIndexes': this.fillingLTIndexes,
+            'fillingPaketLT': this.fillingPaketLT,
             'od': this.od
         }
         addToStorage(obj, 'currentComplect')

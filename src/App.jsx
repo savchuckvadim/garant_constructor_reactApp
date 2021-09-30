@@ -1,4 +1,4 @@
-import React from 'react';
+import React , {useContext, useEffect, useState}from 'react';
 // import 'bootstrap'
 // import { Tooltip, Toast, Popover } from 'bootstrap';
 import './App.css';
@@ -7,28 +7,29 @@ import Main from './components/main/main';
 import DescriptionPage from './components/description/description';
 import { BrowserRouter, Route } from 'react-router-dom'
 
-
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App(props) {
+
   props.state.changeState();
 
-  let MainPage = () => {return (Main(props)) }
-
-
+  let MainPage = () => {return <Main state={props.state}/> }
+let descriptionPage = () => {
+  return <DescriptionPage state={props.state}/>
+}
   return (
     <BrowserRouter>
+  
       <div>
         <Header state={props.state} />
+        
         <div className="app__wrapperContent">
-          <Route exact path="/" component={MainPage} />
+          <Route exact path="/" component={MainPage}/>
           <Route path="/main" component={MainPage} />
-          <Route path="/description" component={DescriptionPage} />
+          <Route path="/description" component={descriptionPage} />
 
-          {/* <Main />
-      <DescriptionPage /> */}
+         
         </div>
-
       </div>
     </BrowserRouter>
 

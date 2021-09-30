@@ -12,7 +12,7 @@ const ResetButton = (props) => {
     }else{
         deleteIcon = DeleteWhite;
     }
-console.log(props.state)
+
     let resetStyle = {
         color: props.state.theme[props.state.indexOfTheme].color,
         backgroundColor: props.state.theme[props.state.indexOfTheme].backgroundColor,
