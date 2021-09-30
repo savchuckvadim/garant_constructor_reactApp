@@ -56,6 +56,7 @@ const AllInfoblocks = (props) => {
     props.state.changePaketsErData()
     props.state.changeErData()
     props.state.changeltData()
+    props.state.weightLtForResult()
     return (
         <div id="menu" className={style.wrapper}>
             {createInfoblocks(props.state)}

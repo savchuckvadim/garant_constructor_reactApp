@@ -16,10 +16,9 @@ class State {
   constructor() {
     this.currentComplect = null;
     this.currentOd = '1';
-    this.allComplects = [
-      {
+    this.allComplects = [{
         'name': 'Бухгалтер',
-        'tag' : 'accountant',
+        'tag': 'accountant',
         'color': 'rgba(14, 201, 111, 1)',
         'backgroundColor': 'white',
         'weight': 3.5,
@@ -68,7 +67,7 @@ class State {
 
       {
         'name': 'Бухгалтер госсектора',
-        'tag' : 'budget',
+        'tag': 'budget',
         'color': 'rgba(255, 113, 33, 1)',
         'backgroundColor': 'white',
         'weight': 4,
@@ -116,7 +115,7 @@ class State {
       },
       {
         'name': 'Главный Бухгалтер',
-        'tag' : 'bigAccountant',
+        'tag': 'bigAccountant',
         'color': 'rgba(14, 201, 111, 1)',
         'backgroundColor': 'white',
         'weight': 7,
@@ -177,7 +176,7 @@ class State {
 
       {
         'name': 'Главный Бухгалтер госсектора',
-        'tag' : 'bigBudget',
+        'tag': 'bigBudget',
         'color': 'rgba(255, 113, 33, 1)',
         'backgroundColor': 'white',
         'weight': 8,
@@ -239,7 +238,7 @@ class State {
 
       {
         'name': 'Юрист',
-        'tag' : 'lawyer',
+        'tag': 'lawyer',
         'color': 'rgba(46, 121, 234, 1)',
         'backgroundColor': 'white',
         'weight': 9,
@@ -298,7 +297,7 @@ class State {
 
       {
         'name': 'Офис',
-        'tag' : 'office',
+        'tag': 'office',
         'color': 'rgb(23, 80, 165)',
         'backgroundColor': 'white',
         'weight': 10,
@@ -362,7 +361,7 @@ class State {
 
       {
         'name': 'Предприятие',
-        'tag' : 'company',
+        'tag': 'company',
         'color': 'rgba(151, 103, 200, 1)',
         'backgroundColor': 'white',
         'weight': 12.5,
@@ -436,7 +435,7 @@ class State {
 
       {
         'name': 'Предприятие PRO',
-        'tag' : 'companyPro',
+        'tag': 'companyPro',
         'color': 'rgb(104, 54, 153)',
         'backgroundColor': 'white',
         'weight': 15.5,
@@ -762,7 +761,14 @@ class State {
 
     this.legalTech = {
       'nameOfType': 'Legal Tech',
-      'display' : 'none',
+      'display': 'none',
+
+      'weightLt': 0,
+      'ltIncluded': 0,
+      'nameOflt': '',
+      'priceOfLt': '',
+
+
       'value': [{
           'name': 'Аналитическая система "Сутяжник',
           'checked': false,
@@ -948,19 +954,21 @@ class State {
           // arrayOfcurrentComplectForChange = state.currentComplect.currentER;
           changeER(value, checked, type, this, index)
 
-        
-        }else {
+
+        } else {
           // arrayOfcurrentComplectForChange = state.currentComplect.currentFilling;
           changeInfoblocks(value, checked, type, this)
         }
 
 
-        
+
       }
-      if (type === 'Legal Tech') { changeLt(value, checked, type, this, index)}
+      if (type === 'Legal Tech') {
+        changeLt(value, checked, type, this, index)
+      }
       this.save();
-        this.startApp();
-       
+      this.startApp();
+
     } else {
       window.alert('сначала выберите комплект!')
     }
@@ -1019,7 +1027,7 @@ class State {
             element.weight = 0.5
           })
           concatIncludesER.forEach(el => {
-           
+
             this.encyclopedias[1].value[el].checked = true
             this.encyclopedias[1].value[el].weight = 0
           })
@@ -1094,12 +1102,12 @@ class State {
   changeltData = () => {
     if (this.currentComplect) {
       this.legalTech.value.forEach((elem, index) => {
-       
-          if (this.currentComplect.fillingLTIndexes.includes(index) || this.currentComplect.fillingPaketLT.includes(index) ) {
-            elem.checked = true
-          } else elem.checked = false
-        })
-      
+
+        if (this.currentComplect.fillingLTIndexes.includes(index) || this.currentComplect.fillingPaketLT.includes(index)) {
+          elem.checked = true
+        } else elem.checked = false
+      })
+
     }
   }
 
@@ -1166,6 +1174,41 @@ class State {
 
     totalweight = info + er
     return totalweight
+  }
+
+  weightLtForResult = () => {
+    if(this.currentComplect){
+      this.legalTech.ltIncluded = 0
+    this.legalTech.weightLt = 0
+    this.legalTech.value.forEach((element, index) => { //перебираем все LT
+      if (this.currentComplect.fillingPaketLT.includes(index)) { //если индекс перебираемого LT содержится в списке индексов входящих в комплект по умолчанию
+        if (element.checked) {
+         
+          this.legalTech.weightLt = this.legalTech.weightLt + element.weight
+        }
+
+      } else if (this.currentComplect.fillingLTIndexes.includes(index)) {
+        element.checked ? this.legalTech.ltIncluded++ : this.legalTech.ltIncluded = this.legalTech.ltIncluded - 0
+
+      }
+      this.legalTech.weightLt > 0 ? this.legalTech.display = 'flex' : this.legalTech.display = 'none'
+
+      if (this.legalTech.weightLt === 2) {
+        this.legalTech.nameOflt = `Малый Пакет`
+        this.legalTech.priceOfLt = this.pricesOfLt[0]
+      } else if (this.legalTech.weightLt === 5) {
+        this.legalTech.nameOflt = `Средний Пакет `
+        this.legalTech.priceOfLt = this.pricesOfLt[1]
+      } else if (this.legalTech.weightLt === 10) {
+        this.legalTech.nameOflt = `Большой Пакет `
+        this.legalTech.priceOfLt = this.pricesOfLt[2]
+      }
+      if (this.legalTech.weightLt === 1 || this.legalTech.weightLt > 2 && this.legalTech.weightLt < 5 || this.legalTech.weightLt > 5 && this.legalTech.weightLt < 11) {
+        this.legalTech.nameOflt = `LT собран неверно`
+      }
+    })
+    
+    }
   }
 
   subscribe = (observer) => {

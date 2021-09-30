@@ -1,5 +1,4 @@
-import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from "@material-ui/core";
-import Button from "@restart/ui/esm/Button";
+
 
 export const changeInfoblocks = (value, checked, type, state) => {
 
@@ -26,7 +25,7 @@ export const changeER = (value, checked, type, state, index) => {
 
     } else {
 
-      window.alert('в комплекте Гфрфнт-Офис должны содержаться два любых Пакета ЭР')
+      window.alert('в комплекте Гарант-Офис должны содержаться два любых Пакета ЭР')
       if (checked == true) {
         if (index === 0) {
           state.currentComplect.fillingPaketsERIndexes = [1, 2]
@@ -97,7 +96,7 @@ export const changeLt = (value, checked, type, state, index) => {
   if (state.currentComplect) {
     if (state.currentComplect.name === 'Офис') {
       let currentWeight
-      let currentWeightOfIncluded 
+      let currentWeightOfIncluded
       if (state.currentComplect.fillingLTIndexes.includes(index) === false) { //если сервис НЕ входит в инклудед - по умолчанию в комплект
         if (checked === false) {
           state.legalTech.value[index].checked = true // в state в дате отмечает check
@@ -121,19 +120,19 @@ export const changeLt = (value, checked, type, state, index) => {
           state.currentComplect.fillingLTIndexes.forEach((elem, idx) => {
             elem === index ? state.currentComplect.fillingLTIndexes.splice(idx, 1) : state.currentComplect.fillingLTIndexes = state.currentComplect.fillingLTIndexes
           })
-currentWeightOfIncluded = currentWeightOfIncludedLT(state)
+          currentWeightOfIncluded = currentWeightOfIncludedLT(state)
           // for(let i = 0; i < 5; i++){
-            if(currentWeightOfIncluded < 5){                    //если included <5 а в доп сервисах что-то есть - переносим из доп в инклудед
-              if(state.currentComplect.fillingPaketLT.length > 0){
-                state.currentComplect.fillingLTIndexes.push(state.currentComplect.fillingPaketLT[state.currentComplect.fillingPaketLT.length - 1]) //пушим в инклудед последний индекс из доп
-                state.currentComplect.fillingPaketLT.splice(state.currentComplect.fillingPaketLT.length - 1, 1)  //и вырезаем его из доп
-              }else{
-                window.alert(`В комплекте Гарант-Офис должно быть минимум 5 сервисов Legal Tech, сейчас их ${currentWeightOfIncluded} в комплекте`)
-               
-              }
+          if (currentWeightOfIncluded < 5) { //если included <5 а в доп сервисах что-то есть - переносим из доп в инклудед
+            if (state.currentComplect.fillingPaketLT.length > 0) {
+              state.currentComplect.fillingLTIndexes.push(state.currentComplect.fillingPaketLT[state.currentComplect.fillingPaketLT.length - 1]) //пушим в инклудед последний индекс из доп
+              state.currentComplect.fillingPaketLT.splice(state.currentComplect.fillingPaketLT.length - 1, 1) //и вырезаем его из доп
+            } else {
+              window.alert(`В комплекте Гарант-Офис должно быть минимум 5 сервисов Legal Tech, сейчас их ${currentWeightOfIncluded} в комплекте`)
+
             }
+          }
           // }
-        
+
         }
       }
 
@@ -141,7 +140,7 @@ currentWeightOfIncluded = currentWeightOfIncludedLT(state)
 
 
 
-    } else {
+    }else {
 
       if (state.currentComplect.fillingLTIndexes.includes(index) === false) {
 
@@ -188,23 +187,3 @@ const currentWeightOfIncludedLT = (state) => {
   return currentWeight
 }
 
-const dialog = (currentWeightOfIncluded) => {
-  return(
-    <Dialog
-    // open={open}
-    // onClose={}
-    aria-labelledby="alert-dialog-title"
-    aria-describedby="alert-dialog-description"
-  >
-    <DialogTitle id="alert-dialog-title">
-      {"Use Google's location service?"}
-    </DialogTitle>
-    <DialogContent>
-      <DialogContentText id="alert-dialog-description">
-      {`В комплекте Гарант-Офис должно быть минимум 5 сервисов Legal Tech, сейчас их ${currentWeightOfIncluded} в комплекте`}
-      </DialogContentText>
-    </DialogContent>
-  
-  </Dialog>
-  )
-}
