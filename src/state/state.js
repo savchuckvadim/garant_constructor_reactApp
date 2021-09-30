@@ -20,6 +20,7 @@ class State {
         'name': 'Бухгалтер',
         'tag': 'accountant',
         'color': 'rgba(14, 201, 111, 1)',
+        
         'backgroundColor': 'white',
         'weight': 3.5,
         'filling': [
@@ -900,7 +901,7 @@ class State {
         'name': 'dark',
         'backgroundColor': 'rgba(37, 40, 45, 1)',
         'color': 'white',
-        'textColor': 'black'
+        'textColor': 'white'
       }
 
     ]

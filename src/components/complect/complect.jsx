@@ -75,6 +75,7 @@ export class ComplectClass {
 
 const Complect = (props) => {
     // console.log(props)
+    
     return (
 
         <form id="" className={`form`}>

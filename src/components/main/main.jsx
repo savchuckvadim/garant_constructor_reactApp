@@ -7,14 +7,17 @@ import { Fade } from "@material-ui/core"
 
 
 const Main = (props) => {
-    
+    const theme = () => {
+        stMain.backgroundColor = props.state.theme[props.state.indexOfTheme].backgroundColor
+        stMain.color = props.state.theme[props.state.indexOfTheme].color
+    }
     // console.log(props.state)
     let stMain = {
         transitionProperty: `background-image, background-color, text-color, color, transform`,
         transitionDuration: `3.5s`,
         transitionDelay:` 0.5s`,
         backgroundColor : props.state.theme[props.state.indexOfTheme].backgroundColor,
-        color : props.state.theme[props.state.indexOfTheme].color,
+        color : props.state.theme[props.state.indexOfTheme].color
 
         
       
@@ -30,6 +33,7 @@ const Main = (props) => {
         //  gridGap: '24px',
         //  gridAutoRows: 'minmax(12px, auto)',
     }
+    // theme()
     return (
         <div  style={stMain}>
            

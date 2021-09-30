@@ -1,6 +1,6 @@
 
 import Ellipse from "./img/Ellipse.svg"
-import style from "./button.css"
+import "./button.css"
 // import Button from 'react-bootstrap/Button';
 import Button from '@material-ui/core/Button';
 import React from 'react';
@@ -11,12 +11,12 @@ import { startApp } from "../../index";
 
 
 
-const dinamicStyleForButtons = (borderColor, theme, complectColor) => {
+const dinamicStyleForButtons = (borderColor, textColor, complectColor) => {
     // state.allComplects.map((element) => {
     //     element.backgroundColor = theme.backgroundColor
     // })
     let styleOfButtons = {
-        color: theme.color,
+        color: textColor,
         backgroundColor: complectColor,
         height: '54px',
         display: 'flex',
@@ -25,12 +25,12 @@ const dinamicStyleForButtons = (borderColor, theme, complectColor) => {
         flexDirection: 'row',
         flexWrap: 'nowrap',
         transitionProperty: 'background-color, transform, color',
-        transitionDuration: '0.5s',
+        transitionDuration: '5.5s',
         transitionDelay: '0.0s',
-        border: '1px solid',
+        border: '2px solid',
         borderColor: borderColor,
         // display: 'none'
-        '@media (max-width: 950px)' : {
+        '@media (max-width: 950px)': {
             display: 'none'
         }
 
@@ -73,10 +73,13 @@ const ComplectButtons = (props) => {
         let theme = props.state.theme[props.state.indexOfTheme]
 
         let complectColor
-
+        let borderColor = element.color
+        let textColor = theme.color
         if (props.state.currentComplect) {
             if (element.name === props.state.currentComplect.name) {
                 complectColor = element.color
+                borderColor = props.state.theme[props.state.indexOfTheme].color
+                textColor = props.state.theme[props.state.indexOfTheme].textColor
             } else {
                 complectColor = theme.backgroundColor
             }
@@ -85,7 +88,7 @@ const ComplectButtons = (props) => {
         }
 
 
-        let style = dinamicStyleForButtons(element.color, theme, complectColor);
+        let style = dinamicStyleForButtons(borderColor, textColor, complectColor);
         // buttons[index] = <Button style={style} onClick={() => { return createComplect(element, index, props.state) }} number={index} type="button" >{element.name} <img src={Ellipse} alt=""></img> </Button>
         buttons[index] = <Button style={style} onClick={() => { return createComplect(element, index, props.state) }} className={`btn__${element.tag}`} number={index} type="button" >{element.name} <img src={Ellipse} alt=""></img> </Button>
     })
