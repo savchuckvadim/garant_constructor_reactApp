@@ -1,7 +1,7 @@
 /* @import url('../../App.css'); */
 .result__container {
     
-    margin-top: 32px;
+    /* margin-top: 32px; */
     width: 355px;   
     /* min-height: 250px; */
     max-height: 100%;
@@ -70,7 +70,7 @@
 @media (max-width: 680px) {
 
     .result__container{
-        width: 99vh;
+        width: 85vh;
         min-height: 10px;
         height: auto;
         padding: 2vh;

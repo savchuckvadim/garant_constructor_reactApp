@@ -1,64 +1,62 @@
 @import url('../../App.css');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap');
 /* .general {
     padding: 0;
 } */
 
-.btns__complect,
-.btn__0,
-.btn__1,
-.btn__2,
-.btn__3,
-.btn__4,
-.btn__5,
-.btn__6,
-.btn__7,
+/* .btns__complect, */
+.btn__accountant,
+.btn__budget,
+.btn__bigAccountant,
+.btn__bigBudget,
+.btn__lawyer,
+.btn__office,
+.btn__company,
+.btn__companyPro,
+
 .btn__od,
 .btn__reset,
+
 .btn__modal,
-.btn__accountant--modal,
+
+.btn__accountantModal,
 .btn__budget--modal,
 .btn__lawyer--modal,
 .btn__company--modal,
 .btn__od--modal,
 .btn__reset--modal,
-.modal__complect {
-    /* width: 49vh;
+.modal__complect
+{
 
- height: 7vh;   */
-    /* width: 322px; */
     height: 54px;
 
-    /* margin: 1vh; */
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: nowrap;
-
-    /* background-color: var(--background); */
     transition-property: background-color, transform, color;
     transition-duration: 0.5s;
     transition-delay: 0.0s; 
+
+    font-style: bold !important;
+    font-size: 11px !important;
+
+    font-weight: 400 !important;
+    line-height: 22px !important;
+    letter-spacing: -0.3px !important;
+    
     
 }
 .btn__od{
-    width: 100%;
+    width: 100% ;
 }
 
-/* .general {
-    max-width: 99%;
-    padding-right: 1vh;
-    margin: 0;
-    display: grid;
-    grid-template-rows: 3fr;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 2vh;
-} */
 
 
+.btn__odDrop{
+    width: 100% !important;
+}
 
-
+.btn__modal{
+    display: none !important;
+ 
+}
 @media (max-width: 1225px) {
     /* .general {
         grid-template-columns: repeat(3, 32%);
@@ -70,7 +68,7 @@
     .btn__budget
     
     {
-         grid-row-start: 1;
+         grid-row-start: 1 !important;
 
     }
     .btn__budgetBig,
@@ -78,13 +76,13 @@
     .btn__lawyer
     
      {
-        grid-row-start: 2;
+        grid-row-start: 2 !important;
     }
     .btn__company,
     .btn__companyPro,
     .btn__od
     {
-        grid-row-start: 3;
+        grid-row-start: 3 !important;
         
         /* grid-column-start: 2;
         grid-column-end: 4 */
@@ -92,9 +90,9 @@
     .btn__reset
     {
         
-        grid-row-start: 4;
-        grid-column-start: 1;
-        grid-column-end: 4;
+        grid-row-start: 4 !important;
+        grid-column-start: 1 !important;
+        grid-column-end: 4 !important;
     }
 }
 
@@ -108,38 +106,38 @@
     .btn__accountantBig
     
     {
-         grid-row-start: 1;
+         grid-row-start: 1  !important; 
 
     }
     .btn__budget,
     .btn__budgetBig
    
      {
-        grid-row-start: 2;
+        grid-row-start: 2  !important;
     }
     
     .btn__lawyer,
     .btn__company{
-        grid-row-start: 3;
+        grid-row-start: 3  !important;
     }
     .btn__ofice,
     .btn__companyPro{
-        grid-row-start: 4;
+        grid-row-start: 4  !important;
     }
     .btn__reset
     {
-       background-color: lawngreen;
-        grid-row-start: 5;
-        grid-column-start: 1;
-        grid-column-end: 1;
+       background-color: lawngreen  !important;
+        grid-row-start: 5  !important;
+        grid-column-start: 1  !important;
+        grid-column-end: 1  !important;
         /* grid-column-start: 2;
         grid-column-end: 4 */
     }
     .btn__od{
        
-        grid-row-start: 5;
-        grid-column-start: 2;
-        grid-column-end: 2;
+        grid-row-start: 5  !important;
+        grid-column-start: 2  !important;
+        grid-column-end: 2  !important;
     }
 }
 
@@ -148,19 +146,23 @@
 
     .btn__accountant,
     .btn__budget,
-    .btn__accountantBig,
-    .btn__budgetBig,
+    .btn__bigAccountant,
+    .btn__bigBudget,
     .btn__lawyer,
-    .btn__ofice,
+    .btn__office,
     .btn__company,
     .btn__companyPro,
     .btn__od,
+    .btn__reset,
     .dropdown__od {
-        /* .btn__reset {  */
-        display: none;
+       
+        display: none !important;
     }
+    /* .btns__complect{
+        display: none !important;
+    } */
 
-    .btn__accountant--modal,
+    .btn__accountantModal,
     .btn__budget--modal,
     .btn__lawyer--modal,
     .btn__ofice--modal,
@@ -170,9 +172,15 @@
     /* .btn__reset--modal, */
     .btn__modal,
     .dropdown__od--modal {
-        display: flex;  
+        display: flex !important;  
+        justify-content: center;
+        align-items: center;
+        position: sticky;
+        top: 1vh;
         grid-column-start: 1;
         grid-column-end: 2;
+        width: 90vh;
+        
     }
     .btn__modal, .dropdown__od--modal, .btn__reset, .modal__complect, .btn__od--modal, .btns__complect {
         min-width: 40vh;
@@ -190,6 +198,36 @@
     } */
 }
 
+@media (max-width: 322px) {
+
+    .btns__complect,
+    .btn__budget,
+    .btn__accountantBig,
+    .btn__budgetBig,
+    .btn__lawyer,
+    .btn__company,
+    .btn__od,
+    .btn__reset,
+    .btn__modal,
+
+    .btn__accountant--modal,
+    .btn__budget--modal,
+    .btn__lawyer--modal,
+    .btn__company--modal,
+    .btn__od--modal,
+    .btn__reset--modal,
+    .modal__complect {
+        /* width: 49vh;
+
+ height: 7vh;   */
+        width: 275px  !important;
+        /* width: 90%; */
+        height: 45px  !important;
+
+    }
+
+}
+
 /* .complect__generalParameters {
     font-size: 100vh;
     line-height: 100vh;
@@ -200,7 +238,7 @@
 
 
 
-.btn__0, .btn__2,
+/* .btn__0, .btn__2,
 .btn__accountant--modal {
     border: 2px solid;
     border-color: rgba(14, 201, 111, 1)
@@ -263,40 +301,11 @@
     background-color: white;
     
     color: rgb(0, 0, 0);
-}
-
-@media (max-width: 322px) {
-
-    .btns__complect,
-    .btn__0,
-    .btn__budget,
-    .btn__accountantBig,
-    .btn__budgetBig,
-    .btn__lawyer,
-    .btn__company,
-    .btn__od,
-    .btn__reset,
-    .btn__modal,
-    .btn__accountant--modal,
-    .btn__budget--modal,
-    .btn__lawyer--modal,
-    .btn__company--modal,
-    .btn__od--modal,
-    .btn__reset--modal,
-    .modal__complect {
-        /* width: 49vh;
-
- height: 7vh;   */
-        width: 275px;
-        /* width: 90%; */
-        height: 45px;
-
-    }
-
-}
+} */
 
 
-@media (min-width: 701px) {
+
+/* @media (min-width: 701px) {
 
     .btn__accountant,
     .btn__budget,
@@ -304,7 +313,7 @@
     .btn__company,
     .btn__od,
     .btn__reset {
-        display: flex;
+        display: flex  !important;
     }
 
     .btn__accountant--modal,
@@ -314,7 +323,7 @@
     .btn__reset--modal,
     .btn__od--modal,
     .btn__modal {
-        display: none;
+        display: none  !important;
 
     }
-}
+} */

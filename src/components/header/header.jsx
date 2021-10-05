@@ -10,8 +10,8 @@ let stHeader = {
 
   backgroundPosition: `center`,
    transitionProperty: `background-image, background-color, text-color, color, transform`,
-   transitionDuration: `0.1s`,
-   transitionDelay:` 0.1s`,
+   transitionDuration: `0.3s`,
+   transitionDelay:` 0.0s`,
     transform: `rotateZ(720deg)`
 }
     return (

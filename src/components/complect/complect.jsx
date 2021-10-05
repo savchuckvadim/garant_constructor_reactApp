@@ -1,10 +1,12 @@
 import style from "./complect.module.css"
 import ComplectButtons from "../buttons/buttons"
+
 import { addToStorage } from "../../utils/utils"
 
 
 import ODButtons from "../buttons/od.jsx"
 import ResetButton from "../buttons/reset";
+import ModalButton from "../buttons/modal/modal";
 {/* todo cюда передать массив созданных инфоблоко - можно несколько массивов разбитых по типам 
     чтобы метод класса комплект мог брать и отмечать в них чеки в соответствии с индексами своего наполнения по умолчанию  */}
 
@@ -75,16 +77,19 @@ export class ComplectClass {
 
 const Complect = (props) => {
     // console.log(props)
-    
+    let styleComplect = {
+        backgroundColor: props.state.theme[ props.state.indexOfTheme].backgroundColor
+    }
     return (
 
-        <form id="" className={`form`}>
-            <p id="complect__title">Выберите подходящий комплект "Гарант"</p>
+        <form style={styleComplect} id="" className={`form`}>
+            <p className={style.complect__title} id="complect__title">Выберите подходящий комплект "Гарант"</p>
             <div className={style.container}>
 
                 < ComplectButtons state={props.state} />
                 < ODButtons state={props.state} />
                 <ResetButton state={props.state} />
+                <ModalButton state={props.state}/>
             </div>
         </form>
     )

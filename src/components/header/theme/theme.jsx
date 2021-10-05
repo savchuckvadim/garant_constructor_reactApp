@@ -43,8 +43,8 @@ var styleOfRound = {
     padding: `0 auto`,
     borderWidth: `0.2px`,
    borderColor: `black`,
-   width: `2rem`,
-   height: `2rem`,
+   width: `1px`,
+   height: `1px`,
    borderRadius: `50%`,
    
    backgroundRepeat: `no-repeat`,

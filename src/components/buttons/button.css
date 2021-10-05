@@ -4,14 +4,14 @@
 } */
 
 .btns__complect,
-.btn__0,
-.btn__1,
-.btn__2,
-.btn__3,
-.btn__4,
-.btn__5,
-.btn__6,
-.btn__7,
+.btn__accountant,
+.btn__budget,
+.btn__bigAccountant,
+.btn__bigBudget,
+.btn__lawyer,
+.btn__office,
+.btn__company,
+.btn__companyPro,
 .btn__od,
 .btn__reset,
 .btn__modal,
@@ -30,7 +30,7 @@
 
     /* margin: 1vh; */
 
-    display: flex;
+    /* display: flex; */
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
@@ -41,7 +41,7 @@
     transition-duration: 0.5s;
     transition-delay: 0.0s; 
     display: none;
-    
+    font-family: sans;
 }
 .btn__od{
     width: 100%;

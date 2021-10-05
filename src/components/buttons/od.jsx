@@ -1,6 +1,7 @@
 
 import Ellipse from "./img/Ellipse.svg"
-import styleButtons from "./button.css"
+import styleBtn from "./button.module.css"
+
 
 import * as React from 'react';
 import { useTheme } from '@material-ui/core/styles';
@@ -39,13 +40,13 @@ function ODButtons(props) {
     color: props.state.theme[ props.state.indexOfTheme].color,
     backgroundColor: props.state.theme[ props.state.indexOfTheme].backgroundColor,
     // minWidth: '322px',
-    width: '100%',
+    // width: '100%',
     border: '0.5px ',
     borderStyle: 'solid',
     borderColor: props.state.theme[ props.state.indexOfTheme].color,
   
     // variant: 'light',
-    display: 'flex',
+    // display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
     flexDirection: 'row',
@@ -63,7 +64,7 @@ function ODButtons(props) {
     // console.log( theme.color)
     // styleOD = od (theme);
 
-    ods[index] = <Dropdown.Item style={style} onClick={() => { props.state.oD(element.name) }} as="button">{element.name}</Dropdown.Item>
+    ods[index] = <Dropdown.Item style={style} onClick={() => { props.state.oD(element.name) }} className={styleBtn.btns__complect} as="button">{element.name}</Dropdown.Item>
     //  <MenuItem onClick={() => { props.state.oD(element.name) }} key={element.name} select={true} as={Button} value={element.name} className={styleButtons.btn__od}  >{element.name} <img src={Ellipse} alt=""></img>  </MenuItem>
 
 
@@ -121,8 +122,8 @@ function ODButtons(props) {
     //     {ods}
     //   </Select>
     // </FormControl>
-    <DropdownButton  style={style} variant={props.state.theme[props.state.indexOfTheme].name} as={Button} align="end" id="dropdown-item-button" title={props.state.currentComplect ? props.state.currentComplect.od : 'Количество доступов'}>
-      <Dropdown.ItemText variant="outline" style={style}>Количество доступов </Dropdown.ItemText>
+    <DropdownButton className={styleBtn.btn__od} style={style} variant={props.state.theme[props.state.indexOfTheme].name} as={Button} align="end" id="dropdown-item-button" title={props.state.currentComplect ? props.state.currentComplect.od : 'Количество доступов'}>
+      <Dropdown.ItemText className={styleBtn.btn__od} variant="outline" style={style}>Количество доступов </Dropdown.ItemText>
       {ods}
     </DropdownButton>
 

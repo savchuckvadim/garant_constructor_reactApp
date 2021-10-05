@@ -1,12 +1,13 @@
 
-import Ellipse from "./img/Ellipse.svg"
-import styleBtn from "./button.module.css"
+
+import Ellipse from "../img/Ellipse.svg"
+import styleBtn from "../button.module.css"
 // import Button from 'react-bootstrap/Button';
 import Button from '@material-ui/core/Button';
 import React from 'react';
-import { ComplectClass } from "../complect/complect";
+import { ComplectClass } from "../../complect/complect";
 
-import { startApp } from "../../index";
+import { startApp } from "../../../index";
 
 
 
@@ -27,7 +28,7 @@ const dinamicStyleForButtons = (borderColor, textColor, complectColor) => {
         transitionProperty: 'background-color, transform, color',
         transitionDuration: '5.5s',
         transitionDelay: '0.0s',
-        border: '2px solid',
+        border: '0px solid',
         borderColor: borderColor,
         // display: 'none'
         '@media(max-width: 950px)': {
@@ -61,7 +62,7 @@ function createComplect(obj, index, state) {
 }
 
 
-const ComplectButtons = (props) => {
+const ComplectModalButtons = (props) => {
     let buttons = []
 
     // allComplects.forEach((element, index) => {
@@ -93,22 +94,22 @@ const ComplectButtons = (props) => {
         // buttons[index] = <Button style={style} onClick={() => { return createComplect(element, index, props.state) }} number={index} type="button" >{element.name} <img src={Ellipse} alt=""></img> </Button>
         // buttons[index] = <Button style={style} onClick={() => { return createComplect(element, index, props.state) }} className={styleBtn.btns__complect} number={index} type="button" >{element.name} <img src={Ellipse} alt=""></img> </Button>
         if (element.tag === 'accountant') {
-            buttons[index] = <Button style={style} onClick={() => { return createComplect(element, index, props.state) }} className={styleBtn.btn__accountant} number={index} type="button" >{element.name} <img src={Ellipse} alt=""></img> </Button>
+            buttons[index] = <Button style={style} onClick={() => { return createComplect(element, index, props.state) }} className={styleBtn.btn__accountantModal} number={index} type="button" >{element.name} <img src={Ellipse} alt=""></img> </Button>
             
         }else  if (element.tag === 'budget') {
-            buttons[index] = <Button style={style} onClick={() => { return createComplect(element, index, props.state) }} className={styleBtn.btn__budget} number={index} type="button" >{element.name} <img src={Ellipse} alt=""></img> </Button>
+            buttons[index] = <Button style={style} onClick={() => { return createComplect(element, index, props.state) }} className={styleBtn.btn__budgetModal} number={index} type="button" >{element.name} <img src={Ellipse} alt=""></img> </Button>
         }else if (element.tag === 'bigAccountant') {
-            buttons[index] = <Button style={style} onClick={() => { return createComplect(element, index, props.state) }} className={styleBtn.btn__bigAccountant} number={index} type="button" >{element.name} <img src={Ellipse} alt=""></img> </Button>
+            buttons[index] = <Button style={style} onClick={() => { return createComplect(element, index, props.state) }} className={styleBtn.btn__bigAccountantModal} number={index} type="button" >{element.name} <img src={Ellipse} alt=""></img> </Button>
         }else if (element.tag === 'bigBudget') {
-            buttons[index] = <Button style={style} onClick={() => { return createComplect(element, index, props.state) }} className={styleBtn.btn__bigBudget} number={index} type="button" >{element.name} <img src={Ellipse} alt=""></img> </Button>
+            buttons[index] = <Button style={style} onClick={() => { return createComplect(element, index, props.state) }} className={styleBtn.btn__bigBudgetModal} number={index} type="button" >{element.name} <img src={Ellipse} alt=""></img> </Button>
         }else if (element.tag === 'lawyer') {
-            buttons[index] = <Button style={style} onClick={() => { return createComplect(element, index, props.state) }} className={styleBtn.btn__lawyer} number={index} type="button" >{element.name} <img src={Ellipse} alt=""></img> </Button>
+            buttons[index] = <Button style={style} onClick={() => { return createComplect(element, index, props.state) }} className={styleBtn.btn__lawyerModal} number={index} type="button" >{element.name} <img src={Ellipse} alt=""></img> </Button>
         }else if (element.tag === 'office') {
-            buttons[index] = <Button style={style} onClick={() => { return createComplect(element, index, props.state) }} className={styleBtn.btn__office} number={index} type="button" >{element.name} <img src={Ellipse} alt=""></img> </Button>
+            buttons[index] = <Button style={style} onClick={() => { return createComplect(element, index, props.state) }} className={styleBtn.btn__officeModal} number={index} type="button" >{element.name} <img src={Ellipse} alt=""></img> </Button>
         }else if (element.tag === 'company') {
-            buttons[index] = <Button style={style} onClick={() => { return createComplect(element, index, props.state) }} className={styleBtn.btn__company} number={index} type="button" >{element.name} <img src={Ellipse} alt=""></img> </Button>
+            buttons[index] = <Button style={style} onClick={() => { return createComplect(element, index, props.state) }} className={styleBtn.btn__companyModal} number={index} type="button" >{element.name} <img src={Ellipse} alt=""></img> </Button>
         }else if (element.tag === 'companyPro') {
-            buttons[index] = <Button style={style} onClick={() => { return createComplect(element, index, props.state) }} className={styleBtn.btn__companyPro} number={index} type="button" >{element.name} <img src={Ellipse} alt=""></img> </Button>
+            buttons[index] = <Button style={style} onClick={() => { return createComplect(element, index, props.state) }} className={styleBtn.btn__companyProModal} number={index} type="button" >{element.name} <img src={Ellipse} alt=""></img> </Button>
         }
     })
 
@@ -120,4 +121,4 @@ const ComplectButtons = (props) => {
     )
 }
 
-export default ComplectButtons
+export default ComplectModalButtons

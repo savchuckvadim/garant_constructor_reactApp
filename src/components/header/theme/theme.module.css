@@ -21,18 +21,18 @@ body{
  .round{
      margin: 0 auto;
      padding: 0 auto;
-     border-width: 0.5px;
+     border-width: 0px;
     border-color: black;
-    width: 2rem;
-    height: 2rem;
+    width: 1.5rem;
+    height: 1.5rem;
     border-radius: 50%;
    
     
     background-repeat: no-repeat;
     background-position: center;
     transition-property: background-image, background-color, text-color, color, transform;
-    transition-duration: 0.1s; 
-    transition-delay: 0.1s; 
+    transition-duration: 0.4s; 
+    transition-delay: 0.0s; 
      transform: rotateZ(3600deg); 
     
 
