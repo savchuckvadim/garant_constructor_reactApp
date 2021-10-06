@@ -6,12 +6,13 @@ import Header from './components/header/header';
 import Main from './components/main/main';
 import DescriptionPage from './components/description/description';
 import { BrowserRouter, Route } from 'react-router-dom'
-import { TransitionGroup, CSSTransition, Transition } from "react-transition-group";
+import { CSSTransition, } from "react-transition-group";
 
 import 'bootstrap/dist/css/bootstrap.min.css'
-import Result from './components/result/result';
+
 
 function App(props) {
+ 
   const [inProp, setInProp] = useState(false);
   props.state.changeState();
 
@@ -35,7 +36,7 @@ function App(props) {
           <Route key={path} exact path={path}>
             {({ math }) =>
               <CSSTransition
-                timeout={100000}
+                timeout={1000}
                 classNames="app"
 
                 in={inProp}

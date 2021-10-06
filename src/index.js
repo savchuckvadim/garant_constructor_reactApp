@@ -5,18 +5,33 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { state } from './state/state';
 import { subscribe } from "./state/state";
+import { addToStorage, getFromStorage } from "./utils/utils.js";
 
 export const startApp = () => {
-  ReactDOM.render(
-    <React.StrictMode>
-      <App state={state} />
-    </React.StrictMode>,
-    document.getElementById('root')
-  );
-}
+  if(getFromStorage('version').length < 1){
+    localStorage.removeItem('currentComplect')
+    addToStorage({1:'1'}, 'version')
+    ReactDOM.render(
+      <React.StrictMode>
+        <App state={state} />
+      </React.StrictMode>,
+      document.getElementById('root')
+    );
+  }
+  else{
+    ReactDOM.render(
+      <React.StrictMode>
+        <App state={state} />
+      </React.StrictMode>,
+      document.getElementById('root')
+    );
+  }
 
+}
 startApp();
 state.subscribe(startApp)
+
+
 
 
 

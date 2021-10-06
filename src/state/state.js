@@ -1148,7 +1148,8 @@ class State {
   }
 
   reset() {
-
+    localStorage.removeItem('currentComplect')
+    this.startApp()
   }
 
   weightForResult = () => {
