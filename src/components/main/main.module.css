@@ -110,6 +110,9 @@
         position: sticky;
         top: 0vh;
         z-index: 1000 !important;
+        width: 85vh;
+        margin: 0;
+        padding: 0;
     }
 
 
@@ -122,6 +125,7 @@
         grid-template-columns: 1fr;
         grid-template-rows: 3fr;
         grid-gap: 0vh;
+        max-width: 100%;
 
     }
 
@@ -132,8 +136,18 @@
         grid-row-start: 1;
         grid-row-end: 1;
         margin-left: 0vh;
+        display: flex;
         justify-self: center;
-        width: 90%;
+        
+        position: sticky;
+        top: 0vh;
+        left: 0;
+        right: 0;
+        z-index: 1000 !important;
+        /* width: 150px; */
+        margin: 0;
+        padding: 0;
+     
     }
 
     .infoblocks {

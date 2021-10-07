@@ -29,14 +29,22 @@
 
 @media (max-width: 700px) {
     .container {
-        padding-top: 1vh;
+        /* padding-top: 1vh;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr;
-        grid-gap: 1vh;
-        
+        grid-gap: 1vh; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
        
     }
     .complect__title{
+        padding-top: 5vh;
         display: none !important;
+    }
+    .form{
+        padding-top: 5vh;
+        max-width: 375px;
+        margin: 0;
     }
 }

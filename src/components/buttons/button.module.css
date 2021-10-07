@@ -79,6 +79,7 @@
 
 .btn__modal{
     display: none !important;
+    
  
 }
 @media (max-width: 1225px) {
@@ -207,9 +208,12 @@
         
     }
     .btn__modal, .dropdown__od--modal, .btn__reset, .modal__complect, .btn__od--modal, .btns__complect {
-        min-width: 40vh;
+        /* min-width: 40vh; */
         /* width: 90%; */
         /* justify-self: center; */
+    }
+    .btn__modal{
+        width: 100vh
     }
 
     /* .general {
@@ -244,7 +248,7 @@
         /* width: 49vh;
 
  height: 7vh;   */
-        width: 275px  !important;
+        width: 275px !important;
         /* width: 90%; */
         height: 45px  !important;
 

@@ -70,7 +70,7 @@
 @media (max-width: 680px) {
 
     .result__container{
-        width: 85vh;
+        /* width: 75vh; */
         min-height: 10px;
         height: auto;
         padding: 2vh;
