@@ -1,5 +1,5 @@
 
-import { Tooltip } from "@material-ui/core"
+import { Button, Tooltip } from "@material-ui/core"
 import React from "react"
 import { Link, NavLink } from "react-router-dom"
 import style from "./result.module.css"
@@ -63,7 +63,9 @@ const Result = (props) => {
 
 
         styleResult = {
-            backgroundColor: props.state.allComplects[props.state.currentComplect.number].color
+            backgroundColor: props.state.allComplects[props.state.currentComplect.number].color,
+            color : 'white',
+            textDecoration: 'none'
         }
         styleBack = {
             backgroundColor: props.state.theme[props.state.indexOfTheme].backgroundColor,
@@ -121,7 +123,7 @@ const Result = (props) => {
                 <p id="complect__price" style={styleLt} className={style.text}>Общая Стоимость  <span className={style.spanResult}>{` ${totalPrice} р`} </span></p>
                 <p className={style.text}> <NavLink className={style.text} as={Link} to="/description"> Описание комплекта </NavLink></p>
             </div>
-            <button type="button" style={styleResult} className="result__text btn btn-primary result__btn">Выбрать комплект</button>
+            <NavLink className="result__text btn btn-primary result__btn" style={styleResult} as={Button} to="/offer">Выбрать комплект</NavLink>
 
         </div>
     )

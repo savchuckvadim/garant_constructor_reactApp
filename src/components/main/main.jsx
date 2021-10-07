@@ -2,6 +2,7 @@ import style from "./main.module.css"
 import AllInfoblocks from "../infoblocks/infoblocks"
 import Result from "../result/result"
 import Complect from "../complect/complect"
+import { width } from "@material-ui/system"
 
 // import { state } from "../../App"
 
@@ -16,6 +17,11 @@ const Main = (props) => {
         backgroundColor: props.state.theme[props.state.indexOfTheme].backgroundColor,
         color: props.state.theme[props.state.indexOfTheme].color
 
+    }
+    let styleResult = {
+        backgroundColor: props.state.theme[props.state.indexOfTheme].backgroundColor,
+        color: props.state.theme[props.state.indexOfTheme].color,
+        // width: '100%'
     }
 
     return (
@@ -34,7 +40,7 @@ const Main = (props) => {
 
                 </div>
 
-                <div className={style.result__container}>
+                <div style={styleResult} className={style.result__container}>
                     <Result state={props.state} />
                 </div>
 

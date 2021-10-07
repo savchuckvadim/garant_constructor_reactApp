@@ -16,8 +16,8 @@
     justify-content: space-between;
     border-width: 1px;
     border-color: rgb(160, 179, 179);
-    transition-property: position, background-color, top, bottom, left, right, width, height;
-    transition-duration: 2.5s; 
+    transition-property: background-color, top, bottom, left, right,  height;
+    transition-duration: 1.5s; 
     transition-delay: 0.5s; 
 }
 .text{
@@ -39,10 +39,10 @@
         min-height: 10px;
         height: auto;
         padding: 2vh;
-        position: sticky;
+        /* position: sticky;
         right: 0vh;
         left: 0vh;
-        bottom: 0px;
+        bottom: 0px; */
         display: flex;
         flex-direction: column;
 
@@ -74,10 +74,10 @@
         min-height: 10px;
         height: auto;
         padding: 2vh;
-        position: sticky;
+        /* position: sticky;
         right: 0vh;
         left: 0vh;
-        bottom: 0px;
+        bottom: 50vh; */
         display: flex;
         flex-direction: column;
         justify-content: flex-end;

@@ -9,6 +9,7 @@ import { BrowserRouter, Route } from 'react-router-dom'
 import { CSSTransition, } from "react-transition-group";
 
 import 'bootstrap/dist/css/bootstrap.min.css'
+import Offer from './components/offer/offer';
 
 
 function App(props) {
@@ -20,11 +21,15 @@ function App(props) {
   let descriptionPage = () => {
     return <DescriptionPage state={props.state} />
   }
+  let offerPage = () => {
+    return Offer(props.state)
+  }
 
   const routes = [
     { path: "/", Component: MainPage },
     { path: "/main", Component: MainPage },
-    { path: "/description", Component: descriptionPage }
+    { path: "/description", Component: descriptionPage },
+    { path: "/offer", Component: offerPage }
   ]
   return (
     <BrowserRouter>
@@ -38,7 +43,6 @@ function App(props) {
               <CSSTransition
                 timeout={1000}
                 classNames="app"
-
                 in={inProp}
               >
                 <Component />

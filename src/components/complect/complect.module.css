@@ -36,6 +36,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        margin: 0 auto !important;
        
     }
     .complect__title{
@@ -43,8 +44,10 @@
         display: none !important;
     }
     .form{
-        padding-top: 5vh;
-        max-width: 375px;
+        padding-right: 0 auto;
+        padding-top: 1vh;
+       
+        width: 100%;
         margin: 0;
     }
 }

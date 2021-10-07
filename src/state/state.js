@@ -20,7 +20,7 @@ class State {
         'name': 'Бухгалтер',
         'tag': 'accountant',
         'color': 'rgba(14, 201, 111, 1)',
-        
+
         'backgroundColor': 'white',
         'weight': 3.5,
         'filling': [
@@ -877,14 +877,14 @@ class State {
     ]
 
     this.prices = [
-      [4740, 4740, 5940, 6150, 6780, 6780, 9510, 12000],
-      [5700, 5700, 7140, 7380, 8160, 8160, 11400, 14400],
-      [7590, 7590, 9510, 9840, 10860, 10860, 15210, 19200],
-      [11400, 11400, 14220, 14760, 16290, 16290, 22800, 28800],
-      [15210, 15210, 18960, 19680, 21720, 21720, 30390, 38400],
-      [18960, 18960, 23760, 24600, 27120, 27120, 38010, 48000],
-      [22740, 22740, 28500, 29520, 32550, 32550, 45630, 57600],
-      [26520, 26520, 33270, 34440, 37980, 37980, 53220, 67200]
+      [4740, 4740, 6780, 6780, 5940, 6150, 9510, 12000],
+      [5700, 5700, 8160, 8160, 7140, 7380, 11400, 14400],
+      [7590, 7590, 10860, 10860, 9510, 9840, 15210, 19200],
+      [11400, 11400, 16290, 16290, 14220, 14760, 22800, 28800],
+      [15210, 15210, 21720, 21720, 18960, 19680, 30390, 38400],
+      [18960, 18960, 27120, 27120, 23760, 24600, 38010, 48000],
+      [22740, 22740, 32550, 32550, 28500, 29520, 45630, 57600],
+      [26520, 26520, 37980, 37980, 33270, 34440, 53220, 67200]
     ]
     this.pricesOfLt = [960, 2200, 3300]
 
@@ -1139,7 +1139,7 @@ class State {
 
     // debugger
     if (!ind2) {
-      return result = this.prices[0][0]
+      return result = this.prices[0][ind1]
 
     } else {
       return result = this.prices[ind2][ind1]
@@ -1179,37 +1179,37 @@ class State {
   }
 
   weightLtForResult = () => {
-    if(this.currentComplect){
+    if (this.currentComplect) {
       this.legalTech.ltIncluded = 0
-    this.legalTech.weightLt = 0
-    this.legalTech.value.forEach((element, index) => { //перебираем все LT
-      if (this.currentComplect.fillingPaketLT.includes(index)) { //если индекс перебираемого LT содержится в списке индексов входящих в комплект по умолчанию
-        if (element.checked) {
-         
-          this.legalTech.weightLt = this.legalTech.weightLt + element.weight
+      this.legalTech.weightLt = 0
+      this.legalTech.value.forEach((element, index) => { //перебираем все LT
+        if (this.currentComplect.fillingPaketLT.includes(index)) { //если индекс перебираемого LT содержится в списке индексов входящих в комплект по умолчанию
+          if (element.checked) {
+
+            this.legalTech.weightLt = this.legalTech.weightLt + element.weight
+          }
+
+        } else if (this.currentComplect.fillingLTIndexes.includes(index)) {
+          element.checked ? this.legalTech.ltIncluded++ : this.legalTech.ltIncluded = this.legalTech.ltIncluded - 0
+
         }
+        this.legalTech.weightLt > 0 ? this.legalTech.display = 'flex' : this.legalTech.display = 'none'
 
-      } else if (this.currentComplect.fillingLTIndexes.includes(index)) {
-        element.checked ? this.legalTech.ltIncluded++ : this.legalTech.ltIncluded = this.legalTech.ltIncluded - 0
+        if (this.legalTech.weightLt === 2) {
+          this.legalTech.nameOflt = `Малый Пакет`
+          this.legalTech.priceOfLt = this.pricesOfLt[0]
+        } else if (this.legalTech.weightLt === 5) {
+          this.legalTech.nameOflt = `Средний Пакет `
+          this.legalTech.priceOfLt = this.pricesOfLt[1]
+        } else if (this.legalTech.weightLt === 10) {
+          this.legalTech.nameOflt = `Большой Пакет `
+          this.legalTech.priceOfLt = this.pricesOfLt[2]
+        }
+        if (this.legalTech.weightLt === 1 || this.legalTech.weightLt > 2 && this.legalTech.weightLt < 5 || this.legalTech.weightLt > 5 && this.legalTech.weightLt < 11) {
+          this.legalTech.nameOflt = `LT собран неверно`
+        }
+      })
 
-      }
-      this.legalTech.weightLt > 0 ? this.legalTech.display = 'flex' : this.legalTech.display = 'none'
-
-      if (this.legalTech.weightLt === 2) {
-        this.legalTech.nameOflt = `Малый Пакет`
-        this.legalTech.priceOfLt = this.pricesOfLt[0]
-      } else if (this.legalTech.weightLt === 5) {
-        this.legalTech.nameOflt = `Средний Пакет `
-        this.legalTech.priceOfLt = this.pricesOfLt[1]
-      } else if (this.legalTech.weightLt === 10) {
-        this.legalTech.nameOflt = `Большой Пакет `
-        this.legalTech.priceOfLt = this.pricesOfLt[2]
-      }
-      if (this.legalTech.weightLt === 1 || this.legalTech.weightLt > 2 && this.legalTech.weightLt < 5 || this.legalTech.weightLt > 5 && this.legalTech.weightLt < 11) {
-        this.legalTech.nameOflt = `LT собран неверно`
-      }
-    })
-    
     }
   }
 
