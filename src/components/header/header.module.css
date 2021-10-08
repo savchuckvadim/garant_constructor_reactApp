@@ -45,3 +45,12 @@ header {
 .container__darktheme{
 margin: 1vh;
 }
+
+.leftBlock{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}

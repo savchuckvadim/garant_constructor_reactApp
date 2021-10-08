@@ -1,0 +1,15 @@
+.link{
+    color: cornflowerblue;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.link ::shadow{
+    cursor: pointer;
+}
+
+@media print {
+    .link{
+        display: "none";
+    }
+}

@@ -1,37 +1,34 @@
+import { getThemeProps } from "@material-ui/system"
 import { Link, NavLink } from "react-router-dom"
 import style from "./offer.module.css"
+import Included from "./offerIncluded"
+import OfferLinkBack from "./offerLinkBack"
+import TableOffer from "./offerPrice"
+import PhoneNumber from "./phoneNumber"
 
 
 const Offer = (state) => {
+
+    state.changeInfoblocksData()  //подготавливает data-файлы перед отрисовкой на основе информации из текущего комплекта
+    state.changePaketsErData()
+    state.changeErData()
+    state.changeltData()
+    state.weightLtForResult()
     if (state.currentComplect) {
-        let resultArray = []
-        let infoblocks = (array) => {
-            array.forEach((elem, idx) => {
-                resultArray[idx] = elem.value.map((element) => {
 
-                    if (element.checked) {
-                        console.log(element.name)
-                        return (<p> {element.name} </p>)
+       
 
-                    }
-                })
-                console.log(resultArray)
-            })
-
-            return resultArray
-
-
-        }
         return (
             <div className={style.wrapper}>
+               
                 <h1>{state.currentComplect.name}</h1>
-
-                {infoblocks(state.infoblocks)}
-                {infoblocks(state.encyclopedias)}
-
-                {/* { infoblocks(state.legalTech)} */}
-
-                <h1><NavLink as={Link} to='/main' className={style.link}>Назад к составлению комплекта </NavLink></h1>
+                <p>{state.currentComplect.od}</p>
+                {/* <h3 className={style.titleOfIncluded}> Информационное наполнение Системы Гарант </h3> */}
+                <Included state={state} />
+                
+                <TableOffer state={state} />
+                {/* <h1><NavLink as={Link} to='/main' className={style.link}>Назад к составлению комплекта </NavLink></h1> */}
+                <OfferLinkBack />
             </div>
         )
     } else {

@@ -3,10 +3,11 @@ import { Button, Tooltip } from "@material-ui/core"
 import React from "react"
 import { Link, NavLink } from "react-router-dom"
 import style from "./result.module.css"
-
+import styleOffer from "./resultOffer.module.css"
 
 
 const Result = (props) => {
+    
     let toolTipText = 'Legal Tech'
 
     let styleResult

@@ -841,7 +841,7 @@ class State {
     }
 
     this.od = [{
-        name: '1 Одновременныйдоступ',
+        name: '1 Одновременный доступ',
         status: 'uncheck'
       },
       {
@@ -907,15 +907,64 @@ class State {
     ]
 
     this.indexOfTheme = 0;
+
+    this.result = {
+      'status': ''
+    }
+    this.phoneNumber = {
+      'status': true,
+      'value': '+79620027991'
+    }
+
+    this.offer = {
+      'active': 'true',
+      'prepaid': '0',
+      'discount': '',
+
+    }
   }
 
+  changePhoneFromLocal() {
+    const storageData = getFromStorage('phone');
+    if (storageData) {
+      console.log(this.phoneNumber)
+    console.log(storageData)
+      this.phoneNumber = storageData
+      
+    }
+
+  }
+
+  changeDataPhone(value) {
+    this.phoneNumber.value = value
+    addToStorage(this.phoneNumber, 'phone')
+    this.startApp()
+  }
+
+  changeOffer(type, value) {
+    for (let offerProp in this.offer) {
+      console.log(offerProp)
+    
+      if (offerProp === type) {
+
+        this.offer[offerProp] = value
+      }
+
+    }
+  
+    this.save()
+    this.startApp()
+  }
 
   save() {
     addToStorage(this.currentComplect, 'currentComplect')
+    addToStorage(this.offer, 'offer')
+    
   }
 
   changeState() {
     const storageData = getFromStorage('currentComplect');
+
     if (storageData.name) {
       let obj = new ComplectClass(storageData.name, storageData.number, this);
       obj.currentFilling = storageData.currentFilling;
@@ -924,6 +973,15 @@ class State {
     } else {
       this.currentComplect = null
     }
+
+    const storageDataOffer = getFromStorage('offer');
+    if (storageDataOffer.length > 0) {
+      this.offer = storageDataOffer[0]
+    }
+  }
+
+  changeCurrentOffer() {
+
 
   }
 

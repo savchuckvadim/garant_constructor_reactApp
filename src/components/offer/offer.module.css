@@ -1,11 +1,15 @@
 
 .wrapper{
     margin: 0;
-    padding: 0;
+    padding: 2vh 7vh;
     min-width: 100vh;
     height: 100vh;
+    /* overflow: hidden; */
     /* background-color: rgb(67, 79, 100); */
 }
-.link{
-    color: cornflowerblue;
+
+.titleOfIncluded{
+    font-size: large;
+    font-weight: 600;
+    margin: 3vh
 }

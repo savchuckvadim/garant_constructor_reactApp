@@ -1,0 +1,13 @@
+.select{
+    height: 50px !important;
+    width: 100px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    align-self: flex-end !important;
+}
+
+.formControl{
+    display: flex !important;
+    justify-content: end !important;
+    align-items: flex-end !important;
+}
