@@ -9,7 +9,7 @@ import OutlinedInput from '@material-ui/core/OutlinedInput';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import { Button } from "@material-ui/core";
+import { Button, InputLabel, NativeSelect } from "@material-ui/core";
 import { state } from "../../state/state";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from 'react-bootstrap/DropdownButton'
@@ -36,15 +36,16 @@ function ODButtons(props) {
   let ods = []
   const style = {
     height: 54,
-    textColor: props.state.theme[ props.state.indexOfTheme].color,
-    color: props.state.theme[ props.state.indexOfTheme].color,
-    backgroundColor: props.state.theme[ props.state.indexOfTheme].backgroundColor,
+    textColor: props.state.theme[props.state.indexOfTheme].color,
+    color: props.state.theme[props.state.indexOfTheme].color,
+    backgroundColor: props.state.theme[props.state.indexOfTheme].backgroundColor,
     // minWidth: '322px',
     // width: '100%',
     border: '0.5px ',
     borderStyle: 'solid',
-    borderColor: props.state.theme[ props.state.indexOfTheme].color,
-  
+    borderColor: props.state.theme[props.state.indexOfTheme].color,
+    borderRadius : '3%',
+
     // variant: 'light',
     // display: 'flex',
     justifyContent: 'space-between',
@@ -53,8 +54,8 @@ function ODButtons(props) {
     flexWrap: 'nowrap',
     transitionProperty: 'background-color, transform, color',
     transitionDuration: '0.5s',
-    transitionDelay: '0.3s' 
-    
+    transitionDelay: '0.3s'
+
     // textColor: 'black'
   }
 
@@ -64,8 +65,12 @@ function ODButtons(props) {
     // console.log( theme.color)
     // styleOD = od (theme);
 
-    ods[index] = <Dropdown.Item style={style} onClick={() => { props.state.oD(element.name) }} className={styleBtn.btns__complect} as="button">{element.name}</Dropdown.Item>
+    // ods[index] = <Button style={style} onClick={() => { props.state.oD(element.name) }} className={styleBtn.btns__complect} as="button">{element.name}</Button>
+    ods[index] = <MenuItem><Button style={style} onClick={() => { props.state.oD(element.name) }} className={styleBtn.btns__complect} as="button">{element.name}</Button></MenuItem>
+   
+
     //  <MenuItem onClick={() => { props.state.oD(element.name) }} key={element.name} select={true} as={Button} value={element.name} className={styleButtons.btn__od}  >{element.name} <img src={Ellipse} alt=""></img>  </MenuItem>
+
 
 
 
@@ -122,10 +127,26 @@ function ODButtons(props) {
     //     {ods}
     //   </Select>
     // </FormControl>
-    <DropdownButton className={styleBtn.btn__od} style={style} variant={props.state.theme[props.state.indexOfTheme].name} as={Button} align="end" id="dropdown-item-button" title={props.state.currentComplect ? props.state.currentComplect.od : 'Количество доступов'}>
-      <Dropdown.ItemText className={styleBtn.btn__od} variant="outline" style={style}>Количество доступов </Dropdown.ItemText>
-      {ods}
-    </DropdownButton>
+    // <DropdownButton className={styleBtn.btn__od} style={style} variant={props.state.theme[props.state.indexOfTheme].name} as={Button} align="end" id="dropdown-item-button" title={props.state.currentComplect ? props.state.currentComplect.od : 'Количество доступов'}>
+    //   <Dropdown.ItemText className={styleBtn.btn__od} variant="outline" style={style}>Количество доступов </Dropdown.ItemText>
+    //   {ods}
+    // </DropdownButton>
+
+<FormControl style={style}  className = {styleBtn.btn__od} style={style} fullWidth>
+<InputLabel id="demo-simple-select-autowidth-label">{props.state.currentComplect ? props.state.currentComplect.od : 'Количество доступов'}</InputLabel> 
+<Select
+// variant="standard"
+className = {styleBtn.select}
+    variant="standard"
+    
+  
+// onChange={ handleChange}
+>
+   
+{ods}
+
+</Select>
+</FormControl>
 
   );
 }

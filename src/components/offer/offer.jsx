@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom"
 import style from "./offer.module.css"
 import Included from "./offerIncluded"
 import OfferLinkBack from "./offerLinkBack"
+import NameAndOd from "./offerNameAndOd"
 import TableOffer from "./offerPrice"
 import PhoneNumber from "./phoneNumber"
 
@@ -20,10 +21,8 @@ const Offer = (state) => {
 
         return (
             <div className={style.wrapper}>
-               
-                <h1>{state.currentComplect.name}</h1>
-                <p>{state.currentComplect.od}</p>
-                {/* <h3 className={style.titleOfIncluded}> Информационное наполнение Системы Гарант </h3> */}
+               <NameAndOd state={state} />
+             
                 <Included state={state} />
                 
                 <TableOffer state={state} />

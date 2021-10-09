@@ -10,6 +10,11 @@
     
 }
 
+.complect__title{
+    padding: 1vh 0vh;
+    
+}
+
 @media (max-width: 1225px) {
     .container {
         grid-template-columns: repeat(3, 32%);

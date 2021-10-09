@@ -9,9 +9,10 @@
 .titleOfBlocks{
     font-size: large;
     font-weight: 600;
-    margin: 1vh;
+    margin: 2vh 0vh;
     text-decoration: line;
 }
 .info{
-
+    font-size: x-large;
+    font-weight: 600;
 }

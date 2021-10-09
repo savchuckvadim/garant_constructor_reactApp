@@ -16,15 +16,19 @@ const Included = (props) => {
             array.forEach((elem, idx) => {
                 let resultArray = []
                 let type = <h4 className={style.titleOfBlocks}>{array[idx].nameOfType}</h4>
-                resultArray[idx] = elem.value.map((element) => {
+                elem.value.forEach((element) => {
 
                     if (element.checked) {
                         console.log(element.name)
-                        return (<p> {element.name} </p>)
+                        resultArray.push(<p  className={style.info}> {element.name} </p>)
                     }
                 })
-                result.push(type)
-                result.push(resultArray)
+                console.log(resultArray)
+                if(resultArray.length > 0){
+                    result.push(type)
+                    result.push(resultArray)
+                }
+                
               
             })
             return (
@@ -39,7 +43,7 @@ const Included = (props) => {
             let resultArray = []
             array.value.forEach((elem) => {
                 if (elem.checked === true) {
-                    resultArray.push(<p>{elem.name}</p>)
+                    resultArray.push(<p  className={style.info}>{elem.name}</p>)
                 }
             })
             let title
