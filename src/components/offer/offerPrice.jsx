@@ -1,12 +1,13 @@
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@material-ui/core";
-import OfferDiscount from "./offerDiscount";
-import OfferPrepaid from "./offerPrepaid";
+import  style  from "./offerPrice.module.css";
 
-function createData(name, prepaid, discount, total) {
+const TYPE = 'PRICE'
+function createData(type, name, prepaid, discount, total) {
     let result = {
+        'type' : type,
         'name': name,
         'prepaid': prepaid,
-        'discount': discount,
+        'discount': `${discount} р.` ,
         'total': total
     }
     return result
@@ -19,34 +20,43 @@ function createData(name, prepaid, discount, total) {
 
 const TableOffer = (props) => {
     let rows = []
-
+    let result
+    if(props.state.currentComplect){
+        result = props.dispatch({
+            type: 'RESULT'
+        })
+    }
+    let price = props.dispatch({type: TYPE})
+    
+    
     const goods = (state) => {
         console.log(state)
+        
         if (state.currentComplect) {
-            
+
             rows = [
-                createData(state.currentComplect.name, 0, 0, state.price())
+                createData('Гарант', state.currentComplect.name, 0, 0, price)
 
             ]
             if (state.legalTech.nameOflt) {
-                rows.push(createData(state.legalTech.nameOflt, 0, 0, state.legalTech.priceOfLt))
+                rows.push(createData('Legal Tech', result.nameOflt, 0, 0, state.legalTech.priceOfLt))
             }
         }
     }
 
 
-    goods(props.state)
+    goods(props.state )
     console.log(rows)
     return (
-        <TableContainer component={Paper}>
+        <TableContainer component={Paper} className={style.table}>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
                 <TableHead>
                     <TableRow>
                         <TableCell>Наименование</TableCell>
-                        <TableCell align="right">Цена</TableCell>
-                        <TableCell align="right">Аванс&nbsp;(мес.)</TableCell>
-                        <TableCell align="right">Скидка&nbsp;(%)</TableCell>
-                        <TableCell align="right">Сумма&nbsp;(руб.)</TableCell>
+                        <TableCell align="right">Цена за месяц</TableCell>
+                        {/* <TableCell align="right">Аванс&nbsp;(мес.)</TableCell> */}
+                        {/* <TableCell align="right">Скидка&nbsp;(%)</TableCell> */}
+                        {/* <TableCell align="right">Сумма&nbsp;(руб.)</TableCell> */}
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -55,12 +65,12 @@ const TableOffer = (props) => {
                             key={row.name}
                             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                         >
-                            <TableCell component="th" scope="row">
-                                {row.name}
+                            <TableCell component="th" scope="row" className={style.spanText}>
+                                {`${row.type} ${row.name}`}
                             </TableCell>
-                            <TableCell align="right">{row.total}</TableCell>
-                            <OfferPrepaid />
-                            <OfferDiscount state={props.state} />
+                            {/* <TableCell align="right">{row.total}</TableCell> */}
+                            {/* <OfferPrepaid /> */}
+                            {/* <OfferDiscount state={props.state} dispatch={props.dispatch} /> */}
                             {/* <TableCell align="right">{row.discount}</TableCell> */}
                             <TableCell align="right">{row.total}</TableCell>
 

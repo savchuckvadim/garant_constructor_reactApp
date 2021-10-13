@@ -1,0 +1,22 @@
+.wrapper{
+    /* display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: flex-end; */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* margin-bottom: 5vh; */
+    align-items: flex-end;
+    width: 100%;
+}
+
+.name{
+    margin-right: 5vh;
+}
+
+.od{
+    font-weight: 600 !important;
+    font-size: xx-large;
+    direction: underline   !important ;
+    
+}

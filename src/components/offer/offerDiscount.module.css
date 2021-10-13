@@ -1,3 +1,10 @@
 .input{
     /* background-color: black; */
+    text-align: right;
+    width: 15%;
+    /* height: 20%; */
+    margin: 0 !important;
+    padding: 0 !important;
+  
+    /* margin-top: 20px !important; */
 }

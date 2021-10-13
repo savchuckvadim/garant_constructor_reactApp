@@ -12,7 +12,8 @@ import { ComplectClass } from "../complect/complect";
 import { startApp } from "../../index";
 
 
-
+const COMPLECT = 'COMPLECT';
+const CURRENT_COMPLECT = 'CURRENT_COMPLECT'
 
 const dinamicStyleForButtons = (borderColor, textColor, complectColor) => {
     // state.allComplects.map((element) => {
@@ -66,34 +67,44 @@ const createActiveStyle = (props, element) => {
 
     }
 }
-function createComplect(obj, index, state) {
 
-
-
-    state.allComplects.forEach(element => {
-        element.backgroundColor = state.theme[state.indexOfTheme].backgroundColor
-    })
-    // let style = dinamicStyleForButtons(state.allComplects[index].color, state.allComplects[index] );
-    state.allComplects[index].backgroundColor = state.allComplects[index]
-    // state.allComplects[index].color = state.theme[state.indexOfTheme].color
-    let complect = new ComplectClass(obj, index, state);
-    complect.odSaver()
-
-    complect.returnName();
-    complect.renderComplectsInfoblocks()
-
-    startApp(state)
+const actionCreaterComplect = (obj, index) => {
+    return {
+        type: COMPLECT,
+        obj: obj,
+        index: index
+    }
 }
-
+const actionCreaterCurrentComplect = {
+    type: CURRENT_COMPLECT,
+}
+const actionCurrent = actionCreaterCurrentComplect
 
 const ComplectButtons = (props) => {
+
+
+    function createComplect(obj, index) {
+        let action = actionCreaterComplect(obj, index)
+
+        props.dispatch(action)
+
+        // state.allComplects.forEach(element => {
+        //     element.backgroundColor = state.theme[state.indexOfTheme].backgroundColor
+        // })
+        // // let style = dinamicStyleForButtons(state.allComplects[index].color, state.allComplects[index] );
+        // state.allComplects[index].backgroundColor = state.allComplects[index]
+        // // state.allComplects[index].color = state.theme[state.indexOfTheme].color
+        // let complect = new ComplectClass(obj, index, state, dispatch);
+        // complect.odSaver()
+
+        // complect.returnName();
+        // complect.renderComplectsInfoblocks()
+
+        // startApp(state)
+    }
+    const currentComplect = props.dispatch(actionCurrent)
     let buttons = []
 
-    // allComplects.forEach((element, index) => {
-    //     buttons[index] = <button type="button" className={`btn btns__complect  btn__${index}`}><label for="complect0"
-    //         className="complect__name">{element.name}</label> <img src={Ellipse} alt=""></img> </button>
-
-    // })
 
     props.state.allComplects.forEach((element, index) => {
         let theme = props.state.theme[props.state.indexOfTheme]
@@ -101,8 +112,8 @@ const ComplectButtons = (props) => {
         let complectColor
         let borderColor = element.color
         let textColor = theme.color
-        if (props.state.currentComplect) {
-            if (element.name === props.state.currentComplect.name) {
+        if (currentComplect) {
+            if (element.name === currentComplect.name) {
                 complectColor = element.color
                 borderColor = props.state.theme[props.state.indexOfTheme].color
                 textColor = props.state.theme[props.state.indexOfTheme].textColor
@@ -114,13 +125,13 @@ const ComplectButtons = (props) => {
         }
         let ellipse = (state, element) => {
             if (state.currentComplect) {
-                if (element.name === state.currentComplect.name) {    
-                        return EllipseCheck
-                } else {  
-                        return Ellipse
+                if (element.name === state.currentComplect.name) {
+                    return EllipseCheck
+                } else {
+                    return Ellipse
                 }
             } else {
-                    return Ellipse
+                return Ellipse
             }
         }
         let activeStyle
@@ -129,29 +140,30 @@ const ComplectButtons = (props) => {
         // buttons[index] = <Button style={style} onClick={() => { return createComplect(element, index, props.state) }} className={styleBtn.btns__complect} number={index} type="button" >{element.name} <img src={Ellipse} alt=""></img> </Button>
         if (element.tag === 'accountant') {
             activeStyle = createActiveStyle(props, element)
-            buttons[index] = <Button style={style} onClick={() => { return createComplect(element, index, props.state) }} className={styleBtn.btn__accountant} number={index} type="button" >{element.name} <div className={styleBtn.ellipseWrapper}><img className={styleBtn.ellipse} src={ellipse(props.state, element) } alt=""></img></div> </Button>
+
+            buttons[index] = <Button style={style} onClick={() => { return createComplect(element, index) }} className={styleBtn.btn__accountant} number={index} type="button" >{element.name} <div className={styleBtn.ellipseWrapper}><img className={styleBtn.ellipse} src={ellipse(props.state, element)} alt=""></img></div> </Button>
 
         } else if (element.tag === 'budget') {
             activeStyle = createActiveStyle(props, element)
-            buttons[index] = <Button style={style} onClick={() => { return createComplect(element, index, props.state) }} className={styleBtn.btn__budget} number={index} type="button" >{element.name} <div className={styleBtn.ellipseWrapper}><img className={styleBtn.ellipse} src={ellipse(props.state, element)} alt=""></img></div> </Button>
+            buttons[index] = <Button style={style} onClick={() => { return createComplect(element, index) }} className={styleBtn.btn__budget} number={index} type="button" >{element.name} <div className={styleBtn.ellipseWrapper}><img className={styleBtn.ellipse} src={ellipse(props.state, element)} alt=""></img></div> </Button>
         } else if (element.tag === 'bigAccountant') {
             activeStyle = createActiveStyle(props, element)
-            buttons[index] = <Button style={style} onClick={() => { return createComplect(element, index, props.state) }} className={styleBtn.btn__bigAccountant} number={index} type="button" >{element.name} <div className={styleBtn.ellipseWrapper}><img className={styleBtn.ellipse} src={ellipse(props.state, element) } alt=""></img></div></Button>
+            buttons[index] = <Button style={style} onClick={() => { return createComplect(element, index) }} className={styleBtn.btn__bigAccountant} number={index} type="button" >{element.name} <div className={styleBtn.ellipseWrapper}><img className={styleBtn.ellipse} src={ellipse(props.state, element)} alt=""></img></div></Button>
         } else if (element.tag === 'bigBudget') {
             activeStyle = createActiveStyle(props, element)
-            buttons[index] = <Button style={style} onClick={() => { return createComplect(element, index, props.state) }} className={styleBtn.btn__bigBudget} number={index} type="button" >{element.name}<div className={styleBtn.ellipseWrapper}><img className={styleBtn.ellipse} src={ellipse(props.state, element)} alt=""></img></div></Button>
+            buttons[index] = <Button style={style} onClick={() => { return createComplect(element, index) }} className={styleBtn.btn__bigBudget} number={index} type="button" >{element.name}<div className={styleBtn.ellipseWrapper}><img className={styleBtn.ellipse} src={ellipse(props.state, element)} alt=""></img></div></Button>
         } else if (element.tag === 'lawyer') {
             activeStyle = createActiveStyle(props, element)
-            buttons[index] = <Button style={style} onClick={() => { return createComplect(element, index, props.state) }} className={styleBtn.btn__lawyer} number={index} type="button" >{element.name} <div className={styleBtn.ellipseWrapper}><img className={styleBtn.ellipse} src={ellipse(props.state, element)} alt=""></img></div> </Button>
+            buttons[index] = <Button style={style} onClick={() => { return createComplect(element, index) }} className={styleBtn.btn__lawyer} number={index} type="button" >{element.name} <div className={styleBtn.ellipseWrapper}><img className={styleBtn.ellipse} src={ellipse(props.state, element)} alt=""></img></div> </Button>
         } else if (element.tag === 'office') {
             activeStyle = createActiveStyle(props, element)
-            buttons[index] = <Button style={style} onClick={() => { return createComplect(element, index, props.state) }} className={styleBtn.btn__office} number={index} type="button" >{element.name} <div className={styleBtn.ellipseWrapper}><img className={styleBtn.ellipse} src={ellipse(props.state, element)} alt=""></img></div> </Button>
+            buttons[index] = <Button style={style} onClick={() => { return createComplect(element, index) }} className={styleBtn.btn__office} number={index} type="button" >{element.name} <div className={styleBtn.ellipseWrapper}><img className={styleBtn.ellipse} src={ellipse(props.state, element)} alt=""></img></div> </Button>
         } else if (element.tag === 'company') {
             activeStyle = createActiveStyle(props, element)
-            buttons[index] = <Button style={style} onClick={() => { return createComplect(element, index, props.state) }} className={styleBtn.btn__company} number={index} type="button" >{element.name}<div className={styleBtn.ellipseWrapper}><img className={styleBtn.ellipse} src={ellipse(props.state, element)} alt=""></img></div></Button>
+            buttons[index] = <Button style={style} onClick={() => { return createComplect(element, index) }} className={styleBtn.btn__company} number={index} type="button" >{element.name}<div className={styleBtn.ellipseWrapper}><img className={styleBtn.ellipse} src={ellipse(props.state, element)} alt=""></img></div></Button>
         } else if (element.tag === 'companyPro') {
             activeStyle = createActiveStyle(props, element)
-            buttons[index] = <Button style={style} onClick={() => { return createComplect(element, index, props.state) }} className={styleBtn.btn__companyPro} number={index} type="button" >{element.name} <div className={styleBtn.ellipseWrapper}><img className={styleBtn.ellipse} src={ellipse(props.state, element)} alt=""></img></div> </Button>
+            buttons[index] = <Button style={style} onClick={() => { return createComplect(element, index) }} className={styleBtn.btn__companyPro} number={index} type="button" >{element.name} <div className={styleBtn.ellipseWrapper}><img className={styleBtn.ellipse} src={ellipse(props.state, element)} alt=""></img></div> </Button>
         }
     })
 

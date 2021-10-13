@@ -42,4 +42,3 @@ const OneButton = (props) => {
 }
 
 
-export default OneButton

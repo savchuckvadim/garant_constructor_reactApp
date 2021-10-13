@@ -2,33 +2,23 @@ import style from "./infoblocks.module.css"
 import allLegalTech from '../../data/dataLegelTech'
 import { renderInputFromData } from "../../utils/utils"
 
-function createLegalblocks(state) {
 
+const TYPE = 'LT';
+
+const action = {type: TYPE}
+
+
+
+export const Legalblocks = (props) => {
+    props.dispatch(action)
     let items = []
-    
-    renderInputFromData(state.legalTech, items, state);
-
+    renderInputFromData(props.state.legalTech, items, props);
     return (
         <div className={style.items}>
-            <h2>{allLegalTech.nameOfType}</h2>
+            <h2>{props.state.legalTech.nameOfType}</h2>
             {items}
         </div>
-
     )
 }
 
-
-
-export const legalblocks = (state) => {
-  
-    let legaltechs = createLegalblocks(state);
-
-    return (
-        // <div id="menu" className={style.wrapper}>
-            legaltechs
-
-        // </div>
-    )
-}
-
-export default legalblocks
+export default Legalblocks

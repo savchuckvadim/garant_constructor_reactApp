@@ -1,0 +1,49 @@
+.wrapper{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr) ;
+    align-items: start; 
+    grid-template-rows: 1fr;
+    grid-gap: 14px;
+/* height: 73vh; */
+/* display: flex;
+flex-direction: column;
+flex-wrap: wrap; */
+/* margin-bottom: 10vh; */
+
+}
+@media print {
+    .wrapper{
+     
+        grid-template-rows: 70vh;
+    
+
+    }
+}
+
+
+.titleOfBlocks{
+    font-size: x-large;
+    font-weight: 600;
+    margin: 3vh 2vh 0vh 0vh;
+    text-decoration: line;
+    
+}
+.texSmall{
+    
+    font-size: medium !important;
+  
+    font-weight: 400 !important;
+}
+.texLarge{
+    
+    font-size: medium !important;
+  
+    font-weight: 600 !important;
+}
+
+.textXl{
+font-family: 'sans Pro' !important;
+ font-size: large !important;
+  
+    font-weight: 500 !important;
+}

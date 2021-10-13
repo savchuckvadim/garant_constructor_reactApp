@@ -1,35 +1,40 @@
 import React from "react";
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from "react-router-dom";
 import App from "./App.jsx";
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import { state } from './state/state';
+import { store } from './state/state';
 import { subscribe } from "./state/state";
 import { addToStorage, getFromStorage } from "./utils/utils.js";
 
 export const startApp = () => {
-  if(getFromStorage('version').length < 1){
-    localStorage.removeItem('currentComplect')
-    addToStorage({1:'1'}, 'version')
+  // if(getFromStorage('version').length < 1){
+  //   localStorage.removeItem('currentComplect')
+  //   addToStorage({1:'1'}, 'version')
+  //   ReactDOM.render(
+  //     <React.StrictMode>
+  //       <App state={store._state} dispatch={store.dispatch.bind(store)} />
+  //     </React.StrictMode>,
+  //     document.getElementById('root')
+  //   );
+  // }
+  // else{
+    
     ReactDOM.render(
+      
       <React.StrictMode>
-        <App state={state} />
+         <BrowserRouter>
+        <App state={store._state} dispatch={store.dispatch.bind(store)} />
+        </BrowserRouter>
       </React.StrictMode>,
       document.getElementById('root')
     );
-  }
-  else{
-    ReactDOM.render(
-      <React.StrictMode>
-        <App state={state} />
-      </React.StrictMode>,
-      document.getElementById('root')
-    );
-  }
+  // }
 
 }
 startApp();
-state.subscribe(startApp)
+store.subscribe(startApp)
 
 
 

@@ -37,9 +37,11 @@ header {
 
 .header__logo{
     display: block;
-    width: 115px;
-    height: 34px;
+    /* width: 115px;
+    height: 34px; */
   
+    width: 130px;
+    height: 40px;
 }
 
 .container__darktheme{
@@ -47,6 +49,7 @@ margin: 1vh;
 }
 
 .leftBlock{
+    /* width: 20vh; */
     display: flex;
     flex-direction: row;
     justify-content: space-between;

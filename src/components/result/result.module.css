@@ -2,18 +2,20 @@
 .result__container {
     
     /* margin-top: 32px; */
-    width: 355px;   
+    /* width: 355px;    */
     /* min-height: 250px; */
     max-height: 100%;
     padding: 2vh;
     position: sticky;
     top: 15vh;
+    right: 0vh;
     margin-right: 3vh;
     border-style: solid;
-    
+    /* display: grid;
+  justify-self: flex-end; */
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    flex-direction: column; 
+     justify-content: space-between;
     border-width: 1px;
     border-color: rgb(160, 179, 179);
     transition-property: background-color, top, bottom, left, right,  height;
@@ -24,7 +26,10 @@
     display: flex;
     justify-content: space-between;
 }
-
+.textLt{
+    display: flex;
+    justify-content: space-between;
+}
 .spanResult{
     font-weight: 600;
 }
@@ -59,7 +64,7 @@
     }
 
 
-    .text{
+    .text, .textLt{
         margin: 1px;
         font-size: small;
       
@@ -95,6 +100,9 @@
     .text{
         margin: 1px;
         font-size: small;
+    }
+    .textLt{
+        display: none !important;
     }
 
 }

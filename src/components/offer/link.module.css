@@ -1,7 +1,7 @@
 .link{
     color: cornflowerblue;
     text-decoration: none;
-    display: inline-block;
+    display: block;
 }
 
 .link ::shadow{
@@ -10,6 +10,6 @@
 
 @media print {
     .link{
-        display: "none";
+        display: none;
     }
 }

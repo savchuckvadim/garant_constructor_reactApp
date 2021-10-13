@@ -4,8 +4,14 @@ import deleteBlack from "./img/delete_black.svg"
 import style from "./button.module.css"
 import Ellipse from "./img/Ellipse.svg"
 
+const TYPE = 'RESET'
 
 const ResetButton = (props) => {
+    let reset = () => {
+        props.dispatch({
+            type: TYPE
+        })
+    }
     let deleteIcon = DeleteWhite;
     if(!props.state.indexOfTheme){
         deleteIcon  = deleteBlack;
@@ -32,7 +38,7 @@ const ResetButton = (props) => {
     }
     return(
         // <Button style={resetStyle} variant='outlined' color='inherit'>Сбросить</Button>
-<Button style={resetStyle} onClick={() => { return props.state.reset() }} className={style.btn__reset}  type="button" >RESET <img src={deleteIcon} alt="" /></Button>
+<Button style={resetStyle} onClick={reset} className={style.btn__reset}  type="button" >RESET <img src={deleteIcon} alt="" /></Button>
     )
 }
 

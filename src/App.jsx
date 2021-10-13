@@ -13,16 +13,16 @@ import Offer from './components/offer/offer';
 
 
 function App(props) {
- 
+  
   const [inProp, setInProp] = useState(false);
-  props.state.changeState();
-
-  let MainPage = () => { return <Main state={props.state} /> }
+  props.dispatch({type:'CHANGE_STATE'});
+  
+  let MainPage = () => { return <Main state={props.state} dispatch={props.dispatch} /> }
   let descriptionPage = () => {
-    return <DescriptionPage state={props.state} />
+    return <DescriptionPage state={props.state} dispatch={props.dispatch} />
   }
   let offerPage = () => {
-    return Offer(props.state)
+    return <Offer state={props.state} dispatch={props.dispatch}/>
   }
 
   const routes = [
@@ -32,10 +32,10 @@ function App(props) {
     { path: "/offer", Component: offerPage }
   ]
   return (
-    <BrowserRouter>
+    
 
       <div>
-        <Header onClick={() => setInProp(true)} state={props.state} />
+        <Header onClick={() => setInProp(true)} state={props.state} dispatch={props.dispatch} />
       
        {routes.map(({ path, Component }) =>
           <Route key={path} exact path={path}>
@@ -63,7 +63,7 @@ function App(props) {
        
       
       </div>
-    </BrowserRouter>
+    
 
   );
 }

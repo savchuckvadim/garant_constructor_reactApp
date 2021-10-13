@@ -1,0 +1,15 @@
+.spanText{
+    font-weight: 600 !important;
+}
+
+.table{
+    position: sticky;
+    
+    bottom: 0vh;
+}
+@media print {
+    .table{
+        position: sticky;
+        bottom: 1vh;
+    }
+}

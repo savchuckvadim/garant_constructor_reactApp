@@ -1,12 +1,16 @@
 .select{
     height: 50px !important;
-    width: 100px !important;
+    width: 50% !important;
     margin: 0 !important;
     padding: 0 !important;
     align-self: flex-end !important;
+    margin-top: 20px !important;
+   
 }
 
 .formControl{
+    
+    border-style: none !important;
     display: flex !important;
     justify-content: end !important;
     align-items: flex-end !important;

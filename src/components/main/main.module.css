@@ -52,6 +52,9 @@
     grid-column-end: 2;
     justify-self: end;
     align-self: start;
+    justify-items: end;
+
+    align-items: end;
     /* grid-row: 2; */
 }
 

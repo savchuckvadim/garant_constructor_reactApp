@@ -16,6 +16,11 @@ body{
     border: none;
     
 }
+@media print {
+    .container__darktheme{
+        display: none;
+    }
+}
 
 /* first version */
  .round{

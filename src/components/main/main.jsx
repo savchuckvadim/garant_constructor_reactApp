@@ -5,23 +5,29 @@ import Complect from "../complect/complect"
 import { width } from "@material-ui/system"
 
 // import { state } from "../../App"
-
+const STYLE = 'STYLE'
 
 const Main = (props) => {
-  
+    
+    const actionCreaterGetStyle = () => {
+        return {
+            type: STYLE
+        }
+    }
+    let action = actionCreaterGetStyle();
+    const styleFromState = props.dispatch(action)
     // console.log(props.state)
     let stMain = {
-        transitionProperty: `background-image, background-color, text-color, color, transform`,
-        transitionDuration: `3.5s`,
-        transitionDelay: ` 0.5s`,
-        backgroundColor: props.state.theme[props.state.indexOfTheme].backgroundColor,
-        color: props.state.theme[props.state.indexOfTheme].color
+        backgroundColor: styleFromState.backgroundColor,
+        color: styleFromState.color,
+        transitionProperty: styleFromState.transitionProperty,
+        transitionDuration: styleFromState.transitionDuration,
+        transitionDelay: styleFromState.transitionDelay,
 
     }
     let styleResult = {
-        backgroundColor: props.state.theme[props.state.indexOfTheme].backgroundColor,
-        color: props.state.theme[props.state.indexOfTheme].color,
-        // width: '100%'
+        backgroundColor: styleFromState.backgroundColor,
+        color: styleFromState.color,
     }
 
     return (
@@ -31,21 +37,21 @@ const Main = (props) => {
 
                 <div className={style.form__complect}>
 
-                    <Complect state={props.state} />
+                    <Complect state={props.state} dispatch={props.dispatch} />
 
                 </div>
 
                 <div className={style.infoblocks}>
-                    <AllInfoblocks state={props.state} />
+                    <AllInfoblocks state={props.state} dispatch={props.dispatch} />
 
                 </div>
 
                 <div style={styleResult} className={style.result__container}>
-                    <Result state={props.state} />
+                    <Result state={props.state} dispatch={props.dispatch} />
                 </div>
 
             </div>
-           
+
         </div>
     )
 }

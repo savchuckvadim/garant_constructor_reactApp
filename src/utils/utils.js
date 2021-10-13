@@ -28,14 +28,30 @@ export const searchIncludedInfoblocks = (state, name) => {
 
 
 
+const TYPE = 'CHECKBOX'
+  export function renderInputFromData (array, resultArray, props){
+    
+const actionCreator = (value, checked, typeOfBlock, index) => {
+   return {
+    type : TYPE,
+    value : value,
+    checked : checked,
+    typeOfBlock : typeOfBlock,
+    index : index
+   }
+}
 
-  export function renderInputFromData (array, resultArray, state){
 // let color = state.theme[state.indexOfTheme].backgroundColor
     let styleCheckbox = {
-      color : state.theme[state.indexOfTheme].color
+      color : props.state.theme[props.state.indexOfTheme].color
     }
     array.value.forEach((element, index) => {
-      resultArray[index] = <p className="infoblock__p"><Checkbox style={styleCheckbox} id={index} onChange={() =>{state.changeCheckbox(element.name, element.checked, array.nameOfType, index)}}  type="checkbox" className={`infochecks info__${array.nameOfType}`} checked={element.checked} disabled={false} value={element.name} />   {`  ${element.name}`} </p>;
+      
+      let action = actionCreator(element.name, element.checked, array.nameOfType, index)
+
+      const changeCheckbox = () => {props.dispatch(action)}
+
+      resultArray[index] = <p className="infoblock__p"><Checkbox style={styleCheckbox} id={index} onChange={changeCheckbox}  type="checkbox" className={`infochecks info__${array.nameOfType}`} checked={element.checked} disabled={false} value={element.name} />   {`  ${element.name}`} </p>;
   })
   }
 

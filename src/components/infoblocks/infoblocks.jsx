@@ -1,67 +1,62 @@
 import style from "./infoblocks.module.css"
 
-import legalblocks from "./legalTech";
+import legalblocks, { Legalblocks } from "./legalTech";
 import Er  from "./er";
 import React from "react";
 
 
 import { renderInputFromData } from "../../utils/utils";
-let allInfoblocksArray = [];
 
-function Infoblocks(number, state) {
-    let styleWrapper = {
-        width : '100vh'
+const TYPE = 'INFOBLOCKS'
+
+
+
+function CreateInfoblocks(props) {
+
+    let infoblocks = (number) => {
+        let items = []
+        if (props.state.currentComplect) {
+            renderInputFromData(props.state.infoblocks[number], items, props)
+        } else {
+            renderInputFromData(props.state.infoblocks[number], items, props)
+        }
+    
+        return (
+            <div  className={style.items}>
+                <h2>{props.state.infoblocks[number].nameOfType}</h2>
+                {items}
+            </div>
+        )
     }
+
+
+    props.dispatch({
+        type: TYPE
+    }) //подготавливает data-файлы перед отрисовкой на основе информации из текущего комплекта
+  
+  
     let items = []
-    if (state.currentComplect) {
-        renderInputFromData(state.infoblocks[number], items, state)
-    } else {
-        renderInputFromData(state.infoblocks[number], items, state)
-    }
-
-    return (
-        <div  className={style.items}>
-            <h2>{state.infoblocks[number].nameOfType}</h2>
-            {items}
-        </div>
-
-    )
-}
-
-function createInfoblocks(state) {
-    let items = []
-    for (let i = 0; i < state.infoblocks.length; i++) {
+    for (let i = 0; i < props.state.infoblocks.length; i++) {
         
-        items[i] = Infoblocks(i, state)
+        items[i] = infoblocks(i)
     }
     return (items)
 }
 
-// export const changeInfoblocksData = (state) => {
-
-//     if (state.currentComplect) {
-//         state.infoblocks.forEach((element) => {
-//             element.value.forEach((elem) => {
-//                 if (state.currentComplect.currentFilling.includes(elem.name)) { elem.checked = true }
-//                 else elem.checked = false
-//             })
-//         })
-//     }
-// }
 
 
 
 const AllInfoblocks = (props) => {
-    props.state.changeInfoblocksData()  //подготавливает data-файлы перед отрисовкой на основе информации из текущего комплекта
-    props.state.changePaketsErData()
-    props.state.changeErData()
-    props.state.changeltData()
-    props.state.weightLtForResult()
+    
+    // props.state.changePaketsErData()
+    // props.state.changeErData()
+    // props.state.changeltData()
+    // props.state.weightLtForResult()
     return (
         <div id="menu" className={style.wrapper}>
-            {createInfoblocks(props.state)}
-            {Er(props.state)}
-            {legalblocks(props.state)}
+            <CreateInfoblocks state={props.state} dispatch={props.dispatch}/>
+            <Er state={props.state}  dispatch={props.dispatch}/>
+            <Legalblocks state={props.state}  dispatch={props.dispatch} />
 
         </div>
     )
