@@ -10,6 +10,27 @@
     width: 100%;
 }
 
+@media (max-width: 750px){
+    .wrapper{
+      
+        grid-template-columns: repeat(1, 1fr) ;
+  
+        grid-gap: 14px;
+   
+    
+    }
+}
+@media print {
+    .wrapper{
+       
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: flex-end;
+        width: 100%;
+        grid-gap: 7vh;
+    }
+}
+
 .name{
     margin-right: 5vh;
 }

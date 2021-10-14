@@ -7,6 +7,7 @@ import NameAndOd from "./offerNameAndOd"
 import TableOffer from "./offerPrice"
 import PhoneNumber from "./offerPhoneNumber"
 import DescriptionOfGarant from "./offerDescriptionOfGarant"
+import InputText from "../main/textInput"
 
 const TYPE = 'OFFER'
 const Offer = (props) => {
@@ -22,7 +23,7 @@ const Offer = (props) => {
     if (props.state.currentComplect) {
 
        
-debugger
+
         return (
             <div className={style.wrapper}>
                 
@@ -30,8 +31,17 @@ debugger
             
                 <Included state={props.state} dispatch={props.dispatch}  />
                 
-                <DescriptionOfGarant/>
-                <div>Минимальный аванс 1 месяц</div>
+                {/* <DescriptionOfGarant/> */}
+                {/* <InputText state={props.state} dispatch={props.dispatch} type=""/> */}
+                <InputText 
+                    state={props.state} 
+                    dispatch={props.dispatch} 
+                    type="prepaid"
+                    autofocus={props.state.currentPrepaid.status}
+                    value = {props.state.currentPrepaid.value}
+                    placeholder={props.state.currentPrepaid.value}
+                    width={"100%"}
+                    />
                 {/* {возможность убирать надпись} */}
                 <TableOffer state={props.state} dispatch={props.dispatch} />
                 {/* <h1><NavLink as={Link} to='/main' className={style.link}>Назад к составлению комплекта </NavLink></h1> */}

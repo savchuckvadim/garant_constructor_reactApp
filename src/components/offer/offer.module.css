@@ -8,6 +8,14 @@
     /* background-color: rgb(67, 79, 100); */
     
 }
+@media (max-width: 750px){
+    .wrapper{
+        min-width: 100%;
+        min-width: 100vh;
+        height: 100vh;
+        /* max-width: 375px; */
+    }
+}
 
 @media print {
     .wrapper{

@@ -1,5 +1,6 @@
 import { Input } from "@material-ui/core"
 import React from "react"
+import styleClass from './offerPhoneNumber.module.css'
 
 
 const PhoneNumber = (props) => {
@@ -24,7 +25,7 @@ const PhoneNumber = (props) => {
         textColor: props.state.theme[props.state.indexOfTheme].color,
         color: props.state.theme[props.state.indexOfTheme].color,
         width: '130px',
-        marginRight: '50px'
+        // marginRight: '50px'
     }
 
     const active = () => {
@@ -40,7 +41,7 @@ const PhoneNumber = (props) => {
     }
 
     return (
-        <Input style={style} placeholder="+7 800 700 03 94"  ref={phoneRef}  onChange={active}   type="text"  variant="standard" value={props.state.phoneNumber.value}></Input>
+        <Input className={styleClass.phoneInput} style={style} placeholder="+7 800 700 03 94"  ref={phoneRef}  onChange={active}   type="text"  variant="standard" value={props.state.phoneNumber.value}></Input>
 
         // <input ref={phoneRef} style={style} onClick={() => {startActive()}} type="tel" value={props.state.phoneNumber.value}></input>
     )

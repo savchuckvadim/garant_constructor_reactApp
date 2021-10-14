@@ -13,68 +13,6 @@ import { padding } from "@material-ui/system";
 
 const TYPE = 'COMPLECT'
 
-// export class ComplectClass {
-//     constructor(obj, index, state, dispatch) {
-      
-//         this.name = obj.name;
-//         this.number = index;
-
-//         this.defaultWight = obj.weight;
-//         this.defaultFilling = obj.filling;
-//         this.currentFilling = this.defaultFilling;
-//         this.fillingPaketLT = obj.fillingPaketLT
-
-//         this.flagCheckedComplect = false;
-//         this.state = state;
-//         this.dispatch = dispatch
-//         this.fillingInfoblocksIndexes = obj.fillingInfoblocksIndexes;
-//         this.fillingPaketsERIndexes = obj.fillingPaketsERIndexes;
-//         this.fillingEncyclopediasIndexes = obj.fillingEncyclopediasIndexes;
-//         this.fillingLTIndexes = obj.fillingLTIndexes;
-
-//         this.od = "1 Одновременный доступ"
-
-
-//     }
-//     odSaver() {
-//         if (this.state.currentComplect) {
-//             this.od = this.state.currentComplect.od;
-//         }
-//         return this.od
-//     }
-//     // renderComplectsInfoblocks() {
-//     //     this.dispatch({
-//     //         type: TYPE,
-//     //         act: 'render'
-
-//     //     })
-//         // this.state.changeInfoblocksData()
-//         // this.state.changePaketsErData()
-
-
-//     // }
-
-//     returnName() {
-//         this.odSaver()
-//         let obj = {
-//             'name': this.name,
-//             'number': this.number,
-//             'defaultWight': this.defaultWight,
-//             'defaultFilling': this.defaultFilling,
-//             'currentFilling': this.currentFilling,
-//             'fillingInfoblocksIndexes': this.fillingInfoblocksIndexes,
-//             'fillingPaketsERIndexes': this.fillingPaketsERIndexes,
-//             'fillingEncyclopediasIndexes': this.fillingEncyclopediasIndexes,
-//             'fillingLTIndexes': this.fillingLTIndexes,
-//             'fillingPaketLT': this.fillingPaketLT,
-//             'od': this.od
-//         }
-//         addToStorage(obj, 'currentComplect')
-        
-        
-//     }
-
-// }
 
 
 const Complect = (props) => {

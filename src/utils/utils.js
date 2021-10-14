@@ -40,7 +40,11 @@ const actionCreator = (value, checked, typeOfBlock, index) => {
     index : index
    }
 }
-
+let region = (name) => {
+  if(name === 'Региональное законодательство'){
+  window.alert('Ставропольский Край?')
+}
+}
 // let color = state.theme[state.indexOfTheme].backgroundColor
     let styleCheckbox = {
       color : props.state.theme[props.state.indexOfTheme].color
@@ -51,7 +55,7 @@ const actionCreator = (value, checked, typeOfBlock, index) => {
 
       const changeCheckbox = () => {props.dispatch(action)}
 
-      resultArray[index] = <p className="infoblock__p"><Checkbox style={styleCheckbox} id={index} onChange={changeCheckbox}  type="checkbox" className={`infochecks info__${array.nameOfType}`} checked={element.checked} disabled={false} value={element.name} />   {`  ${element.name}`} </p>;
+      resultArray[index] =<label> <p onClick={() => {region(element.name)}} className="infoblock__p"><Checkbox className={`infochecks info__${array.nameOfType}`} style={styleCheckbox} id={index} onChange={changeCheckbox}  type="checkbox"  checked={element.checked} disabled={false} value={element.name} />   {`  ${element.name}`} </p></label> ;
   })
   }
 

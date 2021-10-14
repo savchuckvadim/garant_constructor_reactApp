@@ -15,7 +15,7 @@ export const changeInfoblocks = (value, checked, state) => {  //меняет т�
 }
 
 export const  changeInfoblocksData = (state) => { //меняет стэйт в соответствии с currentComplect
-    
+
     if (state.currentComplect) {
     
         state.infoblocks.forEach((element) => {
@@ -26,5 +26,13 @@ export const  changeInfoblocksData = (state) => { //меняет стэйт в �
           })
         })
      
+    }else{
+      state.infoblocks.forEach((element) => {
+        element.value.forEach((elem) => {
+         
+            elem.checked = false
+         
+        })
+      })
     }
   }

@@ -2,12 +2,15 @@
 import { Button, Tooltip } from "@material-ui/core"
 import React from "react"
 import { Link, NavLink } from "react-router-dom"
+import InputText from "../main/textInput"
 import style from "./result.module.css"
 import styleOffer from "./resultOffer.module.css"
 
 const TYPE = 'RESULT'
 const Result = (props) => {
+   
    if(props.state.currentComplect){
+       
     let result = props.dispatch({
         type: TYPE 
     })
@@ -42,11 +45,23 @@ const Result = (props) => {
             <p> Сейчас набрано - <span className={style.spanResult}>{lt}</span> </p>
 
         </div>
-
+ 
     return (
         <div id="" className={style.result__container}>
             <div className={style.information}>
-                <p id="complect__name" className={style.text}><span>Комплект</span><span className={style.spanResult}>{name}</span></p>
+                <p id="complect__name" className={style.text}><span>Комплект</span><span className={style.spanResult}>
+                    <InputText 
+                    state={props.state} 
+                    dispatch={props.dispatch} 
+                    type="nameOfComplect"
+                    autofocus={props.state.currentStatusInputComplectName}
+                    value = {props.state.currentComplect.name}
+                    placeholder='Гарант'
+                    width={160}
+                    />
+                    
+                    </span></p>
+                
                 <p id="blocksWeight" className={style.text}><span>Вес</span><span className={style.spanResult}>{weight}</span></p>
                 <p id="pod" className={style.text}>Количество доступов<span className={style.spanResult}>{od}</span></p>
 

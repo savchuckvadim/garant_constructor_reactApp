@@ -23,7 +23,7 @@ return 'textXl'
     const FreeBlocks = () => {
         return(
             <div className="infoTypeWrapper">
-                <h4 className="titleOfBlocks">Дополнительная поддержка</h4>
+                <h5 className="titleOfBlocks">Дополнительная поддержка</h5>
                 <p   className={className}> Большая Домашняя правовая библиотека </p>
                 <p   className={className}> Услуги горячей линии </p>
                 <p   className={className}> Судебная практика: приложение к консультационным блокам</p>

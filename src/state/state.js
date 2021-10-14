@@ -10,30 +10,50 @@ import {
   renderInputFromData
 } from "../utils/utils";
 import {
-  
-  
+
+
   changeLt
 } from "./changeCheckboxes";
-import { createComplect } from "./redusers/createComplect.jsx";
+import {
+  createComplect
+} from "./redusers/createComplect.jsx";
 
 import {
-  changeER, changeErData, changePaketsErData
+  changeER,
+  changeErData,
+  changePaketsErData
 } from "./redusers/er";
-import {changeInfoblocks, changeInfoblocksData} from "./redusers/infoblocks";
-import { changeDataPhone, changePhoneFromLocal } from "./redusers/phoneNumber";
+import {
+  changeInfoblocks,
+  changeInfoblocksData
+} from "./redusers/infoblocks";
+import {
+  changeDataPhone,
+  changePhoneFromLocal
+} from "./redusers/phoneNumber";
 
 // export let state = new State();
 export let store = {
   _state: {
     currentComplect: null,
     currentOd: '1 Одновременный Доступ',
-    allComplects: [
-      {
+    currentPrice: {
+      value: 0,
+      status: false
+
+    },
+    currentStatusInputComplectName: false,
+    currentPrepaid: {
+      value: 'Минимальный аванс 1 месяц',
+      placeholder: 'Минимальный аванс 1 месяц',
+      status: false
+    },
+    allComplects: [{
         'name': 'Бухгалтер',
         'tag': 'accountant',
         'color': 'rgba(14, 201, 111, 1)',
 
-        'number' : 0,
+        'number': 0,
         'backgroundColor': 'white',
         'weight': 3.5,
         'filling': [
@@ -84,7 +104,7 @@ export let store = {
         'name': 'Бухгалтер госсектора',
         'tag': 'budget',
         'color': 'rgba(255, 113, 33, 1)',
-        'number' : 1,
+        'number': 1,
         'backgroundColor': 'white',
         'weight': 4,
         'filling': [
@@ -133,7 +153,7 @@ export let store = {
       {
         'name': 'Главный Бухгалтер',
         'tag': 'bigAccountant',
-        'number' : 2,
+        'number': 2,
         'color': 'rgba(14, 201, 111, 1)',
         'backgroundColor': 'white',
         'weight': 7,
@@ -196,7 +216,7 @@ export let store = {
       {
         'name': 'Главный Бухгалтер госсектора',
         'tag': 'bigBudget',
-        'number' : 3,
+        'number': 3,
         'color': 'rgba(255, 113, 33, 1)',
         'backgroundColor': 'white',
         'weight': 8,
@@ -260,7 +280,7 @@ export let store = {
       {
         'name': 'Юрист',
         'tag': 'lawyer',
-        'number' : 4,
+        'number': 4,
         'color': 'rgba(46, 121, 234, 1)',
         'backgroundColor': 'white',
         'weight': 9,
@@ -321,7 +341,7 @@ export let store = {
       {
         'name': 'Офис',
         'tag': 'office',
-        'number' : 5,
+        'number': 5,
         'color': 'rgb(23, 80, 165)',
         'backgroundColor': 'white',
         'weight': 10,
@@ -387,7 +407,7 @@ export let store = {
       {
         'name': 'Предприятие',
         'tag': 'company',
-        'number' : 6,
+        'number': 6,
         'color': 'rgba(151, 103, 200, 1)',
         'backgroundColor': 'white',
         'weight': 12.5,
@@ -463,7 +483,7 @@ export let store = {
       {
         'name': 'Предприятие PRO',
         'tag': 'companyPro',
-        'number' : 7,
+        'number': 7,
         'color': 'rgb(104, 54, 153)',
         'backgroundColor': 'white',
         'weight': 15.5,
@@ -788,7 +808,7 @@ export let store = {
     legalTech: {
       'nameOfType': 'Legal Tech',
       'display': 'none',
-
+      'status': false,
       'weightLt': 0,
       'ltIncluded': 0,
       'nameOflt': '',
@@ -932,14 +952,14 @@ export let store = {
       'status': ''
     },
     phoneNumber: {
-      'status': true,
+      'status': false,
       'value': '+79620027991'
     },
     offer: {
       'active': 'true',
       'prepaid': '0',
       discount: 0,
-      discountAutoFocus : false,
+      discountAutoFocus: false,
 
     },
 
@@ -957,8 +977,8 @@ export let store = {
 
       // }
 
-      createComplect (action.obj, action.index, this._state);
-this.startApp()
+      createComplect(action.obj, action.index, this._state);
+      this.startApp()
     } else if (action.type === 'CURRENT_COMPLECT') {
       return this.currentComplect
     } else if (action.type === 'CHECKBOX') {
@@ -973,7 +993,7 @@ this.startApp()
       changePaketsErData(this._state);
       changeErData(this._state)
 
-    }  else if (action.type === 'LT') {
+    } else if (action.type === 'LT') {
 
       this.changeltData()
       this.weightLtForResult()
@@ -999,14 +1019,15 @@ this.startApp()
         changePhoneFromLocal(this._state)
 
       } else if (action.fun === 'CHANGE_PHONE') {
-      changeDataPhone(action.value, this._state)
-      this.startApp()
+        debugger
+        changeDataPhone(action.value, this._state)
+        this.startApp()
 
       }
 
 
     } else if (action.type === 'OFFER') {
-      
+
       changeInfoblocksData(this._state) //подготавливает data-файлы перед отрисовкой на основе информации из текущего комплекта
 
       changePaketsErData(this._state)
@@ -1014,71 +1035,72 @@ this.startApp()
 
       this.changeltData()
       this.weightLtForResult()
-      
+
       // return this.result()
     } else if (action.type === 'DISCOUNT') {
-      if(action.act === 'GET'){
+      if (action.act === 'GET') {
 
         return this._state.offer.discount
 
-      }else if (action.act === 'SET'){
+      } else if (action.act === 'SET') {
         this._state.offer.discount = action.value
         this._state.offer.autoFocus = action.autoFocus
-        
+
         this.save()
         this.startApp()
       }
-      
-    }else if (action.type === 'THEME') {
+
+    } else if (action.type === 'THEME') {
       this.changeTheme(action.element, action.style1, action.style2)
     } else if (action.type === 'CHANGE_STATE') {
 
       this.changeState()
     } else if (action.type === 'START_APP') {
       this.startApp()
+    } else if (action.type === 'TEXT_INPUT') {
+
+      if (action.act === 'nameOfComplect') {
+
+
+        this._state.currentComplect.name = action.value
+        this._state.currentComplect.fillingLTIndexes = []
+        this._state.fillingPaketLT = []
+        this._state.fillingPaketsERIndexes = []
+        this._state.fillingEncyclopediasIndexes = []
+        this.changeltData()
+        changePaketsErData(this._state)
+        changeErData(this._state)
+        this._state.currentStatusInputComplectName = action.status
+        addToStorage(this._state.currentComplect, 'currentComplect')
+        this.startApp()
+
+      } else if (action.act === 'prepaid') {
+
+
+        this._state.currentPrepaid.value = action.value
+        this._state.currentPrepaid.status = action.status
+
+        addToStorage(this._state.currentPrepaid, 'prepaid')
+        this.startApp()
+
+
+      } else if (action.act === 'price') {
+        if (action.typeOfProduct === 'Гарант') {
+
+          this._state.currentPrice.value = action.value
+          this._state.currentPrice.status = action.status
+          addToStorage(this._state.currentPrice, 'currentPrice')
+
+        }
+      } else if (action.typeOfProduct === 'Legal Tech') {
+        return this._state.legalTech.priceOfLt
+
+      }
+      this.startApp()
     }
   },
 
 
-  // createComplect(obj, index) {
-
-  //   this._state.allComplects.forEach(element => {
-  //     element.backgroundColor = this._state.theme[this._state.indexOfTheme].backgroundColor
-  //   })
-  //   this._state.allComplects[index].backgroundColor = this._state.allComplects[index]
-  //   // state.allComplects[index].color = state.theme[state.indexOfTheme].color
-
-
-
-
-  //   // let complect = new ComplectClass(obj, index, this._state, this.dispatch);
-  //   this._state.currentComplect = obj
-  //   // this._state.currentComplect.od = this._state.currentOd
-  //   // complect.odSaver()
-
-  //   // complect.returnName();
-  //   let complect = {
-  //     'name': this.currentComplect.name,
-  //     'number': this.currentComplect.number,
-  //     'defaultWight': this.currentComplect.defaultWight,
-  //     'defaultFilling': this.currentComplect.defaultFilling,
-  //     'currentFilling': this.currentComplect.filling, //в текущее наполнение вставляет наполнение по-умолчанию из allComplects[idx]
-  //     'fillingInfoblocksIndexes': this.currentComplect.fillingInfoblocksIndexes,
-  //     'fillingPaketsERIndexes': this.currentComplect.fillingPaketsERIndexes,
-  //     'fillingEncyclopediasIndexes': this.currentComplect.fillingEncyclopediasIndexes,
-  //     'fillingLTIndexes': this.currentComplect.fillingLTIndexes,
-  //     'fillingPaketLT': this.currentComplect.fillingPaketLT,
-  //     'od': this._state.currentOd
-  //   }
-  //   addToStorage(complect, 'currentComplect')
-
-  //   // this.changeState()
-  //   // complect.renderComplectsInfoblocks()
-  //   this.changeInfoblocksData();
-  //   this.changePaketsErData();
-
-  //   this.startApp()
-  // },
   changeTheme(element, style1, style2) {
 
     if (this._state.indexOfTheme === 0) {
@@ -1096,23 +1118,7 @@ this.startApp()
     }
     this.startApp()
   },
-  // changePhoneFromLocal() {
-  //   // debugger
-  //   const storageData = getFromStorage('phone');
-  //   if (storageData) {
-  //     console.log(this.phoneNumber)
-  //     console.log(storageData)
-  //     this._state.phoneNumber = storageData
 
-  //   }
-
-  // },
-
-  // changeDataPhone(value) {
-  //   this._state.phoneNumber.value = value
-  //   addToStorage(this._state.phoneNumber, 'phone')
-  //   this.startApp()
-  // },
 
   changeOffer(type, value) {
     for (let offerProp in this.offer) {
@@ -1132,15 +1138,16 @@ this.startApp()
   save() {
     addToStorage(this._state.currentComplect, 'currentComplect')
     addToStorage(this._state.offer, 'offer')
+    addToStorage(this._state.currentPrepaid, 'prepaid')
     // addToStorage(this._state, 'state')
 
   },
 
   changeState() {
-    console.log(this._state)
+
     const storageData = getFromStorage('currentComplect');
-   
-    if (storageData.name) {
+
+    if (storageData && !Array.isArray(storageData)) {
 
       // let obj = new ComplectClass(storageData.name, storageData.number, this._state);
       // obj.currentFilling = storageData.currentFilling;
@@ -1153,9 +1160,16 @@ this.startApp()
     }
     // debugger
     const storageDataOffer = getFromStorage('offer');
-    if (storageDataOffer) {
+    if (storageDataOffer && !Array.isArray(storageDataOffer)) {
       this._state.offer = storageDataOffer
     }
+    const currentPrepaid = getFromStorage('prepaid')
+    if (currentPrepaid && !Array.isArray(currentPrepaid)) {
+
+      this._state.currentPrepaid = currentPrepaid
+    }
+
+
   },
 
   changeCurrentOffer() {
@@ -1167,21 +1181,7 @@ this.startApp()
     console.log('state was changed !')
   },
 
-  // changeInfoblocksData() { //меняет стэйт в соответствии с currentComplect
 
-  //   if (this._state.currentComplect) {
-    
-
-  //       this._state.infoblocks.forEach((element) => {
-  //         element.value.forEach((elem) => {
-  //           if (this._state.currentComplect.currentFilling.includes(elem.name)) {
-  //             elem.checked = true
-  //           } else elem.checked = false
-  //         })
-  //       })
-     
-  //   }
-  // },
 
 
   changeCheckbox(value, checked, type, index) { //имя элемента < Сhecked < тип прав инф < state)
@@ -1215,140 +1215,10 @@ this.startApp()
     }
   },
 
-  // changePaketsErData() {
 
-
-  //   if (this._state.currentComplect ) {
-     
-  //       if (this._state.currentComplect.fillingPaketsERIndexes.length < 1) {
-  //         this._state.encyclopedias[0].value[0].checked = false;
-  //         this._state.encyclopedias[0].value[1].checked = false;
-  //         this._state.encyclopedias[0].value[2].checked = false;
-  //         this.changerErDependPaket('noPaket')
-  //       } else if (this._state.currentComplect.fillingPaketsERIndexes.length === 1) {
-  //         if (this._state.currentComplect.fillingPaketsERIndexes.includes(0)) {
-  //           this._state.encyclopedias[0].value[1].checked = false;
-  //           this._state.encyclopedias[0].value[2].checked = false;
-  //           this.changerErDependPaket(0)
-
-  //         } else if (this._state.currentComplect.fillingPaketsERIndexes.includes(1)) {
-  //           this._state.encyclopedias[0].value[0].checked = false;
-  //           this._state.encyclopedias[0].value[2].checked = false;
-  //           this.changerErDependPaket(1)
-  //         } else if (this._state.currentComplect.fillingPaketsERIndexes.includes(2)) {
-  //           this._state.encyclopedias[0].value[0].checked = false;
-  //           this._state.encyclopedias[0].value[1].checked = false;
-  //           this.changerErDependPaket(2)
-  //         }
-  //       } else if (this._state.currentComplect.fillingPaketsERIndexes.length === 2) { //офис
-
-  //         if (this._state.currentComplect.fillingPaketsERIndexes.includes(0) && this._state.currentComplect.fillingPaketsERIndexes.includes(1)) {
-
-  //           this._state.encyclopedias[0].value[2].checked = false; // пакет который не входит в дате отключаем
-  //           this._state.encyclopedias[0].value[0].checked = true;
-  //           this._state.encyclopedias[0].value[1].checked = true;
-  //           //склеить массивы входящих в пакеты эр
-  //           let concatIncludesER = this._state.encyclopedias[0].value[0].including.concat(this._state.encyclopedias[0].value[1].including);
-  //           this._state.encyclopedias[1].value.forEach(element => {
-  //             element.checked = false;
-  //             element.weight = 0.5
-  //           })
-  //           concatIncludesER.forEach(el => {
-  //             this._state.encyclopedias[1].value[el].checked = true
-  //             this._state.encyclopedias[1].value[el].weight = 0
-  //           })
-
-
-  //         } else if (this._state.currentComplect.fillingPaketsERIndexes.includes(0) && this._state.currentComplect.fillingPaketsERIndexes.includes(2)) {
-  //           this._state.encyclopedias[0].value[1].checked = false;
-  //           this._state.encyclopedias[0].value[0].checked = true;
-  //           this._state.encyclopedias[0].value[2].checked = true;
-
-  //           let concatIncludesER = this._state.encyclopedias[0].value[0].including.concat(this._state.encyclopedias[0].value[2].including);
-
-  //           this._state.encyclopedias[1].value.forEach(element => {
-  //             element.checked = false;
-  //             element.weight = 0.5
-  //           })
-  //           concatIncludesER.forEach(el => {
-
-  //             this._state.encyclopedias[1].value[el].checked = true
-  //             this._state.encyclopedias[1].value[el].weight = 0
-  //           })
-
-
-  //         } else if (this._state.currentComplect.fillingPaketsERIndexes.includes(1) && this._state.currentComplect.fillingPaketsERIndexes.includes(2)) {
-  //           this._state.encyclopedias[0].value[0].checked = false;
-  //           this._state.encyclopedias[0].value[1].checked = true;
-  //           this._state.encyclopedias[0].value[2].checked = true;
-
-  //           let concatIncludesER = this._state.encyclopedias[0].value[1].including.concat(this._state.encyclopedias[0].value[2].including);
-
-  //           this._state.encyclopedias[1].value.forEach(element => {
-  //             element.checked = false;
-  //             element.weight = 0.5
-  //           })
-  //           concatIncludesER.forEach(el => {
-  //             this._state.encyclopedias[1].value[el].checked = true
-  //             this._state.encyclopedias[1].value[el].weight = 0
-  //           })
-  //         }
-
-  //       }
-     
-
-  //     // saveERandPaketsERinCurrentComplect(state);
-
-
-  //   }
-  // },
-
-  // changerErDependPaket(indexOfPaket) {
-
-  //   if (indexOfPaket !== 'noPaket') {
-  //     this._state.encyclopedias[0].value[indexOfPaket].checked = true; //заходит в дату ЭР первый 0 - в пакеты - второй 0 по индексу includes -находит нужный пакет делает его отмеченным checked
-
-  //     this._state.encyclopedias[1].value.forEach(element => {
-  //       element.checked = false;
-  //       element.weight = 0.5
-  //     })
-
-  //     this._state.encyclopedias[0].value[indexOfPaket].including.forEach(el => {
-  //       this._state.encyclopedias[1].value[el].checked = true
-  //       this._state.encyclopedias[1].value[el].weight = 0
-  //     })
-  //   } else {
-  //     this._state.encyclopedias[0].value.forEach(element => {
-  //       element.checked = false;
-  //     })
-  //     this._state.encyclopedias[1].value.forEach(element => {
-  //       element.checked = false;
-  //       element.weight = 0.5
-  //     })
-  //   }
-
-
-  // },
-  // changeErData() {
-  //   if (this._state.currentComplect) {
-     
-  //       this._state.encyclopedias[1].value.forEach((element, index) => {
-
-  //         if (this._state.currentComplect.fillingEncyclopediasIndexes.includes(index)) {
-  //           element.checked = true
-  //           element.weight = 0.5
-  //         }
-
-  //       })
-     
-
-  //   }
-
-
-  // },
 
   changeltData() {
-    
+
     if (this._state.currentComplect ) {
       this._state.legalTech.value.forEach((elem, index) => {
 
@@ -1357,6 +1227,10 @@ this.startApp()
         } else elem.checked = false
       })
 
+    } else {
+      this._state.legalTech.value.forEach((elem, index) => {
+        elem.checked = false
+      })
     }
   },
 
@@ -1378,30 +1252,37 @@ this.startApp()
     let ind1 = this._state.currentComplect.number;
     let ind2
     let result
-
-    this._state.od.forEach((element, index) => {
-      if (element.name === this._state.currentComplect.od) {
-        ind2 = index
-      }
-    })
-
-    // debugger
-    if (!ind2) {
-      return result = this._state.prices[0][ind1]
-
+    const currentPrice = getFromStorage('currentPrice')
+    if (currentPrice && !Array.isArray(currentPrice)) {
+      this._state.currentPrice = currentPrice
+      return this._state.currentPrice.value
     } else {
-      return result = this._state.prices[ind2][ind1]
+      this._state.od.forEach((element, index) => {
+        if (element.name === this._state.currentComplect.od) {
+          ind2 = index
+        }
+      })
+
+      // debugger
+      if (!ind2) {
+        this._state.currentPrice.value = this._state.prices[0][ind1]
+
+      } else {
+        this._state.currentPrice.value = this._state.prices[ind2][ind1]
+      }
+      return this._state.currentPrice.value
     }
 
   },
 
   reset() {
     localStorage.removeItem('currentComplect')
+
     this.startApp()
   },
 
   result() {
-    
+
     let styleResult = {
       backgroundColor: 'black',
       color: 'white',
@@ -1421,26 +1302,27 @@ this.startApp()
     let nameOflt
     let priceOfLt
     let totalPrice
-    if (this._state.currentComplect ) {
-     
 
-        styleResult = {
-          backgroundColor: this._state.allComplects[this._state.currentComplect.number].color,
-          color: 'white',
-          textDecoration: 'none'
-        }
-        name = this._state.currentComplect.name
-        weight = this.weightForResult();
+    if (this._state.currentComplect) {
 
-        od = this._state.currentComplect.od.substr(0, 2)
-        price = this.price()
-        
-        ltIncluded = this._state.legalTech.ltIncluded
-        weightLt = this._state.legalTech.weightLt
-        nameOflt = this._state.legalTech.nameOflt
-        priceOfLt = this._state.legalTech.priceOfLt
-        totalPrice = price + priceOfLt
-      
+
+      styleResult = {
+        backgroundColor: this._state.allComplects[this._state.currentComplect.number].color,
+        color: 'white',
+        textDecoration: 'none'
+      }
+      name = this._state.currentComplect.name
+      weight = this.weightForResult();
+
+      od = this._state.currentComplect.od.substr(0, 2)
+      price = this.price()
+
+      ltIncluded = this._state.legalTech.ltIncluded
+      weightLt = this._state.legalTech.weightLt
+      nameOflt = this._state.legalTech.nameOflt
+      priceOfLt = this._state.legalTech.priceOfLt
+      totalPrice = price + priceOfLt
+
       return {
         styleResult: styleResult,
         name: name,
@@ -1452,6 +1334,7 @@ this.startApp()
         ltIncluded: ltIncluded,
         weightLt: weightLt,
         nameOflt: nameOflt,
+        priceOfLt: `${priceOfLt} p`,
         totalPrice: totalPrice,
 
       }
@@ -1486,8 +1369,8 @@ this.startApp()
   },
 
   weightLtForResult() {
-    debugger
-    if (this.currentComplect ) {
+
+    if (this.currentComplect) {
       this._state.legalTech.ltIncluded = 0
       this._state.legalTech.weightLt = 0
       this._state.legalTech.value.forEach((element, index) => { //перебираем все LT

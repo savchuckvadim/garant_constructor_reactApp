@@ -1,7 +1,7 @@
 /* @import url('../../App.css'); */
 .result__container {
-    
-    /* margin-top: 32px; */
+    /* margin-top: 4vh !important; */
+    margin-top: 4vh;
     /* width: 355px;    */
     /* min-height: 250px; */
     max-height: 100%;

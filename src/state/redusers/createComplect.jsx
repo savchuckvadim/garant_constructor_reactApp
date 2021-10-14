@@ -3,7 +3,7 @@ import { changePaketsErData } from "./er"
 import { changeInfoblocksData } from "./infoblocks"
 
 export const createComplect = (obj, index, state) => {
-
+localStorage.removeItem('currentPrice')
     state.allComplects.forEach(element => {
       element.backgroundColor = state.theme[state.indexOfTheme].backgroundColor
     })

@@ -46,7 +46,7 @@ console.log(discountValue)
     return (
         <TableCell align="right">
             {/* <input ref={myRef} onInput={() => { discountInput(myRef.current.value) }} className={style.input} type="number" value={props.state.offer['discount']}></input> */}
-            <Input id="my-input" ref={myRef} autoFocus={props.state.offer.autoFocus}  onChange={(e) => {discountOnInputCreator(e, true)}} onBlur={(e) => {discountOnInputCreator(e, false)}} className={style.input} type="number" label="скидка" variant="standard" value={discount}></Input>
+            <Input id="my-input" autoFocus={props.state.offer.autoFocus}  onChange={(e) => {discountOnInputCreator(e, true)}} onBlur={(e) => {discountOnInputCreator(e, false)}} className={style.input} type="number" label="скидка" variant="standard" value={discount}></Input>
         </TableCell>
     )
 }

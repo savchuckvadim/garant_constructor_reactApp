@@ -6,6 +6,7 @@ import React from "react";
 
 
 import { renderInputFromData } from "../../utils/utils";
+import CreateNewBlocks from "./newBlocks";
 
 const TYPE = 'INFOBLOCKS'
 
@@ -14,19 +15,22 @@ const TYPE = 'INFOBLOCKS'
 function CreateInfoblocks(props) {
 
     let infoblocks = (number) => {
-        let items = []
-        if (props.state.currentComplect) {
-            renderInputFromData(props.state.infoblocks[number], items, props)
-        } else {
-            renderInputFromData(props.state.infoblocks[number], items, props)
+        if(props.state.infoblocks[number].nameOfType !== 'NEW Blocks'){
+            let items = []
+            if (props.state.currentComplect) {
+                renderInputFromData(props.state.infoblocks[number], items, props)
+            } else {
+                renderInputFromData(props.state.infoblocks[number], items, props)
+            }
+        
+            return (
+                <div  className={style.items}>
+                    <h2 className={style.title}>{props.state.infoblocks[number].nameOfType}</h2>
+                    {items}
+                </div>
+            )
         }
-    
-        return (
-            <div  className={style.items}>
-                <h2>{props.state.infoblocks[number].nameOfType}</h2>
-                {items}
-            </div>
-        )
+        
     }
 
 
@@ -57,6 +61,7 @@ const AllInfoblocks = (props) => {
             <CreateInfoblocks state={props.state} dispatch={props.dispatch}/>
             <Er state={props.state}  dispatch={props.dispatch}/>
             <Legalblocks state={props.state}  dispatch={props.dispatch} />
+            <CreateNewBlocks state={props.state}  dispatch={props.dispatch} />
 
         </div>
     )

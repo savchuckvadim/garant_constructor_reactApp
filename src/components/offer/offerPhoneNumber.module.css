@@ -1,0 +1,25 @@
+.phoneInput{
+    
+    margin-right:  3vh;
+    
+}
+
+@media (max-width: 750px){
+    .phoneInput{
+        margin-right: 2vh;
+        margin-top: 1vh;
+    }
+}
+@media (max-width: 375px){
+    .phoneInput{
+        display: none !important;
+        
+    }
+}
+@media print {
+    .phoneInput{
+        margin-top: 1vh;
+        margin-right:  0vh;
+        
+    }
+}
