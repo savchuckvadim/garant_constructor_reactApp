@@ -5,26 +5,20 @@ import headerStyle from './header.module.css'
 import PhoneNumber from '../offer/offerPhoneNumber'
 import { Link, NavLink } from 'react-router-dom';
 
-const STYLE = 'STYLE';
+
 
 const Header = (props) => {
-  const actionCreaterGetStyle = () => {
-    return {
-      type: STYLE
-    }
-  }
-  let action = actionCreaterGetStyle();
-  const styleFromState = props.dispatch(action)
+
   let stHeader = {
-    backgroundColor: styleFromState.backgroundColor,
-    
-    transitionProperty: styleFromState.transitionProperty,
-    transitionDuration: styleFromState.transitionDuration,
-    transitionDelay: styleFromState.transitionDelay,
+    backgroundColor: props.style.background,
+    transitionProperty: props.style.transitionProperty,
+    transitionDuration: props.style.transitionDuration,
+    transitionDelay: props.style.transitionDelay,
 
     backgroundPosition: `center`,
     transform: `rotateZ(720deg)`
   }
+  
   return (
     <header style={stHeader} id="header">
       <div className={headerStyle.header__container}>

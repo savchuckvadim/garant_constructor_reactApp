@@ -9,17 +9,21 @@ import { subscribe } from "./state/state";
 import { addToStorage, getFromStorage } from "./utils/utils.js";
 
 export const startApp = () => {
-  // if(getFromStorage('version').length < 1){
-  //   localStorage.removeItem('currentComplect')
-  //   addToStorage({1:'1'}, 'version')
-  //   ReactDOM.render(
-  //     <React.StrictMode>
-  //       <App state={store._state} dispatch={store.dispatch.bind(store)} />
-  //     </React.StrictMode>,
-  //     document.getElementById('root')
-  //   );
-  // }
-  // else{
+  let version = getFromStorage('version')
+  if(version.length < 1 || version[0] === '1' ){
+    localStorage.removeItem('currentComplect')
+    
+    addToStorage({1:'2'}, 'version')
+    ReactDOM.render(
+      <React.StrictMode>
+           <BrowserRouter>
+        <App state={store._state} dispatch={store.dispatch.bind(store)} />
+        </BrowserRouter>
+      </React.StrictMode>,
+      document.getElementById('root')
+    );
+  }
+  else{
     
     ReactDOM.render(
       
@@ -30,7 +34,7 @@ export const startApp = () => {
       </React.StrictMode>,
       document.getElementById('root')
     );
-  // }
+  }
 
 }
 startApp();

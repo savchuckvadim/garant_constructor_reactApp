@@ -21,6 +21,8 @@ function createData(type, name, prepaid, discount, total) {
 
 
 const TableOffer = (props) => {
+
+
     let rows = []
     let result
     if (props.state.currentComplect) {
@@ -70,10 +72,10 @@ const TableOffer = (props) => {
     }
     
     return (
-        <TableContainer component={Paper} className={style.table}>
-            <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <TableContainer  component={Paper} className={style.table}>
+            <Table  sx={{ minWidth: 650 }} aria-label="simple table">
                 <TableHead>
-                    <TableRow>
+                    <TableRow >
                         <TableCell>Наименование</TableCell>
                         <TableCell align="right">Месяцы</TableCell>
                         {/* <TableCell align="right">Аванс&nbsp;(мес.)</TableCell> */}

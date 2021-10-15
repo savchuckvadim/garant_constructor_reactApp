@@ -10,19 +10,35 @@ import { CSSTransition, } from "react-transition-group";
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Offer from './components/offer/offer';
-
+const STYLE = 'STYLE';
 
 function App(props) {
   
   const [inProp, setInProp] = useState(false);
   props.dispatch({type:'CHANGE_STATE'});
+
+
+  const actionCreaterGetStyle = () => {return {type: STYLE }}
+  let action = actionCreaterGetStyle();
+  const styleFromState = props.dispatch(action)
+
+  let style = {
+    background: styleFromState.background,
+    color: styleFromState.color,
+    textColor: styleFromState.textColor,
+    transitionProperty: styleFromState.transitionProperty,
+    transitionDuration: styleFromState.transitionDuration,
+    transitionDelay: styleFromState.transitionDelay,
+    backgroundPosition: `center`,
+    transform: `rotateZ(720deg)`
+  }
   
-  let MainPage = () => { return <Main state={props.state} dispatch={props.dispatch} /> }
+  let MainPage = () => { return <Main  style={style} state={props.state} dispatch={props.dispatch} /> }
   let descriptionPage = () => {
     return <DescriptionPage state={props.state} dispatch={props.dispatch} />
   }
   let offerPage = () => {
-    return <Offer state={props.state} dispatch={props.dispatch}/>
+    return <Offer style={style} state={props.state} dispatch={props.dispatch}/>
   }
 
   const routes = [
@@ -35,8 +51,8 @@ function App(props) {
     
 
       <div>
-        <Header onClick={() => setInProp(true)} state={props.state} dispatch={props.dispatch} />
-      
+        <Header onClick={() => setInProp(true)} style={style} state={props.state} dispatch={props.dispatch} />
+        <div className="app__wrapperContent">
        {routes.map(({ path, Component }) =>
           <Route key={path} exact path={path}>
             {({ math }) =>
@@ -61,7 +77,7 @@ function App(props) {
 
         </div> */}
        
-      
+      </div>
       </div>
     
 

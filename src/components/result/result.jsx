@@ -45,7 +45,7 @@ const Result = (props) => {
             <p> Сейчас набрано - <span className={style.spanResult}>{lt}</span> </p>
 
         </div>
- 
+
     return (
         <div id="" className={style.result__container}>
             <div className={style.information}>
@@ -57,7 +57,8 @@ const Result = (props) => {
                     autofocus={props.state.currentStatusInputComplectName}
                     value = {props.state.currentComplect.name}
                     placeholder='Гарант'
-                    width={160}
+                    width="27vh"
+                    
                     />
                     
                     </span></p>

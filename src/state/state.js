@@ -39,14 +39,16 @@ export let store = {
     currentOd: '1 Одновременный Доступ',
     currentPrice: {
       value: 0,
-      status: false
+      status: false,
+      width: 0
 
     },
     currentStatusInputComplectName: false,
     currentPrepaid: {
       value: 'Минимальный аванс 1 месяц',
       placeholder: 'Минимальный аванс 1 месяц',
-      status: false
+      status: false,
+      width: 0
     },
     allComplects: [{
         'name': 'Бухгалтер',
@@ -706,7 +708,7 @@ export let store = {
 
       },
       {
-        'nameOfType': 'NEW Blocks',
+        'nameOfType': 'Новые блоки',
         'value': [{
             'name': 'Справочник промышленника',
             'checked': false,
@@ -719,6 +721,13 @@ export let store = {
             'weight': 1,
             'description': ''
           },
+          {
+            'name': 'Справочник по техническому регулированию и стандартизации',
+            'checked': false,
+            'weight': 1,
+            'description': ''
+          },
+
 
         ]
       }
@@ -1019,7 +1028,7 @@ export let store = {
         changePhoneFromLocal(this._state)
 
       } else if (action.fun === 'CHANGE_PHONE') {
-        debugger
+
         changeDataPhone(action.value, this._state)
         this.startApp()
 
@@ -1067,6 +1076,7 @@ export let store = {
         this._state.fillingPaketLT = []
         this._state.fillingPaketsERIndexes = []
         this._state.fillingEncyclopediasIndexes = []
+        this._state.currentComplect.width = action.width
         this.changeltData()
         changePaketsErData(this._state)
         changeErData(this._state)
@@ -1076,7 +1086,7 @@ export let store = {
 
       } else if (action.act === 'prepaid') {
 
-
+        this._state.currentPrepaid.width = action.width
         this._state.currentPrepaid.value = action.value
         this._state.currentPrepaid.status = action.status
 
@@ -1086,7 +1096,7 @@ export let store = {
 
       } else if (action.act === 'price') {
         if (action.typeOfProduct === 'Гарант') {
-
+          this._state.currentPrice.width = action.width
           this._state.currentPrice.value = action.value
           this._state.currentPrice.status = action.status
           addToStorage(this._state.currentPrice, 'currentPrice')
@@ -1219,7 +1229,7 @@ export let store = {
 
   changeltData() {
 
-    if (this._state.currentComplect ) {
+    if (this._state.currentComplect) {
       this._state.legalTech.value.forEach((elem, index) => {
 
         if (this._state.currentComplect.fillingLTIndexes.includes(index) || this._state.currentComplect.fillingPaketLT.includes(index)) {
@@ -1277,6 +1287,7 @@ export let store = {
 
   reset() {
     localStorage.removeItem('currentComplect')
+    this._state.currentPrice.width = 0
 
     this.startApp()
   },
@@ -1399,7 +1410,7 @@ export let store = {
           this._state.legalTech.nameOflt = `Большой Пакет `
           this._state.legalTech.priceOfLt = this._state.pricesOfLt[2]
         }
-        if (this._state.legalTech.weightLt === 1 || this._state.legalTech.weightLt > 2 && this._state.legalTech.weightLt < 5 || this._state.legalTech.weightLt > 5 && this._state.legalTech.weightLt < 11) {
+        if ((this._state.legalTech.weightLt === 1 || this._state.legalTech.weightLt > 2) && (this._state.legalTech.weightLt < 5 || this._state.legalTech.weightLt > 5) && (this._state.legalTech.weightLt < 11)) {
           this._state.legalTech.nameOflt = `LT собран неверно`
         }
       })
@@ -1412,13 +1423,14 @@ export let store = {
   },
 
   getStyle() {
+
     return {
       background: this._state.theme[this._state.indexOfTheme].backgroundColor,
       color: this._state.theme[this._state.indexOfTheme].color,
       text: this._state.theme[this._state.indexOfTheme].textColor,
       transitionProperty: `background-image, background-color, text-color, color, transform`,
-      transitionDuration: `3.5s`,
-      transitionDelay: ` 0.5s`,
+      transitionDuration: `0.5s`,
+      transitionDelay: ` 0.1s`,
     }
   },
 

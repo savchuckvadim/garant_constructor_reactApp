@@ -12,7 +12,15 @@ import InputText from "../main/textInput"
 const TYPE = 'OFFER'
 const Offer = (props) => {
     
+    let styleFromState = {
+        backgroundColor: props.style.background,
+        transitionProperty: props.style.transitionProperty,
+        transitionDuration: props.style.transitionDuration,
+        transitionDelay: props.style.transitionDelay,
+        color: props.style.color,
+      
 
+    }
     // state.changeInfoblocksData()  //подготавливает data-файлы перед отрисовкой на основе информации из текущего комплекта
     // state.changePaketsErData()
     // state.changeErData()
@@ -25,7 +33,7 @@ const Offer = (props) => {
        
 
         return (
-            <div className={style.wrapper}>
+            <div className={style.wrapper} style={styleFromState} >
                 
                <NameAndOd state={props.state} dispatch={props.dispatch}  />
             

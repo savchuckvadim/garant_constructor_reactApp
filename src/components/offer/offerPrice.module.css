@@ -5,6 +5,7 @@
 .table{
     position: sticky;
     bottom: 0vh;
+    background-color: black ;
 }
 @media print {
     .table{

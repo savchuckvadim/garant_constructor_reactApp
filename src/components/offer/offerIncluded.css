@@ -45,7 +45,7 @@ flex-wrap: wrap; */
 }
 .texSmall{
     
-    font-size: large !important;
+    font-size: medium !important;
   
     font-weight: 400 !important;
 }
@@ -58,7 +58,7 @@ flex-wrap: wrap; */
 
 .textXl{
 /* font-family: 'sans Pro' !important; */
- font-size: x-large !important;
+ font-size: large !important;
   
     font-weight: 500 !important;
 }

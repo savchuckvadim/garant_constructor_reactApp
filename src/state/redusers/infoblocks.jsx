@@ -23,6 +23,10 @@ export const  changeInfoblocksData = (state) => { //меняет стэйт в �
             if (state.currentComplect.currentFilling.includes(elem.name)) {
               elem.checked = true
             } else elem.checked = false
+
+            if(state.currentComplect.name === 'Предприятие PRO' && elem.name === 'Справочник промышленника'){
+              elem.checked = true
+            }
           })
         })
      

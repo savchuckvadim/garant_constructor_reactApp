@@ -13,33 +13,58 @@ const InputText = (props) => {
 
     // })
     // let complectRef = React.createRef()
-let getNameOfproduct = () => {
-    if(props.typeOfProduct){
-        return props.typeOfProduct
-    }else{
-        return null
+    let getNameOfproduct = () => {
+        if (props.typeOfProduct) {
+            return props.typeOfProduct
+        } else {
+            return null
+        }
     }
-}
-let nameOfproduct = getNameOfproduct()
-    let autofocus = props.autofocus 
+    let nameOfproduct = getNameOfproduct()
+    let autofocus = props.autofocus
     let value = props.value
     let placeholder = props.placeholder
+    let background = props.type === 'price' ? 'white' : props.state.theme[props.state.indexOfTheme].backgroundColor
+    let color = props.type === 'price' ? 'black' : props.state.theme[props.state.indexOfTheme].color
+    let getWidth = () => {
+        if (props.type === 'price') {
+            if(props.typeOfProduct === 'legal Tech'){
+
+            }else{
+                return props.state.currentPrice.width
+            }
+           
+        } else if (props.type === 'prepaid') {
+            return null
+        } else if (props.type === 'nameOfComplect') {
+            return props.state.currentComplect.width
+        }
+    }
+    let width = () => {
+        if (getWidth()) {
+            return getWidth()
+        } else {
+            return props.width
+        }
+    }
+   
     const style = {
-        backgroundColor: props.state.theme[props.state.indexOfTheme].backgroundColor,
+        backgroundColor: background,
         borderStyle: 'none',
-        textColor: props.state.theme[props.state.indexOfTheme].color,
-        color: props.state.theme[props.state.indexOfTheme].color,
-        width: props.width,
+        textColor: color,
+        color: color,
+
+        width: width(),
         fontSize: 'small'
         // width: '130px',
-      
+
     }
 
-    if(props.type === 'prepaid'){
+    if (props.type === 'prepaid') {
         style.fontSize = 'medium'
-    }else if(props.type === 'price'){
+    } else if (props.type === 'price') {
         style.fontSize = 'large'
-    }else if(props.type === 'nameOfComplect'){
+    } else if (props.type === 'nameOfComplect') {
         style.fontSize = 'small'
     }
 
@@ -52,12 +77,14 @@ let nameOfproduct = getNameOfproduct()
             value: e.target.value,
             // complectRef.current.value, 
             status: status,
-            typeOfProduct : nameOfproduct
-           
+            typeOfProduct: nameOfproduct,
+            width: e.target.value.length*11
+
             // 
         }
-       
+
         props.dispatch(actionName)
+
     }
 
 
@@ -84,10 +111,11 @@ let nameOfproduct = getNameOfproduct()
 
     return (
         <Input
-            
-            
-            align="right" 
+
+
+            align="right"
             style={style}
+
             placeholder={placeholder}
             autoFocus={autofocus}
             className={styleMod.input}
@@ -97,7 +125,7 @@ let nameOfproduct = getNameOfproduct()
             variant="standard"
             value={value}
             typeOfProduct={nameOfproduct}
-            >
+        >
 
         </Input>
 

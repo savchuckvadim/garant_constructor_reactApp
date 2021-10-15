@@ -5,6 +5,15 @@ import styleClass from './offerPhoneNumber.module.css'
 
 const PhoneNumber = (props) => {
     const TYPE = 'PHONE'
+    const STYLE = 'STYLE';
+    const actionCreaterGetStyle = () => {
+        return {
+          type: STYLE
+        }
+      }
+      let action = actionCreaterGetStyle();
+      const styleFromState = props.dispatch(action)
+ 
     const onBlur = () => {
         props.dispatch({
             type: TYPE,
@@ -20,12 +29,21 @@ const PhoneNumber = (props) => {
     
     let phoneRef = React.createRef()
     const style = {
-        backgroundColor: props.state.theme[props.state.indexOfTheme].backgroundColor,
+        backgroundColor: styleFromState.background,
+        
+        transitionProperty: styleFromState.transitionProperty,
+        transitionDuration: styleFromState.transitionDuration,
+        transitionDelay: styleFromState.transitionDelay,
+    
+        backgroundPosition: `center`,
+        transform: `rotateZ(720deg)`,
         borderStyle: 'none',
-        textColor: props.state.theme[props.state.indexOfTheme].color,
-        color: props.state.theme[props.state.indexOfTheme].color,
+        textColor: styleFromState.color,
+        color: styleFromState.color,
         width: '130px',
         // marginRight: '50px'
+
+
     }
 
     const active = () => {
@@ -41,7 +59,17 @@ const PhoneNumber = (props) => {
     }
 
     return (
-        <Input className={styleClass.phoneInput} style={style} placeholder="+7 800 700 03 94"  ref={phoneRef}  onChange={active}   type="text"  variant="standard" value={props.state.phoneNumber.value}></Input>
+        <Input 
+        className={styleClass.phoneInput} 
+        style={style} 
+        placeholder="+7 800 700 03 94" 
+         ref={phoneRef}  
+         onChange={active}   
+         type="text"  
+         variant="standard" 
+         value={props.state.phoneNumber.value}>
+             
+         </Input>
 
         // <input ref={phoneRef} style={style} onClick={() => {startActive()}} type="tel" value={props.state.phoneNumber.value}></input>
     )

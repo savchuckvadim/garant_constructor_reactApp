@@ -5,29 +5,24 @@ import Complect from "../complect/complect"
 import { width } from "@material-ui/system"
 
 // import { state } from "../../App"
-const STYLE = 'STYLE'
+
 
 const Main = (props) => {
     
-    const actionCreaterGetStyle = () => {
-        return {
-            type: STYLE
-        }
-    }
-    let action = actionCreaterGetStyle();
-    const styleFromState = props.dispatch(action)
+   
     // console.log(props.state)
     let stMain = {
-        backgroundColor: styleFromState.backgroundColor,
-        color: styleFromState.color,
-        transitionProperty: styleFromState.transitionProperty,
-        transitionDuration: styleFromState.transitionDuration,
-        transitionDelay: styleFromState.transitionDelay,
+        backgroundColor: props.style.background,
+        transitionProperty: props.style.transitionProperty,
+        transitionDuration: props.style.transitionDuration,
+        transitionDelay: props.style.transitionDelay,
+        color: props.style.color,
+      
 
     }
     let styleResult = {
-        backgroundColor: styleFromState.backgroundColor,
-        color: styleFromState.color,
+        backgroundColor: props.style.background,
+        color: props.style.color
     }
 
     return (
