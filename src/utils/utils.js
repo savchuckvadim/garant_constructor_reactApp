@@ -1,4 +1,5 @@
 import { Checkbox } from "@material-ui/core";
+import { changeCheckBoxActionCreator } from "../state/redusers/checkBoxes-reduser";
 
 
 export const getFromStorage = function (key) {
@@ -28,30 +29,24 @@ export const searchIncludedInfoblocks = (state, name) => {
 
 
 
-const TYPE = 'CHECKBOX'
-  export function renderInputFromData (array, resultArray, props){
-    
-const actionCreator = (value, checked, typeOfBlock, index) => {
-   return {
-    type : TYPE,
-    value : value,
-    checked : checked,
-    typeOfBlock : typeOfBlock,
-    index : index
-   }
-}
+// const TYPE = 'CHECKBOX'
+  export function renderInputFromData (type, array, resultArray, props){
+
+
+
 let region = (name) => {
   if(name === 'Региональное законодательство'){
   window.alert('Ставропольский Край?')
 }
 }
+
 // let color = state.theme[state.indexOfTheme].backgroundColor
     let styleCheckbox = {
       color : props.state.theme[props.state.indexOfTheme].color
     }
     array.value.forEach((element, index) => {
       
-      let action = actionCreator(element.name, element.checked, array.nameOfType, index)
+      let action = changeCheckBoxActionCreator(type, element.name, element.checked, index)
 
       const changeCheckbox = () => {props.dispatch(action)}
 

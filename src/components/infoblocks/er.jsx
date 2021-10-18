@@ -2,22 +2,21 @@ import style from "./infoblocks.module.css"
 
 import { React } from 'react'
 import { renderInputFromData } from "../../utils/utils";
+import { changeErFromCurrentActionCreator } from "../../state/redusers/er";
 
-
-const TYPE = 'ER';
-
+const CHANGE_CURRENT_ER = 'CHANGE_CURRENT_ER'
+const CHANGE_CURRENT_PAKETS_ER = 'CHANGE_CURRENT_PAKETS_ER'
 
 const Er = (props) => {
     
-    props.dispatch({
-        type: TYPE
-    })
+    let action = changeErFromCurrentActionCreator()
+    props.dispatch(action)
 
     let itemsPakets = []
     let itemsER = []
 
-    renderInputFromData(props.state.encyclopedias[0], itemsPakets, props)
-    renderInputFromData(props.state.encyclopedias[1], itemsER, props)
+    renderInputFromData(CHANGE_CURRENT_PAKETS_ER, props.state.encyclopedias[0], itemsPakets, props)
+    renderInputFromData(CHANGE_CURRENT_ER, props.state.encyclopedias[1], itemsER, props)
 
     return (
         <div className={style.items}>

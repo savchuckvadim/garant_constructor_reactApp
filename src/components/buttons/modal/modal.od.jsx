@@ -10,6 +10,7 @@ import { Button } from "@material-ui/core";
 
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from 'react-bootstrap/DropdownButton'
+import { odChangeActionCreator } from "../../../state/redusers/od-reducer";
 
 
 const TYPE = 'OD'
@@ -31,12 +32,12 @@ const actionOd = (name) => {
 function ODModalButtons(props) {
   const currentComplect = props.dispatch(actionCurrent)
 
-  const changeOd = (name) => {
-    props.dispatch(() => {
-      actionOd(name)
-    })
-  } 
+  const odChange = (name) => {
+    const action = odChangeActionCreator (name)
+    props.dispatch(action)
+  }
   let ods = []
+
   const style = {
     height: 54,
     textColor: props.state.theme[ props.state.indexOfTheme].color,
@@ -64,7 +65,7 @@ function ODModalButtons(props) {
     // console.log( theme.color)
     // styleOD = od (theme);
 
-    ods[index] = <Dropdown.Item style={style} onClick={() => { changeOd(element.name) }} className={styleBtn.btn__odModal} as="button">{element.name}</Dropdown.Item>
+    ods[index] = <Dropdown.Item style={style} onClick={() => { odChange(element.name) }} className={styleBtn.btn__odModal} as="button">{element.name}</Dropdown.Item>
     //  <MenuItem onClick={() => { props.state.oD(element.name) }} key={element.name} select={true} as={Button} value={element.name} className={styleButtons.btn__od}  >{element.name} <img src={Ellipse} alt=""></img>  </MenuItem>
 
 
@@ -77,7 +78,7 @@ function ODModalButtons(props) {
 
 
   
-    <DropdownButton size="lg" className={styleBtn.btn__odModal} style={style} variant={props.state.theme[props.state.indexOfTheme].name} as={Button}  id="dropdown-item-button" title={currentComplect ? currentComplect.od : 'Количество доступов'}>
+    <DropdownButton size="lg" className={styleBtn.btn__odModal} style={style} variant={props.state.theme[props.state.indexOfTheme].name} as={Button}  id="dropdown-item-button" title={currentComplect ? props.state.currentOd : 'Количество доступов'}>
       <Dropdown.ItemText className={styleBtn.btn__odModal} variant="outline" style={style}>Количество доступов </Dropdown.ItemText>
       {ods}
     </DropdownButton>

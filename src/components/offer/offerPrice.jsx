@@ -1,9 +1,11 @@
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@material-ui/core";
+import { getPriceActionCreator } from "../../state/redusers/price";
+import { resultActionCreator } from "../../state/redusers/result";
 import InputText from "../main/textInput";
 import PhoneNumber from "./offerPhoneNumber";
 import style from "./offerPrice.module.css";
 
-const TYPE = 'PRICE'
+
 function createData(type, name, prepaid, discount, total) {
     let result = {
         'type': type,
@@ -25,12 +27,12 @@ const TableOffer = (props) => {
 
     let rows = []
     let result
+    let actionPrice = getPriceActionCreator()
+    let actionResult = resultActionCreator()
     if (props.state.currentComplect) {
-        result = props.dispatch({
-            type: 'RESULT'
-        })
+        result = props.dispatch(actionResult)
     }
-    let price = props.dispatch({ type: TYPE })
+    let price = props.dispatch(actionPrice)
 
 
     const goods = (state) => {
@@ -56,7 +58,9 @@ const TableOffer = (props) => {
 
    const value = (type) => {
         if(type === 'Гарант'){
+           
             return props.state.currentPrice.value
+            
         }else{
             return props.state.legalTech.priceOfLt
         }
@@ -111,6 +115,7 @@ const TableOffer = (props) => {
                                     placeholder={value(row.type)}
                                     width={"70px"}
                                     typeOfProduct={row.type}
+                                    typeOfAction="INPUT_CHANGE_PRICE"
                                 />
                             </TableCell>
                         </TableRow>

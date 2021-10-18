@@ -10,7 +10,8 @@ import { CSSTransition, } from "react-transition-group";
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Offer from './components/offer/offer';
-const STYLE = 'STYLE';
+import { getStyleActionCreator } from './state/redusers/style';
+const actionStyle = getStyleActionCreator();
 
 function App(props) {
   
@@ -18,9 +19,9 @@ function App(props) {
   props.dispatch({type:'CHANGE_STATE'});
 
 
-  const actionCreaterGetStyle = () => {return {type: STYLE }}
-  let action = actionCreaterGetStyle();
-  const styleFromState = props.dispatch(action)
+  
+  
+  const styleFromState = props.dispatch(actionStyle)
 
   let style = {
     background: styleFromState.background,

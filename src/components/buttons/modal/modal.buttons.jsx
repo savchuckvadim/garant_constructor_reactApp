@@ -5,6 +5,7 @@ import styleBtn from "../button.module.css"
 // import Button from 'react-bootstrap/Button';
 import Button from '@material-ui/core/Button';
 import React from 'react';
+import { createComplectActionCreator } from "../../../state/redusers/createComplect-reducer";
 
 
 const TYPE = 'COMPLECT'
@@ -70,13 +71,13 @@ const ComplectModalButtons = (props) => {
     const currentComplect = props.dispatch(actionCurrent)
 
     let buttons = []
-   const createComplect = (obj, index) => {
-       props.dispatch({
-           type: TYPE,
-           obj: obj,
-           index : index
-       })
-   }
+    function createComplect(obj, index) {
+        let action = createComplectActionCreator(obj, index, props.state)
+
+        props.dispatch(action)
+
+   
+    }
     // allComplects.forEach((element, index) => {
     //     buttons[index] = <button type="button" className={`btn btns__complect  btn__${index}`}><label for="complect0"
     //         className="complect__name">{element.name}</label> <img src={Ellipse} alt=""></img> </button>

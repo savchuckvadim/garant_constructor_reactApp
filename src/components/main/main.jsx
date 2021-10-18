@@ -1,5 +1,5 @@
 import style from "./main.module.css"
-import AllInfoblocks from "../infoblocks/infoblocks"
+import AllInfoblocks from "../infoblocks/allInfoblocks"
 import Result from "../result/result"
 import Complect from "../complect/complect"
 import { width } from "@material-ui/system"

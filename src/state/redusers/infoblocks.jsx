@@ -1,20 +1,16 @@
-export const changeInfoblocks = (value, checked, state) => {  //меняет текущее наполнение в сcurrentComplect
 
-    let arrayOfcurrentComplectForChange = []
-    arrayOfcurrentComplectForChange = state.currentComplect.currentFilling;
-    if (checked) {
-      arrayOfcurrentComplectForChange.forEach((elem, idx) => {
-        if (elem === value) {
-          arrayOfcurrentComplectForChange.splice(idx, 1)
-        }
-      })
-    } else {
-      arrayOfcurrentComplectForChange.push(value)
-  
-    }
+const CHANGE_INFOBLOCKS_FROM_CURRENT = 'CHANGE_INFOBLOCKS_FROM_CURRENT'
+
+
+export const changeInfoblocksFromCurrentFillingActionCreator = () => {
+  return {
+    type : CHANGE_INFOBLOCKS_FROM_CURRENT
+  }
 }
 
-export const  changeInfoblocksData = (state) => { //меняет стэйт в соответствии с currentComplect
+
+
+export const  changeInfoblocksFromCurrent = (state) => { //меняет стэйт в соответствии с currentComplect
 
     if (state.currentComplect) {
     
@@ -29,7 +25,7 @@ export const  changeInfoblocksData = (state) => { //меняет стэйт в �
             }
           })
         })
-     
+       
     }else{
       state.infoblocks.forEach((element) => {
         element.value.forEach((elem) => {
@@ -39,4 +35,4 @@ export const  changeInfoblocksData = (state) => { //меняет стэйт в �
         })
       })
     }
-  }
+}

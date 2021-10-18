@@ -10,10 +10,12 @@ import React from 'react';
 import { ComplectClass } from "../complect/complect";
 
 import { startApp } from "../../index";
+import { createComplectActionCreator } from "../../state/redusers/createComplect-reducer"
+import { changeColorOfButtonActionCreator } from "../../state/redusers/colorOfButton-reducer"
 
 
-const COMPLECT = 'COMPLECT';
-const CURRENT_COMPLECT = 'CURRENT_COMPLECT'
+
+
 
 const dinamicStyleForButtons = (borderColor, textColor, complectColor) => {
     // state.allComplects.map((element) => {
@@ -68,41 +70,21 @@ const createActiveStyle = (props, element) => {
     }
 }
 
-const actionCreaterComplect = (obj, index) => {
-    return {
-        type: COMPLECT,
-        obj: obj,
-        index: index
-    }
-}
-const actionCreaterCurrentComplect = {
-    type: CURRENT_COMPLECT,
-}
-const actionCurrent = actionCreaterCurrentComplect
+
+
 
 const ComplectButtons = (props) => {
 
 
     function createComplect(obj, index) {
-        let action = actionCreaterComplect(obj, index)
-
+        let action = createComplectActionCreator(obj, index)
+        let actionColorOfButton = changeColorOfButtonActionCreator(index, props.state.theme[props.state.indexOfTheme])
+        props.dispatch(actionColorOfButton)
         props.dispatch(action)
 
-        // state.allComplects.forEach(element => {
-        //     element.backgroundColor = state.theme[state.indexOfTheme].backgroundColor
-        // })
-        // // let style = dinamicStyleForButtons(state.allComplects[index].color, state.allComplects[index] );
-        // state.allComplects[index].backgroundColor = state.allComplects[index]
-        // // state.allComplects[index].color = state.theme[state.indexOfTheme].color
-        // let complect = new ComplectClass(obj, index, state, dispatch);
-        // complect.odSaver()
 
-        // complect.returnName();
-        // complect.renderComplectsInfoblocks()
-
-        // startApp(state)
     }
-    const currentComplect = props.dispatch(actionCurrent)
+    const currentComplect = props.state.currentComplect
     let buttons = []
 
 

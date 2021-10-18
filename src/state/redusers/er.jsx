@@ -1,10 +1,12 @@
-const CHANGE_ER = 'CHANGE_ER'
-const changeErActionCreator = {
-  type: CHANGE_ER
+const CHANGE_ER_FROM_CURRENT = 'CHANGE_ER_FROM_CURRENT'
+export const changeErFromCurrentActionCreator = () => {
+  return {
+    type: CHANGE_ER_FROM_CURRENT
+  }
 }
 
 ////////////////////////////////
-export const changePaketsErData = (state) => {      //меняет _state
+export const changePaketsErFromCurrent = (state) => {      //меняет _state
 
   const changerErDependPaket = (indexOfPaket) => {
 
@@ -125,85 +127,10 @@ export const changePaketsErData = (state) => {      //меняет _state
   }
 }
 /////////////////////////////////
-export const changeER = (value, checked, type, state, dispatch, index) => {   //меняет currentComplect
-  const action = changeErActionCreator;
-  const changePaketsInState = (state, dispatch, checked, index) => { // если текущий комплект не офис для Пакетов в зависимости от параметров если checked делает uncheck в дате allEnciclopedis - заходит в state и убирает из filling индексов
 
-    if (checked === true) {
-      state.currentComplect.fillingPaketsERIndexes = [] // - очищает информацию о входящих в комплект пакетах в state.currentComplect
-    } else {
-      state.currentComplect.fillingPaketsERIndexes = [index]
-    }
-
-    changePaketsErData(state);
-  }
-
-  const changeErInState = (state, checked, index, indexOfEncyclopedias, filling) => { //для ЭР и Пакетов в зависимости от параметров если checked делает uncheck в дате allEnciclopedis - заходит в state и убирает из filling индексов
-
-    if (checked === true) {
-      if (filling.length > 0) {
-        filling.forEach((elem, idx) => {
-          if (elem === index) {
-            filling.splice(idx, 1)
-          }
-        })
-      }
-    } else {
-
-      state.encyclopedias[indexOfEncyclopedias].value[index].checked = true;
-
-
-
-      if (!filling.includes(index)) filling.push(index)
-    }
-  }
-
-
-
-
-
-  if (type === 'Пакет Энциклопедий решений') {
-    if (state.currentComplect.name !== 'Офис') {
-
-      changePaketsInState(state, dispatch, checked, index) // изменяет индекс входящих в комплект пакетов
-
-    } else {
-
-      window.alert('в комплекте Гарант-Офис должны содержаться два любых Пакета ЭР')
-      if (checked == true) {
-        if (index === 0) {
-          state.currentComplect.fillingPaketsERIndexes = [1, 2]
-        } else if (index === 1) {
-          state.currentComplect.fillingPaketsERIndexes = [0, 2]
-        } else if (index === 2) {
-          state.currentComplect.fillingPaketsERIndexes = [0, 1]
-        }
-
-      } else { //checked == false
-        if (index === 0) {
-          state.currentComplect.fillingPaketsERIndexes = [0, 2]
-        } else if (index === 1) {
-          state.currentComplect.fillingPaketsERIndexes = [0, 1]
-        } else if (index === 2) {
-          state.currentComplect.fillingPaketsERIndexes = [1, 2]
-        }
-      }
-      changePaketsErData(state);
-
-      //
-    }
-  } else { //IF
-
-    changeErInState(state, checked, index, 1, state.currentComplect.fillingEncyclopediasIndexes)
-
-  }
-
-
-
-}
 
 ///////////////////////////
-export const changeErData = (state) => {
+export const changeErFromCurrent = (state) => {
 
   if (state.currentComplect) {
     state.encyclopedias[1].value.forEach((element, index) => {
@@ -213,7 +140,7 @@ export const changeErData = (state) => {
       }
     })
   } else {
- 
+
     state.encyclopedias[1].value.forEach((element) => {
       element.checked = false
       element.weight = 0.5
@@ -222,4 +149,9 @@ export const changeErData = (state) => {
 
   return state
 
+}
+
+export const changeErAndPaketsErFromCurrent = (state) => {
+  changePaketsErFromCurrent(state)
+  changeErFromCurrent(state)
 }

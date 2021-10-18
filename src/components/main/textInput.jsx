@@ -7,12 +7,7 @@ const InputText = (props) => {
     props.dispatch({
         type: 'CHANGE_STATE'
     })
-    // props.dispatch({
-    //     type: TYPE,
-    //     fun: 'FROM_LOCAL',
-
-    // })
-    // let complectRef = React.createRef()
+ 
     let getNameOfproduct = () => {
         if (props.typeOfProduct) {
             return props.typeOfProduct
@@ -72,7 +67,8 @@ const InputText = (props) => {
     let changeNameOfComplect = (e, status) => {
 
         let actionName = {
-            type: TYPE,
+            // type: TYPE,
+            type: props.typeOfAction,
             act: props.type,
             value: e.target.value,
             // complectRef.current.value, 
@@ -125,6 +121,7 @@ const InputText = (props) => {
             variant="standard"
             value={value}
             typeOfProduct={nameOfproduct}
+            typeOfAction={props.typeOfAction}
         >
 
         </Input>

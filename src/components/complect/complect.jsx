@@ -11,7 +11,7 @@ import { padding } from "@material-ui/system";
 {/* todo cюда передать массив созданных инфоблоко - можно несколько массивов разбитых по типам 
     чтобы метод класса комплект мог брать и отмечать в них чеки в соответствии с индексами своего наполнения по умолчанию  */}
 
-const TYPE = 'COMPLECT'
+
 
 
 
@@ -27,8 +27,8 @@ const Complect = (props) => {
             <p className={style.complect__title} id="complect__title">Выберите подходящий комплект "Гарант"</p>
             <div className={style.container}>
 
-                < ComplectButtons state={props.state} dispatch={props.dispatch} />
-                < ODButtons state={props.state}  dispatch={props.dispatch} />
+                <ComplectButtons state={props.state} dispatch={props.dispatch} />
+                <ODButtons state={props.state}  dispatch={props.dispatch} />
                 <ResetButton state={props.state} dispatch={props.dispatch} />
                 <ModalButton state={props.state} dispatch={props.dispatch} />
             </div>

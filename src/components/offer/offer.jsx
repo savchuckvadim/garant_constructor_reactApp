@@ -49,6 +49,7 @@ const Offer = (props) => {
                     value = {props.state.currentPrepaid.value}
                     placeholder={props.state.currentPrepaid.value}
                     width={"100%"}
+                    typeOfAction="INPUT_CHANGE_PREPAID"
                     />
                 {/* {возможность убирать надпись} */}
                 <TableOffer state={props.state} dispatch={props.dispatch} />

@@ -12,7 +12,7 @@ import Header from '../../header/header'
 import ODModalButtons from './modal.od'
 
 
-const STYLE = 'STYLE'
+const STYLE = 'GET_STYLE'
 const CURRENT_COMPLECT = 'CURRENT_COMPLECT'
 
 

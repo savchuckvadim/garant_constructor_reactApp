@@ -1,3 +1,5 @@
+import { addToStorage } from "../utils/utils";
+
 class Store {
     constructor() {
       this.state = {
