@@ -3,8 +3,9 @@ import CreateInfoblocks from "./infoblocks";
 import CreateNewBlocks from "./newBlocks";
 import { Legalblocks } from "./legalTech";
 import Er from "./er";
-const AllInfoblocks = (props) => {
 
+const AllInfoblocks = (props) => {
+    
     return (
         <div id="menu" className={style.wrapper}>
             <CreateInfoblocks state={props.state} dispatch={props.dispatch} />

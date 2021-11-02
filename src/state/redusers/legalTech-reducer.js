@@ -1,5 +1,7 @@
 
 const CHANGE_LT_FROM_CURRENT = 'CHANGE_LT_FROM_CURRENT';
+const CHANGE_CURRENT_LT = 'CHANGE_CURRENT_LT'
+const CREATE_COMPLECT = 'CREATE_COMPLECT'
 
 export const changeLtFromCurrentActionCreator = () => {
 
@@ -8,11 +10,11 @@ export const changeLtFromCurrentActionCreator = () => {
     }
 }
 
-const changeltData = (state) => {
-
+export const changeltData = (state) => {
+    
     if (state.currentComplect) {
         state.legalTech.value.forEach((elem, index) => {
-
+            
             if (state.currentComplect.fillingLTIndexes.includes(index) || state.currentComplect.fillingPaketLT.includes(index)) {
                 elem.checked = true
             } else elem.checked = false
@@ -23,6 +25,7 @@ const changeltData = (state) => {
             elem.checked = false
         })
     }
+    return state.legalTech
 }
 
 export const weightLtForResult = (state) => {
@@ -62,9 +65,14 @@ export const weightLtForResult = (state) => {
         })
 
     }
+    return state.legalTech
 }
 
-export const changeLTFromCurrent = (state) => {
-    changeltData(state)
-    weightLtForResult(state)
+export const changeLTFromCurrent = (action, state) => {
+    
+    if (action.type === CHANGE_LT_FROM_CURRENT || action.type === CHANGE_CURRENT_LT || action.type === CREATE_COMPLECT || action.type === 'RESET'){
+        changeltData(state)
+        weightLtForResult(state)
+    }
+    return state.legalTech
 }

@@ -1,4 +1,6 @@
 const CHANGE_ER_FROM_CURRENT = 'CHANGE_ER_FROM_CURRENT'
+const CHANGE_CURRENT_PAKETS_ER = 'CHANGE_CURRENT_PAKETS_ER'
+const CHANGE_CURRENT_ER = 'CHANGE_CURRENT_ER'
 export const changeErFromCurrentActionCreator = () => {
   return {
     type: CHANGE_ER_FROM_CURRENT
@@ -151,7 +153,12 @@ export const changeErFromCurrent = (state) => {
 
 }
 
-export const changeErAndPaketsErFromCurrent = (state) => {
-  changePaketsErFromCurrent(state)
-  changeErFromCurrent(state)
+export const changeErAndPaketsErFromCurrent = (action, state) => {
+ 
+  console.log(state.currentComplect)
+  if (action.type === CHANGE_ER_FROM_CURRENT || action.type === 'CREATE_COMPLECT' || action.type === CHANGE_CURRENT_PAKETS_ER || action.type === CHANGE_CURRENT_ER || action.type === 'RESET'){
+    changePaketsErFromCurrent(state)
+    changeErFromCurrent(state)
+  }
+  return state.encyclopedias
 }

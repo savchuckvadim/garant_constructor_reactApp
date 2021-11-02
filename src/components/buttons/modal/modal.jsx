@@ -30,8 +30,11 @@ const actionCreaterCurrentComplect = {
 const actionCurrent = actionCreaterCurrentComplect
 
 const ModalButton = (props) => {
-  const styleFromState = props.dispatch(actionStyle)
-  const currentComplect = props.dispatch(actionCurrent)
+  
+  const styleFromState = props.state.currentStyle
+  //  props.dispatch(actionStyle)
+  const currentComplect = props.state.currentComplect 
+  // props.dispatch(actionCurrent)
 
 
   const [show, setShow] = useState(false);

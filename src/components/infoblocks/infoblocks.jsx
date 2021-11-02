@@ -1,12 +1,12 @@
 import style from "./infoblocks.module.css"
 import React from "react";
 import { renderInputFromData } from "../../utils/utils";
-import { changeInfoblocksFromCurrentFillingActionCreator } from "../../state/redusers/infoblocks";
 
 const changeType = 'CHANGE_CURRENT_INFOBLOCKS';
 
 function CreateInfoblocks(props) {
-    let action = changeInfoblocksFromCurrentFillingActionCreator()
+  
+   
 
     let infoblocksCreator = (number) => {
         if (props.state.infoblocks[number].nameOfType !== 'Новые блоки') {
@@ -29,7 +29,7 @@ function CreateInfoblocks(props) {
     }
 
 
-    props.dispatch(action) //подготавливает data-файлы перед отрисовкой на основе информации из текущего комплекта
+    // props.dispatch(action) //подготавливает data-файлы перед отрисовкой на основе информации из текущего комплекта
 
 
     let items = []

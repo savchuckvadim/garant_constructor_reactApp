@@ -10,26 +10,30 @@ import { CSSTransition, } from "react-transition-group";
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Offer from './components/offer/offer';
-import { getStyleActionCreator } from './state/redusers/style';
-const actionStyle = getStyleActionCreator();
+
 
 function App(props) {
-  
+ 
+ console.log(props.state)
+ 
   const [inProp, setInProp] = useState(false);
-  props.dispatch({type:'CHANGE_STATE'});
+  // props.dispatch({type:'CHANGE_STATE'});
 
 
   
-  
-  const styleFromState = props.dispatch(actionStyle)
+  // props.dispatch(actionStyle)
+  // props.dispatch(actionStyle)
+  const styleFromState =  props.state.theme[props.state.indexOfTheme]
+  // props.state.currentStyle
+  // props.dispatch(actionStyle)
 
   let style = {
-    background: styleFromState.background,
+    // background: styleFromState.background,
     color: styleFromState.color,
     textColor: styleFromState.textColor,
-    transitionProperty: styleFromState.transitionProperty,
-    transitionDuration: styleFromState.transitionDuration,
-    transitionDelay: styleFromState.transitionDelay,
+    // transitionProperty: styleFromState.transitionProperty,
+    // transitionDuration: styleFromState.transitionDuration,
+    // transitionDelay: styleFromState.transitionDelay,
     backgroundPosition: `center`,
     transform: `rotateZ(720deg)`
   }
@@ -45,15 +49,17 @@ function App(props) {
   const routes = [
     { path: "/", Component: MainPage },
     { path: "/main", Component: MainPage },
-    { path: "/description", Component: descriptionPage },
+    // { path: "/description", Component: descriptionPage },
     { path: "/offer", Component: offerPage }
   ]
+  const mainClassRef = React.createRef()
   return (
     
 
       <div>
-        <Header onClick={() => setInProp(true)} style={style} state={props.state} dispatch={props.dispatch} />
-        <div className="app__wrapperContent">
+       
+        <div ref={mainClassRef} className={props.state.theme[props.state.indexOfTheme].currentMainClass}>
+        <Header onClick={() => setInProp(true)} style={style} state={props.state} dispatch={props.dispatch} mainClass={mainClassRef}/>
        {routes.map(({ path, Component }) =>
           <Route key={path} exact path={path}>
             {({ math }) =>

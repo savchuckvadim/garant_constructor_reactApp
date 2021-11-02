@@ -2,15 +2,15 @@ import style from "./infoblocks.module.css"
 
 import { React } from 'react'
 import { renderInputFromData } from "../../utils/utils";
-import { changeErFromCurrentActionCreator } from "../../state/redusers/er";
+
 
 const CHANGE_CURRENT_ER = 'CHANGE_CURRENT_ER'
 const CHANGE_CURRENT_PAKETS_ER = 'CHANGE_CURRENT_PAKETS_ER'
 
 const Er = (props) => {
     
-    let action = changeErFromCurrentActionCreator()
-    props.dispatch(action)
+    // let action = changeErFromCurrentActionCreator()
+    // props.dispatch(action)
 
     let itemsPakets = []
     let itemsER = []

@@ -8,22 +8,29 @@ import { store } from './state/state';
 import { subscribe } from "./state/state";
 import { addToStorage, getFromStorage } from "./utils/utils.js";
 
+
+
+
+store.changeState()
 export const startApp = () => {
+  
+  console.log(store._state.currentComplect)
+  console.log(store._state.infoblocks[0])
   let version = getFromStorage('version')
-  if(version.length < 1 || version[0] === '1' ){
-    localStorage.removeItem('currentComplect')
+  // if(version.length < 1 || version[0] === '1' ){
+  //   localStorage.removeItem('currentComplect')
     
-    addToStorage({1:'2'}, 'version')
-    ReactDOM.render(
-      <React.StrictMode>
-           <BrowserRouter>
-        <App state={store._state} dispatch={store.dispatch.bind(store)} />
-        </BrowserRouter>
-      </React.StrictMode>,
-      document.getElementById('root')
-    );
-  }
-  else{
+  //   addToStorage({1:'2'}, 'version')
+  //   ReactDOM.render(
+  //     <React.StrictMode>
+  //          <BrowserRouter>
+  //       <App state={store._state} dispatch={store.dispatch.bind(store)} />
+  //       </BrowserRouter>
+  //     </React.StrictMode>,
+  //     document.getElementById('root')
+  //   );
+  // }
+  // else{
     
     ReactDOM.render(
       
@@ -34,7 +41,8 @@ export const startApp = () => {
       </React.StrictMode>,
       document.getElementById('root')
     );
-  }
+  // }
+ 
 
 }
 startApp();

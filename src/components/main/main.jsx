@@ -2,26 +2,35 @@ import style from "./main.module.css"
 import AllInfoblocks from "../infoblocks/allInfoblocks"
 import Result from "../result/result"
 import Complect from "../complect/complect"
-import { width } from "@material-ui/system"
+
 
 // import { state } from "../../App"
 
 
 const Main = (props) => {
-    
+    const result = () => {
+        if(props.state.currentComplect){
+            return (
+                <div style={styleResult} className={style.result__container}>
+                    <Result state={props.state} dispatch={props.dispatch} />
+                </div>
+            )
+        }
+    }
+     //  props.dispatch(actionLoad)
    
     // console.log(props.state)
     let stMain = {
-        backgroundColor: props.style.background,
-        transitionProperty: props.style.transitionProperty,
-        transitionDuration: props.style.transitionDuration,
-        transitionDelay: props.style.transitionDelay,
-        color: props.style.color,
+        // backgroundColor: props.style.background,
+        // transitionProperty: props.style.transitionProperty,
+        // transitionDuration: props.style.transitionDuration,
+        // transitionDelay: props.style.transitionDelay,
+        // color: props.style.color,
       
 
     }
     let styleResult = {
-        backgroundColor: props.style.background,
+        // backgroundColor: props.style.background,
         color: props.style.color
     }
 
@@ -41,9 +50,10 @@ const Main = (props) => {
 
                 </div>
 
-                <div style={styleResult} className={style.result__container}>
+                {/* <div style={styleResult} className={style.result__container}>
                     <Result state={props.state} dispatch={props.dispatch} />
-                </div>
+                </div> */}
+                {result()}
 
             </div>
 

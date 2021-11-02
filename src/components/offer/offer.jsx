@@ -13,7 +13,7 @@ const TYPE = 'OFFER'
 const Offer = (props) => {
     
     let styleFromState = {
-        backgroundColor: props.style.background,
+        // backgroundColor: props.style.background,
         transitionProperty: props.style.transitionProperty,
         transitionDuration: props.style.transitionDuration,
         transitionDelay: props.style.transitionDelay,
@@ -27,7 +27,7 @@ const Offer = (props) => {
     // state.changeltData()
     // state.weightLtForResult()
     // let result =
-     props.dispatch({type: TYPE })
+    //  props.dispatch({type: TYPE })
     if (props.state.currentComplect) {
 
        

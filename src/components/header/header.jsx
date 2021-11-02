@@ -10,7 +10,7 @@ import { Link, NavLink } from 'react-router-dom';
 const Header = (props) => {
 
   let stHeader = {
-    backgroundColor: props.style.background,
+    // backgroundColor: props.style.background,
     transitionProperty: props.style.transitionProperty,
     transitionDuration: props.style.transitionDuration,
     transitionDelay: props.style.transitionDelay,
@@ -25,8 +25,8 @@ const Header = (props) => {
       <NavLink as={Link} to='/main' > <img className={headerStyle.header__logo} src={logo} alt="logo"></img></NavLink>
        
         <div className={headerStyle.leftBlock}>
-          <PhoneNumber state={props.state} dispatch={props.dispatch} />
-          <DarkTheme state={props.state} dispatch={props.dispatch} />
+          <PhoneNumber state={props.state} dispatch={props.dispatch} style={props.style} />
+          <DarkTheme state={props.state} dispatch={props.dispatch} mainClass={props.mainClass}/>
         </div>
 
 

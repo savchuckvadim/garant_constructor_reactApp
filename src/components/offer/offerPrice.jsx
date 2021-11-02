@@ -1,6 +1,5 @@
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@material-ui/core";
-import { getPriceActionCreator } from "../../state/redusers/price";
-import { resultActionCreator } from "../../state/redusers/result";
+import { resultActionCreator } from "../../state/redusers/result-reducer";
 import InputText from "../main/textInput";
 import PhoneNumber from "./offerPhoneNumber";
 import style from "./offerPrice.module.css";
@@ -27,12 +26,14 @@ const TableOffer = (props) => {
 
     let rows = []
     let result
-    let actionPrice = getPriceActionCreator()
+    // let actionPrice = getPriceActionCreator()
     let actionResult = resultActionCreator()
     if (props.state.currentComplect) {
-        result = props.dispatch(actionResult)
+        result = props.state.currentResult 
+        // props.dispatch(actionResult)
     }
-    let price = props.dispatch(actionPrice)
+    let price = props.state.currentPrice
+    // props.dispatch(actionPrice)
 
 
     const goods = (state) => {

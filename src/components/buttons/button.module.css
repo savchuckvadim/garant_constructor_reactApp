@@ -68,7 +68,12 @@
     
 }
 .btn__od{
-    width: 100% ;
+    width: 100% !important;
+}
+
+.od__label{
+color: none !important;
+background-color: none !important;
 }
 
 

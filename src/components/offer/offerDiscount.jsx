@@ -1,16 +1,7 @@
 import { FormControl, Input, TableCell, TextField } from "@material-ui/core"
 import React from "react"
+import { changeDiscountActionCreator } from "../../state/redusers/changeDiscount-reducer"
 import style from "./offerDiscount.module.css"
-
-const DISCOUNT = 'DISCOUNT'
-
-
-const actionGetDiscount = {
-    type: DISCOUNT,
-    act: 'GET'
-}
-
-
 
 const OfferDiscount = (props) => {
     const myRef = React.createRef();
@@ -20,24 +11,15 @@ const discountValue = myRef.current
 
 
 console.log(discountValue)
-    const discountCreater = (action) => {
-        return props.dispatch(action)
-    }
-    let discount = discountCreater(actionGetDiscount)
+
+    let discount = props._state.offer.discount
 
 
 
     const discountOnInputCreator = (e, autoFocus) => {
         e.preventDefault()
-
-        console.log()
-        const actionOnInputDiscount = {
-            type: DISCOUNT,
-            act: 'SET',
-            value: e.target.value,
-            autoFocus: autoFocus
-        }
-        discountCreater(actionOnInputDiscount)
+        const action = changeDiscountActionCreator(e.target.value, autoFocus) 
+        props.dispatch(action)
     }
    
 

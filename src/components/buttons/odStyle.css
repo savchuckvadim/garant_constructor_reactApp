@@ -1,0 +1,16 @@
+.od__labelLight{
+    
+    background-color: 'none' !important;
+    color: black;
+    transition-property: background-color, color  !important;
+    transition-duration:  5s  !important;
+    transition-delay:  2s  !important;
+}
+
+.od__labelDark{
+    background-color: 'none' !important ;
+    color: white !important;
+    transition-property: background-color, color  !important;
+    transition-duration:  5s  !important;
+    transition-delay:  2s  !important;
+}

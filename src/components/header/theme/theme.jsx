@@ -1,46 +1,44 @@
 import './theme.css'
 import '../../../App.css'
 import React from 'react'
+import { themeActionCreator } from '../../../state/redusers/theme-reducer'
 
 
 
 const DarkTheme = (props) => {
 let themeRef = React.createRef()
-const THEME = 'THEME'
+
+
     const CreateRound = () => {   
         return(
-            <button ref={themeRef} onClick={changeTheme} id="round" className="round round__img" ></button>
+            <button ref={themeRef} onClick={changeTheme} id="round" className={props.state.classOfTheme} ></button>
         )   
     }
 
     const changeTheme = (e) => {
 
         let element = themeRef.current
-        // props.dispatch({
-        //     type: THEME,
-        //     element: element,
-        //     style1: 'round__img',
-        //     style2: 'round__img2'
-
-        // })
+        let mainClass = props.mainClass.current
+        let actionChangeTheme = themeActionCreator(element, mainClass)
+        props.dispatch(actionChangeTheme)
     
-        if (props.state.indexOfTheme === 0) {
+        // if (props.state.indexOfTheme === 0) {
     
-            element.classList.remove('round__img')
-            element.classList.add('round__img2')
-            props.state.indexOfTheme = 1
+        //     element.classList.remove('round__img')
+        //     element.classList.add('round__img2')
+        //     props.state.indexOfTheme = 1
            
-        } else {
+        // } else {
            
-            element.classList.remove('round__img2')
-            element.classList.add('round__img1')
-            props.state.indexOfTheme = 0
+        //     element.classList.remove('round__img2')
+        //     element.classList.add('round__img1')
+        //     props.state.indexOfTheme = 0
           
-        }
+        // }
        
-        props.dispatch({
-            type: 'START_APP'
-        })
+        // props.dispatch({
+        //     type: 'START_APP'
+        // })
     }
 
     let div =   <div  className='container__darktheme'>

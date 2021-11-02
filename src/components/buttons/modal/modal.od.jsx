@@ -30,7 +30,8 @@ const actionOd = (name) => {
 
 
 function ODModalButtons(props) {
-  const currentComplect = props.dispatch(actionCurrent)
+  const currentComplect =  props.state.currentComplect
+  // props.dispatch(actionCurrent)
 
   const odChange = (name) => {
     const action = odChangeActionCreator (name)

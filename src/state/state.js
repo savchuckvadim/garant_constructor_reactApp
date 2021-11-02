@@ -1,71 +1,60 @@
-import {
-  color
-} from "@material-ui/system";
-import {
-  ComplectClass
-} from "../components/complect/complect";
+
 import {
   addToStorage,
   getFromStorage,
 
 } from "../utils/utils";
 
-import {
-  offerLoader
-} from "./redusers/offer";
+
+
 
 import {
-  changeCurrentCheckbox
-} from "./redusers/checkBoxes-reduser";
-import {
   changeColorOfButton
-} from "./redusers/colorOfButton-reducer";
-import {
-  createComplect
-} from "./redusers/createComplect-reducer.jsx";
+} from "./redusers/allComplects-reducer";
+
 
 import {
 
   changeErAndPaketsErFromCurrent,
   changeErFromCurrent,
   changePaketsErFromCurrent
-} from "./redusers/er";
-import {
+} from "./redusers/enciclopedias-reducer.js";
 
-  changeInfoblocksFromCurrent
-} from "./redusers/infoblocks";
-import {
-  changeLTFromCurrent,
-  weightLtForResult
-} from "./redusers/legalTech";
+import {changeLTFromCurrent, changeltData, weightLtForResult} from './redusers/legalTech-reducer'
 import {
   oD
 } from "./redusers/od-reducer";
+
 import {
-  changeDataPhone,
-  changePhoneFromLocal,
-  phoneNumber
-} from "./redusers/phoneNumber-reducer";
-import {
-  price
-} from "./redusers/price";
+  priceReducer
+} from "./redusers/price-reducer";
 import {
   reset
-} from "./redusers/reset";
+} from "./redusers/reset-reducer";
 import {
   result
-} from "./redusers/result";
-import {
-  getStyle
-} from "./redusers/style";
+} from "./redusers/result-reducer.js";
+
 import {
   changeTheme
-} from "./theme-reducer";
+} from "./redusers/theme-reducer";
 
-import { changeCurrentEr } from "./redusers/changeCurrentEr-reducer";
-import { changeCurrentInfoblocks } from "./redusers/changeCurrentInfoblock-reducer";
-import { changeCurrentPketsEr } from "./redusers/changeCurrentPaketsEr-reducer";
-import {changeLt} from "./redusers/changeCurrentLt-reducer"
+
+import {
+  changePrepaid
+} from "./redusers/prepaid-reducer";
+
+import {
+  changeDataPhone
+} from "./redusers/phoneNumber-reducer";
+import {
+  currentComplect
+} from "./redusers/currentComplect-reducer";
+import {
+  changeInfoblocksFromCurrent,
+  infoblocks
+} from "./redusers/infoblocks-reducer";
+import { changeNameOfComplect } from "./redusers/nameOfComplect-reducer";
 
 // export let state = new State();
 export let store = {
@@ -78,13 +67,36 @@ export let store = {
       width: 0
 
     },
-    currentStatusInputComplectName: false,
+    
     currentPrepaid: {
       value: 'Минимальный аванс 1 месяц',
       placeholder: 'Минимальный аванс 1 месяц',
       status: false,
       width: 0
     },
+   
+    currentResult: {
+      styleResult: {
+        backgroundColor: 'grey',
+        color: 'white',
+        textDecoration: 'none'
+      },
+      name: 'название комплекта',
+      od: '',
+      weight: '',
+      price: '',
+
+      styleLt: {
+        display: 'none'
+      },
+      ltIncluded: 0,
+      weightLt: 0,
+      nameOflt: 'Legal Tech',
+      priceOfLt: `0. 00 p`,
+      totalPrice: `0. 00 p`,
+      
+    },
+    
     allComplects: [{
         'name': 'Бухгалтер',
         'tag': 'accountant',
@@ -974,27 +986,10 @@ export let store = {
       [26520, 26520, 37980, 37980, 33270, 34440, 53220, 67200]
     ],
     pricesOfLt: [960, 2200, 3300],
-    theme: [
-
-      {
-        'name': 'light',
-        'backgroundColor': 'white',
-        'color': 'black',
-        'textColor': 'white'
-      },
-
-      {
-        'name': 'dark',
-        'backgroundColor': 'rgba(37, 40, 45, 1)',
-        'color': 'white',
-        'textColor': 'white'
-      }
-
-    ],
-    indexOfTheme: 0,
-    result: {
-      'status': ''
-    },
+  
+    
+    
+   
     phoneNumber: {
       'status': false,
       'value': '+79620027991'
@@ -1007,237 +1002,146 @@ export let store = {
 
     },
 
-  },
-  dispatch(action) {
-    if (action.type === 'GET_STYLE') {
-      return getStyle(this._state.theme, this._state.indexOfTheme, action);
-    } else if (action.type === 'CHANGE_COLOR_OF_BUTTON') {
-
-
-      changeColorOfButton(action, this._state);
-      changeInfoblocksFromCurrent(this._state);
-      changePaketsErFromCurrent(this._state);
-      this.startApp()
-      // ...............................................................................................
-    }
-    if (action.type === 'CREATE_COMPLECT') {
-
-
-      this._state.currentComplect = createComplect(action, this._state.currentComplect);
-      this.startApp()
-      // ...............................................................................................
-    } else if (action.type === 'GET_CURRENT_COMPLECT') {
-      return this.currentComplect
-    } 
-    // else if (action.type === 'CHANGE_CHECKBOX') {
-    //   changeCurrentCheckbox(action, this._state)
-    //   this.save();
-    //   this.startApp();
-
-    // } 
-    else if (action.type === 'CHANGE_INFOBLOCKS_FROM_CURRENT') {
-      changeInfoblocksFromCurrent(this._state);
-
-    } else if (action.type === 'CHANGE_CURRENT_INFOBLOCKS') {
-      this._state.currentComplect.currentFilling = changeCurrentInfoblocks(action, this._state.currentComplect)
-      this.save();
-      this.startApp();
-
-    } else if (action.type === 'CHANGE_ER_FROM_CURRENT') {
-      // changePaketsErData(this._state);
-      // changeErData(this._state)
-      changeErAndPaketsErFromCurrent(this._state)
-    }else if (action.type === 'CHANGE_CURRENT_ER') {
-     
-
-      this._state.currentComplect = changeCurrentEr(action, this._state)
-      this.save();
-      this.startApp();
-
-    }else if (action.type === 'CHANGE_CURRENT_PAKETS_ER') {
+    currentStatusInputComplectName: false,
+    result: {
+      'status': '',
+      'resultItems': [{
+          title: 'Комплект',
+          id: 'complect__name',
+        },
+        {
+          title: 'Вес',
+          id: 'blocksWeight',
+        },
+        {
+          title: 'Количество доступов',
+          id: 'pod',
+        },
+        {
+          title: 'Legal Tech в комплекте',
+          id: 'complect__name',
+        },
+        {
+          title: 'Стоимость',
+          id: 'complect__price',
+        },
+        {
+          title: 'Legal Tech',
+          id: 'complect__lt',
+        },
+        {
+          title: 'Вес LT',
+          id: 'complect__lt',
+        },
       
-    
-      this._state.currentComplect = changeCurrentPketsEr(action, this._state)
-      this.save();
-      this.startApp();
-
-    } else if (action.type === 'CHANGE_LT_FROM_CURRENT') {
-
-      changeLTFromCurrent(this._state)
-    }else if (action.type === 'CHANGE_CURRENT_LT') {
-
-      this._state.currentComplect = changeLt(action, this._state)
-      this.save();
-      this.startApp();
-    } else if (action.type === 'CHANGE_CURRENT_OD') {
-      oD(action, this._state)
-      this.save()
-      this.startApp()
-
-    } else if (action.type === 'RESET') {
-      reset(this._state)
-      this.startApp()
-    } else if (action.type === 'GET_PRICE') {
-      return price(this._state)
-    } else if (action.type === 'RESULT') {
-
-      // weightLtForResult()
-      // let weight = weightLtForResult()
-      return result(this._state)
-
-    } else if (action.type === 'PAGE') {
-
-
-
-    } else if (action.type === 'PHONE') {
-
-      if (action.act === 'FROM_LOCAL') {
-
-        this._state.phoneNumber =  changePhoneFromLocal(this._state.phoneNumber )
-        
-
-      } else if (action.act === 'CHANGE_PHONE') {
-
-        this._state.phoneNumber = changeDataPhone(action, this._state.phoneNumber )
-        this.startApp()
-
-      }
-      
-
-    } else if (action.type === 'OFFER') {
-      offerLoader(this._state, action)
-
-
-
-      // return this.result()
-    } else if (action.type === 'DISCOUNT') {
-      if (action.act === 'GET') {
-
-        return this._state.offer.discount
-
-      } else if (action.act === 'SET') {
-        this._state.offer.discount = action.value
-        this._state.offer.autoFocus = action.autoFocus
-
-        this.save()
-        this.startApp()
-      }
-
-    } else if (action.type === 'THEME') {
-      this.state.indexOfTheme = changeTheme(action, this._state.indexOfTheme)
-      this.startApp()
-    } else if (action.type === 'CHANGE_STATE') {
-
-      this.changeState()
-    } else if (action.type === 'START_APP') {
-      this.startApp()
-    }
-
-     else if (action.type === 'TEXT_INPUT') {
-
-      if (action.act === 'nameOfComplect') {
-
-
-        this._state.currentComplect.name = action.value
-        this._state.currentComplect.fillingLTIndexes = []
-        this._state.fillingPaketLT = []
-        this._state.fillingPaketsERIndexes = []
-        this._state.fillingEncyclopediasIndexes = []
-        this._state.currentComplect.width = action.width
-        changeLTFromCurrent(this._state)
-        changePaketsErFromCurrent(this._state)
-        changeErFromCurrent(this._state)
-        this._state.currentStatusInputComplectName = action.status
-        addToStorage(this._state.currentComplect, 'currentComplect')
-        this.startApp()
-
-      } else if (action.act === 'prepaid') {
-
-        this._state.currentPrepaid.width = action.width
-        this._state.currentPrepaid.value = action.value
-        this._state.currentPrepaid.status = action.status
-
-        addToStorage(this._state.currentPrepaid, 'prepaid')
-        this.startApp()
-
-
-      } else if (action.act === 'price') {
-        if (action.typeOfProduct === 'Гарант') {
-          this._state.currentPrice.width = action.width
-          this._state.currentPrice.value = action.value
-          this._state.currentPrice.status = action.status
-          addToStorage(this._state.currentPrice, 'currentPrice')
-
+        {
+          title: 'Стоимость LT',
+          id: 'complect__lt',
+        },
+        {
+          title: 'Общая Стоимость',
+          id: 'complect__lt',
         }
-      } else if (action.typeOfProduct === 'Legal Tech') {
-        return this._state.legalTech.priceOfLt
 
+
+      ]
+    },
+    indexOfTheme: 0,
+    theme: [
+
+      {
+        'name': 'light',
+        'backgroundColor': 'white',
+        'color': 'black',
+        'textColor': 'white',
+        'classOfTheme': 'round round__img',
+        'currentMainClass': 'app__wrapperContent'
+      },
+
+      {
+        'name': 'dark',
+        'backgroundColor': 'rgba(37, 40, 45, 1)',
+        'color': 'white',
+        'textColor': 'white',
+        'classOfTheme': 'round round__img2',
+        'currentMainClass': 'app__wrapperContent_dark'
       }
-      // this.startApp()
-    }
 
+    ],
+    currentMainClass: 'app__wrapperContent',
+    classOfTheme: 'round round__img',
+    currentStyle: {
+      background: 'white',
+      color: 'black',
+      text: 'black',
+      transitionProperty: `background-image, background-color, text-color, color, transform`,
+      transitionDuration: `0.5s`,
+      transitionDelay: ` 0.1s`,
+    },
+
+  },
+  
+  dispatch(action) {
+      this._state = reset(action, this._state); 
+      this._state = changeNameOfComplect(action, this._state);
+
+      this._state.allComplects = changeColorOfButton(action, this._state);
+
+      this._state.currentComplect = currentComplect(action, this._state);
+
+      this._state.infoblocks = infoblocks(action, this._state).infoblocks;
+      this._state.encyclopedias = changeErAndPaketsErFromCurrent(action, this._state);
+      this._state.legalTech = changeLTFromCurrent(action, this._state);
+
+      this._state.currentOd = oD(action, this._state); 
+
+      this._state.phoneNumber = changeDataPhone(action, this._state.phoneNumber); 
+      this._state.currentPrepaid = changePrepaid(action, this._state.currentPrepaid); 
+      this._state.currentPrice = priceReducer(action, this._state); 
     
-    else if(action.type === 'INPUT_CHANGE_NAME_OF_CURRENT_COMPLECT'){
-      this._state.currentComplect.name = action.value
-        this._state.currentComplect.fillingLTIndexes = []
-        this._state.fillingPaketLT = []
-        this._state.fillingPaketsERIndexes = []
-        this._state.fillingEncyclopediasIndexes = []
-        this._state.currentComplect.width = action.width
-        changeLTFromCurrent(this._state)
-        changePaketsErFromCurrent(this._state)
-        changeErFromCurrent(this._state)
-        this._state.currentStatusInputComplectName = action.status
-        addToStorage(this._state.currentComplect, 'currentComplect')
-        this.startApp()
-    }
-    else if(action.type === 'INPUT_CHANGE_PRICE'){
-      
-      if (action.typeOfProduct === 'Гарант') {
-        this._state.currentPrice.width = action.width
-        this._state.currentPrice.value = action.value
-        this._state.currentPrice.status = action.status
-        addToStorage(this._state.currentPrice, 'currentPrice')
-        this.startApp()
-        // debugger
-      }
-    } else if (action.typeOfProduct === 'Legal Tech') {
-      return this._state.legalTech.priceOfLt
+      this._state.currentResult = result(action, this._state);
 
-    }
-    
-   
-    else if(action.type === 'INPUT_CHANGE_PREPAID'){
-      this._state.currentPrepaid.width = action.width
-        this._state.currentPrepaid.value = action.value
-        this._state.currentPrepaid.status = action.status
+      this._state.indexOfTheme = changeTheme(action, this._state); 
 
-        addToStorage(this._state.currentPrepaid, 'prepaid')
-        this.startApp()
-    }
+      this.save();
+      this.startApp();
+
   },
 
 
 
 
   save() {
+
     addToStorage(this._state.currentComplect, 'currentComplect')
     addToStorage(this._state.offer, 'offer')
     addToStorage(this._state.currentPrepaid, 'prepaid')
 
     addToStorage(this._state.currentOd, 'od')
-
-    // addToStorage(this._state, 'state')
-
+    addToStorage(this._state.currentPrice, 'price')
+    addToStorage(this._state.currentResult, 'result')
+    addToStorage (this._state.phoneNumber, 'phone')
+    
   },
 
   changeState() {
 
+    const storageDataResult = getFromStorage('result');
+
+    if (storageDataResult && !Array.isArray(storageDataResult)) {
+
+      this._state.currentResult = storageDataResult;
+    }
+
+
+
     const storageData = getFromStorage('currentComplect');
 
     if (storageData && !Array.isArray(storageData)) {
+
       this._state.currentComplect = storageData;
     } else {
+
       this._state.currentComplect = null
     }
 
@@ -1257,12 +1161,28 @@ export let store = {
 
       this._state.currentPrepaid = currentPrepaid
     }
-   
-    
- 
+
+    const currentPhoneNumber = getFromStorage('phone')
+    if (currentPhoneNumber && !Array.isArray(currentPhoneNumber)) {
+
+      this._state.phoneNumber = currentPhoneNumber
+    }
+
+    const currentPrice = getFromStorage('price')
+    if (currentPrice && !Array.isArray(currentPrice)) {
+      
+      this._state.currentPrice = currentPrice
+      
+    }
 
 
 
+
+    changeInfoblocksFromCurrent(this._state)
+    changePaketsErFromCurrent(this._state)
+    changeErFromCurrent(this._state)
+    changeltData(this._state)
+    weightLtForResult(this._state)
 
   },
 
@@ -1292,13 +1212,13 @@ export let store = {
   //   }
   // },
 
-  get currentComplect() {
-    if (this._state.currentComplect) {
-      return this._state.currentComplect
-    } else {
-      return this._state.allComplects[0]
-    }
-  },
+  // get currentComplect() {
+  //   if (this._state.currentComplect) {
+  //     return this._state.currentComplect
+  //   } else {
+  //     return this._state.allComplects[0]
+  //   }
+  // },
 
   get state() {
     return this._state

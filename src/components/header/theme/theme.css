@@ -36,9 +36,9 @@ body{
     background-repeat: no-repeat;
     background-position: center;
     transition-property: background-image, background-color, text-color, color, transform !important;
-    transition-duration: 0.4s !important; 
-    transition-delay: 0.0s !important; 
-     transform: rotateZ(3600deg) !important; 
+    transition-duration: 1.4s !important; 
+    transition-delay: 0.7s !important; 
+     /* transform: rotateZ(3600deg) !important;  */
     
 
 } 
@@ -48,7 +48,10 @@ body{
     /* background-color: pink; */
     background-image: url('./img/broSunMoon/moon.svg');
     /* transform: rotateZ(3600deg);  */
-   
+    transition-property: background-image, background-color, text-color, color, transform !important;
+    transition-duration: 1.4s !important; 
+    transition-delay: 0.7s !important; 
+     transform: rotateZ(3600deg) !important; 
 
 }
 
@@ -59,5 +62,9 @@ body{
    background-image: url('./img/broSunMoon/sun.svg');
     transform: rotateZ(-3600deg) !important; 
     /* background-color: white; */
+    transition-property: background-image, background-color, text-color, color, transform !important;
+    transition-duration: 1.4s !important; 
+    transition-delay: 0.7s !important; 
+ 
 
 }

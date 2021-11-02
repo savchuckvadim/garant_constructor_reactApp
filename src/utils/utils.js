@@ -1,5 +1,5 @@
 import { Checkbox } from "@material-ui/core";
-import { changeCheckBoxActionCreator } from "../state/redusers/checkBoxes-reduser";
+import { changeCheckBoxActionCreator } from "../state/redusers/checkBoxes-action";
 
 
 export const getFromStorage = function (key) {
@@ -45,7 +45,7 @@ let region = (name) => {
       color : props.state.theme[props.state.indexOfTheme].color
     }
     array.value.forEach((element, index) => {
-      
+     
       let action = changeCheckBoxActionCreator(type, element.name, element.checked, index)
 
       const changeCheckbox = () => {props.dispatch(action)}

@@ -37,9 +37,9 @@
     grid-row-end: 2;
     align-self: start;
 
-    transition-property: background-image, background-color, text-color, color, transform;
+    /* transition-property: background-image, background-color, text-color, color, transform;
     transition-duration: 1.5s;
-    transition-delay: 0.1s;
+    transition-delay: 0.1s; */
     /* background-color: cadetblue; */
 
 }

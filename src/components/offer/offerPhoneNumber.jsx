@@ -1,26 +1,19 @@
 import { Input } from "@material-ui/core"
 import React from "react"
 import { phoneActionCreator } from "../../state/redusers/phoneNumber-reducer"
-import { getStyleActionCreator } from "../../state/redusers/style"
 import styleClass from './offerPhoneNumber.module.css'
 
-const ACT_LOAD = 'FROM_LOCAL'
+
 const ACT_CHANGE = 'CHANGE_PHONE'
-let loadPhoneAction = phoneActionCreator(ACT_LOAD)
 
 
 const PhoneNumber = (props) => {
 
-    let actionStyle = getStyleActionCreator();
-    const styleFromState = props.dispatch(actionStyle)
-
-
-    props.dispatch(loadPhoneAction)
-
+    const styleFromState = props.style
     let phoneRef = React.createRef()
  
     const style = {
-        backgroundColor: styleFromState.background,
+        // backgroundColor: styleFromState.background,
 
         transitionProperty: styleFromState.transitionProperty,
         transitionDuration: styleFromState.transitionDuration,
@@ -52,7 +45,9 @@ const PhoneNumber = (props) => {
             onChange={active}
             type="text"
             variant="standard"
-            value={props.state.phoneNumber.value}>
+            value={props.state.phoneNumber.value}
+            width={props.state.phoneNumber.value.length}
+            >
 
         </Input>
 

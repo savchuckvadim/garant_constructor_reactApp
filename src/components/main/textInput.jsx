@@ -1,12 +1,13 @@
 import { Input, TextField } from "@material-ui/core"
 import React from "react"
 import styleMod from "./textInput.module.css"
-const TYPE = 'TEXT_INPUT'
+
 
 const InputText = (props) => {
-    props.dispatch({
-        type: 'CHANGE_STATE'
-    })
+   
+    // props.dispatch({
+    //     type: 'CHANGE_STATE'
+    // })
  
     let getNameOfproduct = () => {
         if (props.typeOfProduct) {
@@ -44,7 +45,7 @@ const InputText = (props) => {
     }
    
     const style = {
-        backgroundColor: background,
+        // backgroundColor: background,
         borderStyle: 'none',
         textColor: color,
         color: color,

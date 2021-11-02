@@ -21,12 +21,12 @@ const ResetButton = (props) => {
 
     let resetStyle = {
         color: props.state.theme[props.state.indexOfTheme].color,
-        backgroundColor: props.state.theme[props.state.indexOfTheme].backgroundColor,
+        // backgroundColor: props.state.theme[props.state.indexOfTheme].backgroundColor,
         // minWidth: '322px',
         height: '54px',
         width: '100%',
         border: '2px solid',
-        borderColor: 'rgba(151, 103, 200, 1)',
+        borderColor:   props.state.theme[props.state.indexOfTheme].color,
     
         variant: 'light',
         display: 'flex',
@@ -38,7 +38,7 @@ const ResetButton = (props) => {
     }
     return(
         // <Button style={resetStyle} variant='outlined' color='inherit'>Сбросить</Button>
-<Button style={resetStyle} onClick={reset} className={style.btn__reset}  type="button" >RESET <img src={deleteIcon} alt="" /></Button>
+<Button style={resetStyle} onClick={reset} className={style.btn__reset}  type="button" >СБРОСИТЬ <img src={deleteIcon} alt="" /></Button>
     )
 }
 

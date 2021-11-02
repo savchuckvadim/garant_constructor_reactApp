@@ -10,8 +10,8 @@ import React from 'react';
 import { ComplectClass } from "../complect/complect";
 
 import { startApp } from "../../index";
-import { createComplectActionCreator } from "../../state/redusers/createComplect-reducer"
-import { changeColorOfButtonActionCreator } from "../../state/redusers/colorOfButton-reducer"
+import { createComplectActionCreator } from "../../state/redusers/currentComplect-reducer.js"
+import { changeColorOfButtonActionCreator } from "../../state/redusers/allComplects-reducer"
 
 
 
@@ -76,12 +76,13 @@ const createActiveStyle = (props, element) => {
 const ComplectButtons = (props) => {
 
 
-    function createComplect(obj, index) {
+    const createComplect = (obj, index) => {
         let action = createComplectActionCreator(obj, index)
         let actionColorOfButton = changeColorOfButtonActionCreator(index, props.state.theme[props.state.indexOfTheme])
+        // let actionInfoblocks = changeInfoblocksFromCurrentFillingActionCreator()
         props.dispatch(actionColorOfButton)
         props.dispatch(action)
-
+        // props.dispatch(actionInfoblocks)
 
     }
     const currentComplect = props.state.currentComplect
@@ -100,10 +101,10 @@ const ComplectButtons = (props) => {
                 borderColor = props.state.theme[props.state.indexOfTheme].color
                 textColor = props.state.theme[props.state.indexOfTheme].textColor
             } else {
-                complectColor = theme.backgroundColor
+                complectColor = 'none'
             }
         } else {
-            complectColor = theme.backgroundColor
+            complectColor = 'none'
         }
         let ellipse = (state, element) => {
             if (state.currentComplect) {

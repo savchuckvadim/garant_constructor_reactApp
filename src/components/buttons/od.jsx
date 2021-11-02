@@ -1,6 +1,6 @@
 
 import styleBtn from "./button.module.css"
-
+import {odStyle} from  "./odStyle.css"
 import * as React from 'react';
 import { useTheme } from '@material-ui/core/styles';
 import FormControl from '@material-ui/core/FormControl';
@@ -13,17 +13,28 @@ import { odChangeActionCreator } from "../../state/redusers/od-reducer";
 
 function ODButtons(props) {
  
+  const getOdClassName = () => {
+
+    if(props.state.indexOfTheme === 1){
+      return "od__labelDark"
+    }else{
+      return "od__labelLight"
+    }
+  }
+  let odClassName = getOdClassName()
 
   const odChange = (name) => {
     const action = odChangeActionCreator(name)
     props.dispatch(action)
   }
+
+
   let ods = []
   const style = {
     height: 54,
-    textColor: props.state.theme[props.state.indexOfTheme].color,
-    color: props.state.theme[props.state.indexOfTheme].color,
-    backgroundColor: props.state.theme[props.state.indexOfTheme].backgroundColor,
+    // textColor: props.state.theme[props.state.indexOfTheme].textolor ,
+    // color: props.state.theme[props.state.indexOfTheme].color,
+    // backgroundColor: props.state.theme[props.state.indexOfTheme].backgroundColor,
     border: '0.5px ',
     borderStyle: 'solid',
     borderColor: props.state.theme[props.state.indexOfTheme].color,
@@ -42,7 +53,7 @@ function ODButtons(props) {
 
   props.state.od.forEach((element, index) => {
 
-    ods[index] = <MenuItem><Button style={style} onClick={() => { odChange(element.name) }} className={styleBtn.btns__complect} as="button">{element.name}</Button></MenuItem>
+    ods[index] = <MenuItem><Button style={style} onClick={() => { odChange(element.name) }} className={styleBtn.btn__od} as="button">{element.name}</Button></MenuItem>
 
   })
 
@@ -54,8 +65,8 @@ function ODButtons(props) {
 
 
 
-    <FormControl style={style} className={styleBtn.btn__od} fullWidth>
-      <InputLabel id="demo-simple-select-autowidth-label">{props.state.currentComplect ? props.state.currentOd : 'Количество доступов'}</InputLabel>
+    <FormControl style={style} className={odClassName}  fullWidth>
+      <InputLabel className={odClassName} id="demo-simple-select-autowidth-label">{props.state.currentComplect ? props.state.currentOd : 'Количество доступов'}</InputLabel>
       <Select
         // variant="standard"
         className={styleBtn.select}

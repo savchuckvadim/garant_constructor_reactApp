@@ -5,17 +5,17 @@ import styleBtn from "../button.module.css"
 // import Button from 'react-bootstrap/Button';
 import Button from '@material-ui/core/Button';
 import React from 'react';
-import { createComplectActionCreator } from "../../../state/redusers/createComplect-reducer";
+import { createComplectActionCreator } from "../../../state/redusers/currentComplect-reducer.js"
 
 
 const TYPE = 'COMPLECT'
-const CURRENT_COMPLECT = 'CURRENT_COMPLECT'
+// const CURRENT_COMPLECT = 'CURRENT_COMPLECT'
 
 
-const actionCreaterCurrentComplect = {
-  type: CURRENT_COMPLECT,
-}
-const actionCurrent = actionCreaterCurrentComplect
+// const actionCreaterCurrentComplect = {
+//   type: CURRENT_COMPLECT,
+// }
+// const actionCurrent = actionCreaterCurrentComplect
 
 const dinamicStyleForButtons = (borderColor, textColor, complectColor) => {
     // state.allComplects.map((element) => {
@@ -68,11 +68,12 @@ const dinamicStyleForButtons = (borderColor, textColor, complectColor) => {
 
 
 const ComplectModalButtons = (props) => {
-    const currentComplect = props.dispatch(actionCurrent)
+    const currentComplect = props.state.currentComplect
+    //  props.dispatch(actionCurrent)
 
     let buttons = []
     function createComplect(obj, index) {
-        let action = createComplectActionCreator(obj, index, props.state)
+        let action = createComplectActionCreator(obj, index)
 
         props.dispatch(action)
 

@@ -18,7 +18,7 @@ import { padding } from "@material-ui/system";
 const Complect = (props) => {
     // console.log(props)
     let styleComplect = {
-        backgroundColor: props.state.theme[props.state.indexOfTheme].backgroundColor,
+        // backgroundColor: props.state.theme[props.state.indexOfTheme].backgroundColor,
 
     }
     return (
@@ -29,8 +29,8 @@ const Complect = (props) => {
 
                 <ComplectButtons state={props.state} dispatch={props.dispatch} />
                 <ODButtons state={props.state}  dispatch={props.dispatch} />
-                <ResetButton state={props.state} dispatch={props.dispatch} />
-                <ModalButton state={props.state} dispatch={props.dispatch} />
+                <ResetButton state={props.state} dispatch={props.dispatch} /> 
+                 {/* <ModalButton state={props.state} dispatch={props.dispatch} /> */}
             </div>
         </form>
     )
