@@ -12,7 +12,7 @@ const discountValue = myRef.current
 
 console.log(discountValue)
 
-    let discount = props._state.offer.discount
+    let discount = props.state.offer.discount
 
 
 

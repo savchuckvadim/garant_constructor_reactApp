@@ -1,6 +1,6 @@
 import { Input } from "@material-ui/core"
 import React from "react"
-import { phoneActionCreator } from "../../state/redusers/phoneNumber-reducer"
+import { phoneActionCreator } from "../../redux/redusers/phoneNumber-reducer"
 import styleClass from './offerPhoneNumber.module.css'
 
 
@@ -8,6 +8,7 @@ const ACT_CHANGE = 'CHANGE_PHONE'
 
 
 const PhoneNumber = (props) => {
+    
 
     const styleFromState = props.style
     let phoneRef = React.createRef()

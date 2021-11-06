@@ -1,21 +1,19 @@
 
-import styleBtn from "./button.module.css"
-import {odStyle} from  "./odStyle.css"
+import "./buttons.css"
 import * as React from 'react';
-import { useTheme } from '@material-ui/core/styles';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import { Button, InputLabel, MenuItem } from "@material-ui/core";
-import { odChangeActionCreator } from "../../state/redusers/od-reducer";
+import { odChangeActionCreator } from "../../redux/redusers/od-reducer";
 
 
 
 
 function ODButtons(props) {
- 
+
   const getOdClassName = () => {
 
-    if(props.state.indexOfTheme === 1){
+    if(props.state.theme.indexOfTheme === 1){
       return "od__labelDark"
     }else{
       return "od__labelLight"
@@ -23,8 +21,8 @@ function ODButtons(props) {
   }
   let odClassName = getOdClassName()
 
-  const odChange = (name) => {
-    const action = odChangeActionCreator(name)
+  const odChange = (name, currentComplect) => {
+    const action = odChangeActionCreator(name, currentComplect)
     props.dispatch(action)
   }
 
@@ -37,7 +35,7 @@ function ODButtons(props) {
     // backgroundColor: props.state.theme[props.state.indexOfTheme].backgroundColor,
     border: '0.5px ',
     borderStyle: 'solid',
-    borderColor: props.state.theme[props.state.indexOfTheme].color,
+    borderColor: props.state.theme.style[props.state.theme.indexOfTheme].color,
     borderRadius: '3%',
 
     justifyContent: 'space-between',
@@ -51,9 +49,9 @@ function ODButtons(props) {
   }
 
 
-  props.state.od.forEach((element, index) => {
+  props.state.od.name.forEach((name, index) => {
 
-    ods[index] = <MenuItem><Button style={style} onClick={() => { odChange(element.name) }} className={styleBtn.btn__od} as="button">{element.name}</Button></MenuItem>
+    ods[index] = <MenuItem><Button style={style} onClick={() => { odChange(name, props.state.currentComplect) }} className="btn__od" as="button">{name}</Button></MenuItem>
 
   })
 
@@ -66,10 +64,10 @@ function ODButtons(props) {
 
 
     <FormControl style={style} className={odClassName}  fullWidth>
-      <InputLabel className={odClassName} id="demo-simple-select-autowidth-label">{props.state.currentComplect ? props.state.currentOd : 'Количество доступов'}</InputLabel>
+      <InputLabel className={odClassName} id="demo-simple-select-autowidth-label">{props.state.currentComplect ? props.state.od.currentOd : 'Количество доступов'}</InputLabel>
       <Select
         // variant="standard"
-        className={styleBtn.select}
+        className="select"
         variant="standard"
       // onChange={ handleChange}
       >

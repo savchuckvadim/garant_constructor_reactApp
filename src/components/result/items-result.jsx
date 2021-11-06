@@ -41,6 +41,8 @@ const ItemResult = (props) => {
             } else if (element.title === 'Общая Стоимость') {
                 return <p id={element.id} style={props.styleLt} className={props.textLt}>{titles[index]}{values[index]}</p>
 
+            }else{
+                return null
             }
 
 

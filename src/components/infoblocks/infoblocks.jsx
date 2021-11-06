@@ -2,20 +2,18 @@ import style from "./infoblocks.module.css"
 import React from "react";
 import { renderInputFromData } from "../../utils/utils";
 
-const changeType = 'CHANGE_CURRENT_INFOBLOCKS';
+const CHANGE_CURRENT_INFOBLOCKS = 'CHANGE_CURRENT_INFOBLOCKS';
 
 function CreateInfoblocks(props) {
   
-   
-
     let infoblocksCreator = (number) => {
         if (props.state.infoblocks[number].nameOfType !== 'Новые блоки') {
 
             let items = []
             if (props.state.currentComplect) {
-                renderInputFromData(changeType, props.state.infoblocks[number], items, props)
+                renderInputFromData(CHANGE_CURRENT_INFOBLOCKS, props.state.infoblocks[number], items, props)
             } else {
-                renderInputFromData(changeType, props.state.infoblocks[number], items, props)
+                renderInputFromData(CHANGE_CURRENT_INFOBLOCKS, props.state.infoblocks[number], items, props)
             }
 
             return (

@@ -1,7 +1,7 @@
 import style from "./infoblocks.module.css"
 import { renderInputFromData } from "../../utils/utils";
 
-const TYPE = 'CHANGE_INFOBLOCKS_FROM_CURRENT'
+
 const changeType = 'CHANGE_CURRENT_INFOBLOCKS';
 
 
@@ -25,12 +25,6 @@ function CreateNewBlocks(props) {
         }
 
     }
-
-
-    // props.dispatch({
-    //     type: TYPE
-    // }) 
-    //подготавливает data-файлы перед отрисовкой на основе информации из текущего комплекта
 
 
     let items = []

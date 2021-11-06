@@ -1,15 +1,12 @@
-import { getThemeProps } from "@material-ui/system"
-import { Link, NavLink } from "react-router-dom"
+
 import style from "./offer.module.css"
 import Included from "./offerIncluded"
 import OfferLinkBack from "./offerLinkBack"
 import NameAndOd from "./offerNameAndOd"
 import TableOffer from "./offerPrice"
-import PhoneNumber from "./offerPhoneNumber"
-import DescriptionOfGarant from "./offerDescriptionOfGarant"
 import InputText from "../main/textInput"
 
-const TYPE = 'OFFER'
+
 const Offer = (props) => {
     
     let styleFromState = {
@@ -21,13 +18,7 @@ const Offer = (props) => {
       
 
     }
-    // state.changeInfoblocksData()  //подготавливает data-файлы перед отрисовкой на основе информации из текущего комплекта
-    // state.changePaketsErData()
-    // state.changeErData()
-    // state.changeltData()
-    // state.weightLtForResult()
-    // let result =
-    //  props.dispatch({type: TYPE })
+
     if (props.state.currentComplect) {
 
        

@@ -2,7 +2,7 @@
 
 
 const ItemValueResult = (props) => {
-    let result = props.state.currentResult
+    let result = props.state.result.currentResult
   
     let values = [
         props.inputText,

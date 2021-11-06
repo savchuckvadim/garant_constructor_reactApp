@@ -2,7 +2,8 @@
 .result__container {
     /* margin-top: 4vh !important; */
     margin-top: 4vh;
-    /* width: 355px;    */
+    
+    width: 425px;   
     /* min-height: 250px; */
     max-height: 100%;
     padding: 2vh;
@@ -11,8 +12,8 @@
     right: 0vh;
     margin-right: 3vh;
     border-style: solid;
-    /* display: grid;
-  justify-self: flex-end; */
+    /* display: grid; */
+  /* justify-self: end; */
     display: flex;
     flex-direction: column; 
      justify-content: space-between;

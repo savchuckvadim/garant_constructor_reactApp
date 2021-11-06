@@ -73,7 +73,7 @@ const ComplectModalButtons = (props) => {
 
     let buttons = []
     function createComplect(obj, index) {
-        let action = createComplectActionCreator(obj, index)
+        let action = createComplectActionCreator(obj, index, props.state.currentComplect)
 
         props.dispatch(action)
 
@@ -86,7 +86,7 @@ const ComplectModalButtons = (props) => {
     // })
 
     props.state.allComplects.forEach((element, index) => {
-        let theme = props.state.theme[props.state.indexOfTheme]
+        let theme = props.state.theme.style[props.state.theme.indexOfTheme]
 
         let complectColor
         let borderColor = element.color
@@ -94,8 +94,8 @@ const ComplectModalButtons = (props) => {
         if (currentComplect) {
             if (element.name === currentComplect.name) {
                 complectColor = element.color
-                borderColor = props.state.theme[props.state.indexOfTheme].color
-                textColor = props.state.theme[props.state.indexOfTheme].textColor
+                borderColor = theme.color
+                textColor = theme.textColor
             } else {
                 complectColor = theme.backgroundColor
             }

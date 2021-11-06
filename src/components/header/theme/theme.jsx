@@ -1,7 +1,7 @@
 import './theme.css'
 import '../../../App.css'
 import React from 'react'
-import { themeActionCreator } from '../../../state/redusers/theme-reducer'
+import { themeActionCreator } from '../../../redux/redusers/theme-reducer'
 
 
 

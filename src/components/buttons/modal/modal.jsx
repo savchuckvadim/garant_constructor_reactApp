@@ -8,26 +8,14 @@ import headerStyle from "../../header/header.module.css"
 import logo from '../../header/img/logo-icon-solid-horizontal.svg'
 import ResetButton from '../reset'
 import ComplectModalButtons from './modal.buttons'
-import Header from '../../header/header'
 import ODModalButtons from './modal.od'
 
 
-const STYLE = 'GET_STYLE'
-const CURRENT_COMPLECT = 'CURRENT_COMPLECT'
 
 
 
-const actionCreaterGetStyle = () => {
-  return {
-    type: STYLE
-  }
-}
-let actionStyle = actionCreaterGetStyle();
 
-const actionCreaterCurrentComplect = {
-  type: CURRENT_COMPLECT,
-}
-const actionCurrent = actionCreaterCurrentComplect
+
 
 const ModalButton = (props) => {
   
@@ -51,9 +39,9 @@ const ModalButton = (props) => {
     transform: `rotateZ(720deg)`
   }
   const currentColor = () => {
-    let color = props.state.theme[props.state.indexOfTheme].backgroundColor
+    let color = props.state.theme.style[props.state.theme.indexOfTheme].backgroundColor
     if (currentComplect) {
-      props.state.allComplects.map((element) => {
+      props.state.allComplects.forEach(element => {
         if (element.name === currentComplect.name) {
           color = element.color
         }
@@ -63,9 +51,9 @@ const ModalButton = (props) => {
   }
   const styleBtnModal = {
     backgroundColor: currentColor(),
-    color: props.state.theme[props.state.indexOfTheme].color,
+    color: props.state.theme.style[props.state.theme.indexOfTheme].color,
     border: '1px solid',
-    borderColor: props.state.theme[props.state.indexOfTheme].color,
+    borderColor:props.state.theme.style[props.state.theme.indexOfTheme].color,
 
   }
   return (

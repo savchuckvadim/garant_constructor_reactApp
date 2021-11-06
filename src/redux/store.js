@@ -4,17 +4,10 @@ import {
   getFromStorage,
 
 } from "../utils/utils";
-
-
-
-
 import {
   changeColorOfButton
 } from "./redusers/allComplects-reducer";
-
-
 import {
-
   changeErAndPaketsErFromCurrent,
   changeErFromCurrent,
   changePaketsErFromCurrent
@@ -872,7 +865,7 @@ export let store = {
 
 
       'value': [{
-          'name': 'Аналитическая система "Сутяжник\"',
+          'name': 'Аналитическая система "Сутяжник" ',
           'checked': false,
           'weight': 1,
           'description': ''
@@ -1002,7 +995,7 @@ export let store = {
 
     },
 
-    currentStatusInputComplectName: false,
+    // currentStatusInputComplectName: false,
     result: {
       'status': '',
       'resultItems': [{
@@ -1082,29 +1075,29 @@ export let store = {
   },
   
   dispatch(action) {
-      this._state = reset(action, this._state); 
-      this._state = changeNameOfComplect(action, this._state);
+      // this._state = reset(this._state, action); 
+      this._state = changeNameOfComplect(this._state, action);
 
-      this._state.allComplects = changeColorOfButton(action, this._state);
+      this._state.allComplects = changeColorOfButton(this._state, action);
 
-      this._state.currentComplect = currentComplect(action, this._state);
+      this._state.currentComplect = currentComplect(this._state, action);
 
-      this._state.infoblocks = infoblocks(action, this._state).infoblocks;
-      this._state.encyclopedias = changeErAndPaketsErFromCurrent(action, this._state);
-      this._state.legalTech = changeLTFromCurrent(action, this._state);
+      this._state.infoblocks = infoblocks(this._state, action).infoblocks;
+      this._state.encyclopedias = changeErAndPaketsErFromCurrent(this._state, action);
+      this._state.legalTech = changeLTFromCurrent(this._state, action);
 
-      this._state.currentOd = oD(action, this._state); 
+      this._state.currentOd = oD(this._state, action); 
 
-      this._state.phoneNumber = changeDataPhone(action, this._state.phoneNumber); 
-      this._state.currentPrepaid = changePrepaid(action, this._state.currentPrepaid); 
-      this._state.currentPrice = priceReducer(action, this._state); 
+      this._state.phoneNumber = changeDataPhone(this._state.phoneNumber, action); 
+      this._state.currentPrepaid = changePrepaid(this._state.currentPrepaid, action); 
+      this._state.currentPrice = priceReducer(this._state, action); 
     
-      this._state.currentResult = result(action, this._state);
+      this._state.currentResult = result(this._state, action);
 
-      this._state.indexOfTheme = changeTheme(action, this._state); 
+      this._state.indexOfTheme = changeTheme(this._state, action); 
 
       this.save();
-      this.startApp();
+      this.startApp(this._state);
 
   },
 
@@ -1116,7 +1109,6 @@ export let store = {
     addToStorage(this._state.currentComplect, 'currentComplect')
     addToStorage(this._state.offer, 'offer')
     addToStorage(this._state.currentPrepaid, 'prepaid')
-
     addToStorage(this._state.currentOd, 'od')
     addToStorage(this._state.currentPrice, 'price')
     addToStorage(this._state.currentResult, 'result')
@@ -1200,25 +1192,7 @@ export let store = {
     this.startApp = observer;
   },
 
-  // getStyle() {
 
-  //   return {
-  //     background: this._state.theme[this._state.indexOfTheme].backgroundColor,
-  //     color: this._state.theme[this._state.indexOfTheme].color,
-  //     text: this._state.theme[this._state.indexOfTheme].textColor,
-  //     transitionProperty: `background-image, background-color, text-color, color, transform`,
-  //     transitionDuration: `0.5s`,
-  //     transitionDelay: ` 0.1s`,
-  //   }
-  // },
-
-  // get currentComplect() {
-  //   if (this._state.currentComplect) {
-  //     return this._state.currentComplect
-  //   } else {
-  //     return this._state.allComplects[0]
-  //   }
-  // },
 
   get state() {
     return this._state

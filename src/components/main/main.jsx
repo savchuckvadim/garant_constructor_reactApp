@@ -4,7 +4,7 @@ import Result from "../result/result"
 import Complect from "../complect/complect"
 
 
-// import { state } from "../../App"
+
 
 
 const Main = (props) => {
@@ -17,9 +17,7 @@ const Main = (props) => {
             )
         }
     }
-     //  props.dispatch(actionLoad)
-   
-    // console.log(props.state)
+
     let stMain = {
         // backgroundColor: props.style.background,
         // transitionProperty: props.style.transitionProperty,
@@ -53,6 +51,7 @@ const Main = (props) => {
                 {/* <div style={styleResult} className={style.result__container}>
                     <Result state={props.state} dispatch={props.dispatch} />
                 </div> */}
+
                 {result()}
 
             </div>

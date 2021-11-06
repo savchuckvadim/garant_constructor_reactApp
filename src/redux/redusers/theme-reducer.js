@@ -1,6 +1,47 @@
 
 const THEME = 'THEME'
 
+
+let initialState = {
+
+    indexOfTheme: 0,
+    
+    style: [
+
+        {
+            'name': 'light',
+            'backgroundColor': 'white',
+            'color': 'black',
+            'textColor': 'white',
+            'classOfTheme': 'round round__img',
+            'currentMainClass': 'app__wrapperContent'
+        },
+
+        {
+            'name': 'dark',
+            'backgroundColor': 'rgba(37, 40, 45, 1)',
+            'color': 'white',
+            'textColor': 'white',
+            'classOfTheme': 'round round__img2',
+            'currentMainClass': 'app__wrapperContent_dark'
+        },
+      
+
+    ],
+    
+    classOfTheme: 'round round__img',
+    currentStyle: {
+        background: 'white',
+        color: 'black',
+        text: 'black',
+        transitionProperty: `background-image, background-color, text-color, color, transform`,
+        transitionDuration: `0.5s`,
+        transitionDelay: ` 0.1s`,
+    },
+    currentMainClass: 'app__wrapperContent',
+}
+
+
 export const themeActionCreator = (element, mainClass) => {
     return {
         type: THEME,
@@ -17,7 +58,7 @@ export const themeActionCreator = (element, mainClass) => {
 
 
 
-export const changeTheme = (action, state) => {
+export const theme = (state = initialState, action) => {
    
     if (action.type === THEME) {
         if (state.indexOfTheme === 0) {
@@ -48,6 +89,6 @@ export const changeTheme = (action, state) => {
 
     }
 
-    return state.indexOfTheme
+    return state
 }
 

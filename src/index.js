@@ -4,19 +4,17 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App.jsx";
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import { store } from './state/state';
-import { subscribe } from "./state/state";
-import { addToStorage, getFromStorage } from "./utils/utils.js";
+import store  from './redux/redux-store';
 
 
 
 
-store.changeState()
-export const startApp = () => {
+
+
+// store.changeState()
+export const startApp = (state) => {
   
-  console.log(store._state.currentComplect)
-  console.log(store._state.infoblocks[0])
-  let version = getFromStorage('version')
+  // let version = getFromStorage('version')
   // if(version.length < 1 || version[0] === '1' ){
   //   localStorage.removeItem('currentComplect')
     
@@ -36,7 +34,7 @@ export const startApp = () => {
       
       <React.StrictMode>
          <BrowserRouter>
-        <App state={store._state} dispatch={store.dispatch.bind(store)} />
+        <App state={state} dispatch={store.dispatch.bind(store)} />
         </BrowserRouter>
       </React.StrictMode>,
       document.getElementById('root')
@@ -45,8 +43,12 @@ export const startApp = () => {
  
 
 }
-startApp();
-store.subscribe(startApp)
+startApp(store.getState());
+
+store.subscribe(() => {
+  let state = store.getState()
+  startApp(state);
+})
 
 
 

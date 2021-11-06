@@ -4,8 +4,8 @@ import React, { useState } from 'react';
 import './App.css';
 import Header from './components/header/header';
 import Main from './components/main/main';
-import DescriptionPage from './components/description/description';
-import { BrowserRouter, Route } from 'react-router-dom'
+// import DescriptionPage from './components/description/description';
+import {  Route } from 'react-router-dom'
 import { CSSTransition, } from "react-transition-group";
 
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -23,7 +23,7 @@ function App(props) {
   
   // props.dispatch(actionStyle)
   // props.dispatch(actionStyle)
-  const styleFromState =  props.state.theme[props.state.indexOfTheme]
+  const styleFromState =  props.state.theme.style[props.state.theme.indexOfTheme]
   // props.state.currentStyle
   // props.dispatch(actionStyle)
 
@@ -39,9 +39,11 @@ function App(props) {
   }
   
   let MainPage = () => { return <Main  style={style} state={props.state} dispatch={props.dispatch} /> }
-  let descriptionPage = () => {
-    return <DescriptionPage state={props.state} dispatch={props.dispatch} />
-  }
+
+  // let descriptionPage = () => {
+  //   return <DescriptionPage state={props.state} dispatch={props.dispatch} />
+  // }
+
   let offerPage = () => {
     return <Offer style={style} state={props.state} dispatch={props.dispatch}/>
   }
@@ -58,7 +60,7 @@ function App(props) {
 
       <div>
        
-        <div ref={mainClassRef} className={props.state.theme[props.state.indexOfTheme].currentMainClass}>
+        <div ref={mainClassRef} className={props.state.theme.style[props.state.theme.indexOfTheme].currentMainClass}>
         <Header onClick={() => setInProp(true)} style={style} state={props.state} dispatch={props.dispatch} mainClass={mainClassRef}/>
        {routes.map(({ path, Component }) =>
           <Route key={path} exact path={path}>
