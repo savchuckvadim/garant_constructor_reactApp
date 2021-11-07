@@ -10,10 +10,16 @@ import { CSSTransition, } from "react-transition-group";
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Offer from './components/offer/offer';
+import getCurrentUser from "./services/get-current-user.service";
 
 
 function App(props) {
- 
+  // getCurrentUser().then(currentUser => {
+  //   this.setState({
+  //     user: currentUser,
+  //     loading: false
+  //   });
+  // });
  console.log(props.state)
  
   const [inProp, setInProp] = useState(false);

@@ -37,10 +37,10 @@ let reducers = combineReducers({
     od : oD,
     phoneNumber: changeDataPhone,
     // changePrepaid,
-    // priceReducer,
+    price: priceReducer,
     // reset,
     theme: theme,
-    // result: result
+    result: result
 
 });
 let store = createStore(reducers)

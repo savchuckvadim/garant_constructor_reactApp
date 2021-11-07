@@ -4,10 +4,10 @@ import styleMod from "./textInput.module.css"
 
 
 const InputText = (props) => {
-
+    debugger
     let getNameOfproduct = () => {
-        if (props.typeOfProduct) {
-            return props.typeOfProduct
+        if (props.type) {
+            return props.type
         } else {
             return null
         }
@@ -20,10 +20,10 @@ const InputText = (props) => {
     let color = props.type === 'price' ? 'black' : props.state.theme[props.state.indexOfTheme].color
     let getWidth = () => {
         if (props.type === 'price') {
-            if(props.typeOfProduct === 'legal Tech'){
+            if(props.type === 'legal Tech'){
 
             }else{
-                return props.state.currentPrice.width
+                return props.state.price.currentPrice.width
             }
            
         } else if (props.type === 'prepaid') {

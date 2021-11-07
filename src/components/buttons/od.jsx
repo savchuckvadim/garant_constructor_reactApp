@@ -22,7 +22,7 @@ function ODButtons(props) {
   let odClassName = getOdClassName()
 
   const odChange = (name, currentComplect) => {
-    const action = odChangeActionCreator(name, currentComplect)
+    const action = odChangeActionCreator(props.state.od, name, currentComplect)
     props.dispatch(action)
   }
 
@@ -49,7 +49,7 @@ function ODButtons(props) {
   }
 
 
-  props.state.od.name.forEach((name, index) => {
+  props.state.od.names.forEach((name, index) => {
 
     ods[index] = <MenuItem><Button style={style} onClick={() => { odChange(name, props.state.currentComplect) }} className="btn__od" as="button">{name}</Button></MenuItem>
 

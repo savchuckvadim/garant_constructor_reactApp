@@ -238,7 +238,7 @@ export const changeErFromCurrent = (state, currentComplect) => {
 }
 
 export const changeErAndPaketsErFromCurrent = (state = initialState, action) => {
-  debugger
+
   if (action.type === 'CREATE_COMPLECT' || action.type === CHANGE_CURRENT_PAKETS_ER || action.type === CHANGE_CURRENT_ER || action.type === 'RESET'){
     changePaketsErFromCurrent(state, action.currentComplect)
     changeErFromCurrent(state, action.currentComplect)

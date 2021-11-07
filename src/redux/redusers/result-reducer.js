@@ -123,7 +123,14 @@ const weightForResult = (state) => {
 
 export const result = (state = initialState, action) => {
 
-    if (action.type === RESULT || action.type === CHANGE_CURRENT_INFOBLOCKS || action.type === CREATE_COMPLECT || action.type === CHANGE_CURRENT_ER || action.type === CHANGE_CURRENT_PAKETS_ER || action.type === CHANGE_CURRENT_LT || action.type === CHANGE_CURRENT_OD || action.type === INPUT_CHANGE_NAME_OF_CURRENT_COMPLECT) {
+    if (action.type === RESULT 
+        || action.type === CHANGE_CURRENT_INFOBLOCKS 
+        // || action.type === CREATE_COMPLECT 
+        || action.type === CHANGE_CURRENT_ER 
+        || action.type === CHANGE_CURRENT_PAKETS_ER 
+        || action.type === CHANGE_CURRENT_LT 
+        || action.type === CHANGE_CURRENT_OD 
+        || action.type === INPUT_CHANGE_NAME_OF_CURRENT_COMPLECT) {
 
         let styleResult = {
             backgroundColor: 'black',
@@ -160,7 +167,7 @@ export const result = (state = initialState, action) => {
 
             od = state.currentOd.substr(0, 2)
 
-            currentPrice = state.currentPrice.value
+            currentPrice = state.price.currentPrice.value
 
 
             ltIncluded = state.legalTech.ltIncluded
