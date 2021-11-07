@@ -13,7 +13,7 @@ let initialState = {
         'weightLt': 0,
         'ltIncluded': 0,
         'nameOflt': '',
-        'priceOfLt': '',
+        'priceOfLt': 0,
         'value': [{
                 'name': 'Аналитическая система "Сутяжник" ',
                 'checked': false,

@@ -30,8 +30,6 @@ let initialState = {
 }
 
 
-
-
 export const getPriceActionCreator = () => {
 
     return {
@@ -53,38 +51,17 @@ const changeCurrentPrice = (state, action) => {
     return state
 }
 const price = (state, action) => {
-
-    if (action.type === CREATE_COMPLECT || action.type === CHANGE_CURRENT_OD) {
-
-        // let ind1 =
-        //state.currentComplect.number;
-        //if CREATE_COMPLECT => action.obj.number
-        //if CHANGE_CURRENT_OD => action.currentComplect
-        let ind2
-
-        // state.od.forEach((element, index) => {
-        //     if (element.name === state.currentOd) {
-        //         ind2 = index
-        //     }
-        // })
-
-        // if (!ind2) {
-        //     state.currentPrice.value = state.prices[0][ind1]
-
-        // } else {
-        //     state.currentPrice.value = state.prices[ind2][ind1]
-        // }
-
-    }
-
-
-    return state
+    
+    return getPrice (state, action)
 }
-const getPrice = (value, prices, action) => {
+const getPrice = (state, action) => {
+    let value = state.currentPrice.value
+    let prices = state.prices
     let ind1
     let ind2
-    let currentOd
+    let currentOd = 0
     let ods = action.ods
+    debugger
     if (action.type === CREATE_COMPLECT) {
         ind1 = action.obj.number
     } else if (action.type === CHANGE_CURRENT_OD) {
@@ -93,8 +70,8 @@ const getPrice = (value, prices, action) => {
         
     }
 
-    ods.od.forEach((element, index) => {
-        if (element.name === currentOd) {
+    ods.forEach((element, index) => {
+        if (element === currentOd) {
             ind2 = index
         }
     })
@@ -105,6 +82,7 @@ const getPrice = (value, prices, action) => {
     } else {
         value = prices[ind2][ind1]
     }
+    return state
 }
 const reset = (state) => {
     state.currentPrice.width = 0

@@ -3,18 +3,18 @@
 
 const ItemValueResult = (props) => {
     let result = props.state.result.currentResult
-    
+    debugger
     let values = [
-        props.inputText,
-        result.weight,
-        result.od,
-        result.ltIncluded,
-        props.state.price.currentPrice.value,
+        props.values.inputText,
+        props.values.weight,
+        props.values.od,
+        props.values.ltIncluded,
+        props.values.price,
         
-        result.nameOflt,
-        result.weightLt,
-        result.priceOfLt,
-        result.totalPrice
+        props.values.nameOflt,
+        props.values.weightLt,
+        props.values.priceOfLt,
+        props.values.totalPrice
 
     ]
    

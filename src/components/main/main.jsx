@@ -2,17 +2,19 @@ import style from "./main.module.css"
 import AllInfoblocks from "../infoblocks/allInfoblocks"
 import Result from "../result/result"
 import Complect from "../complect/complect"
+import ResultContainer from "../result/resultContainer"
 
 
 
 
 
 const Main = (props) => {
+   
     const result = () => {
         if(props.state.currentComplect){
             return (
                 <div style={styleResult} className={style.result__container}>
-                    <Result state={props.state} dispatch={props.dispatch} />
+                    <ResultContainer store={props.store} state={props.state} dispatch={props.dispatch} />
                 </div>
             )
         }

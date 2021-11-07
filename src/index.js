@@ -28,12 +28,12 @@ import { BX24 } from 'bx24';
 //   console.log(' Yeah! B24 npm is ready!', BX24.isAdmin());
 
 // });
-export const startApp = (state) => {
+export const startApp = (state, store) => {
   ReactDOM.render(
 
     <React.StrictMode>
       <BrowserRouter>
-        <App state={state} dispatch={store.dispatch.bind(store)} />
+        <App store={store} state={state} dispatch={store.dispatch.bind(store)} />
       </BrowserRouter>
     </React.StrictMode>,
     document.getElementById('root')
@@ -44,11 +44,11 @@ export const startApp = (state) => {
 // Make a call to REST when JS SDK is loaded
 
 
-startApp(store.getState());
+startApp(store.getState(), store);
 
 store.subscribe(() => {
   let state = store.getState()
-  startApp(state);
+  startApp(state, store);
 })
 
 

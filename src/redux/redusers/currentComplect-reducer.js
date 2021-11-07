@@ -12,7 +12,7 @@ let initialState = null
 
 export const createComplectActionCreator = (obj, index, ods) => {
   
-
+    
     return {
         type: CREATE_COMPLECT,
         obj: obj,

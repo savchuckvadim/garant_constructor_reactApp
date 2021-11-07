@@ -24,7 +24,7 @@ let initialState = {
         },
         name: 'название комплекта',
         od: '',
-        weight: '',
+        weight: 0,
         price: '',
 
         styleLt: {
@@ -91,31 +91,31 @@ export const resultActionCreator = () => {
     }
 }
 
-const weightForResult = (state) => {
-    let info = 0;
-    let er = 0;
-    let totalweight = 0;
+// const weightForResult = (state) => {
+//     let info = 0;
+//     let er = 0;
+//     let totalweight = 0;
 
-    state.infoblocks.forEach(element => {
-        element.value.forEach(elem => {
-            if (elem.checked === true) {
-                info += elem.weight
-            }
-        })
-    })
+//     state.infoblocks.forEach(element => {
+//         element.value.forEach(elem => {
+//             if (elem.checked === true) {
+//                 info += elem.weight
+//             }
+//         })
+//     })
 
-    state.encyclopedias.forEach(element => {
-        element.value.forEach(elem => {
+//     state.encyclopedias.forEach(element => {
+//         element.value.forEach(elem => {
 
-            if (elem.checked === true) {
-                er += elem.weight
-            }
-        })
-    })
+//             if (elem.checked === true) {
+//                 er += elem.weight
+//             }
+//         })
+//     })
 
-    totalweight = info + er
-    return totalweight
-}
+//     totalweight = info + er
+//     return totalweight
+// }
 
 
 
@@ -133,67 +133,67 @@ export const result = (state = initialState, action) => {
         // || action.type === INPUT_CHANGE_NAME_OF_CURRENT_COMPLECT
         ) {
 
-        let styleResult = {
-            backgroundColor: 'black',
-            color: 'white',
-            textDecoration: 'none'
-        }
-        let name
-        let weight
+        // let styleResult = {
+        //     backgroundColor: 'black',
+        //     color: 'white',
+        //     textDecoration: 'none'
+        // }
+        // let name
+        // let weight = 0
 
 
-        let od = action.state.currentOd
-        let currentPrice = ' 0. 00'
-        debugger
+        // let od = action.state.currentOd
+        // let currentPrice = ' 0. 00'
+        // debugger
 
-        let styleLt = {
-            display: action.state.legalTech.display
-        }
-        let ltIncluded
-        let weightLt
-        let nameOflt
-        let priceOfLt
-        let totalPrice
+        // let styleLt = {
+        //     display: action.state.legalTech.display
+        // }
+        // let ltIncluded
+        // let weightLt
+        // let nameOflt
+        // let priceOfLt
+        // let totalPrice
 
-        if (action.state.currentComplect) {
+        // if (action.state.currentComplect) {
 
 
-            styleResult = {
-                backgroundColor: action.state.allComplects[action.state.currentComplect.number].color,
-                color: 'white',
-                textDecoration: 'none'
-            }
-            name = action.state.currentComplect.name
-            weight = weightForResult(action.state);
+        //     styleResult = {
+        //         backgroundColor: action.state.allComplects[action.state.currentComplect.number].color,
+        //         color: 'white',
+        //         textDecoration: 'none'
+        //     }
+        //     name = action.state.currentComplect.name
+        //     // weight = weightForResult(action.state);
             
-            od = action.state.od.currentOd.substr(0, 2)
+        //     od = action.state.od.currentOd.substr(0, 2)
 
-            currentPrice = action.state.price.currentPrice.value
+        //     currentPrice = action.state.price.currentPrice.value
 
 
-            ltIncluded = action.state.legalTech.ltIncluded
-            weightLt =   action.state.legalTech.weightLt
-            nameOflt =   action.state.legalTech.nameOflt
-            priceOfLt =  action.state.legalTech.priceOfLt
-            totalPrice = currentPrice + priceOfLt
+        //     ltIncluded = action.state.legalTech.ltIncluded
+        //     weightLt =   action.state.legalTech.weightLt
+        //     nameOflt =   action.state.legalTech.nameOflt
+        //     priceOfLt =  action.state.legalTech.priceOfLt
+        //     totalPrice = currentPrice + priceOfLt
 
-            state.currentResult = {
-                styleResult: styleResult,
-                name: name,
-                od: od,
-                weight: weight,
-                price: currentPrice,
+        //     state.currentResult = {
+        //         styleResult: styleResult,
+        //         name: name,
+        //         od: od,
+        //         weight: weight,
+        //         price: currentPrice,
 
-                styleLt: styleLt,
-                ltIncluded: ltIncluded,
-                weightLt: weightLt,
-                nameOflt: nameOflt,
-                priceOfLt: `${priceOfLt} p`,
-                totalPrice: totalPrice,
+        //         styleLt: styleLt,
+        //         ltIncluded: ltIncluded,
+        //         weightLt: weightLt,
+        //         nameOflt: nameOflt,
+        //         priceOfLt: `${priceOfLt} p`,
+        //         totalPrice: totalPrice,
 
-            }
+        //     }
 
-        }
+        // }
 
 
 

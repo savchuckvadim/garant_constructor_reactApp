@@ -3,7 +3,7 @@ const WEIGHT = 'WEIGHT';
 const initialState = {
     currentWeight: 0
 }
-const weightActionCreator = () => {
+export const weightActionCreator = () => {
 
     return {
         type: WEIGHT
@@ -40,11 +40,11 @@ const getWeight = (state, action) => {
 
 const weightReducer = (state = initialState, action) => {
 
-    if (action.type === WEIGHT){
+    if (action.type === WEIGHT) {
         return getWeight(state, action)
 
     }
-
+    return state
 }
 
 export default weightReducer

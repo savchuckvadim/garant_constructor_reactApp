@@ -11,6 +11,7 @@ import { CSSTransition, } from "react-transition-group";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Offer from './components/offer/offer';
 import getCurrentUser from "./services/get-current-user.service";
+import DealPageContainer from './components/deal/dealPage-Container';
 
 
 function App(props) {
@@ -44,7 +45,7 @@ function App(props) {
     transform: `rotateZ(720deg)`
   }
   
-  let MainPage = () => { return <Main  style={style} state={props.state} dispatch={props.dispatch} /> }
+  let MainPage = () => { return <Main store={props.store}  style={style} state={props.state} dispatch={props.dispatch} /> }
 
   // let descriptionPage = () => {
   //   return <DescriptionPage state={props.state} dispatch={props.dispatch} />
@@ -53,12 +54,17 @@ function App(props) {
   let offerPage = () => {
     return <Offer style={style} state={props.state} dispatch={props.dispatch}/>
   }
+  let dealPage = () => {
+
+    return <DealPageContainer/>
+  }
 
   const routes = [
     { path: "/", Component: MainPage },
     { path: "/main", Component: MainPage },
     // { path: "/description", Component: descriptionPage },
-    { path: "/offer", Component: offerPage }
+    { path: "/offer", Component: offerPage },
+    { path: "/deal", Component: dealPage }
   ]
   const mainClassRef = React.createRef()
   return (
