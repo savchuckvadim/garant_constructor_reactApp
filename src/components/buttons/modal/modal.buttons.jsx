@@ -73,7 +73,7 @@ const ComplectModalButtons = (props) => {
 
     let buttons = []
     function createComplect(obj, index) {
-        let action = createComplectActionCreator(obj, index, props.state.currentComplect)
+        let action = createComplectActionCreator(obj, index, props.state.od.names, props.state)
 
         props.dispatch(action)
 

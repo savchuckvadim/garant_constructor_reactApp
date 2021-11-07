@@ -50,7 +50,7 @@ let region = (name) => {
 
       const changeCheckbox = () => {
         let currentComplect = props.state.currentComplect
-        let action = changeCheckBoxActionCreator(type, element.name, element.checked, index, currentComplect )
+        let action = changeCheckBoxActionCreator(type, element.name, element.checked, index, currentComplect, props.state )
         props.dispatch(action)
       }
       

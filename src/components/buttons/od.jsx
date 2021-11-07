@@ -22,7 +22,7 @@ function ODButtons(props) {
   let odClassName = getOdClassName()
 
   const odChange = (name, currentComplect) => {
-    const action = odChangeActionCreator(props.state.od, name, currentComplect)
+    const action = odChangeActionCreator(name, currentComplect)
     props.dispatch(action)
   }
 

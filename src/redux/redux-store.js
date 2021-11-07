@@ -12,6 +12,7 @@ import { priceReducer } from './redusers/price-reducer';
 import { reset } from './redusers/reset-reducer';
 import { theme } from './redusers/theme-reducer';
 import { result } from './redusers/result-reducer';
+import weightReducer from './redusers/weight-reduser';
 
 
 
@@ -38,6 +39,7 @@ let reducers = combineReducers({
     phoneNumber: changeDataPhone,
     // changePrepaid,
     price: priceReducer,
+    weight: weightReducer,
     // reset,
     theme: theme,
     result: result

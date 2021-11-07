@@ -125,12 +125,13 @@ export const result = (state = initialState, action) => {
 
     if (action.type === RESULT 
         || action.type === CHANGE_CURRENT_INFOBLOCKS 
-        // || action.type === CREATE_COMPLECT 
+        || action.type === CREATE_COMPLECT 
         || action.type === CHANGE_CURRENT_ER 
         || action.type === CHANGE_CURRENT_PAKETS_ER 
         || action.type === CHANGE_CURRENT_LT 
         || action.type === CHANGE_CURRENT_OD 
-        || action.type === INPUT_CHANGE_NAME_OF_CURRENT_COMPLECT) {
+        // || action.type === INPUT_CHANGE_NAME_OF_CURRENT_COMPLECT
+        ) {
 
         let styleResult = {
             backgroundColor: 'black',
@@ -141,12 +142,12 @@ export const result = (state = initialState, action) => {
         let weight
 
 
-        let od = state.currentOd
+        let od = action.state.currentOd
         let currentPrice = ' 0. 00'
-
+        debugger
 
         let styleLt = {
-            display: state.legalTech.display
+            display: action.state.legalTech.display
         }
         let ltIncluded
         let weightLt
@@ -154,26 +155,26 @@ export const result = (state = initialState, action) => {
         let priceOfLt
         let totalPrice
 
-        if (state.currentComplect) {
+        if (action.state.currentComplect) {
 
 
             styleResult = {
-                backgroundColor: state.allComplects[state.currentComplect.number].color,
+                backgroundColor: action.state.allComplects[action.state.currentComplect.number].color,
                 color: 'white',
                 textDecoration: 'none'
             }
-            name = state.currentComplect.name
-            weight = weightForResult(state);
+            name = action.state.currentComplect.name
+            weight = weightForResult(action.state);
+            
+            od = action.state.od.currentOd.substr(0, 2)
 
-            od = state.currentOd.substr(0, 2)
-
-            currentPrice = state.price.currentPrice.value
+            currentPrice = action.state.price.currentPrice.value
 
 
-            ltIncluded = state.legalTech.ltIncluded
-            weightLt = state.legalTech.weightLt
-            nameOflt = state.legalTech.nameOflt
-            priceOfLt = state.legalTech.priceOfLt
+            ltIncluded = action.state.legalTech.ltIncluded
+            weightLt =   action.state.legalTech.weightLt
+            nameOflt =   action.state.legalTech.nameOflt
+            priceOfLt =  action.state.legalTech.priceOfLt
             totalPrice = currentPrice + priceOfLt
 
             state.currentResult = {

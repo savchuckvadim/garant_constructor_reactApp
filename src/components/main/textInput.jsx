@@ -4,7 +4,7 @@ import styleMod from "./textInput.module.css"
 
 
 const InputText = (props) => {
-    debugger
+    
     let getNameOfproduct = () => {
         if (props.type) {
             return props.type
@@ -16,8 +16,8 @@ const InputText = (props) => {
     let autofocus = props.autofocus
     let value = props.value
     let placeholder = props.placeholder
-    // let background = props.type === 'price' ? 'white' : props.state.theme[props.state.indexOfTheme].backgroundColor
-    let color = props.type === 'price' ? 'black' : props.state.theme[props.state.indexOfTheme].color
+    // let background = props.type === 'price' ? 'white' : props.state.theme.style[props.state.theme.indexOfTheme].backgroundColor
+    let color = props.type === 'price' ? 'black' : props.state.theme.style[props.state.theme.indexOfTheme].color
     let getWidth = () => {
         if (props.type === 'price') {
             if(props.type === 'legal Tech'){

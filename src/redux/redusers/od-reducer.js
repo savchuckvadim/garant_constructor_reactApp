@@ -29,7 +29,7 @@ export const odChangeActionCreator = (state, name, currentComplect) => {
         type: CHANGE_CURRENT_OD,
         name: name,
         currentComplect: currentComplect,
-        ods: state
+        ods: state.od
     }
 }
 export const oD = (state = initialState, action) => {
@@ -44,7 +44,6 @@ export const oD = (state = initialState, action) => {
         }
     }
 
-    // save()
     return state
 
 
