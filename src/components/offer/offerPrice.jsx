@@ -36,7 +36,6 @@ const TableOffer = (props) => {
 
 
     const goods = (state) => {
-        console.log(state)
 
         if (state.currentComplect) {
 
@@ -53,7 +52,6 @@ const TableOffer = (props) => {
 
 
     goods(props.state)
-    console.log(rows)
    
 
    const value = (type) => {

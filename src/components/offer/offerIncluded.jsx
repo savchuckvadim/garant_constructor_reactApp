@@ -63,11 +63,9 @@ const Included = (props) => {
                 elem.value.forEach((element) => {
 
                     if (element.checked) {
-                        console.log(element.name)
                         resultArray.push(<p className={className}> {element.name} </p>)
                     }
                 })
-                console.log(resultArray)
                 if (resultArray.length > 0) {
                     result.push(type)
                     result.push(resultArray)

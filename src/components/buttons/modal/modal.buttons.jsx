@@ -36,7 +36,7 @@ const dinamicStyleForButtons = (borderColor, textColor, complectColor) => {
         border: '0px solid',
         borderColor: borderColor,
         // display: 'none'
-        '@media(max-width: 950px)': {
+        '@media(maxWidth: 950px)': {
             display: 'none'
         },
         // display: 'none'

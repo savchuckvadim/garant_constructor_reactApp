@@ -19,9 +19,9 @@ const Er = (props) => {
 
     return (
         <div className={style.items}>
-            <h2>{props.state.encyclopedias[0].nameOfType}</h2>
+            <h2 className={style.title}>{props.state.encyclopedias[0].nameOfType}</h2>
             {itemsPakets}
-            <h2>{props.state.encyclopedias[1].nameOfType}</h2>
+            <h2 className={style.title}>{props.state.encyclopedias[1].nameOfType}</h2>
             {itemsER}
         </div>
     )

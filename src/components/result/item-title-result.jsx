@@ -4,9 +4,10 @@
 const ItemTitleResult = (resultItems) => {
 
     let items = () => {
-      let itemsArr =  resultItems.map((element) => {
+      let itemsArr = [];
+       resultItems.forEach((element) => {
           
-              return <span>{element.title}</span>
+        itemsArr.push( <span key={element.title}>{element.title}</span>)
          
 
         })

@@ -18,7 +18,7 @@ function CreateNewBlocks(props) {
 
             return (
                 <div className={style.items}>
-                    <h2>{props.state.infoblocks[number].nameOfType}</h2>
+                    <h2 className={style.title}>{props.state.infoblocks[number].nameOfType}</h2>
                     {items}
                 </div>
             )

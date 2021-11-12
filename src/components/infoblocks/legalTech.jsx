@@ -13,7 +13,7 @@ export const Legalblocks = (props) => {
     renderInputFromData(CHANGE_CURRENT_LT, props.state.legalTech, items, props);
     return (
         <div className={style.items}>
-            <h2>{props.state.legalTech.nameOfType}</h2>
+            <h2 className={style.title}>{props.state.legalTech.nameOfType}</h2>
             {items}
         </div>
     )

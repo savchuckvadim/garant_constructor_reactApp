@@ -5,6 +5,7 @@ import OfferLinkBack from "./offerLinkBack"
 import NameAndOd from "./offerNameAndOd"
 import TableOffer from "./offerPrice"
 import InputText from "../main/textInput"
+import { Link, NavLink } from "react-router-dom"
 
 
 const Offer = (props) => {
@@ -44,7 +45,7 @@ const Offer = (props) => {
                     />
                 {/* {возможность убирать надпись} */}
                 <TableOffer state={props.state} dispatch={props.dispatch} />
-                {/* <h1><NavLink as={Link} to='/main' className={style.link}>Назад к составлению комплекта </NavLink></h1> */}
+                <h1><NavLink as={Link} to='/main' className={style.link}>Назад к составлению комплекта </NavLink></h1>
 
                 <OfferLinkBack />
             </div>

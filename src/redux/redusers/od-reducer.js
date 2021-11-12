@@ -5,7 +5,7 @@ const CHANGE_CURRENT_OD = 'CHANGE_CURRENT_OD';
 
 let initialState = {
 
-    currentOd: '1 Одновременный Доступ',
+    currentOd: '1 Одновременный доступ',
     names: [
         '1 Одновременный доступ',
         '2 Одновременных доступа',
@@ -29,7 +29,7 @@ export const odChangeActionCreator = (state, name, currentComplect) => {
         type: CHANGE_CURRENT_OD,
         name: name,
         currentComplect: currentComplect,
-        ods: state.od
+        ods: state.od.names
     }
 }
 export const oD = (state = initialState, action) => {

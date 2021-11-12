@@ -1018,8 +1018,7 @@ class Store {
     changePhoneFromLocal() {
       const storageData = getFromStorage('phone');
       if (storageData) {
-        console.log(this.phoneNumber)
-        console.log(storageData)
+       
         this.phoneNumber = storageData
   
       }
@@ -1034,7 +1033,6 @@ class Store {
   
     changeOffer(type, value) {
       for (let offerProp in this.offer) {
-        console.log(offerProp)
   
         if (offerProp === type) {
   
@@ -1289,7 +1287,6 @@ class Store {
         }
       })
   
-      // debugger
       if (!ind2) {
         return result = this.state.prices[0][ind1]
   

@@ -4,7 +4,7 @@
     margin: 0 ;
     display: grid;
     grid-gap: 1vh;
-    grid-template-columns: 1fr 1fr ;
+    grid-template-columns: 1fr 1fr;
 
     grid-auto-flow: dense ;
     align-content: start;
@@ -82,4 +82,5 @@
 
 .title{
     margin-top: 4vh;
+    margin-left: 2%;
 }

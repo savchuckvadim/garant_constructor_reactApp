@@ -1,8 +1,10 @@
 const CHANGE_COLOR_OF_BUTTON = 'CHANGE_COLOR_OF_BUTTON';
 
-let initialState =  [{
+let initialState =  [
+    {
             'name': 'Бухгалтер',
             'tag': 'accountant',
+            'className' : 'btn__accountant',
             'color': 'rgba(14, 201, 111, 1)',
 
             'number': 0,
@@ -54,6 +56,7 @@ let initialState =  [{
         {
             'name': 'Бухгалтер госсектора',
             'tag': 'budget',
+            'className': 'btn__budget',
             'color': 'rgba(255, 113, 33, 1)',
             'number': 1,
             'backgroundColor': 'white',
@@ -104,6 +107,8 @@ let initialState =  [{
         {
             'name': 'Главный Бухгалтер',
             'tag': 'bigAccountant',
+            'className': 'btn__bigAccountant',
+
             'number': 2,
             'color': 'rgba(14, 201, 111, 1)',
             'backgroundColor': 'white',
@@ -167,6 +172,7 @@ let initialState =  [{
         {
             'name': 'Главный Бухгалтер госсектора',
             'tag': 'bigBudget',
+            'className': 'btn__bigBudget',
             'number': 3,
             'color': 'rgba(255, 113, 33, 1)',
             'backgroundColor': 'white',
@@ -231,6 +237,8 @@ let initialState =  [{
         {
             'name': 'Юрист',
             'tag': 'lawyer',
+            'className': 'btn__lawyer',
+
             'number': 4,
             'color': 'rgba(46, 121, 234, 1)',
             'backgroundColor': 'white',
@@ -292,6 +300,8 @@ let initialState =  [{
         {
             'name': 'Офис',
             'tag': 'office',
+            'className': 'btn__office',
+
             'number': 5,
             'color': 'rgb(23, 80, 165)',
             'backgroundColor': 'white',
@@ -358,6 +368,8 @@ let initialState =  [{
         {
             'name': 'Предприятие',
             'tag': 'company',
+            'className': 'btn__company',
+
             'number': 6,
             'color': 'rgba(151, 103, 200, 1)',
             'backgroundColor': 'white',
@@ -434,6 +446,8 @@ let initialState =  [{
         {
             'name': 'Предприятие PRO',
             'tag': 'companyPro',
+            'className': 'btn__companyPro',
+
             'number': 7,
             'color': 'rgb(104, 54, 153)',
             'backgroundColor': 'white',

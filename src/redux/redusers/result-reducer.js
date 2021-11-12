@@ -42,39 +42,48 @@ let initialState = {
     'resultItems': [{
             title: 'Комплект',
             id: 'complect__name',
+            type: 'base'
         },
         {
             title: 'Вес',
             id: 'blocksWeight',
+            type: 'base'
         },
         {
             title: 'Количество доступов',
             id: 'pod',
+            type: 'base'
         },
         {
             title: 'Legal Tech в комплекте',
             id: 'complect__name',
+            type: 'base'
         },
         {
             title: 'Стоимость',
             id: 'complect__price',
+            type: 'base'
         },
         {
             title: 'Legal Tech',
             id: 'complect__lt',
+            type: 'widthLt'
         },
         {
             title: 'Вес LT',
             id: 'complect__lt',
+            type: 'widthLt'
         },
 
         {
             title: 'Стоимость LT',
             id: 'complect__lt',
+            type: 'widthLt'
         },
         {
             title: 'Общая Стоимость',
             id: 'complect__lt',
+            type: 'widthLt'
         }
 
 
@@ -130,7 +139,7 @@ export const result = (state = initialState, action) => {
         || action.type === CHANGE_CURRENT_PAKETS_ER 
         || action.type === CHANGE_CURRENT_LT 
         || action.type === CHANGE_CURRENT_OD 
-        // || action.type === INPUT_CHANGE_NAME_OF_CURRENT_COMPLECT
+        || action.type === INPUT_CHANGE_NAME_OF_CURRENT_COMPLECT
         ) {
 
         // let styleResult = {
@@ -144,7 +153,6 @@ export const result = (state = initialState, action) => {
 
         // let od = action.state.currentOd
         // let currentPrice = ' 0. 00'
-        // debugger
 
         // let styleLt = {
         //     display: action.state.legalTech.display

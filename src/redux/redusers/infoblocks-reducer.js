@@ -240,7 +240,7 @@ export const infoblocks = (state = initialState, action) => {
 
     if (action.type === 'CHANGE_CURRENT_INFOBLOCKS' || action.type === 'RESET') {
         return changeInfoblocksFromCurrent(state, action.currentComplect)
-    } else if (action.type === 'CHANGE_BLOCKS_FROM_NEW_COMPLECT') {
+    } else if (action.type === 'CHANGE_BLOCKS_FROM_NEW_COMPLECT' ) {
         return changeInfolocksFromNewComplect(state, action.currentComplect)
     } else
         return state

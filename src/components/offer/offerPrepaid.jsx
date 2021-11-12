@@ -31,7 +31,7 @@ const SelectOfPrepaid = () => {
             >
                
                 {month.map((month) => {
-                    return <option value={month}>{month}</option>
+                    return <option key={month} value={month}>{month}</option>
                 })}
 
             </NativeSelect>

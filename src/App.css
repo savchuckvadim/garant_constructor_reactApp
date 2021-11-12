@@ -200,21 +200,69 @@ p {
 
 .app__wrapperContent_dark{
     background-color: rgba(37, 40, 45, 1);
-    color: white;
+    color: rgb(255, 255, 255);
     
     transition-property: background-image, background-color, text-color, color, transform !important;
     transition-duration: 2.4s !important; 
     transition-delay: 0.0s !important; 
-     transform: rotateZ(3600deg) !important; 
+     /* transform: rotateZ(3600deg) !important;  */
 }
 
 .app__wrapperContent{
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     color: black;
     
    
     transition-property: background-image, background-color, text-color, color, transform !important;
     transition-duration: 2.4s !important; 
-    transition-delay: 0.0s !important; 
+    transition-delay: 0.5s !important; 
+     /* transform: rotateZ(3600deg) !important;  */
+}
+
+.round__img{ 
+    margin: 0 auto;
+     padding: 0 auto;
+     border-width: 0px;
+    border-color: black;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+   
+    
+    background-repeat: no-repeat;
+    background-position: center;
+    /* background-color: rgb(0, 217, 255); */
+    background-image: url('./components/header/theme/img/broSunMoon/moon.svg');
+    /* transform: rotateZ(3600deg);   */
+     /* transition-property: background-image, background-color, text-color, color !important;
+    transition-duration: 1.4s !important; 
+    transition-delay: 0.7s !important;  */
      transform: rotateZ(3600deg) !important; 
+
+}
+
+.round__img2{
+    margin: 0 auto;
+     padding: 0 auto;
+     border-width: 0px;
+    border-color: black;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+   
+    
+    background-repeat: no-repeat;
+    background-position: center;
+   
+    background-position: 49%;
+    background-color: pink;
+
+   background-image: url('./components/header/theme/img/broSunMoon/sun.svg');
+    transform: rotateZ(-3600deg) !important; 
+    /* background-color: white;  */
+    /* transition-property: background-image, background-color, text-color, color !important;
+    transition-duration: 1.4s !important; 
+    transition-delay: 0.7s !important;  */
+ 
+
 }

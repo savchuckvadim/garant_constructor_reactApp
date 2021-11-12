@@ -1,32 +1,25 @@
 // import './header.css'
 import logo from './img/logo-icon-solid-horizontal.svg'
-import DarkTheme from './theme/theme'
+
 import headerStyle from './header.module.css'
-import PhoneNumber from '../offer/offerPhoneNumber'
 import { Link, NavLink } from 'react-router-dom';
+import PhoneNumberContainer from './phoneNumber-Container';
+import ThemeContainer from './theme/theme-Container';
 
 
 
 const Header = (props) => {
-
-  let stHeader = {
-    // backgroundColor: props.style.background,
-    transitionProperty: props.style.transitionProperty,
-    transitionDuration: props.style.transitionDuration,
-    transitionDelay: props.style.transitionDelay,
-
-    backgroundPosition: `center`,
-    transform: `rotateZ(720deg)`
-  }
+ 
+ 
   
   return (
-    <header style={stHeader} id="header">
+    <header id="header">
       <div className={headerStyle.header__container}>
       <NavLink as={Link} to='/main' > <img className={headerStyle.header__logo} src={logo} alt="logo"></img></NavLink>
-       
+      
         <div className={headerStyle.leftBlock}>
-          <PhoneNumber state={props.state} dispatch={props.dispatch} style={props.style} />
-          <DarkTheme state={props.state} dispatch={props.dispatch} mainClass={props.mainClass}/>
+          <PhoneNumberContainer store={props.store} state={props.state} dispatch={props.dispatch} style={props.style} />
+          <ThemeContainer state={props.state} dispatch={props.dispatch} mainClass={props.mainClass}/>
         </div>
 
 

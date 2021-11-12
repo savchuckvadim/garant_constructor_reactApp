@@ -5,29 +5,14 @@ import App from "./App.jsx";
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import store from './redux/redux-store';
-import { BX24 } from 'bx24';
-// import { BX24 } from 'bx24';
 
-// console.log(leads[0])
-// const bx24 = new BX24(window, parent);
+// let bx24 = new BX24()
+// console.log(bx24)
+// import  "./services/b24.js";
 
-// BX24.getAuth().then(function (auth) {
-//   console.log(auth);
-// });
-// BX24.init(function(){
-// 	console.log('Инициализация завершена!', BX24.isAdmin());
-// });
-// BX24.init(function(){
 
-//   BX24.callMethod('user.current', {}, function(res){
-//       var name = document.getElementById('name');
-//       name.innerHTML = res.data().NAME + ' ' + res.data().LAST_NAME;
-//       console.log(res.data());
-//   });
+window.store = store
 
-//   console.log(' Yeah! B24 npm is ready!', BX24.isAdmin());
-
-// });
 export const startApp = (state, store) => {
   ReactDOM.render(
 

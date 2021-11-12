@@ -1,13 +1,13 @@
 
 @import '../../../App.css';
 
-body{
+/* body{
 
     transition-property: background-color;
     transition-duration: 2.5s;
     transition-delay: 0.1s;
     background-color: var(--background);
-}
+} */
 
 .container__darktheme{
     display: flex;
@@ -35,20 +35,19 @@ body{
     
     background-repeat: no-repeat;
     background-position: center;
-    transition-property: background-image, background-color, text-color, color, transform !important;
+    /* transition-property: background-image, background-color, text-color, color, transform !important;
     transition-duration: 1.4s !important; 
     transition-delay: 0.7s !important; 
-     /* transform: rotateZ(3600deg) !important;  */
+     transform: rotateZ(3600deg) !important;  */
     
 
 } 
 
  
-.round__img{ 
-    /* background-color: pink; */
+/* .round__img{ 
     background-image: url('./img/broSunMoon/moon.svg');
-    /* transform: rotateZ(3600deg);  */
-    transition-property: background-image, background-color, text-color, color, transform !important;
+    transform: rotateZ(3600deg);  
+     transition-property: background-image, background-color, text-color, color, transform !important;
     transition-duration: 1.4s !important; 
     transition-delay: 0.7s !important; 
      transform: rotateZ(3600deg) !important; 
@@ -56,15 +55,14 @@ body{
 }
 
 .round__img2{
-    /* background-color: purple; */
-    
+   
     background-position: 49%;
    background-image: url('./img/broSunMoon/sun.svg');
     transform: rotateZ(-3600deg) !important; 
-    /* background-color: white; */
+    background-color: white; 
     transition-property: background-image, background-color, text-color, color, transform !important;
     transition-duration: 1.4s !important; 
     transition-delay: 0.7s !important; 
  
 
-}
+} */

@@ -1,7 +1,7 @@
 import style from "./complect.module.css"
-import ComplectButtons from "../buttons/buttons"
-import ODButtons from "../buttons/od.jsx"
-import ResetButton from "../buttons/reset";
+import ComplectButtonsContainer from "../buttons/buttons-Container";
+import ODButtonsContainer from "../buttons/od-Container";
+import ResetButtonContainer from "../buttons/reset-Container";
 
 
 
@@ -19,9 +19,9 @@ const Complect = (props) => {
             <p className={style.complect__title} id="complect__title">Выберите подходящий комплект "Гарант"</p>
             <div className={style.container}>
 
-                <ComplectButtons state={props.state} dispatch={props.dispatch} />
-                <ODButtons state={props.state}  dispatch={props.dispatch} />
-                <ResetButton state={props.state} dispatch={props.dispatch} /> 
+                <ComplectButtonsContainer store={props.store} dispatch={props.dispatch} />
+                <ODButtonsContainer store={props.store} dispatch={props.dispatch} />
+                <ResetButtonContainer store={props.store}  dispatch={props.dispatch} /> 
                  {/* <ModalButton state={props.state} dispatch={props.dispatch} /> */}
             </div>
         </form>

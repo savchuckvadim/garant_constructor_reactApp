@@ -2,27 +2,20 @@
 import { Button} from "@material-ui/core"
 import React from "react"
 import { Link, NavLink } from "react-router-dom"
-import InputText from "../main/textInput"
 import ItemResult from "./items-result"
-
 import style from "./result.module.css"
 
 const Result = (props) => {
-debugger
+
  
     let containerStyle = {
-       
-        borderColor: 'rgb(160, 179, 179)',
-        // border: result.border,
-        
+        borderColor: 'rgb(160, 179, 179)',        
     }
-    
-
 
         return (
             <div id="" style={containerStyle} className={style.result__container}>
                 <div className={style.information}>
-                    <ItemResult values={props.values} state={props.state} textLt={style.textLt} styleText={style.text} styleSpanResult={style.spanResult} />
+                    <ItemResult values={props.values} state={props.state} styleLt={props.values.styleLt} textLt={style.textLt} styleText={style.text} styleSpanResult={style.spanResult} />
       
                     <p className={style.text}> <NavLink className={style.text} as={Link} to="/description"> Описание комплекта </NavLink></p>
                 </div>

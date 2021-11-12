@@ -10,7 +10,7 @@ const RESET = 'RESET'
 
 let initialState = null
 
-export const createComplectActionCreator = (obj, index, ods) => {
+export const createComplectActionCreator = (obj, index, ods, currentOd) => {
   
     
     return {
@@ -19,6 +19,7 @@ export const createComplectActionCreator = (obj, index, ods) => {
         index: index,
         currentComplect : obj,
         ods: ods,
+        currentOd: currentOd
       
     }
 }
@@ -275,7 +276,7 @@ const reset = (state) => {
 }
 
 export const currentComplect = (state = initialState, action) => {
-
+    
  if (action.type === CHANGE_CURRENT_INFOBLOCKS) {
 
         return changeCurrentInfoblocks(state, action)

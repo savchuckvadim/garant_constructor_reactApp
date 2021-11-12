@@ -1,25 +1,31 @@
 import style from "./infoblocks.module.css"
 import React from "react";
-import { renderInputFromData } from "../../utils/utils";
+import CheckBox from "./checkbox";
 
+//Rename for group of infoBlocks 
+//вызывать по перебору массива из родительского контейнера 
+//типа [CHANGE_CURRENT_INFOBLOCKS, CHANGE_CURRENT_PAKETS_E и тд]
+//остальные подобные компоненты удалить er.jsx legalTech.jsx, newBlocks
+//Данная компонента возвращает разметку груупы Инфоблоков 
+//и Контейнер компоненты Чекбокс в которой формируется 
+//action
+// функция Change  
 const CHANGE_CURRENT_INFOBLOCKS = 'CHANGE_CURRENT_INFOBLOCKS';
 
-function CreateInfoblocks(props) {
-  
+function CreateInfoblocks(props) { 
+    
+  let state = props.store.getState()
+  let infoblocks = state.infoblocks
     let infoblocksCreator = (number) => {
-        if (props.state.infoblocks[number].nameOfType !== 'Новые блоки') {
+        if (infoblocks[number].nameOfType !== 'Новые блоки') {
 
             let items = []
-            if (props.state.currentComplect) {
-                renderInputFromData(CHANGE_CURRENT_INFOBLOCKS, props.state.infoblocks[number], items, props)
-            } else {
-                renderInputFromData(CHANGE_CURRENT_INFOBLOCKS, props.state.infoblocks[number], items, props)
-            }
+
 
             return (
                 <div className={style.items}>
-                    <h2 className={style.title}>{props.state.infoblocks[number].nameOfType}</h2>
-                    {items}
+                    <h2 className={style.title}>{infoblocks[number].nameOfType}</h2>
+                    <CheckBox type={CHANGE_CURRENT_INFOBLOCKS} array={infoblocks[number]} resultArray={items} store={props.store} state={props.state}/>
                 </div>
             )
         }
@@ -31,7 +37,7 @@ function CreateInfoblocks(props) {
 
 
     let items = []
-    for (let i = 0; i < props.state.infoblocks.length; i++) {
+    for (let i = 0; i < infoblocks.length; i++) {
 
         items[i] = infoblocksCreator(i)
     }

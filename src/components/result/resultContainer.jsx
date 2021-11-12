@@ -1,7 +1,5 @@
 
-import { Button } from "@material-ui/core"
 import React from "react"
-import { Link, NavLink } from "react-router-dom"
 import InputText from "../main/textInput"
 import Result from "./result"
 import style from "./result.module.css"
@@ -65,7 +63,7 @@ const ResultContainer = (props) => {
         typeOfAction="INPUT_CHANGE_NAME_OF_CURRENT_COMPLECT"
 
     />
-    debugger
+    
     let resultValues = {
         name: props.state.currentComplect.name,
         weight: weight,
@@ -91,7 +89,7 @@ const ResultContainer = (props) => {
         inputText: input
     }
 
-    debugger
+    
     return (
 
         <Result state={props.state} dispatch={props.dispatch} values={resultValues} />

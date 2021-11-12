@@ -9,9 +9,6 @@ const OfferDiscount = (props) => {
 const discountValue = myRef.current
 
 
-
-console.log(discountValue)
-
     let discount = props.state.offer.discount
 
 

@@ -4,15 +4,15 @@ import { changeErAndPaketsErFromCurrent } from './redusers/enciclopedias-reducer
 import { infoblocks } from './redusers/infoblocks-reducer';
 import { changeColorOfButton } from './redusers/allComplects-reducer';
 import { changeLTFromCurrent  } from './redusers/legalTech-reducer';
-import { changeNameOfComplect } from './redusers/nameOfComplect-reducer';
+// import { changeNameOfComplect } from './redusers/nameOfComplect-reducer';
 import { oD } from './redusers/od-reducer';
 import { changeDataPhone } from './redusers/phoneNumber-reducer';
-import { changePrepaid } from './redusers/prepaid-reducer';
+// import { changePrepaid } from './redusers/prepaid-reducer';
 import { priceReducer } from './redusers/price-reducer';
-import { reset } from './redusers/reset-reducer';
+// import { reset } from './redusers/reset-reducer';
 import { theme } from './redusers/theme-reducer';
 import { result } from './redusers/result-reducer';
-import weightReducer from './redusers/weight-reduser';
+// import weightReducer from './redusers/weight-reduser';
 
 
 
@@ -39,7 +39,7 @@ let reducers = combineReducers({
     phoneNumber: changeDataPhone,
     // changePrepaid,
     price: priceReducer,
-    weight: weightReducer,
+    // weight: weightReducer,
     // reset,
     theme: theme,
     result: result

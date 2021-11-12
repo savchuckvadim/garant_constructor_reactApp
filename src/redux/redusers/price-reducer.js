@@ -4,9 +4,7 @@ const CREATE_COMPLECT = 'CREATE_COMPLECT'
 const CHANGE_CURRENT_OD = 'CHANGE_CURRENT_OD'
 const RESET = 'RESET'
 
-//TODO передать сюда из result-items-value
-//currentComplect
-//currentOd
+
 let initialState = {
 
     currentPrice: {
@@ -55,33 +53,42 @@ const price = (state, action) => {
     return getPrice (state, action)
 }
 const getPrice = (state, action) => {
-    let value = state.currentPrice.value
+  
+
+
     let prices = state.prices
     let ind1
-    let ind2
-    let currentOd = 0
+    let ind2 = 0
+    let currentOd = ""
     let ods = action.ods
-    debugger
-    if (action.type === CREATE_COMPLECT) {
-        ind1 = action.obj.number
-    } else if (action.type === CHANGE_CURRENT_OD) {
-        ind1 = action.currentComplect
-        currentOd = action.name
-        
-    }
+    if(action.currentComplect){
 
-    ods.forEach((element, index) => {
-        if (element === currentOd) {
-            ind2 = index
+        if (action.type === CREATE_COMPLECT) {
+            ind1 = action.obj.number
+            currentOd = action.currentOd
+        } else if (action.type === CHANGE_CURRENT_OD) {
+            
+            ind1 = action.currentComplect.number
+            currentOd = action.name
+            
         }
-    })
-
-    if (!ind2) {
-        value = prices[0][ind1]
-
-    } else {
-        value = prices[ind2][ind1]
+        
+        ods.forEach((element, index) => {
+            let el = element
+            let el2 = currentOd
+            if (el === el2) {
+                ind2 = index
+            }
+        })
+    
+        if (!ind2) {
+            state.currentPrice.value = prices[0][ind1]
+    
+        } else {
+            state.currentPrice.value = prices[ind2][ind1]
+        }
     }
+    
     return state
 }
 const reset = (state) => {
@@ -91,7 +98,7 @@ const reset = (state) => {
 
 export const priceReducer = (state = initialState, action) => {
 
-    if (action.type === GET_PRICE || action.type === CREATE_COMPLECT || action.type === CHANGE_CURRENT_OD) {
+    if (action.type === GET_PRICE || action.type === CREATE_COMPLECT || action.type === CHANGE_CURRENT_OD ) {
 
         return price(state, action)
     } else if (action.type === INPUT_CHANGE_PRICE) {

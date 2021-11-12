@@ -1,6 +1,5 @@
 import style from "./main.module.css"
 import AllInfoblocks from "../infoblocks/allInfoblocks"
-import Result from "../result/result"
 import Complect from "../complect/complect"
 import ResultContainer from "../result/resultContainer"
 
@@ -9,12 +8,14 @@ import ResultContainer from "../result/resultContainer"
 
 
 const Main = (props) => {
-   
+    
+   let state = props.store.getState()
+
     const result = () => {
-        if(props.state.currentComplect){
+        if(state.currentComplect){
             return (
                 <div style={styleResult} className={style.result__container}>
-                    <ResultContainer store={props.store} state={props.state} dispatch={props.dispatch} />
+                    <ResultContainer store={props.store} state={state} dispatch={props.dispatch} />
                 </div>
             )
         }
@@ -41,12 +42,12 @@ const Main = (props) => {
 
                 <div className={style.form__complect}>
 
-                    <Complect state={props.state} dispatch={props.dispatch} />
+                    <Complect store={props.store} dispatch={props.dispatch} />
 
                 </div>
 
                 <div className={style.infoblocks}>
-                    <AllInfoblocks state={props.state} dispatch={props.dispatch} />
+                    <AllInfoblocks store={props.store}  state={state} dispatch={props.store.dispatch} />
 
                 </div>
 

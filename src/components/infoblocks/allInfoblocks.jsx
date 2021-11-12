@@ -1,18 +1,12 @@
 import style from "./infoblocks.module.css"
-import CreateInfoblocks from "./infoblocks";
-import CreateNewBlocks from "./newBlocks";
-import { Legalblocks } from "./legalTech";
-import Er from "./er";
+import BlocksOfInfoblocksContainer from "./blocksOfInfoblocks-Container";
+import store from "../../redux/redux-store";
 
 const AllInfoblocks = (props) => {
-    
+   
     return (
         <div id="menu" className={style.wrapper}>
-            <CreateInfoblocks state={props.state} dispatch={props.dispatch} />
-            <Er state={props.state} dispatch={props.dispatch} />
-            <Legalblocks state={props.state} dispatch={props.dispatch} />
-            <CreateNewBlocks state={props.state} dispatch={props.dispatch} />
-
+            <BlocksOfInfoblocksContainer store={store} state={props.state}/>
         </div>
     )
 }
