@@ -1,7 +1,7 @@
 import style from "./main.module.css"
-import AllInfoblocks from "../infoblocks/allInfoblocks"
 import Complect from "../complect/complect"
 import ResultContainer from "../result/resultContainer"
+import BlocksOfInfoblocksContainer from "../infoblocks/blocksOfInfoblocks-Container"
 
 
 
@@ -21,22 +21,13 @@ const Main = (props) => {
         }
     }
 
-    let stMain = {
-        // backgroundColor: props.style.background,
-        // transitionProperty: props.style.transitionProperty,
-        // transitionDuration: props.style.transitionDuration,
-        // transitionDelay: props.style.transitionDelay,
-        // color: props.style.color,
-      
 
-    }
     let styleResult = {
-        // backgroundColor: props.style.background,
         color: props.style.color
     }
 
     return (
-        <div style={stMain}>
+        <div className={props.className}>
 
             <div className={style.main}>
 
@@ -47,7 +38,7 @@ const Main = (props) => {
                 </div>
 
                 <div className={style.infoblocks}>
-                    <AllInfoblocks store={props.store}  state={state} dispatch={props.store.dispatch} />
+                <BlocksOfInfoblocksContainer />
 
                 </div>
 

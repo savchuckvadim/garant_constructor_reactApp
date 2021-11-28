@@ -11,6 +11,9 @@ const PhoneNumber = (props) => {
 
     return (
         <Input
+        key={'phoneNumberInputText'}
+        name={'phoneNumberInputText'}
+
             className={styleClass.phoneInput}
             style={props.style}
             placeholder="+7 800 700 03 94"

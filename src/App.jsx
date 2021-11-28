@@ -12,6 +12,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 // import DealPageContainer from './components/deal/dealPage-Container';
 
 function App(props) {
+  
   let currentTheme = props.state.theme.style[props.state.theme.indexOfTheme]
   const styleFromState =  props.state.theme.style[props.state.theme.indexOfTheme]
 
@@ -26,7 +27,7 @@ function App(props) {
     transform: `rotateZ(720deg)`
   }
   
-  let MainPage = () => { return <Main store={props.store}  style={style} dispatch={props.dispatch} /> }
+  let MainPage = () => { return <Main className={currentTheme.currentMainClass} store={props.store}  style={style} dispatch={props.dispatch} /> }
 
   // let offerPage = () => {
   //   return <Offer style={style} state={props.state} dispatch={props.dispatch}/>

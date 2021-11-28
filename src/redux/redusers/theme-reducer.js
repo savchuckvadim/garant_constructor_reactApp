@@ -20,7 +20,7 @@ let initialState = {
 
         {
             'name': 'dark',
-            'backgroundColor': 'rgba(37, 40, 45, 1)',
+            'backgroundColor': 'rgba(07, 10, 45, 1)',
             'color': 'white',
             'textColor': 'white',
             'classOfTheme': 'round__img2',
@@ -45,15 +45,14 @@ let initialState = {
 }
 
 
-export const themeActionCreator = (element, mainClass) => {
+export const themeActionCreator = () => {
     return {
         type: THEME,
-        element: element,
-        mainClass: mainClass,
-        style1: 'round round__img',
-        style2: 'round round__img2',
-        mainClassLight : 'app__wrapperContent',
-        mainClassDark : 'app__wrapperContent_dark',
+        // element: element,
+        // style1: 'round round__img',
+        // style2: 'round round__img2',
+        // mainClassLight : 'app__wrapperContent',
+        // mainClassDark : 'app__wrapperContent_dark',
 
 
     }

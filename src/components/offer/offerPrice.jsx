@@ -104,7 +104,7 @@ const TableOffer = (props) => {
                             {/* <TableCell align="right">{row.total}</TableCell> */}
                             <TableCell align="right">
                            
-                                <InputText
+                                {/* <InputText
                                     state={props.state}
                                     dispatch={props.dispatch}
                                     type="price"
@@ -114,7 +114,7 @@ const TableOffer = (props) => {
                                     width={"70px"}
                                     typeOfProduct={row.type}
                                     typeOfAction="INPUT_CHANGE_PRICE"
-                                />
+                                /> */}
                             </TableCell>
                         </TableRow>
                     ))}

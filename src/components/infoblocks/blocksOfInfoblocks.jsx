@@ -6,38 +6,57 @@ const CHANGE_CURRENT_INFOBLOCKS = 'CHANGE_CURRENT_INFOBLOCKS'
 
 function BlocksOfInfoblocks(props) {
 
-    let items = []
-    let infoblocks = props.arrayForRender
+    let blocksOfInfoblocks =
+        props.allBlocksFromState.map(block => {
+            let items = []
 
-    let infoblocksCreator = (number) => {
+            const checkBoxesCreator = (arr, typeOfAction) => {
+                let items = []
+                arr.value.forEach((element, index) => {
+                    items.push(
+                        <CheckBoxContainer key={`${arr.nameOfType}-${index}`} type={typeOfAction} name={element.name} index={index} nameOfType={arr.nameOfType} checked={element.checked} currentTheme={props.currentTheme} />
+                    )
 
-            return (
-                <div key={`block-of-infoblocks-${number}`} className={style.items}>
-                    <h2 className={style.title}>{infoblocks[number].nameOfType}</h2>
-                    <CheckBoxContainer type={props.typeOfAction} array={infoblocks[number]} currentTheme={props.currentTheme} resultArray={items} store={props.store} state={props.state} />
-                </div>
-            )
-        // }
+                })
+                return items
 
-    }
+            }
+            const infoblocksCreator = (number) => {
+
+                return (
+                    <div key={`blocks-${block.arrayForRender[number].nameOfType}-${number}`} className={style.items}>
+                        <h2 key={`block-h2-${number}`} className={style.title}>{block.arrayForRender[number].nameOfType}</h2>
+                        {checkBoxesCreator(block.arrayForRender[number], block.typeOfAction)}
+                    </div>
+                )
+                // }
+
+            }
 
 
-   
-    if (props.typeOfAction === CHANGE_CURRENT_INFOBLOCKS) {
-        for (let i = 0; i < infoblocks.length; i++) {
+            if (block.typeOfAction === CHANGE_CURRENT_INFOBLOCKS) {
+                for (let i = 0; i < block.arrayForRender.length; i++) {
 
-            items[i] = infoblocksCreator(i)
-        }
-        return (items)
-    } else {
-        return (
-            <div className={style.items}>
-                <h2 className={style.title}>{infoblocks.nameOfType}</h2>
-                <CheckBoxContainer type={props.typeOfAction} array={infoblocks} currentTheme={props.currentTheme} resultArray={items} store={props.store} state={props.state} />
-            </div>
-        )
-    }
+                    items[i] = infoblocksCreator(i)
+                }
 
+            } else {
+
+                items =
+                    <div key={`blocks-${block.arrayForRender.nameOfType}`} className={style.items}>
+                        <h2 key={`block-h2-${block.arrayForRender.nameOfType}`} className={style.title}>{block.arrayForRender.nameOfType}</h2>
+                        {checkBoxesCreator(block.arrayForRender, block.typeOfAction)}
+                    </div>
+
+            }
+            return items
+
+        })
+    return (
+        <div id="menu" className={style.wrapper}>
+            {blocksOfInfoblocks}
+        </div>
+    )
 }
 
 

@@ -32,6 +32,8 @@ export const odChangeActionCreator = (state, name, currentComplect) => {
         ods: state.od.names
     }
 }
+odChangeActionCreator()
+
 export const oD = (state = initialState, action) => {
 
     if (action.type === 'CHANGE_CURRENT_OD') {

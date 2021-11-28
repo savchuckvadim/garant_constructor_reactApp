@@ -1,13 +1,11 @@
 
 import React from "react"
-import InputText from "../main/textInput"
+import { connect } from "react-redux"
+import InputTextContainer from "../main/textInput-Container"
 import Result from "./result"
 import style from "./result.module.css"
 
-const ResultContainer = (props) => {
-    
-
-    let state = props.store.getState();
+let mapStateToProps = (state) => {
     const getWeight = (state) => {
         let info = 0;
         let er = 0;
@@ -35,11 +33,12 @@ const ResultContainer = (props) => {
         return totalweight
     };
     let weight = getWeight(state);
+    let weightLt = state.legalTech.weightLt;
     let price = state.price.currentPrice.value;
     let priceOfLt = state.legalTech.priceOfLt;
     let totalPrice = price + priceOfLt;
-    let width = props.state.currentComplect.name.length * 8.5;
-    let weightLt = state.legalTech.weightLt;
+    let width = state.currentComplect.name.length * 8.4;
+
     let getToolTipText = () => {
 
         return (
@@ -52,50 +51,55 @@ const ResultContainer = (props) => {
         )
     };
     let toolTip = getToolTipText();
-    let input = <InputText
-        state={state}
-        dispatch={props.dispatch}
+    let input = <InputTextContainer
+        // state={state}
+        // dispatch={props.dispatch}
+        
         type="nameOfComplect"
-        autofocus={state.currentComplect.currentStatusInputComplectName}
+        // autofocus={state.currentComplect.currentStatusInputComplectName}
         value={state.currentComplect.name}
-        placeholder='Гарант'
+        // placeholder='Гарант'
         width={width}
         typeOfAction="INPUT_CHANGE_NAME_OF_CURRENT_COMPLECT"
 
     />
-    
-    let resultValues = {
-        name: props.state.currentComplect.name,
-        weight: weight,
-        od: state.od.currentOd,
-        price: price,
 
+
+
+    let resultValues = {
+        name: state.currentComplect.name,
+        od: state.od.currentOd,
         ltIncluded: state.legalTech.ltIncluded,
         nameOflt: state.legalTech.nameOflt,
-        weightLt: weightLt,
-        priceOfLt: priceOfLt,
+
         styleLt: {
             display: state.legalTech.display
         },
-
-        totalPrice: totalPrice,
-        width: width,
         styleResult: {
-            backgroundColor: props.state.currentComplect.color,
+            backgroundColor: state.currentComplect.color,
             color: 'white',
             textDecoration: 'none'
         },
+
+
+        weight: weight,
+        weightLt: weightLt,
+        price: price,
+        priceOfLt: priceOfLt,
+        totalPrice: totalPrice,
+        width: width,
         toolTipText: toolTip,
         inputText: input
     }
-
-    
-    return (
-
-        <Result state={props.state} dispatch={props.dispatch} values={resultValues} />
-
-    )
-
+    return {
+     values: resultValues,
+     state: state,
+    }
 }
-
+let mapDispatchToProps = (dispatch) => {
+    return {
+       
+    }
+}
+const ResultContainer = connect(mapStateToProps, mapDispatchToProps)(Result)
 export default ResultContainer

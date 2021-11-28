@@ -1,34 +1,24 @@
 import './theme.css'
 import '../../../App.css'
-import React from 'react'
 import { themeActionCreator } from '../../../redux/redusers/theme-reducer'
 import Theme from './theme'
+import { connect } from 'react-redux'
 
 
+let mapStateToProps = (state) => {
 
-const ThemeContainer = (props) => {
-
-    let classOfTheme = props.state.theme.style[props.state.theme.indexOfTheme].classOfTheme
-
-
-
-    const changeTheme = (element) => {
-
-        let mainClass = props.mainClass.current
-        let actionChangeTheme = themeActionCreator(element, mainClass)
-        props.dispatch(actionChangeTheme)
-
+    return {
+        classOfTheme: state.theme.style[state.theme.indexOfTheme].classOfTheme
     }
-
-
-
-    return (
-
-        <Theme state={props.state} classOfTheme={classOfTheme} changeTheme={changeTheme} />
-
-    )
-
+}
+let mapDispatchToProps = (dispatch) => {
+    return {
+        changeTheme: () => {
+            let action = themeActionCreator()
+            dispatch(action)
+        }
+    }
 }
 
-
+const ThemeContainer = connect(mapStateToProps, mapDispatchToProps)(Theme)
 export default ThemeContainer

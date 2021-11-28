@@ -1,39 +1,30 @@
-import React from "react"
+import { connect } from "react-redux";
 import { phoneActionCreator } from "../../redux/redusers/phoneNumber-reducer"
 import PhoneNumber from './phoneNumber';
 
 
 const ACT_CHANGE = 'CHANGE_PHONE'
+                        
 
+let mapStateToProps = (state) => {
+    return {
+        state,
+        value: state.phoneNumber.value,
+        width: state.phoneNumber.value.length,
 
-const PhoneNumberContainer = (props) => {
-
-    const styleFromState = props.style
-
-
-    const style = {
-        transitionProperty: styleFromState.transitionProperty,
-        transitionDuration: styleFromState.transitionDuration,
-        transitionDelay: styleFromState.transitionDelay,
-        backgroundPosition: `center`,
-        transform: `rotateZ(720deg)`,
-        borderStyle: 'none',
-        textColor: styleFromState.color,
-        color: styleFromState.color,
-        width: '130px',
-        // marginRight: '50px'
+        style: {
+            color: state.theme.style[state.theme.indexOfTheme].color,
+            textColor: state.theme.style[state.theme.indexOfTheme].textColor
+        }
     }
-
-
-    const changePhoneNumber = (ref) => {
-        let action = phoneActionCreator(ACT_CHANGE, ref)
-        props.dispatch(action)
-
-    }
-
-    return (
-        <PhoneNumber state={props.state} changePhoneNumber={changePhoneNumber} style={style} />
-    )
 }
-
+let mapDispatchToProps = (dispatch) => {
+    return {
+        changePhoneNumber: (ref) => {
+            let action = phoneActionCreator(ACT_CHANGE, ref)
+            dispatch(action)
+        },
+    }
+}
+const PhoneNumberContainer = connect(mapStateToProps, mapDispatchToProps)(PhoneNumber)
 export default PhoneNumberContainer

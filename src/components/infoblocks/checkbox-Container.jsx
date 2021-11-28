@@ -1,42 +1,34 @@
+import { connect } from "react-redux"
 import { changeCheckBoxActionCreator } from "../../redux/redusers/checkBoxes-action"
 import CheckBox from "./checkbox"
-const CheckBoxContainer = (props) => {
-  
-  let items = []
 
-  // let color = state.theme[state.indexOfTheme].backgroundColor
+let mapStateToProps = (state, ownProps) => {
   let styleCheckbox = {
-    color: props.currentTheme.color
+    color: ownProps.currentTheme.color
 
   }
-  props.array.value.forEach((element, index) => {
-    let region = () => {
-      if (element.name === 'Региональное законодательство') {
-        window.alert('Ставропольский Край?')
-      }
-    }
+  return {
+    key: ownProps.key,
+    name: ownProps.name,
+    nameOfType: ownProps.nameOfType,
+    checked: ownProps.checked,
+    index: ownProps.index,
+    styleCheckbox: styleCheckbox,
+    type: ownProps.type,
+    state: state,
+    currentComplect: state.currentComplect
 
-    const changeCheckbox = () => {
-
-      let state = props.store.getState()
-      let currentComplect = state.currentComplect
-      let action = changeCheckBoxActionCreator(props.type, element.name, element.checked, index, currentComplect, state)
-
-      props.store.dispatch(action)
-    }
-
-    items[index] = 
-    <CheckBox 
-    key={`checkbox-${props.array.nameOfType}-${index}`}
-    name={element.name} 
-    nameOfType={props.array.nameOfType}
-    checked={element.checked} 
-    index={index} 
-    styleCheckbox={styleCheckbox} 
-    region={region} 
-    changeCheckbox={changeCheckbox}/>
-  })
-  return items
+  }
 }
+let mapDispatchToProps = (dispatch, ownProps) => {
 
+  return {
+    changeCheckbox: (currentComplect, state) => {
+
+      let action = changeCheckBoxActionCreator(ownProps.type, ownProps.name, ownProps.checked, ownProps.index, currentComplect, state)
+      dispatch(action)
+    }
+  }
+}
+const CheckBoxContainer = connect(mapStateToProps, mapDispatchToProps)(CheckBox)
 export default CheckBoxContainer

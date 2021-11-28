@@ -19,7 +19,7 @@ const Complect = (props) => {
             <p className={style.complect__title} id="complect__title">Выберите подходящий комплект "Гарант"</p>
             <div className={style.container}>
 
-                <ComplectButtonsContainer store={props.store} dispatch={props.dispatch} />
+                <ComplectButtonsContainer />
                 <ODButtonsContainer store={props.store} dispatch={props.dispatch} />
                 <ResetButtonContainer store={props.store}  dispatch={props.dispatch} /> 
                  {/* <ModalButton state={props.state} dispatch={props.dispatch} /> */}

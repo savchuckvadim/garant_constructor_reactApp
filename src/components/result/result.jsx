@@ -15,7 +15,7 @@ const Result = (props) => {
         return (
             <div id="" style={containerStyle} className={style.result__container}>
                 <div className={style.information}>
-                    <ItemResult values={props.values} state={props.state} styleLt={props.values.styleLt} textLt={style.textLt} styleText={style.text} styleSpanResult={style.spanResult} />
+                    <ItemResult values={props.values} state={props.state} textLt={style.textLt} styleText={style.text} styleSpanResult={style.spanResult} />
       
                     <p className={style.text}> <NavLink className={style.text} as={Link} to="/description"> Описание комплекта </NavLink></p>
                 </div>

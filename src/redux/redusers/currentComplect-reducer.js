@@ -277,7 +277,7 @@ const reset = (state) => {
 
 export const currentComplect = (state = initialState, action) => {
     
- if (action.type === CHANGE_CURRENT_INFOBLOCKS) {
+    if (action.type === CHANGE_CURRENT_INFOBLOCKS) {
 
         return changeCurrentInfoblocks(state, action)
 

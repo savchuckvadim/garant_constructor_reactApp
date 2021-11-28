@@ -233,6 +233,7 @@ const changeInfolocksFromNewComplect = (state, currentComplect) => {
             })
         })
     }
+
     return state
 }
 

@@ -5,7 +5,7 @@ import App from "./App.jsx";
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import store from './redux/redux-store';
-
+import { Provider } from 'react-redux'
 // let bx24 = new BX24()
 // console.log(bx24)
 // import  "./services/b24.js";
@@ -14,11 +14,14 @@ import store from './redux/redux-store';
 window.store = store
 
 export const startApp = (state, store) => {
+
   ReactDOM.render(
 
     <React.StrictMode>
       <BrowserRouter>
-        <App store={store} state={state} dispatch={store.dispatch.bind(store)} />
+        <Provider store={store}>
+          <App store={store} state={state} dispatch={store.dispatch.bind(store)} />
+        </Provider>
       </BrowserRouter>
     </React.StrictMode>,
     document.getElementById('root')
